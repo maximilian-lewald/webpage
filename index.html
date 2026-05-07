@@ -1,0 +1,2094 @@
+
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="Relevant">
+    <meta name="theme-color" content="#010409">
+    <title>Relevant News</title>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <style>
+        *, *::before, *::after {
+            box-sizing: border-box;
+        }
+
+        :root {
+            --text-main: rgba(255, 255, 255, 0.95);
+            --text-dim: rgba(255, 255, 255, 0.55);
+            --accent-color: #00f5d4;
+            --font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+        }
+
+        html {
+            background-color: #010409;
+            height: 100%;
+            overflow-x: hidden;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            color: var(--text-main);
+            font-family: var(--font-family);
+            min-height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: env(safe-area-inset-top) 20px calc(env(safe-area-inset-bottom) + 40px) 20px;
+            background: transparent;
+            width: 100%;
+            overflow-x: hidden;
+        }
+
+        .background-fixed {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            width: 100%;
+            height: 100vh;
+            z-index: -1;
+            pointer-events: none;
+            background: 
+                radial-gradient(circle at 10% 10%, rgba(0, 122, 255, 0.2) 0%, transparent 45%),
+                radial-gradient(circle at 90% 15%, rgba(147, 51, 234, 0.15) 0%, transparent 45%),
+                radial-gradient(circle at 50% 85%, rgba(52, 211, 153, 0.15) 0%, transparent 50%),
+                #010409;
+        }
+
+        .background-noise {
+            position: fixed;
+            inset: 0;
+            z-index: -1;
+            opacity: 0.03;
+            pointer-events: none;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='1.5' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+        }
+
+        header {
+            width: 100%;
+            max-width: 1200px;
+            padding: 40px 0 20px 0;
+            text-align: left;
+        }
+
+        header h1 {
+            font-size: 34px;
+            font-weight: 800;
+            margin: 0;
+            letter-spacing: -1px;
+            background: linear-gradient(180deg, #fff 0%, rgba(255,255,255,0.7) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .build-time {
+            font-size: 13px;
+            color: var(--text-dim);
+            margin: 6px 0 0 0;
+            font-weight: 500;
+            letter-spacing: 0.3px;
+        }
+
+        .dashboard-card {
+            width: 100%;
+            max-width: 1200px;
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(40px) saturate(200%);
+            -webkit-backdrop-filter: blur(40px) saturate(200%);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            border-radius: 30px;
+            padding: 24px 16px;
+            margin-bottom: 20px;
+            box-shadow: 0 15px 45px rgba(0, 0, 0, 0.4);
+        }
+
+        .dashboard-rings {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+        }
+
+        .stat-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 12px;
+            text-align: center;
+        }
+
+        .dashboard-ring-container {
+            position: relative;
+            width: 60px;
+            height: 60px;
+        }
+
+        .dashboard-circle {
+            stroke: var(--accent-color);
+            transition: stroke-dashoffset 1.5s ease-out;
+        }
+
+        .ring-text {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 14px;
+            font-weight: 800;
+            color: var(--text-main);
+        }
+
+        .stat-label {
+            font-size: 11px;
+            color: var(--text-dim);
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            line-height: 1.3;
+        }
+
+        .chart-container {
+            position: relative;
+            height: 220px;
+            width: 100%;
+            padding: 0 10px;
+        }
+
+        .chart-title {
+            font-size: 16px;
+            font-weight: 700;
+            color: var(--text-main);
+            margin: 0 0 16px 10px;
+            letter-spacing: 0.2px;
+        }
+
+        .feed {
+            width: 100%;
+            max-width: 1200px;
+            display: grid;
+            gap: 20px;
+            align-items: start;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            min-width: 0; 
+            margin-top: 10px;
+        }
+
+        .article-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(40px) saturate(200%);
+            -webkit-backdrop-filter: blur(40px) saturate(200%);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            border-radius: 30px;
+            padding: 22px;
+            cursor: pointer;
+            overflow: hidden;
+            max-height: 460px; 
+            transition: max-height 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
+            box-shadow: 0 15px 45px rgba(0, 0, 0, 0.4);
+            width: 100%;
+            max-width: 100%;
+            min-width: 0; 
+        }
+
+        .article-card.expanded {
+            max-height: 3000px;
+            background: rgba(255, 255, 255, 0.08);
+        }
+
+        .image-wrapper {
+            width: 100%;
+            height: 210px;
+            border-radius: 20px;
+            overflow: hidden;
+            margin-bottom: 18px;
+            background: #000;
+        }
+
+        .article-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .meta {
+            font-size: 11px;
+            color: var(--text-dim);
+            text-transform: uppercase;
+            font-weight: 700;
+            margin-bottom: 10px;
+            overflow-wrap: break-word;
+        }
+
+        .card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 16px;
+            margin-bottom: 14px;
+            width: 100%;
+        }
+
+        .title {
+            font-size: 20px;
+            font-weight: 700;
+            line-height: 1.25;
+            flex: 1;
+            min-width: 0;
+            overflow-wrap: break-word;
+            word-wrap: break-word;
+            word-break: break-word;
+            -webkit-hyphens: auto;
+            hyphens: auto;
+        }
+
+        .relevance-container {
+            position: relative;
+            width: 44px;
+            height: 44px;
+            flex-shrink: 0;
+        }
+
+        .progress-ring__circle {
+            stroke: var(--accent-color);
+            transition: stroke-dashoffset 1s ease;
+        }
+
+        .summary {
+            font-size: 16px;
+            color: var(--text-dim);
+            line-height: 1.55;
+            display: -webkit-box;
+            -webkit-line-clamp: 5;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            overflow-wrap: break-word;
+            word-wrap: break-word;
+            word-break: break-word;
+            -webkit-hyphens: auto;
+            hyphens: auto;
+        }
+
+        .article-card.expanded .summary {
+            -webkit-line-clamp: unset;
+            color: var(--text-main);
+        }
+
+        .source-button {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 26px;
+            padding: 16px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+            color: #fff;
+            text-decoration: none;
+            font-size: 15px;
+            font-weight: 600;
+            opacity: 0;
+            transform: translateY(10px);
+            transition: all 0.4s ease;
+            width: 100%;
+        }
+
+        .article-card.expanded .source-button {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <div class="background-fixed"></div>
+    <div class="background-noise"></div>
+
+    <header>
+        <h1>Relevant</h1>
+        <p class="build-time">Aktualisiert: 07.05.2026, 18:35 Uhr</p>
+    </header>
+
+    <div class="dashboard-card">
+        <div class="dashboard-rings">
+            <div class="stat-item">
+                <div class="dashboard-ring-container">
+                    <svg width="60" height="60">
+                        <circle stroke="rgba(255,255,255,0.08)" stroke-width="4" fill="transparent" r="26" cx="30" cy="30"/>
+                        <circle class="dashboard-circle" stroke-width="4" stroke-dasharray="163.36" 
+                                stroke-dashoffset="55.5424" 
+                                stroke-linecap="round" fill="transparent" r="26" cx="30" cy="30" transform="rotate(-90 30 30)"/>
+                    </svg>
+                    <div class="ring-text">66%</div>
+                </div>
+                <div class="stat-label">Relevant<br>Share</div>
+            </div>
+
+            <div class="stat-item">
+                <div class="dashboard-ring-container">
+                    <svg width="60" height="60">
+                        <circle stroke="rgba(255,255,255,0.08)" stroke-width="4" fill="transparent" r="26" cx="30" cy="30"/>
+                        <circle class="dashboard-circle" stroke-width="4" stroke-dasharray="163.36" 
+                                stroke-dashoffset="31.038399999999996" 
+                                stroke-linecap="round" fill="transparent" r="26" cx="30" cy="30" transform="rotate(-90 30 30)"/>
+                    </svg>
+                    <div class="ring-text">81%</div>
+                </div>
+                <div class="stat-label">Avg.<br>Score</div>
+            </div>
+
+            <div class="stat-item">
+                <div class="dashboard-ring-container">
+                    <svg width="60" height="60">
+                        <circle stroke="rgba(255,255,255,0.08)" stroke-width="4" fill="transparent" r="26" cx="30" cy="30"/>
+                        <circle class="dashboard-circle" stroke-width="4" stroke-dasharray="163.36" 
+                                stroke-dashoffset="0.0" 
+                                stroke-linecap="round" fill="transparent" r="26" cx="30" cy="30" transform="rotate(-90 30 30)"/>
+                    </svg>
+                    <div class="ring-text">100%</div>
+                </div>
+                <div class="stat-label">Last<br>24h</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="dashboard-card">
+        <h2 class="chart-title">Topic Distribution</h2>
+        <div class="chart-container">
+            <canvas id="topicChart"></canvas>
+        </div>
+    </div>
+
+    <div class="feed" id="news-feed">
+        
+        <div class="article-card" onclick="this.classList.toggle('expanded')">
+            <div class="meta">Ollama AI • Top 10 (48h)</div>
+            <div class="card-header">
+                <div class="title">Globale Entwicklungen in Technologie, Regulierung und Wissenschaft</div>
+                <div class="relevance-container">
+                    <svg width="44" height="44">
+                        <circle stroke="rgba(255,255,255,0.08)" stroke-width="3" fill="transparent" r="19" cx="22" cy="22"/>
+                        <circle class="progress-ring__circle" stroke-width="3" stroke-dasharray="119.38" 
+                                stroke-dashoffset="0" 
+                                stroke-linecap="round" fill="transparent" r="19" cx="22" cy="22" transform="rotate(-90 22 22)"/>
+                    </svg>
+                    <div style="position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); font-size:12px; font-weight:800; color: var(--text-main);">
+                        AI
+                    </div>
+                </div>
+            </div>
+            <!-- white-space: pre-wrap hält Absätze der KI intakt -->
+            <div class="summary" style="white-space: pre-wrap;">Die regulatorische Landschaft in Europa und den USA steht unter starkem Wandel: Während die EU-Kommissionspräsidentin Ursula von der Leyen Berichten zufolge eine Milliardenstrafe gegen Google wegen Verstößen gegen den Digital Markets Act vorläufig ausgesetzt hat, warnen führende Tech-CEOs vor einer Deindustrialisierung durch zu hohe bürokratische Hürden. Demgegenüber mahnt der TÜV-Verband vor einem regulatorischen Flickenteppich durch Abweichungen vom AI Act. Ergänzend dazu fordern die deutschen Datenschutzbehörden (DSK) das Ende der geplanten EU-Chatkontrolle zur Wahrung der Ende-zu-Ende-Verschlüsselung, während deutsche Behörden neue Orientierungshilfen für KI-Medizinprodukte bereitstellen. Auch in den USA zeichnen sich unter der Trump-Regierung Pläne für eine verstärkte KI-Aufsicht ab.
+
+Parallel zu diesen Debatten prägen wirtschaftliche Neuausrichtungen die Branche: DeepL reduziert seine Belegschaft um etwa 25 %, um die Integration von KI-Systemen in die Arbeitsprozesse voranzutreiben, während OpenAI mit Investitionen von 50 Milliarden Dollar in Rechenleistung auf die Klage von Elon Musk reagiert, der dem Unternehmen einen Richtungswechsel von der ursprünglichen Non-Profit-Mission vorwirft. Die technologische Dynamik wird zudem durch neue Modelle von Mistral, KI-basierte Altersprüfungen bei Meta sowie verstärkte KI-Investitionen in der Pharmaindustrie vorangetrieben.
+
+Wissenschaftliche Fortschritte ergänzen diese Entwicklungen durch Innovationen in der Robotik und Biologie: Ein neues Computermodell der Cornell University ermöglicht die Simulation der Flugstabilität von Vögeln und Insekten, während Forscher des MIT eine 3D-druckbare „Y-Zipper“-Technologie für variable Materialsteifigkeit entwickelt haben. Auch im Bereich der interaktiven Technologie gelang mit der Nachbildung eines KI-gestützten C-3PO-Kopfes mittels 3D-Druck ein Fortschritt in der Anwendung von Spracherkennung und Synthese.</div>
+        </div>
+        
+
+        
+        <div class="article-card" onclick="this.classList.toggle('expanded')">
+            
+            <div class="image-wrapper">
+                <img src="https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/5/0/7/8/6/2/1/hp-26390d589ffc2c62.jpg" class="article-image" alt="Vorschau" loading="lazy">
+            </div>
+            
+
+            <div class="meta">heise • news</div>
+
+            <div class="card-header">
+                <div class="title">Humble Robotics entwickelt autonomen elektrischen Class-8-Truck für den industriellen Einsatz</div>
+                <div class="relevance-container">
+                    <svg width="44" height="44">
+                        <circle stroke="rgba(255,255,255,0.08)" stroke-width="3" fill="transparent" r="19" cx="22" cy="22"/>
+                        <circle class="progress-ring__circle" stroke-width="3" stroke-dasharray="119.38" 
+                                stroke-dashoffset="6.91547234445413" 
+                                stroke-linecap="round" fill="transparent" r="19" cx="22" cy="22" transform="rotate(-90 22 22)"/>
+                    </svg>
+                    <div style="position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); font-size:11px; font-weight:800;">
+                        93
+                    </div>
+                </div>
+            </div>
+
+            <div class="summary">Das US-Unternehmen Humble Robotics entwickelt mit dem „Humble Hauler“ einen autonomen, elektrisch betriebenen Class-8-Truck ohne Führerhaus, der als modulare Ladefläche oder Zugmaschine für verschiedene Container- und Aufbaumodelle fungiert. Ausgestattet mit KI-gestützter Sensorik (Kamera, Lidar, Radar), verfügt das Fahrzeug über eine Reichweite von etwa 320 km und eine Höchstgeschwindigkeit von rund 90 km/h. Der Einsatz ist primär für Industrieareale wie Häfen oder Lagerhäuser geplant, mit der Option auf spätere Überlandeinsätze. Das Startup hat 24 Millionen US-Dollar Startkapital eingeworben und besteht aus Branchenexperten; ein Liefertermin ist jedoch noch nicht bekannt.</div>
+
+            <a href="https://www.heise.de/news/US-Startup-Humble-Robotics-entwickelt-autonomen-Truck-ohne-Sattelschlepper-11286513.html?wt_mc=rss.red.ho.ho.atom.beitrag.beitrag" class="source-button" target="_blank" onclick="event.stopPropagation()">
+                Vollständigen Artikel lesen
+            </a>
+        </div>
+        
+        <div class="article-card" onclick="this.classList.toggle('expanded')">
+            
+            <div class="image-wrapper">
+                <img src="https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/5/0/7/8/6/1/4/shutterstock_2181593829-4dd9c3a60ce5346b.jpg" class="article-image" alt="Vorschau" loading="lazy">
+            </div>
+            
+
+            <div class="meta">heise • news</div>
+
+            <div class="card-header">
+                <div class="title">Verbraucherzentrale NRW warnt vor irreführenden Briefen zum Einbau von Smart Metern</div>
+                <div class="relevance-container">
+                    <svg width="44" height="44">
+                        <circle stroke="rgba(255,255,255,0.08)" stroke-width="3" fill="transparent" r="19" cx="22" cy="22"/>
+                        <circle class="progress-ring__circle" stroke-width="3" stroke-dasharray="119.38" 
+                                stroke-dashoffset="25.614212367667662" 
+                                stroke-linecap="round" fill="transparent" r="19" cx="22" cy="22" transform="rotate(-90 22 22)"/>
+                    </svg>
+                    <div style="position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); font-size:11px; font-weight:800;">
+                        77
+                    </div>
+                </div>
+            </div>
+
+            <div class="summary">Die Verbraucherzentrale NRW warnt vor irreführenden Briefen eines nicht genannten Unternehmens, das den verpflichtenden und geförderten Einbau von Smart Metern vortäuscht. Während die Pflicht zum Einbau digitaler Stromzähler (max. 25 Euro) bis 2032 bei den lokalen Netzbetreibern liegt, sind optionale intelligente Messsysteme frei wählbar, kosten jedoch jährlich 40 bis 50 Euro. Wettbewerbliche Anbieter vertreiben Geräte außerhalb dieser Preisgrenzen, oft in potenziell teureren Angeboten zur Verbrauchsoptimierung.</div>
+
+            <a href="https://www.heise.de/news/Smart-Meter-Umstieg-Verbraucherschuetzer-warnt-vor-irrefuehrenden-Infobriefen-11286499.html?wt_mc=rss.red.ho.ho.atom.beitrag.beitrag" class="source-button" target="_blank" onclick="event.stopPropagation()">
+                Vollständigen Artikel lesen
+            </a>
+        </div>
+        
+        <div class="article-card" onclick="this.classList.toggle('expanded')">
+            
+            <div class="image-wrapper">
+                <img src="https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/5/0/7/8/6/2/3/shutterstock_2312656551-ceeba59a031b0351.jpg" class="article-image" alt="Vorschau" loading="lazy">
+            </div>
+            
+
+            <div class="meta">heise • news</div>
+
+            <div class="card-header">
+                <div class="title">Referentenentwurf zum MedienInvestVG sieht Investitionspflicht für Video-on-Demand-Anbieter und erhöhte Filmförderung vor</div>
+                <div class="relevance-container">
+                    <svg width="44" height="44">
+                        <circle stroke="rgba(255,255,255,0.08)" stroke-width="3" fill="transparent" r="19" cx="22" cy="22"/>
+                        <circle class="progress-ring__circle" stroke-width="3" stroke-dasharray="119.38" 
+                                stroke-dashoffset="25.736068253466968" 
+                                stroke-linecap="round" fill="transparent" r="19" cx="22" cy="22" transform="rotate(-90 22 22)"/>
+                    </svg>
+                    <div style="position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); font-size:11px; font-weight:800;">
+                        77
+                    </div>
+                </div>
+            </div>
+
+            <div class="summary">Der Referentenentwurf zum „Mediendienste-Investitionsverpflichtungs-Gesetz“ (MedienInvestVG) sieht eine Erhöhung der staatlichen Filmförderung auf 250 Millionen Euro sowie eine Investitionspflicht von acht Prozent des deutschen Nettojahresumsatzes für Video-on-Demand- und Fernseh-Anbieter mit über zehn Millionen Euro Umsatz in europäische Werke vor. Die Regelung umfasst internationale wie nationale Anbieter sowie öffentlich-rechtliche Mediatheken und schreibt vor, dass 80 Prozent der Mittel in Werke mit „deutscher kultureller Prägung“, 60 Prozent in neue Eigenproduktionen und mindestens 70 Prozent an unabhängige Produzenten fließen müssen. Zudem sollen „Total Buyouts“ durch Rechterückfälle nach drei bis sieben Jahren begrenzt werden, wobei eine Erhöhung der Investition auf zwölf Prozent mehr Flexibilität ermöglichen würde. Die Kontrolle der Umsetzung obliegt der Filmförderungsanstalt (FFA); das Gesetz muss noch das Bundeskabinett sowie Bundestag und Bundesrat passieren.</div>
+
+            <a href="https://www.heise.de/news/Streaming-Abgabe-So-will-Weimer-Netflix-Co-zu-Millioneninvestitionen-zwingen-11286517.html?wt_mc=rss.red.ho.ho.atom.beitrag.beitrag" class="source-button" target="_blank" onclick="event.stopPropagation()">
+                Vollständigen Artikel lesen
+            </a>
+        </div>
+        
+        <div class="article-card" onclick="this.classList.toggle('expanded')">
+            
+            <div class="image-wrapper">
+                <img src="https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/5/0/7/8/5/8/8/4748500-instinct-mi430x-fp64-7d3bdb53f31eb93e.jpg" class="article-image" alt="Vorschau" loading="lazy">
+            </div>
+            
+
+            <div class="meta">heise • news</div>
+
+            <div class="card-header">
+                <div class="title">AMD Instinct MI430X für internationale Supercomputing-Systeme angekündigt</div>
+                <div class="relevance-container">
+                    <svg width="44" height="44">
+                        <circle stroke="rgba(255,255,255,0.08)" stroke-width="3" fill="transparent" r="19" cx="22" cy="22"/>
+                        <circle class="progress-ring__circle" stroke-width="3" stroke-dasharray="119.38" 
+                                stroke-dashoffset="27.33513167512507" 
+                                stroke-linecap="round" fill="transparent" r="19" cx="22" cy="22" transform="rotate(-90 22 22)"/>
+                    </svg>
+                    <div style="position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); font-size:11px; font-weight:800;">
+                        75
+                    </div>
+                </div>
+            </div>
+
+            <div class="summary">Die auf High-Performance-Computing (HPC) spezialisierte AMD Instinct MI430X bietet über 200 FP64-Teraflops, 432 GByte HBM4-Speicher sowie 19,6 TByte/s Bandbreite und enthält KI-Einheiten für Hybrid-Workloads. Die GPU wird in den Supercomputern Herder (Deutschland), Alice Recoque (Frankreich) und Discovery (USA) zusammen mit Epyc-Venice-Prozessoren eingesetzt, wobei eine Auslieferung zwischen der zweiten Jahreshälfte 2026 und 2027 erwartet wird.</div>
+
+            <a href="https://www.heise.de/news/Zurueck-zu-den-Wurzeln-AMDs-Instinct-MI430X-wird-ein-FP64-Beschleuniger-11286451.html?wt_mc=rss.red.ho.ho.atom.beitrag.beitrag" class="source-button" target="_blank" onclick="event.stopPropagation()">
+                Vollständigen Artikel lesen
+            </a>
+        </div>
+        
+        <div class="article-card" onclick="this.classList.toggle('expanded')">
+            
+            <div class="image-wrapper">
+                <img src="https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/5/0/7/8/5/1/5/hp-0b0810687723d491.jpg" class="article-image" alt="Vorschau" loading="lazy">
+            </div>
+            
+
+            <div class="meta">heise • news</div>
+
+            <div class="card-header">
+                <div class="title">Northrop Grumman testet XRQ-73 Nurflügler-Drohne erfolgreich</div>
+                <div class="relevance-container">
+                    <svg width="44" height="44">
+                        <circle stroke="rgba(255,255,255,0.08)" stroke-width="3" fill="transparent" r="19" cx="22" cy="22"/>
+                        <circle class="progress-ring__circle" stroke-width="3" stroke-dasharray="119.38" 
+                                stroke-dashoffset="11.811410086034343" 
+                                stroke-linecap="round" fill="transparent" r="19" cx="22" cy="22" transform="rotate(-90 22 22)"/>
+                    </svg>
+                    <div style="position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); font-size:11px; font-weight:800;">
+                        89
+                    </div>
+                </div>
+            </div>
+
+            <div class="summary">Der US-Rüstungskonzern Northrop Grumman hat die XRQ-73, einen im DARPA-Programm „Shepard“ entwickelten Nurflügler, erfolgreich getestet. Die Drohne mit hybrid-elektrischem Antrieb, deren Erstflug im April auf der Edwards Air Force Base stattfand, ist für einen leisen, reichweitenstarken Betrieb ausgelegt und gehört zur UAS-Gruppe 3 mit einem Gewicht von etwa 567 Kilogramm.</div>
+
+            <a href="https://www.heise.de/news/Northrop-Grumman-testet-Drohne-mit-hybrid-elektrischem-Antrieb-11286306.html?wt_mc=rss.red.ho.ho.atom.beitrag.beitrag" class="source-button" target="_blank" onclick="event.stopPropagation()">
+                Vollständigen Artikel lesen
+            </a>
+        </div>
+        
+        <div class="article-card" onclick="this.classList.toggle('expanded')">
+            
+            <div class="image-wrapper">
+                <img src="https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/5/0/7/8/1/2/8/swiftartikel-6e9d0baa46e71c65.png" class="article-image" alt="Vorschau" loading="lazy">
+            </div>
+            
+
+            <div class="meta">heise • news</div>
+
+            <div class="card-header">
+                <div class="title">Student Anton Baranov als Distinguished Winner der Apple Swift Student Challenge ausgezeichnet</div>
+                <div class="relevance-container">
+                    <svg width="44" height="44">
+                        <circle stroke="rgba(255,255,255,0.08)" stroke-width="3" fill="transparent" r="19" cx="22" cy="22"/>
+                        <circle class="progress-ring__circle" stroke-width="3" stroke-dasharray="119.38" 
+                                stroke-dashoffset="35.55576934951824" 
+                                stroke-linecap="round" fill="transparent" r="19" cx="22" cy="22" transform="rotate(-90 22 22)"/>
+                    </svg>
+                    <div style="position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); font-size:11px; font-weight:800;">
+                        68
+                    </div>
+                </div>
+            </div>
+
+            <div class="summary">Der 22-jährige Student Anton Baranov wurde als „Distinguished Winner“ der Apple Swift Student Challenge ausgezeichnet und ist zur WWDC 2026 nach Cupertino eingeladen. Seine App „Pitch Coach: Sicher auftreten“ ermöglicht mittels Apples Foundation-Models-Framework eine lokale Echtzeit-Analyse von Sprechgeschwindigkeit und Füllwörtern sowie eine Haltungserkennung via AirPods-Sensoren und verzeichnet bereits über 9.000 Downloads in 20 Sprachen.</div>
+
+            <a href="https://www.heise.de/news/Vom-Kuechentisch-nach-Cupertino-Wie-ein-Frankfurter-Student-Apple-ueberzeugte-11285546.html?wt_mc=rss.red.ho.ho.atom.beitrag.beitrag" class="source-button" target="_blank" onclick="event.stopPropagation()">
+                Vollständigen Artikel lesen
+            </a>
+        </div>
+        
+        <div class="article-card" onclick="this.classList.toggle('expanded')">
+            
+            <div class="image-wrapper">
+                <img src="https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/5/0/7/7/6/8/2/fitbit-air_hero-4d2e0c18a958da33.png" class="article-image" alt="Vorschau" loading="lazy">
+            </div>
+            
+
+            <div class="meta">heise • news</div>
+
+            <div class="card-header">
+                <div class="title">Google führt bildschirmlosen Fitness-Tracker Fitbit Air und neue Google Health Dienste ein</div>
+                <div class="relevance-container">
+                    <svg width="44" height="44">
+                        <circle stroke="rgba(255,255,255,0.08)" stroke-width="3" fill="transparent" r="19" cx="22" cy="22"/>
+                        <circle class="progress-ring__circle" stroke-width="3" stroke-dasharray="119.38" 
+                                stroke-dashoffset="6.951692187503738" 
+                                stroke-linecap="round" fill="transparent" r="19" cx="22" cy="22" transform="rotate(-90 22 22)"/>
+                    </svg>
+                    <div style="position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); font-size:11px; font-weight:800;">
+                        93
+                    </div>
+                </div>
+            </div>
+
+            <div class="summary">Google führt mit dem Fitbit Air einen bildschirmlosen Fitness-Tracker für 99,90 Euro ein, der im Zuge einer Umbenennung der Fitbit-Dienste in „Google Health“ erscheint. Das 12 Gramm schwere, wasserfeste Gerät (bis 50 m) bietet eine Akkulaufzeit von etwa einer Woche und ermöglicht eine vollständige Aufladung in 90 Minuten. Die neue Google Health App (Android 11+ / iOS 16.4+) nutzt einen auf Gemini basierenden KI-Coach zur Analyse von Herzfrequenz, Schlafqualität, HRV und Vorhofflimmern-Anzeichen sowie zur Erstellung adaptiver Trainingspläne. Nach einer dreimonatigen Testphase ist ein Google Health Premium-Abonnement für 8,99 Euro monatlich verfügbar.</div>
+
+            <a href="https://www.heise.de/news/Fitnessarmband-Fitbit-Air-Googles-Whoop-Konkurrent-11284651.html?wt_mc=rss.red.ho.ho.atom.beitrag.beitrag" class="source-button" target="_blank" onclick="event.stopPropagation()">
+                Vollständigen Artikel lesen
+            </a>
+        </div>
+        
+        <div class="article-card" onclick="this.classList.toggle('expanded')">
+            
+            <div class="image-wrapper">
+                <img src="https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/5/0/7/8/3/7/7/Arm_AGI_CPU_FrontOnOffset_Chip-16x9-16bit-1-d7e98c8f042e7b9e-6c386cc3a5d5e815.jpeg" class="article-image" alt="Vorschau" loading="lazy">
+            </div>
+            
+
+            <div class="meta">heise • news</div>
+
+            <div class="card-header">
+                <div class="title">ARM verzeichnet Umsatzsteigerung auf 4,9 Milliarden US-Dollar im Geschäftsjahr 2026</div>
+                <div class="relevance-container">
+                    <svg width="44" height="44">
+                        <circle stroke="rgba(255,255,255,0.08)" stroke-width="3" fill="transparent" r="19" cx="22" cy="22"/>
+                        <circle class="progress-ring__circle" stroke-width="3" stroke-dasharray="119.38" 
+                                stroke-dashoffset="14.971754985712536" 
+                                stroke-linecap="round" fill="transparent" r="19" cx="22" cy="22" transform="rotate(-90 22 22)"/>
+                    </svg>
+                    <div style="position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); font-size:11px; font-weight:800;">
+                        86
+                    </div>
+                </div>
+            </div>
+
+            <div class="summary">Im Geschäftsjahr 2026 steigerte ARM seinen Umsatz um 23 % auf 4,9 Milliarden US-Dollar (Royalties: 2,6 Mrd. USD; Lizenzen: 2,3 Mrd. USD), primär getrieben durch KI-Rechenzentren, wobei sich die Royalty-Einnahmen aus Serverprozessoren mehr als verdoppelten. Durch Partnerschaften mit Cloud-Hyperscalern wie Amazon, Google und Microsoft strebt ARM langfristig einen jährlichen Umsatz von 15 Milliarden US-Dollar mit eigenen Prozessoren an, wobei für die „AGI CPU“ in den Jahren 2027/28 über zwei Milliarden US-Dollar prognostiziert werden. Trotz eines Betriebsgewinns von 900 Millionen US-Dollar und eines erwarteten Umsatzanstiegs auf 1,26 Milliarden US-Dollar im aktuellen Quartal sank der Aktienkurs um 16 % von seinem Höchststand.</div>
+
+            <a href="https://www.heise.de/news/ARM-Der-Fokus-liegt-nur-noch-auf-KI-Rechenzentren-11286019.html?wt_mc=rss.red.ho.ho.atom.beitrag.beitrag" class="source-button" target="_blank" onclick="event.stopPropagation()">
+                Vollständigen Artikel lesen
+            </a>
+        </div>
+        
+        <div class="article-card" onclick="this.classList.toggle('expanded')">
+            
+            <div class="image-wrapper">
+                <img src="https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/5/0/7/8/4/2/0/Bildschirmfoto_2021-05-19_um_08-be00b63d173db78b-c6f4e037b91c5a78.webp" class="article-image" alt="Vorschau" loading="lazy">
+            </div>
+            
+
+            <div class="meta">heise • news</div>
+
+            <div class="card-header">
+                <div class="title">DeepL reduziert Belegschaft um etwa 250 Stellen</div>
+                <div class="relevance-container">
+                    <svg width="44" height="44">
+                        <circle stroke="rgba(255,255,255,0.08)" stroke-width="3" fill="transparent" r="19" cx="22" cy="22"/>
+                        <circle class="progress-ring__circle" stroke-width="3" stroke-dasharray="119.38" 
+                                stroke-dashoffset="4.086647116669127" 
+                                stroke-linecap="round" fill="transparent" r="19" cx="22" cy="22" transform="rotate(-90 22 22)"/>
+                    </svg>
+                    <div style="position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); font-size:11px; font-weight:800;">
+                        96
+                    </div>
+                </div>
+            </div>
+
+            <div class="summary">DeepL reduziert seine Belegschaft um etwa 250 Stellen, was rund einem Viertel der rund 1000 Mitarbeitenden entspricht. Laut CEO Jarek Kutylowski dient dieser Schritt einer strukturellen Neuausrichtung, um KI-Systeme tiefer in alle Arbeitsprozesse zu integrieren, Routineaufgaben zu automatisieren und die Arbeit in kleineren, eigenverantwortlichen Teams zu fokussieren.</div>
+
+            <a href="https://www.heise.de/news/Koelner-KI-Uebersetzer-DeepL-entlaesst-ein-Viertel-der-Belegschaft-11286120.html?wt_mc=rss.red.ho.ho.atom.beitrag.beitrag" class="source-button" target="_blank" onclick="event.stopPropagation()">
+                Vollständigen Artikel lesen
+            </a>
+        </div>
+        
+        <div class="article-card" onclick="this.classList.toggle('expanded')">
+            
+            <div class="image-wrapper">
+                <img src="https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/5/0/7/8/3/4/6/shutterstock_2231964577-8977c99c7ded8160.jpg" class="article-image" alt="Vorschau" loading="lazy">
+            </div>
+            
+
+            <div class="meta">heise • news</div>
+
+            <div class="card-header">
+                <div class="title">Südkoreanischer Aktienmarkt überholt kanadischen Markt und wird siebtgrößter der Welt</div>
+                <div class="relevance-container">
+                    <svg width="44" height="44">
+                        <circle stroke="rgba(255,255,255,0.08)" stroke-width="3" fill="transparent" r="19" cx="22" cy="22"/>
+                        <circle class="progress-ring__circle" stroke-width="3" stroke-dasharray="119.38" 
+                                stroke-dashoffset="10.527829235906424" 
+                                stroke-linecap="round" fill="transparent" r="19" cx="22" cy="22" transform="rotate(-90 22 22)"/>
+                    </svg>
+                    <div style="position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); font-size:11px; font-weight:800;">
+                        90
+                    </div>
+                </div>
+            </div>
+
+            <div class="summary">Der südkoreanische Aktienmarkt hat mit einem Marktwert von 4,59 Billionen US-Dollar den kanadischen Markt überholt und ist nun der siebtgrößte der Welt. Dieser seit Jahresbeginn um über 70 Prozent gestiegene Wert wird primär durch die Unternehmen Samsung und SK Hynix getrieben, die aufgrund der hohen Nachfrage nach KI-Speichermeditteln wie DRAM und HBM maßgeblich den KOSPI-Index beeinflussen. Trotz der Rallye und aktionärsfreundlicher Reformen bleibt die südkoreanische Wirtschaft mit einem weltweiten BIP-Ranking auf Platz 15 von der Börsenentwicklung entkoppelt.</div>
+
+            <a href="https://www.heise.de/news/KI-Boom-Suedkoreas-Aktienmarkt-ueberholt-auch-Kanada-nach-mehreren-EU-Staaten-11285957.html?wt_mc=rss.red.ho.ho.atom.beitrag.beitrag" class="source-button" target="_blank" onclick="event.stopPropagation()">
+                Vollständigen Artikel lesen
+            </a>
+        </div>
+        
+        <div class="article-card" onclick="this.classList.toggle('expanded')">
+            
+            <div class="image-wrapper">
+                <img src="https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/5/0/7/8/3/5/4/shutterstock_1701221323-36ca587a313396c8.jpg" class="article-image" alt="Vorschau" loading="lazy">
+            </div>
+            
+
+            <div class="meta">heise • news</div>
+
+            <div class="card-header">
+                <div class="title">Orientierungshilfe für Hersteller von KI-gestützten Medizinprodukten veröffentlicht</div>
+                <div class="relevance-container">
+                    <svg width="44" height="44">
+                        <circle stroke="rgba(255,255,255,0.08)" stroke-width="3" fill="transparent" r="19" cx="22" cy="22"/>
+                        <circle class="progress-ring__circle" stroke-width="3" stroke-dasharray="119.38" 
+                                stroke-dashoffset="3.8441435365057686" 
+                                stroke-linecap="round" fill="transparent" r="19" cx="22" cy="22" transform="rotate(-90 22 22)"/>
+                    </svg>
+                    <div style="position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); font-size:11px; font-weight:800;">
+                        96
+                    </div>
+                </div>
+            </div>
+
+            <div class="summary">Deutsche Behörden haben eine auf einem „KI-Reallabor“ basierende Orientierungshilfe („Roadmap“) für Hersteller von KI-gestützten Medizinprodukten und digitalen Gesundheitsanwendungen veröffentlicht, um regulatorische Klarheit für Innovationen und Patientensicherheit zu schaffen. Da sich die rechtlichen Rahmenbedingungen durch die finale Verabschiedung der EU-KI-Verordnung geändert haben, ist eine baldige Überarbeitung des Dokuments an die aktuellen Vorschriften zu erwarten.</div>
+
+            <a href="https://www.heise.de/news/Kuenstliche-Intelligenz-in-Medizinprodukten-Behoerden-geben-Orientierung-11285973.html?wt_mc=rss.red.ho.ho.atom.beitrag.beitrag" class="source-button" target="_blank" onclick="event.stopPropagation()">
+                Vollständigen Artikel lesen
+            </a>
+        </div>
+        
+        <div class="article-card" onclick="this.classList.toggle('expanded')">
+            
+            <div class="image-wrapper">
+                <img src="https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/5/0/7/8/1/4/4/AMD_Instinct-9e38728ea6553100.jpg" class="article-image" alt="Vorschau" loading="lazy">
+            </div>
+            
+
+            <div class="meta">heise • news</div>
+
+            <div class="card-header">
+                <div class="title">AMD Instinct MI350P für Server-Systeme und Agentic AI mit 144 GB HBM3e-Speicher</div>
+                <div class="relevance-container">
+                    <svg width="44" height="44">
+                        <circle stroke="rgba(255,255,255,0.08)" stroke-width="3" fill="transparent" r="19" cx="22" cy="22"/>
+                        <circle class="progress-ring__circle" stroke-width="3" stroke-dasharray="119.38" 
+                                stroke-dashoffset="15.178958922784716" 
+                                stroke-linecap="round" fill="transparent" r="19" cx="22" cy="22" transform="rotate(-90 22 22)"/>
+                    </svg>
+                    <div style="position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); font-size:11px; font-weight:800;">
+                        86
+                    </div>
+                </div>
+            </div>
+
+            <div class="summary">Die AMD Instinct MI350P ist eine für Server-Systeme und Agentic AI konzipierte PCIe-5.0-Grafikkarte mit 128 Compute Units und 144 GB HBM3e-Speicher, der KI-Modelle mit 200 bis 250 Milliarden Parametern unterstützt. Die passiv gekühlte Karte besitzt eine TDP von 600 Watt (reduzierbar auf 450 Watt) über einen 12V-2×6-Anschluss, ermöglicht die Partitionierung in bis zu vier virtuelle GPUs (SPX, DPX, CPX) sowie AV1-Videobeschleunigung und erreicht bei FP8-Präzision eine theoretische Rechenleistung von 2300 Teraflops.</div>
+
+            <a href="https://www.heise.de/news/AMD-Instinct-MI350P-ultraschneller-KI-Beschleuniger-als-PCI-Express-Karte-11285578.html?wt_mc=rss.red.ho.ho.atom.beitrag.beitrag" class="source-button" target="_blank" onclick="event.stopPropagation()">
+                Vollständigen Artikel lesen
+            </a>
+        </div>
+        
+        <div class="article-card" onclick="this.classList.toggle('expanded')">
+            
+            <div class="image-wrapper">
+                <img src="https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/5/0/7/8/1/8/9/BCI-11c64f488ddd5848.jpg" class="article-image" alt="Vorschau" loading="lazy">
+            </div>
+            
+
+            <div class="meta">heise • news</div>
+
+            <div class="card-header">
+                <div class="title">Direkte KI-Nutzung kann Problemlösefähigkeit beeinträchtigen, zeigt Studie</div>
+                <div class="relevance-container">
+                    <svg width="44" height="44">
+                        <circle stroke="rgba(255,255,255,0.08)" stroke-width="3" fill="transparent" r="19" cx="22" cy="22"/>
+                        <circle class="progress-ring__circle" stroke-width="3" stroke-dasharray="119.38" 
+                                stroke-dashoffset="6.390152242166465" 
+                                stroke-linecap="round" fill="transparent" r="19" cx="22" cy="22" transform="rotate(-90 22 22)"/>
+                    </svg>
+                    <div style="position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); font-size:11px; font-weight:800;">
+                        94
+                    </div>
+                </div>
+            </div>
+
+            <div class="summary">Eine Studie der Universitäten Oxford, MIT, UCLA und Carnegie Mellon zeigt, dass die direkte Nutzung von KI zur Lösungsgenerierung die Problemlösefähigkeit und mentale Ausdauer beeinträchtigen kann. In Experimenten zu Mathematik und Leseverständnis erzielten Probanden, die KI-Lösungen direkt übernahmen, nach dem Entzug der Assistenz signifikant schlechtere Ergebnisse und höhere Abbruchraten als die Kontrollgruppe. Ein negativer Effekt wurde hingegen bei der Nutzung der KI als reine Hilfestellung oder zur Klärung von Fragen nicht beobachtet.</div>
+
+            <a href="https://www.heise.de/news/Studie-Wie-KI-Nutzung-die-Problemloese-Faehigkeit-verschlechtert-11285648.html?wt_mc=rss.red.ho.ho.atom.beitrag.beitrag" class="source-button" target="_blank" onclick="event.stopPropagation()">
+                Vollständigen Artikel lesen
+            </a>
+        </div>
+        
+        <div class="article-card" onclick="this.classList.toggle('expanded')">
+            
+            <div class="image-wrapper">
+                <img src="https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/5/0/7/6/0/6/1/Screenshot_2026-05-06_at_14.09.28-0f817f69fa8fa6fb.png" class="article-image" alt="Vorschau" loading="lazy">
+            </div>
+            
+
+            <div class="meta">heise • news</div>
+
+            <div class="card-header">
+                <div class="title">Apple plant Einführung von Custom Wallet Passes für iOS 27</div>
+                <div class="relevance-container">
+                    <svg width="44" height="44">
+                        <circle stroke="rgba(255,255,255,0.08)" stroke-width="3" fill="transparent" r="19" cx="22" cy="22"/>
+                        <circle class="progress-ring__circle" stroke-width="3" stroke-dasharray="119.38" 
+                                stroke-dashoffset="25.603398047017677" 
+                                stroke-linecap="round" fill="transparent" r="19" cx="22" cy="22" transform="rotate(-90 22 22)"/>
+                    </svg>
+                    <div style="position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); font-size:11px; font-weight:800;">
+                        77
+                    </div>
+                </div>
+            </div>
+
+            <div class="summary">Apple plant für iOS 27 die Einführung von „Custom Wallet Passes“, um die Erstellung von Wallet-Einträgen unabhängig von spezifischen Anbieterformaten zu ermöglichen. Über eine neue Funktion sollen Informationen aus E-Mails, Nachrichten oder physischen Vorlagen mittels Templates (Standard, Mitgliedschaft, Veranstaltungen) digitalisiert werden können. Die nach einem Bloomberg-Bericht entwickelte Funktion weist Ähnlichkeiten mit der App NeatPass auf, ermöglicht jedoch – im Gegensatz zu offiziellen Wallet-Pass-Formaten – keine dynamische Inhaltsaktualisierung durch Veranstalter.</div>
+
+            <a href="https://www.heise.de/news/Apple-Wallet-Eigene-Karten-definierbar-ab-iOS-27-wie-bei-NeatPass-11281321.html?wt_mc=rss.red.ho.ho.atom.beitrag.beitrag" class="source-button" target="_blank" onclick="event.stopPropagation()">
+                Vollständigen Artikel lesen
+            </a>
+        </div>
+        
+        <div class="article-card" onclick="this.classList.toggle('expanded')">
+            
+            <div class="image-wrapper">
+                <img src="https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/5/0/7/8/1/1/9/Moscow_MSTU_Bauman_main_building_asv2021-08-a82707f9ab9ee2e7.jpg" class="article-image" alt="Vorschau" loading="lazy">
+            </div>
+            
+
+            <div class="meta">heise • news</div>
+
+            <div class="card-header">
+                <div class="title">Dokumente belegen GRU-Ausbildung an der Bauman Moscow State Technical University</div>
+                <div class="relevance-container">
+                    <svg width="44" height="44">
+                        <circle stroke="rgba(255,255,255,0.08)" stroke-width="3" fill="transparent" r="19" cx="22" cy="22"/>
+                        <circle class="progress-ring__circle" stroke-width="3" stroke-dasharray="119.38" 
+                                stroke-dashoffset="17.740009929734427" 
+                                stroke-linecap="round" fill="transparent" r="19" cx="22" cy="22" transform="rotate(-90 22 22)"/>
+                    </svg>
+                    <div style="position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); font-size:11px; font-weight:800;">
+                        84
+                    </div>
+                </div>
+            </div>
+
+            <div class="summary">Interne Dokumente der Bauman Moscow State Technical University belegen, dass der „Lehrstuhl 4“ zur Ausbildung von Agenten, Cyberangreifern und Saboteuren für den russischen Militärgeheimdienst GRU dient, wobei der GRU direkten Einfluss auf die Lehrinhalte und Prüfungen nimmt. Das Curriculum umfasst neben IT-Spezialkompetenzen wie Hackerangriffen und Propaganda-Erstellung auch militärische Trainingselemente; zudem werden Verbindungen von Absolventen zu globalen Cyberattacken wie NotPetya aufgezeigt.</div>
+
+            <a href="https://www.heise.de/news/Cyberkrieg-Medien-zitieren-Interna-aus-Russlands-Geheimdienstausbildung-11285528.html?wt_mc=rss.red.ho.ho.atom.beitrag.beitrag" class="source-button" target="_blank" onclick="event.stopPropagation()">
+                Vollständigen Artikel lesen
+            </a>
+        </div>
+        
+        <div class="article-card" onclick="this.classList.toggle('expanded')">
+            
+            <div class="image-wrapper">
+                <img src="https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/5/0/7/8/1/6/6/hp-1cf8697d7d0afe17.jpg" class="article-image" alt="Vorschau" loading="lazy">
+            </div>
+            
+
+            <div class="meta">heise • news</div>
+
+            <div class="card-header">
+                <div class="title">Erstes Betonelement des Fehmarnbelt-Tunnels versenkt und Projektverzögerung erwartet</div>
+                <div class="relevance-container">
+                    <svg width="44" height="44">
+                        <circle stroke="rgba(255,255,255,0.08)" stroke-width="3" fill="transparent" r="19" cx="22" cy="22"/>
+                        <circle class="progress-ring__circle" stroke-width="3" stroke-dasharray="119.38" 
+                                stroke-dashoffset="16.819544943868024" 
+                                stroke-linecap="round" fill="transparent" r="19" cx="22" cy="22" transform="rotate(-90 22 22)"/>
+                    </svg>
+                    <div style="position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); font-size:11px; font-weight:800;">
+                        85
+                    </div>
+                </div>
+            </div>
+
+            <div class="summary">Das erste von insgesamt 89 Betonelementen des 18 Kilometer langen Fehmarnbelt-Tunnels wurde vor Rødby erfolgreich im Meeresboden versenkt. Das Infrastrukturprojekt, welches die Fährverbindung zwischen Deutschland und Dänemark durch eine Tunnelquerung ersetzen soll, verzögert sich aufgrund von Verzögerungen beim Bau eines Spezialschiffs voraussichtlich von der geplanten Eröffnung 2029 um zwei Jahre.</div>
+
+            <a href="https://www.heise.de/news/Erstes-Segment-des-Fehmarnbelt-Tunnels-ist-an-Ort-und-Stelle-11285617.html?wt_mc=rss.red.ho.ho.atom.beitrag.beitrag" class="source-button" target="_blank" onclick="event.stopPropagation()">
+                Vollständigen Artikel lesen
+            </a>
+        </div>
+        
+        <div class="article-card" onclick="this.classList.toggle('expanded')">
+            
+            <div class="image-wrapper">
+                <img src="https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/5/0/7/7/7/9/8/iPhones-2025_tre__1-0a2efff5a36a1f89.jpeg" class="article-image" alt="Vorschau" loading="lazy">
+            </div>
+            
+
+            <div class="meta">heise • news</div>
+
+            <div class="card-header">
+                <div class="title">Apple plant keine Designänderungen für die iPhone 18 Pro-Modelle</div>
+                <div class="relevance-container">
+                    <svg width="44" height="44">
+                        <circle stroke="rgba(255,255,255,0.08)" stroke-width="3" fill="transparent" r="19" cx="22" cy="22"/>
+                        <circle class="progress-ring__circle" stroke-width="3" stroke-dasharray="119.38" 
+                                stroke-dashoffset="35.7067389968897" 
+                                stroke-linecap="round" fill="transparent" r="19" cx="22" cy="22" transform="rotate(-90 22 22)"/>
+                    </svg>
+                    <div style="position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); font-size:11px; font-weight:800;">
+                        68
+                    </div>
+                </div>
+            </div>
+
+            <div class="summary">Trotz der Anfälligkeit der eloxierten Aluminiumhülle des iPhone 17 Pro für Abplatzungen und Verfärbungen plant Apple für die iPhone 18 Pro- und 18 Pro Max-Modelle keine grundlegenden Designänderungen. Die neuen Geräte sollen in den Farben Dark Cherry, Dark Gray, Silber und Light Blue erscheinen und im September gemeinsam mit einem faltbaren iPhone Ultra vorgestellt werden; weitere Modelle wie das iPhone 18, iPhone Air und iPhone 18e werden für das Frühjahr 2027 erwartet.</div>
+
+            <a href="https://www.heise.de/news/Alu-Farbaerger-beim-iPhone-17-Pro-Leaker-glaubt-dass-das-Material-so-bleibt-11284883.html?wt_mc=rss.red.ho.ho.atom.beitrag.beitrag" class="source-button" target="_blank" onclick="event.stopPropagation()">
+                Vollständigen Artikel lesen
+            </a>
+        </div>
+        
+        <div class="article-card" onclick="this.classList.toggle('expanded')">
+            
+            <div class="image-wrapper">
+                <img src="https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/5/0/7/8/0/2/9/Unbenannt-24eed42d05c3cfaf.png" class="article-image" alt="Vorschau" loading="lazy">
+            </div>
+            
+
+            <div class="meta">heise • news</div>
+
+            <div class="card-header">
+                <div class="title">Google rollt weltweit Funktion zur Priorisierung von Medienquellen aus</div>
+                <div class="relevance-container">
+                    <svg width="44" height="44">
+                        <circle stroke="rgba(255,255,255,0.08)" stroke-width="3" fill="transparent" r="19" cx="22" cy="22"/>
+                        <circle class="progress-ring__circle" stroke-width="3" stroke-dasharray="119.38" 
+                                stroke-dashoffset="26.28932274069784" 
+                                stroke-linecap="round" fill="transparent" r="19" cx="22" cy="22" transform="rotate(-90 22 22)"/>
+                    </svg>
+                    <div style="position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); font-size:11px; font-weight:800;">
+                        76
+                    </div>
+                </div>
+            </div>
+
+            <div class="summary">Google hat die Funktion „Bevorzugte Quellen“ weltweit für alle Sprachen freigegeben. Nutzer können über ihr Google-Konto bestimmte Medien priorisieren, um deren Sichtbarkeit in den Schlagzeilen der Google-Suche und Google News zu erhöhen, was laut Google die Klickwahrscheinlichkeit auf diese Artikel verdoppelt.</div>
+
+            <a href="https://www.heise.de/news/In-eigener-Sache-heise-online-als-bevorzugte-Quelle-in-Google-einrichten-11285348.html?wt_mc=rss.red.ho.ho.atom.beitrag.beitrag" class="source-button" target="_blank" onclick="event.stopPropagation()">
+                Vollständigen Artikel lesen
+            </a>
+        </div>
+        
+        <div class="article-card" onclick="this.classList.toggle('expanded')">
+            
+            <div class="image-wrapper">
+                <img src="https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/5/0/7/7/3/5/0/shutterstock_2327001717-5b9ef34275eb01da.jpg" class="article-image" alt="Vorschau" loading="lazy">
+            </div>
+            
+
+            <div class="meta">heise • news</div>
+
+            <div class="card-header">
+                <div class="title">DENIC prüft Kontaktdaten von .de-Domains zur Umsetzung der EU-NIS-2-Richtlinie</div>
+                <div class="relevance-container">
+                    <svg width="44" height="44">
+                        <circle stroke="rgba(255,255,255,0.08)" stroke-width="3" fill="transparent" r="19" cx="22" cy="22"/>
+                        <circle class="progress-ring__circle" stroke-width="3" stroke-dasharray="119.38" 
+                                stroke-dashoffset="27.507771372022617" 
+                                stroke-linecap="round" fill="transparent" r="19" cx="22" cy="22" transform="rotate(-90 22 22)"/>
+                    </svg>
+                    <div style="position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); font-size:11px; font-weight:800;">
+                        75
+                    </div>
+                </div>
+            </div>
+
+            <div class="summary">Zur Umsetzung der EU-NIS-2-Richtlinie verifiziert die DENIC eG die Kontaktdaten (Name, Anschrift, Telefon, E-Mail) von .de-Domains. Betroffene werden per E-Mail durch ihre Registrar (30 Tage Frist) oder die DENIC (7 Tage Frist) zur Korrektur aufgefordert; bei Nichtbeachtung droht die Entfernung aus der .de-Zone und die spätere Löschung der Domain. Zur Vermeidung von Phishing sollten Nutzer die Portale ihrer Provider direkt ansteuern, da offizielle E-Mails von domaindenic.de keine Login-Daten abfragen. Zudem können Inhaber über die Kennzeichnung als „ORG“ (öffentlich) oder „PERSON“ (nicht öffentlich) die Sichtbarkeit ihrer Whois-Daten steuern.</div>
+
+            <a href="https://www.heise.de/news/DENIC-fordert-zur-Verifizierung-von-Domaininhaberdaten-auf-11283974.html?wt_mc=rss.red.ho.ho.atom.beitrag.beitrag" class="source-button" target="_blank" onclick="event.stopPropagation()">
+                Vollständigen Artikel lesen
+            </a>
+        </div>
+        
+        <div class="article-card" onclick="this.classList.toggle('expanded')">
+            
+            <div class="image-wrapper">
+                <img src="https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/5/0/7/7/7/9/6/filemaker-be91db6b6bf3149a.jpg" class="article-image" alt="Vorschau" loading="lazy">
+            </div>
+            
+
+            <div class="meta">heise • news</div>
+
+            <div class="card-header">
+                <div class="title">Claris plant Entwicklervorschau für agentische Programmierfunktionen in FileMaker für Sommer 2026</div>
+                <div class="relevance-container">
+                    <svg width="44" height="44">
+                        <circle stroke="rgba(255,255,255,0.08)" stroke-width="3" fill="transparent" r="19" cx="22" cy="22"/>
+                        <circle class="progress-ring__circle" stroke-width="3" stroke-dasharray="119.38" 
+                                stroke-dashoffset="26.559050670013633" 
+                                stroke-linecap="round" fill="transparent" r="19" cx="22" cy="22" transform="rotate(-90 22 22)"/>
+                    </svg>
+                    <div style="position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); font-size:11px; font-weight:800;">
+                        76
+                    </div>
+                </div>
+            </div>
+
+            <div class="summary">Claris plant für Sommer 2026 eine Entwicklervorschau für agentische Programmierfunktionen in FileMaker, bei der Nutzer bevorzugte KI-Coding-Agenten zur Erstellung produktionsreifer Skripte und web-nativer Benutzeroberflächen direkt in FileMaker-Lösungen verwenden können, wobei Sicherheits- und Berechtigungseinstellungen gewahrt bleiben. Zudem beabsichtigt das Unternehmen, durch regelmäßige Feature-Vorschauen unabhängig von regulären Release-Zyklen mehr Transparenz zu schaffen.</div>
+
+            <a href="https://www.heise.de/news/Apple-Tochter-Claris-FileMaker-soll-agentisch-werden-11284879.html?wt_mc=rss.red.ho.ho.atom.beitrag.beitrag" class="source-button" target="_blank" onclick="event.stopPropagation()">
+                Vollständigen Artikel lesen
+            </a>
+        </div>
+        
+        <div class="article-card" onclick="this.classList.toggle('expanded')">
+            
+            <div class="image-wrapper">
+                <img src="https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/5/0/7/8/0/4/1/Ladeverbinder_SINTEF-aaefdf1275762462.jpg" class="article-image" alt="Vorschau" loading="lazy">
+            </div>
+            
+
+            <div class="meta">heise • news</div>
+
+            <div class="card-header">
+                <div class="title">Entwicklung eines induktiven Ladeanschlusses für Elektro-Schiffe im Projekt Ocean Charger</div>
+                <div class="relevance-container">
+                    <svg width="44" height="44">
+                        <circle stroke="rgba(255,255,255,0.08)" stroke-width="3" fill="transparent" r="19" cx="22" cy="22"/>
+                        <circle class="progress-ring__circle" stroke-width="3" stroke-dasharray="119.38" 
+                                stroke-dashoffset="6.2798641508116475" 
+                                stroke-linecap="round" fill="transparent" r="19" cx="22" cy="22" transform="rotate(-90 22 22)"/>
+                    </svg>
+                    <div style="position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); font-size:11px; font-weight:800;">
+                        94
+                    </div>
+                </div>
+            </div>
+
+            <div class="summary">Im Projekt „Ocean Charger“ haben SINTEF und Vard einen induktiven Ladeverbinder für Elektro-Schiffe auf hoher See entwickelt, der die Energieübertragung kontaktlos via Magnetfelder ermöglicht. Die Technologie reduziert Korrosionsrisiken sowie den Wartungsaufwand und ermöglicht das Laden von Offshore-Booten direkt an Windparks, wodurch die Reichweitenlimitierung durch Fahrten in Häfen überwunden wird. Während der aktuelle 50-kW-Prototyp noch manuell bedienbar ist, soll die automatisierte Endversion eine Leistung von bis zu 5 MW erreichen.</div>
+
+            <a href="https://www.heise.de/news/Induktiver-Ladeadapter-laedt-Elektro-Schiffe-unter-schweren-maritimen-Bedingungen-11285372.html?wt_mc=rss.red.ho.ho.atom.beitrag.beitrag" class="source-button" target="_blank" onclick="event.stopPropagation()">
+                Vollständigen Artikel lesen
+            </a>
+        </div>
+        
+        <div class="article-card" onclick="this.classList.toggle('expanded')">
+            
+            <div class="image-wrapper">
+                <img src="https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/5/0/7/7/9/7/0/Chrome_Logo_Aufmacher_2023-992365711733a04e.png" class="article-image" alt="Vorschau" loading="lazy">
+            </div>
+            
+
+            <div class="meta">heise • news</div>
+
+            <div class="card-header">
+                <div class="title">Google Chrome ermöglicht Download von On-Device-KI-Modellen über Prompt-API</div>
+                <div class="relevance-container">
+                    <svg width="44" height="44">
+                        <circle stroke="rgba(255,255,255,0.08)" stroke-width="3" fill="transparent" r="19" cx="22" cy="22"/>
+                        <circle class="progress-ring__circle" stroke-width="3" stroke-dasharray="119.38" 
+                                stroke-dashoffset="39.109797624945756" 
+                                stroke-linecap="round" fill="transparent" r="19" cx="22" cy="22" transform="rotate(-90 22 22)"/>
+                    </svg>
+                    <div style="position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); font-size:11px; font-weight:800;">
+                        65
+                    </div>
+                </div>
+            </div>
+
+            <div class="summary">Diskussionen über den Download eines 4 GB großen KI-Modells (Gemini Nano) in Google Chrome werfen Fragen zum Speicherplatzverbrauch und zu CO2-Emissionen auf. Während die Datei „weights.bin“ in Tests nicht nachgewiesen werden konnte, bestätigt die Google-Dokumentation für Chrome 148 die Implementierung einer Prompt-API, die ein On-Device-Modell bei Bedarf herunterlädt. Die Verwaltung und Deaktivierung dieser Funktionen ist über die Browser-Einstellungen vorgesehen, deren Verfügbarkeit jedoch regional variieren kann.</div>
+
+            <a href="https://www.heise.de/news/Tohuwabohu-um-ungefragt-heruntergeladene-KI-Dateien-in-Chrome-11285226.html?wt_mc=rss.red.ho.ho.atom.beitrag.beitrag" class="source-button" target="_blank" onclick="event.stopPropagation()">
+                Vollständigen Artikel lesen
+            </a>
+        </div>
+        
+        <div class="article-card" onclick="this.classList.toggle('expanded')">
+            
+            <div class="image-wrapper">
+                <img src="https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/5/0/7/7/9/1/8/Alexa-Plus-Berlin-b53a83d8ff24a1ec.jpg" class="article-image" alt="Vorschau" loading="lazy">
+            </div>
+            
+
+            <div class="meta">heise • news</div>
+
+            <div class="card-header">
+                <div class="title">Amazon startet Early Access für KI-basierte Sprachassistenz Alexa+ in Deutschland</div>
+                <div class="relevance-container">
+                    <svg width="44" height="44">
+                        <circle stroke="rgba(255,255,255,0.08)" stroke-width="3" fill="transparent" r="19" cx="22" cy="22"/>
+                        <circle class="progress-ring__circle" stroke-width="3" stroke-dasharray="119.38" 
+                                stroke-dashoffset="26.948077626978673" 
+                                stroke-linecap="round" fill="transparent" r="19" cx="22" cy="22" transform="rotate(-90 22 22)"/>
+                    </svg>
+                    <div style="position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); font-size:11px; font-weight:800;">
+                        76
+                    </div>
+                </div>
+            </div>
+
+            <div class="summary">Amazon startet in Deutschland den kostenlosen „Early Access“ für die auf generativer KI basierende Sprachassistenz Alexa+. Der Zugriff setzt die Geräte Echo Show 8, Echo Show 11, Echo Studio 2 oder Echo Dot Max voraus; für ältere Modelle ist eine Anmeldung für Einladungen möglich. Nach der Testphase kostet der Dienst etwa 23 Euro monatlich oder ist für Amazon-Prime-Abonnenten kostenlos enthalten. Die Funktionen umfassen verbessertes Kontextverständnis, die Steuerung von Smart-Home-Routinen, die Analyse von Bildern sowie die Integration in BMW-Fahrzeugsysteme und lokale deutsche Medienangebote.</div>
+
+            <a href="https://www.heise.de/news/Alexa-startet-in-Deutschland-in-den-oeffentlichen-Vorabtest-11285123.html?wt_mc=rss.red.ho.ho.atom.beitrag.beitrag" class="source-button" target="_blank" onclick="event.stopPropagation()">
+                Vollständigen Artikel lesen
+            </a>
+        </div>
+        
+        <div class="article-card" onclick="this.classList.toggle('expanded')">
+            
+            <div class="image-wrapper">
+                <img src="https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/5/0/7/7/8/9/0/android-bugdroid-617a7173709eec9d.jpg" class="article-image" alt="Vorschau" loading="lazy">
+            </div>
+            
+
+            <div class="meta">heise • news</div>
+
+            <div class="card-header">
+                <div class="title">Google veröffentlicht Android 17 QPR1 Beta 2 mit Fehlerbehebungen für Pixel-Geräte</div>
+                <div class="relevance-container">
+                    <svg width="44" height="44">
+                        <circle stroke="rgba(255,255,255,0.08)" stroke-width="3" fill="transparent" r="19" cx="22" cy="22"/>
+                        <circle class="progress-ring__circle" stroke-width="3" stroke-dasharray="119.38" 
+                                stroke-dashoffset="29.47776396630374" 
+                                stroke-linecap="round" fill="transparent" r="19" cx="22" cy="22" transform="rotate(-90 22 22)"/>
+                    </svg>
+                    <div style="position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); font-size:11px; font-weight:800;">
+                        73
+                    </div>
+                </div>
+            </div>
+
+            <div class="summary">Google hat die zweite Beta-Version des Android 17 QPR1-Updates (Build CP31.260423.012.A1) veröffentlicht, die primär Fehlerkorrekturen ohne neue Funktionen enthält. Die Beta behebt Probleme bei der Terminal-App, der Sperrbildschirm-Anzeige, der Mobilfunksignalstärke, der UI-Stabilität beim App-Verschieben, dem F2FS-Dateisystem sowie beim Bluetooth-Tethering und Infotainment-Systemen. Das Update ist für Pixel-Geräte von Pixel 6 bis Pixel 10 Pro XL, Pixel Foldables, das Pixel Tablet und den Android-Emulator via OTA verfügbar.</div>
+
+            <a href="https://www.heise.de/news/Google-veroeffentlicht-zweite-Beta-von-Android-17-QPR1-fuer-Pixel-Geraete-11285067.html?wt_mc=rss.red.ho.ho.atom.beitrag.beitrag" class="source-button" target="_blank" onclick="event.stopPropagation()">
+                Vollständigen Artikel lesen
+            </a>
+        </div>
+        
+        <div class="article-card" onclick="this.classList.toggle('expanded')">
+            
+            <div class="image-wrapper">
+                <img src="https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/5/0/7/6/9/2/6/shutterstock_2373317355-7d0b201fe85accd0.jpg" class="article-image" alt="Vorschau" loading="lazy">
+            </div>
+            
+
+            <div class="meta">heise • hintergrund</div>
+
+            <div class="card-header">
+                <div class="title">PKV-Anbindung an die Telematikinfrastruktur: Digitale Identitäten und regulatorische Herausforderungen</div>
+                <div class="relevance-container">
+                    <svg width="44" height="44">
+                        <circle stroke="rgba(255,255,255,0.08)" stroke-width="3" fill="transparent" r="19" cx="22" cy="22"/>
+                        <circle class="progress-ring__circle" stroke-width="3" stroke-dasharray="119.38" 
+                                stroke-dashoffset="7.925546452779457" 
+                                stroke-linecap="round" fill="transparent" r="19" cx="22" cy="22" transform="rotate(-90 22 22)"/>
+                    </svg>
+                    <div style="position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); font-size:11px; font-weight:800;">
+                        92
+                    </div>
+                </div>
+            </div>
+
+            <div class="summary">Der Verband der Privaten Krankenversicherungen (PKV) ist zu 80 Prozent an die Telematikinfrastruktur angeschlossen und setzt – im Gegensatz zur gesetzlichen Krankenversicherung – auf digitale Identitäten via Smartphone statt auf die elektronische Gesundheitskarte. Zentrale Hürden für den digitalen Zugang sind der aufwendige Prozess zur Vergabe der Krankenversichertennummer (KVNR) sowie der erschwerte Zugang zu digitalen Diensten durch fehlende PIN-Reset-Möglichkeiten. Während die Nutzung von PKV-Daten für die Forschung national noch rechtlich eingeschränkt ist, wird diese durch den Europäischen Gesundheitsdatenraum (EHDS) künftig ermöglicht. Die PKV beteiligt sich über bilaterale Verträge an den Kosten der Telematikinfrastruktur und sieht trotz des Prinzips der Freiwilligkeit die Notwendigkeit gesetzlicher Vorgaben für den digitalen Fortschritt im Gesundheitswesen.</div>
+
+            <a href="https://www.heise.de/hintergrund/PKV-Chef-ueber-die-Digitalisierung-des-Gesundheitswesens-fuer-Privatversicherte-11283114.html?wt_mc=rss.red.ho.ho.atom.beitrag.beitrag" class="source-button" target="_blank" onclick="event.stopPropagation()">
+                Vollständigen Artikel lesen
+            </a>
+        </div>
+        
+        <div class="article-card" onclick="this.classList.toggle('expanded')">
+            
+            <div class="image-wrapper">
+                <img src="https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/5/0/7/7/6/1/5/aws_workspaces-12871c500f2ceec7.png" class="article-image" alt="Vorschau" loading="lazy">
+            </div>
+            
+
+            <div class="meta">heise • news</div>
+
+            <div class="card-header">
+                <div class="title">AWS erweitert Amazon WorkSpaces um Unterstützung für KI-Agenten zur Automatisierung von Legacy-Software</div>
+                <div class="relevance-container">
+                    <svg width="44" height="44">
+                        <circle stroke="rgba(255,255,255,0.08)" stroke-width="3" fill="transparent" r="19" cx="22" cy="22"/>
+                        <circle class="progress-ring__circle" stroke-width="3" stroke-dasharray="119.38" 
+                                stroke-dashoffset="40.362316604649095" 
+                                stroke-linecap="round" fill="transparent" r="19" cx="22" cy="22" transform="rotate(-90 22 22)"/>
+                    </svg>
+                    <div style="position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); font-size:11px; font-weight:800;">
+                        64
+                    </div>
+                </div>
+            </div>
+
+            <div class="summary">AWS erweitert seinen Virtual-Desktop-Dienst WorkSpaces in der Public Preview um eine Funktion für KI-Agenten, die Anwendungen ohne API-Anpassungen direkt über die Benutzeroberfläche (mittels Computer Vision und Computer Input) bedienen können, um die Automatisierung von Legacy-Software zu ermöglichen. Die technische Integration erfolgt über das Model Context Protocol (MCP) und unterstützt Frameworks wie LangChain oder CrewAI, wobei die Sicherheit durch bestehende WorkSpaces-Mechanismen sowie AWS IAM, CloudTrail und CloudWatch gewährleistet bleibt. Die Funktion ist in mehreren Regionen, inklusive Frankfurt, während der Preview-Phase ohne zusätzliche Kosten verfügbar.</div>
+
+            <a href="https://www.heise.de/news/AWS-WorkSpaces-KI-Agenten-steuern-Legacy-Apps-11284518.html?wt_mc=rss.red.ho.ho.atom.beitrag.beitrag" class="source-button" target="_blank" onclick="event.stopPropagation()">
+                Vollständigen Artikel lesen
+            </a>
+        </div>
+        
+        <div class="article-card" onclick="this.classList.toggle('expanded')">
+            
+            <div class="image-wrapper">
+                <img src="https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/5/0/7/7/3/2/7/Public-IT-26_ticker_1920x1080-6348f94c9bf1c3fa.png" class="article-image" alt="Vorschau" loading="lazy">
+            </div>
+            
+
+            <div class="meta">heise • news</div>
+
+            <div class="card-header">
+                <div class="title">c’t-Konferenz Public IT 2026 in Hannover mit Fokus auf Cloud, Souveränität und KI</div>
+                <div class="relevance-container">
+                    <svg width="44" height="44">
+                        <circle stroke="rgba(255,255,255,0.08)" stroke-width="3" fill="transparent" r="19" cx="22" cy="22"/>
+                        <circle class="progress-ring__circle" stroke-width="3" stroke-dasharray="119.38" 
+                                stroke-dashoffset="43.47565272829904" 
+                                stroke-linecap="round" fill="transparent" r="19" cx="22" cy="22" transform="rotate(-90 22 22)"/>
+                    </svg>
+                    <div style="position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); font-size:11px; font-weight:800;">
+                        61
+                    </div>
+                </div>
+            </div>
+
+            <div class="summary">Die neue c’t-Konferenz Public IT findet am 28. und 29. Oktober 2026 in Hannover statt und bietet IT-Verantwortlichen des öffentlichen Sektors über 20 Fachvorträge zu den Schwerpunkten Cloud, Souveränität, Automatisierung und KI, inklusive Keynotes von Stefan Latuski (CIO Bundesagentur für Arbeit) und Dr. Alexander Georgiadis (CIO Niedersachsen) mit Themen wie sicherer Cloud-Nutzung, der Deutschen Verwaltungscloud und Registermodernisierung. Frühbucher-Tickets sind für den öffentlichen Sektor bis Ende August für 249 Euro (zzgl. MwSt.) und für die Wirtschaft für 749 Euro (zzgl. MwSt.) erhältlich.</div>
+
+            <a href="https://www.heise.de/news/Public-IT-Das-Programm-der-c-t-Konferenz-fuer-den-oeffentlichen-Sektor-steht-fest-11283928.html?wt_mc=rss.red.ho.ho.atom.beitrag.beitrag" class="source-button" target="_blank" onclick="event.stopPropagation()">
+                Vollständigen Artikel lesen
+            </a>
+        </div>
+        
+        <div class="article-card" onclick="this.classList.toggle('expanded')">
+            
+            <div class="image-wrapper">
+                <img src="https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/5/0/7/7/8/7/7/shutterstock_1270133443-b0cb4816ecf7c6f7.jpg" class="article-image" alt="Vorschau" loading="lazy">
+            </div>
+            
+
+            <div class="meta">heise • news</div>
+
+            <div class="card-header">
+                <div class="title">LKA Rheinland-Pfalz setzt auf Experten und KI-Assistenzsysteme gegen Deepfakes</div>
+                <div class="relevance-container">
+                    <svg width="44" height="44">
+                        <circle stroke="rgba(255,255,255,0.08)" stroke-width="3" fill="transparent" r="19" cx="22" cy="22"/>
+                        <circle class="progress-ring__circle" stroke-width="3" stroke-dasharray="119.38" 
+                                stroke-dashoffset="15.544266293376694" 
+                                stroke-linecap="round" fill="transparent" r="19" cx="22" cy="22" transform="rotate(-90 22 22)"/>
+                    </svg>
+                    <div style="position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); font-size:11px; font-weight:800;">
+                        86
+                    </div>
+                </div>
+            </div>
+
+            <div class="summary">Wegen fehlender spezifischer Straftatbestände und der schwierigen Rückverfolgung international verbreiteter Deepfakes setzt das LKA Rheinland-Pfalz auf Sachverständige sowie auf die Testung eines KI-basierten Assistenzsystems. Parallel zur Aufforderung an Opfer, Beweise frühzeitig zu sichern, sind politische Maßnahmen zur Verschärfung des Strafrechts und zur Stärkung der Betroffenenrechte in Planung.</div>
+
+            <a href="https://www.heise.de/news/Wenn-Gesichter-luegen-Wie-Ermittler-gegen-Deepfakes-kaempfen-11285041.html?wt_mc=rss.red.ho.ho.atom.beitrag.beitrag" class="source-button" target="_blank" onclick="event.stopPropagation()">
+                Vollständigen Artikel lesen
+            </a>
+        </div>
+        
+        <div class="article-card" onclick="this.classList.toggle('expanded')">
+            
+            <div class="image-wrapper">
+                <img src="https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/5/0/7/7/8/8/1/shutterstock_2069178485-00fff43e5ae687b6.jpg" class="article-image" alt="Vorschau" loading="lazy">
+            </div>
+            
+
+            <div class="meta">heise • news</div>
+
+            <div class="card-header">
+                <div class="title">Verdi kündigt Warnstreiks bei der Deutschen Telekom an</div>
+                <div class="relevance-container">
+                    <svg width="44" height="44">
+                        <circle stroke="rgba(255,255,255,0.08)" stroke-width="3" fill="transparent" r="19" cx="22" cy="22"/>
+                        <circle class="progress-ring__circle" stroke-width="3" stroke-dasharray="119.38" 
+                                stroke-dashoffset="41.47193110033456" 
+                                stroke-linecap="round" fill="transparent" r="19" cx="22" cy="22" transform="rotate(-90 22 22)"/>
+                    </svg>
+                    <div style="position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); font-size:11px; font-weight:800;">
+                        63
+                    </div>
+                </div>
+            </div>
+
+            <div class="summary">Die Gewerkschaft Verdi hat für Donnerstag Warnstreiks bei der Deutschen Telekom in Hamburg, Schleswig-Holstein und Mecklenburg-Vorpommern angekündigt, was zu Einschränkungen bei der Erreichbarkeit und im Kundenservice führen kann. Die Forderungen umfassen eine Entgeltsteigerung von 6,6 Prozent bei einer zwölfmonatigen Vertragslaufzeit sowie einen jährlichen Mitgliederbonus von 660 Euro.</div>
+
+            <a href="https://www.heise.de/news/Streik-bei-der-Deutschen-Telekom-Verdi-macht-erneut-mobil-11285049.html?wt_mc=rss.red.ho.ho.atom.beitrag.beitrag" class="source-button" target="_blank" onclick="event.stopPropagation()">
+                Vollständigen Artikel lesen
+            </a>
+        </div>
+        
+        <div class="article-card" onclick="this.classList.toggle('expanded')">
+            
+            <div class="image-wrapper">
+                <img src="https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/5/0/7/7/8/7/2/shutterstock_2289524003-5e7c87f16b897c93.jpg" class="article-image" alt="Vorschau" loading="lazy">
+            </div>
+            
+
+            <div class="meta">heise • news</div>
+
+            <div class="card-header">
+                <div class="title">Anpassung des EU-KI-Gesetzes: Verbot sexualisierter Deepfakes und neue Fristen vereinbart</div>
+                <div class="relevance-container">
+                    <svg width="44" height="44">
+                        <circle stroke="rgba(255,255,255,0.08)" stroke-width="3" fill="transparent" r="19" cx="22" cy="22"/>
+                        <circle class="progress-ring__circle" stroke-width="3" stroke-dasharray="119.38" 
+                                stroke-dashoffset="6.356793680230751" 
+                                stroke-linecap="round" fill="transparent" r="19" cx="22" cy="22" transform="rotate(-90 22 22)"/>
+                    </svg>
+                    <div style="position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); font-size:11px; font-weight:800;">
+                        94
+                    </div>
+                </div>
+            </div>
+
+            <div class="summary">Die EU-Mitgliedstaaten und das Europäische Parlament haben eine Anpassung des KI-Gesetzes vereinbart, die die Nutzung von KI-Anwendungen zur Erstellung sexualisierter Deepfakes sowie für Inhalte, die sexuellen Kindesmissbrauch darstellen, verbietet. Die Durchsetzung durch das EU-KI-Amt soll ab dem 2. Dezember 2026 erfolgen, sofern die Einigung formal bestätigt wird. Parallel dazu sollen andere KI-Regularien zur Förderung der wirtschaftlichen Wettbewerbsfähigkeit und zur Vermeidung von Doppelregulierungen vereinfacht werden. Die Pflicht zur Kennzeichnung von KI-Inhalten mittels Wasserzeichen wurde auf Dezember 2026 und weitere Regeln auf Dezember 2027 verschoben.</div>
+
+            <a href="https://www.heise.de/news/Sexualisierte-Deepfakes-EU-Laender-einigen-sich-auf-Verbot-11285031.html?wt_mc=rss.red.ho.ho.atom.beitrag.beitrag" class="source-button" target="_blank" onclick="event.stopPropagation()">
+                Vollständigen Artikel lesen
+            </a>
+        </div>
+        
+        <div class="article-card" onclick="this.classList.toggle('expanded')">
+            
+            <div class="image-wrapper">
+                <img src="https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/5/0/7/7/8/6/9/thursday-4807629aceda3374.webp" class="article-image" alt="Vorschau" loading="lazy">
+            </div>
+            
+
+            <div class="meta">heise • news</div>
+
+            <div class="card-header">
+                <div class="title">Anthropic, Honda, Emco und LinkedIn: Aktuelle Entwicklungen</div>
+                <div class="relevance-container">
+                    <svg width="44" height="44">
+                        <circle stroke="rgba(255,255,255,0.08)" stroke-width="3" fill="transparent" r="19" cx="22" cy="22"/>
+                        <circle class="progress-ring__circle" stroke-width="3" stroke-dasharray="119.38" 
+                                stroke-dashoffset="23.816809624397024" 
+                                stroke-linecap="round" fill="transparent" r="19" cx="22" cy="22" transform="rotate(-90 22 22)"/>
+                    </svg>
+                    <div style="position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); font-size:11px; font-weight:800;">
+                        78
+                    </div>
+                </div>
+            </div>
+
+            <div class="summary">Anthropic erhöht die Claude-Nutzungslimits und API-Token-Grenzen durch neue Rechenkapazitäten via SpaceX sowie die Prüfung orbitaler Rechenzentren. Honda stellt das Elektro-SUV Prologue in Nordamerika ein, setzt auf Hybridmodelle und storniert die geplante E-Auto- und Batterieproduktion in Kanada. Emco übernimmt die Markenrechte an der Schwalbe und plant die Wiederaufnahme der Produktion des E-Rollers in Suhl. Gegen LinkedIn wurde eine Beschwerde wegen der Beschränkung von DSGVO-Auskunftsrechten durch eine Bezahlschranke bei Profilbesucher-Daten eingereicht.</div>
+
+            <a href="https://www.heise.de/news/Donnerstag-Anthropic-Kooperation-mit-SpaceX-Hondas-Aufgabe-von-Elektroplaenen-11285025.html?wt_mc=rss.red.ho.ho.atom.beitrag.beitrag" class="source-button" target="_blank" onclick="event.stopPropagation()">
+                Vollständigen Artikel lesen
+            </a>
+        </div>
+        
+        <div class="article-card" onclick="this.classList.toggle('expanded')">
+            
+            <div class="image-wrapper">
+                <img src="https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/5/0/7/7/8/5/8/EV_Ladestation_Wegweiser-281386880b770e67.jpg" class="article-image" alt="Vorschau" loading="lazy">
+            </div>
+            
+
+            <div class="meta">heise • news</div>
+
+            <div class="card-header">
+                <div class="title">Honda stellt Elektroauto-Produktion in Kanada ein und setzt auf Hybridmodelle</div>
+                <div class="relevance-container">
+                    <svg width="44" height="44">
+                        <circle stroke="rgba(255,255,255,0.08)" stroke-width="3" fill="transparent" r="19" cx="22" cy="22"/>
+                        <circle class="progress-ring__circle" stroke-width="3" stroke-dasharray="119.38" 
+                                stroke-dashoffset="33.29108225361246" 
+                                stroke-linecap="round" fill="transparent" r="19" cx="22" cy="22" transform="rotate(-90 22 22)"/>
+                    </svg>
+                    <div style="position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); font-size:11px; font-weight:800;">
+                        70
+                    </div>
+                </div>
+            </div>
+
+            <div class="summary">Honda stellt den Vertrieb des Elektro-SUV Prologue sowie die geplanten Elektroauto- und Batterieproduktionen in Kanada ein und setzt in Nordamerika stattdessen auf Hybridmodelle. Dieser Rückzug erfolgt im Zuge einer allgemeinen Reduzierung von E-Auto-Projekten in der Region durch Hersteller wie Volkswagen, GM und Stellantis aufgrund sinkender Nachfrage. Parallel dazu ermöglicht eine Vereinbarung zwischen Kanada und China den Import steigender Mengen chinesischer Elektrofahrzeuge zu niedrigen Zöllen, um chinesische Hersteller zur langfristigen lokalen Produktion in Kanada zu bewegen.</div>
+
+            <a href="https://www.heise.de/news/Honda-storniert-Elektroauto-Fabrik-in-Kanada-streicht-E-SUV-11285003.html?wt_mc=rss.red.ho.ho.atom.beitrag.beitrag" class="source-button" target="_blank" onclick="event.stopPropagation()">
+                Vollständigen Artikel lesen
+            </a>
+        </div>
+        
+        <div class="article-card" onclick="this.classList.toggle('expanded')">
+            
+            <div class="image-wrapper">
+                <img src="https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/5/0/7/7/8/6/4/shutterstock_2737162387-4aa6e0ef6212fe9b.jpg" class="article-image" alt="Vorschau" loading="lazy">
+            </div>
+            
+
+            <div class="meta">heise • news</div>
+
+            <div class="card-header">
+                <div class="title">Anthropic erweitert Claude-Nutzungslimits durch Partnerschaft mit SpaceX</div>
+                <div class="relevance-container">
+                    <svg width="44" height="44">
+                        <circle stroke="rgba(255,255,255,0.08)" stroke-width="3" fill="transparent" r="19" cx="22" cy="22"/>
+                        <circle class="progress-ring__circle" stroke-width="3" stroke-dasharray="119.38" 
+                                stroke-dashoffset="9.08566666197548" 
+                                stroke-linecap="round" fill="transparent" r="19" cx="22" cy="22" transform="rotate(-90 22 22)"/>
+                    </svg>
+                    <div style="position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); font-size:11px; font-weight:800;">
+                        91
+                    </div>
+                </div>
+            </div>
+
+            <div class="summary">Durch eine Partnerschaft mit SpaceX hat Anthropic die Rechenkapazität des Supercomputers Colossus (300 MW, über 220.000 Nvidia-GPUs) weitgehend gesichert, was eine massive Erhöhung der Nutzungslimits für Claude-Modelle ermöglicht: Bei Claude Code werden die Zeitbeschränkungen für Pro-, Max-, Team- und Enterprise-Abos verdoppelt und Spitzenzeit-Beschränkungen für Pro- und Max-Nutzer aufgehoben, während die API-Token-Limits für Claude Opus deutlich angehoben wurden. Zudem erwägt Anthropic eine künftige Zusammenarbeit mit SpaceX zur Entwicklung orbitaler KI-Rechenkapazitäten.</div>
+
+            <a href="https://www.heise.de/news/Anthropic-erhoeht-Claude-Nutzung-fuer-KI-Abonnenten-durch-Kooperation-mit-SpaceX-11285015.html?wt_mc=rss.red.ho.ho.atom.beitrag.beitrag" class="source-button" target="_blank" onclick="event.stopPropagation()">
+                Vollständigen Artikel lesen
+            </a>
+        </div>
+        
+        <div class="article-card" onclick="this.classList.toggle('expanded')">
+            
+            <div class="image-wrapper">
+                <img src="https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/5/0/7/7/8/0/6/hp-5359832ef9ddb5d7.jpg" class="article-image" alt="Vorschau" loading="lazy">
+            </div>
+            
+
+            <div class="meta">heise • news</div>
+
+            <div class="card-header">
+                <div class="title">Emco E-Roller plant Wiederaufnahme der Schwalbe-Produktion in Suhl</div>
+                <div class="relevance-container">
+                    <svg width="44" height="44">
+                        <circle stroke="rgba(255,255,255,0.08)" stroke-width="3" fill="transparent" r="19" cx="22" cy="22"/>
+                        <circle class="progress-ring__circle" stroke-width="3" stroke-dasharray="119.38" 
+                                stroke-dashoffset="15.866800848334591" 
+                                stroke-linecap="round" fill="transparent" r="19" cx="22" cy="22" transform="rotate(-90 22 22)"/>
+                    </svg>
+                    <div style="position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); font-size:11px; font-weight:800;">
+                        85
+                    </div>
+                </div>
+            </div>
+
+            <div class="summary">Nach einer Absichtserklärung zur Lizenzübernahme plant der Hersteller Emco E-Roller die Wiederaufnahme der Produktion des elektrischen Kleinkraftrads „Schwalbe“ am ehemaligen Simson-Gelände in Suhl, wobei der Produktionsstart nach der Einstellung der Fertigung durch das insolvente Unternehmen Govecs noch in diesem Jahr erfolgen soll.</div>
+
+            <a href="https://www.heise.de/news/Emco-bringt-die-Elektroschwalbe-zurueck-11284899.html?wt_mc=rss.red.ho.ho.atom.beitrag.beitrag" class="source-button" target="_blank" onclick="event.stopPropagation()">
+                Vollständigen Artikel lesen
+            </a>
+        </div>
+        
+        <div class="article-card" onclick="this.classList.toggle('expanded')">
+            
+            <div class="image-wrapper">
+                <img src="https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/5/0/7/7/8/0/4/bpk-bfdi-02f4f57d70b3eb89.jpg" class="article-image" alt="Vorschau" loading="lazy">
+            </div>
+            
+
+            <div class="meta">heise • news</div>
+
+            <div class="card-header">
+                <div class="title">BfDI-Beauftragte Louisa Specht-Riemenschneider verlässt Amt; Tätigkeitsbericht 2025 verzeichnet Rekordbeschwerdezahlen</div>
+                <div class="relevance-container">
+                    <svg width="44" height="44">
+                        <circle stroke="rgba(255,255,255,0.08)" stroke-width="3" fill="transparent" r="19" cx="22" cy="22"/>
+                        <circle class="progress-ring__circle" stroke-width="3" stroke-dasharray="119.38" 
+                                stroke-dashoffset="16.43986619553607" 
+                                stroke-linecap="round" fill="transparent" r="19" cx="22" cy="22" transform="rotate(-90 22 22)"/>
+                    </svg>
+                    <div style="position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); font-size:11px; font-weight:800;">
+                        85
+                    </div>
+                </div>
+            </div>
+
+            <div class="summary">Aufgrund gesundheitlicher Gründe wird die Bundesbeauftragte für den Datenschutz und die Informationsfreiheit (BfDI), Louisa Specht-Riemenschneider, ihr Amt verlassen. Der Tätigkeitsbericht 2025 verzeichnet mit 11.824 Beschwerden ein Rekordniveau sowie 129 aufsichtsrechtliche Maßnahmen, darunter ein 45-Millionen-Euro-Bußgeld gegen Vodafone. Specht-Riemenschneider kritisierte die zunehmende Ausweitung von Sicherheitsbefugnissen, die geplante Vorratsdatenspeicherung sowie die mangelnde Kontrolle von Nachrichtendiensten und mahnte eine datenschutzkonforme Gestaltung der EUDI-Wallet an. Angesichts eingeschränkter behördlicher Durchsetzungsmöglichkeiten befürwortete sie verstärkt privatrechtliche Schadenersatzklagen.</div>
+
+            <a href="https://www.heise.de/news/BfDI-Neue-Sicherheitsbefugnisse-nicht-zulaessig-11284895.html?wt_mc=rss.red.ho.ho.atom.beitrag.beitrag" class="source-button" target="_blank" onclick="event.stopPropagation()">
+                Vollständigen Artikel lesen
+            </a>
+        </div>
+        
+        <div class="article-card" onclick="this.classList.toggle('expanded')">
+            
+            <div class="image-wrapper">
+                <img src="https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/5/0/7/7/7/7/4/shein-app-b45be7068391ad73.jpg" class="article-image" alt="Vorschau" loading="lazy">
+            </div>
+            
+
+            <div class="meta">heise • news</div>
+
+            <div class="card-header">
+                <div class="title">Irische Datenschutzbehörde untersucht Shein wegen möglicher DSGVO-Verstöße bei Datenübermittlung nach China</div>
+                <div class="relevance-container">
+                    <svg width="44" height="44">
+                        <circle stroke="rgba(255,255,255,0.08)" stroke-width="3" fill="transparent" r="19" cx="22" cy="22"/>
+                        <circle class="progress-ring__circle" stroke-width="3" stroke-dasharray="119.38" 
+                                stroke-dashoffset="8.861629305737196" 
+                                stroke-linecap="round" fill="transparent" r="19" cx="22" cy="22" transform="rotate(-90 22 22)"/>
+                    </svg>
+                    <div style="position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); font-size:11px; font-weight:800;">
+                        92
+                    </div>
+                </div>
+            </div>
+
+            <div class="summary">Die irische Datenschutzbehörde (DPC) untersucht gegen Shein den Verdacht, personenbezogene Daten europäischer Kunden unter Verstoß gegen die DSGVO nach China übermittelt zu haben, wobei die Einhaltung von Transparenzpflichten und ein angemessenes Schutzniveau im Fokus stehen. Bei nachgewiesenen Unzulänglichkeiten drohen dem Unternehmen Bußgelder oder ein Verbot der Datenübermittlung.</div>
+
+            <a href="https://www.heise.de/news/Irische-Datenschuetzer-ermitteln-gegen-Shein-wegen-Datenuebertragung-nach-China-11284835.html?wt_mc=rss.red.ho.ho.atom.beitrag.beitrag" class="source-button" target="_blank" onclick="event.stopPropagation()">
+                Vollständigen Artikel lesen
+            </a>
+        </div>
+        
+        <div class="article-card" onclick="this.classList.toggle('expanded')">
+            
+            <div class="image-wrapper">
+                <img src="https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/5/0/7/7/5/1/5/shutterstock_2267597197-97d749b9272accd3.jpg" class="article-image" alt="Vorschau" loading="lazy">
+            </div>
+            
+
+            <div class="meta">heise • news</div>
+
+            <div class="card-header">
+                <div class="title">DNSSEC-Konfigurationsfehler in der .de-Zone verursachte Ausfälle der Namensauflösung</div>
+                <div class="relevance-container">
+                    <svg width="44" height="44">
+                        <circle stroke="rgba(255,255,255,0.08)" stroke-width="3" fill="transparent" r="19" cx="22" cy="22"/>
+                        <circle class="progress-ring__circle" stroke-width="3" stroke-dasharray="119.38" 
+                                stroke-dashoffset="30.66055449388155" 
+                                stroke-linecap="round" fill="transparent" r="19" cx="22" cy="22" transform="rotate(-90 22 22)"/>
+                    </svg>
+                    <div style="position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); font-size:11px; font-weight:800;">
+                        72
+                    </div>
+                </div>
+            </div>
+
+            <div class="summary">Am 5. Mai verursachte ein Fehler in der DNSSEC-Konfiguration der .de-Zone, konkret eine ungültige Signatur des SOA-Eintrags durch den neuen Schlüssel 33834, großflächige Ausfälle bei der Namensauflösung. Nach einer Phase inkonsistenter Serverantworten wurde die Stabilität am 6. Mai um 01:17 Uhr durch die Rückkehr zum alten Schlüssel 32911 wiederhergestellt. Eine offizielle Erklärung der DENIC eG zur genauen Ursache sowie zur mangelnden Vorprüfung in Testumgebungen steht bislang aus.</div>
+
+            <a href="https://www.heise.de/news/Probleme-mit-de-Domains-Was-bisher-bekannt-ist-11284320.html?wt_mc=rss.red.ho.ho.atom.beitrag.beitrag" class="source-button" target="_blank" onclick="event.stopPropagation()">
+                Vollständigen Artikel lesen
+            </a>
+        </div>
+        
+        <div class="article-card" onclick="this.classList.toggle('expanded')">
+            
+            <div class="image-wrapper">
+                <img src="https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/5/0/7/7/7/6/5/P048997-199073-7e6360fa9629c244.jpg" class="article-image" alt="Vorschau" loading="lazy">
+            </div>
+            
+
+            <div class="meta">heise • news</div>
+
+            <div class="card-header">
+                <div class="title">EU-Kommissionspräsidentin soll Milliardenstrafe gegen Google vorläufig ausgesetzt haben</div>
+                <div class="relevance-container">
+                    <svg width="44" height="44">
+                        <circle stroke="rgba(255,255,255,0.08)" stroke-width="3" fill="transparent" r="19" cx="22" cy="22"/>
+                        <circle class="progress-ring__circle" stroke-width="3" stroke-dasharray="119.38" 
+                                stroke-dashoffset="3.000438048020442" 
+                                stroke-linecap="round" fill="transparent" r="19" cx="22" cy="22" transform="rotate(-90 22 22)"/>
+                    </svg>
+                    <div style="position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); font-size:11px; font-weight:800;">
+                        97
+                    </div>
+                </div>
+            </div>
+
+            <div class="summary">Berichten zufolge hat EU-Kommissionspräsidentin Ursula von der Leyen eine geplante Milliardenstrafe gegen Google wegen Verstößen gegen den Digital Markets Act (DMA) vorläufig gestoppt, was zu Kritik im EU-Parlament und bei zivilgesellschaftlichen Organisationen führte. Experten warnen, dass politischer Druck die Durchsetzung von Wettbewerbsregeln und die regulatorische Handhabe gegenüber Big-Tech-Konzernen untergraben könnte. Parallel dazu führen die EU-Aufsichtsbehörden weitere Präzisierungsverfahren zur Einhaltung der DMA-Vorgaben durch, während Google vor Gefahren für Privatsphäre und Innovation warnt.</div>
+
+            <a href="https://www.heise.de/news/Stopp-von-Google-Strafe-Schwere-Vorwuerfe-gegen-von-der-Leyen-11284817.html?wt_mc=rss.red.ho.ho.atom.beitrag.beitrag" class="source-button" target="_blank" onclick="event.stopPropagation()">
+                Vollständigen Artikel lesen
+            </a>
+        </div>
+        
+        <div class="article-card" onclick="this.classList.toggle('expanded')">
+            
+            <div class="image-wrapper">
+                <img src="https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/5/0/4/4/9/0/1/aufmacher-9e3a0b219db72147.jpg" class="article-image" alt="Vorschau" loading="lazy">
+            </div>
+            
+
+            <div class="meta">heise • hintergrund</div>
+
+            <div class="card-header">
+                <div class="title">Lexar übernimmt Verarbeitung von NAND-Flash-Wafern zu Speichermedien in Suzhou</div>
+                <div class="relevance-container">
+                    <svg width="44" height="44">
+                        <circle stroke="rgba(255,255,255,0.08)" stroke-width="3" fill="transparent" r="19" cx="22" cy="22"/>
+                        <circle class="progress-ring__circle" stroke-width="3" stroke-dasharray="119.38" 
+                                stroke-dashoffset="23.348668011526712" 
+                                stroke-linecap="round" fill="transparent" r="19" cx="22" cy="22" transform="rotate(-90 22 22)"/>
+                    </svg>
+                    <div style="position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); font-size:11px; font-weight:800;">
+                        79
+                    </div>
+                </div>
+            </div>
+
+            <div class="summary">Lexar verarbeitet in seinem Werk in Suzhou gekaufte NAND-Flash-Wafer selbstständig zu Speichermedien, indem das Unternehmen das Ausschneiden, Testen, Verpacken und Löten von Dies auf Platinen übernimmt und sich damit von „fabless“ SSD-Herstellern abgrenzt, die lediglich fertige Komponenten zukaufen.</div>
+
+            <a href="https://www.heise.de/hintergrund/Besuch-in-der-SSD-Fabrik-Vom-Chip-Wafer-zum-fertigen-Speichermedium-11210129.html?wt_mc=rss.red.ho.ho.atom.beitrag_plus.beitrag_plus" class="source-button" target="_blank" onclick="event.stopPropagation()">
+                Vollständigen Artikel lesen
+            </a>
+        </div>
+        
+        <div class="article-card" onclick="this.classList.toggle('expanded')">
+            
+            <div class="image-wrapper">
+                <img src="https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/5/0/7/6/7/1/5/ki-deutsch-6b6a64e313138362.webp" class="article-image" alt="Vorschau" loading="lazy">
+            </div>
+            
+
+            <div class="meta">heise • news</div>
+
+            <div class="card-header">
+                <div class="title">STACKIT und neuland.ai etablieren deutsche KI-Architektur zur Einhaltung von EU-Regularien</div>
+                <div class="relevance-container">
+                    <svg width="44" height="44">
+                        <circle stroke="rgba(255,255,255,0.08)" stroke-width="3" fill="transparent" r="19" cx="22" cy="22"/>
+                        <circle class="progress-ring__circle" stroke-width="3" stroke-dasharray="119.38" 
+                                stroke-dashoffset="15.540482429789591" 
+                                stroke-linecap="round" fill="transparent" r="19" cx="22" cy="22" transform="rotate(-90 22 22)"/>
+                    </svg>
+                    <div style="position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); font-size:11px; font-weight:800;">
+                        86
+                    </div>
+                </div>
+            </div>
+
+            <div class="summary">STACKIT und neuland.ai etablieren eine in Deutschland betriebene KI-Architektur, die die Cloud-Infrastruktur von STACKIT mit dem neuland.ai HUB zur Verwaltung verschiedener Open-Source-Modelle (z. B. Llama, Mistral) kombiniert. Die Modelle sind wahlweise „on prem“, in der STACKIT-Cloud oder bei US-Hyperscalern unter Ende-zu-Ende-Verschlüsselung nutzbar, um die Einhaltung von NIS2, DORA und dem EU AI Act zu gewährleisten sowie US-Cloud-Act-Risiken zu vermeiden.</div>
+
+            <a href="https://www.heise.de/news/Souveraene-KI-aus-Deutschland-11282692.html?wt_mc=rss.red.ho.ho.atom.beitrag.beitrag" class="source-button" target="_blank" onclick="event.stopPropagation()">
+                Vollständigen Artikel lesen
+            </a>
+        </div>
+        
+        <div class="article-card" onclick="this.classList.toggle('expanded')">
+            
+            <div class="image-wrapper">
+                <img src="https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/5/0/7/7/6/8/8/hp-197a2132a2f064df.jpg" class="article-image" alt="Vorschau" loading="lazy">
+            </div>
+            
+
+            <div class="meta">heise • news</div>
+
+            <div class="card-header">
+                <div class="title">KIT entwickelt Verfahren zur Drohnenabwehr mittels Ketten</div>
+                <div class="relevance-container">
+                    <svg width="44" height="44">
+                        <circle stroke="rgba(255,255,255,0.08)" stroke-width="3" fill="transparent" r="19" cx="22" cy="22"/>
+                        <circle class="progress-ring__circle" stroke-width="3" stroke-dasharray="119.38" 
+                                stroke-dashoffset="10.921548063132292" 
+                                stroke-linecap="round" fill="transparent" r="19" cx="22" cy="22" transform="rotate(-90 22 22)"/>
+                    </svg>
+                    <div style="position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); font-size:11px; font-weight:800;">
+                        90
+                    </div>
+                </div>
+            </div>
+
+            <div class="summary">Forscher des Karlsruher Instituts für Technologie (KIT) haben ein Verfahren zur Drohnenabwehr entwickelt, bei dem dünne Ketten mittels einer Abschusseinrichtung auf Drohnen geschleudert werden, um deren Rotoren zu blockieren und einen Absturz zu erzwingen. Das auf der Wurfwaffe Bolas basierende Konzept wurde durch Simulationen und Feldtests im Ballistikzentrum Sternenfels validiert und in den Fachzeitschriften *Aerospace & Defence* sowie *Konstruktionspraxis* veröffentlicht. Die Methode bietet im Vergleich zu herkömmlichen Projektilen ein geringeres Risiko für Kollateralschäden.</div>
+
+            <a href="https://www.heise.de/news/KIT-Forscher-holen-Drohnen-mit-Ketten-vom-Himmel-11284663.html?wt_mc=rss.red.ho.ho.atom.beitrag.beitrag" class="source-button" target="_blank" onclick="event.stopPropagation()">
+                Vollständigen Artikel lesen
+            </a>
+        </div>
+        
+        <div class="article-card" onclick="this.classList.toggle('expanded')">
+            
+            <div class="image-wrapper">
+                <img src="https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/5/0/7/7/5/6/0/ct1221server_cp_114671_csp_a-d26ef127c039eda9-01f95e30ec4f43c6.jpeg" class="article-image" alt="Vorschau" loading="lazy">
+            </div>
+            
+
+            <div class="meta">heise • news</div>
+
+            <div class="card-header">
+                <div class="title">SPEC ersetzt SPEC CPU 2017 durch SPEC CPU 2026</div>
+                <div class="relevance-container">
+                    <svg width="44" height="44">
+                        <circle stroke="rgba(255,255,255,0.08)" stroke-width="3" fill="transparent" r="19" cx="22" cy="22"/>
+                        <circle class="progress-ring__circle" stroke-width="3" stroke-dasharray="119.38" 
+                                stroke-dashoffset="40.655065827505354" 
+                                stroke-linecap="round" fill="transparent" r="19" cx="22" cy="22" transform="rotate(-90 22 22)"/>
+                    </svg>
+                    <div style="position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); font-size:11px; font-weight:800;">
+                        64
+                    </div>
+                </div>
+            </div>
+
+            <div class="summary">Die Standard Performance Evaluation Corporation (SPEC) ersetzt den Benchmark SPEC CPU 2017 durch SPEC CPU 2026, wodurch die Anzahl der Teil-Benchmarks von 43 auf 52 steigt und Anwendungen wie CPython sowie SQLite anstelle von Blender und x264 integriert werden. Die auf Quellcode basierende Suite unterstützt sowohl hochkernige Serverprozessoren als auch Einplatinencomputer, erfordert jedoch aufgrund eines Bedarfs von 2 GB RAM pro Instanz hohe Arbeitsspeicherkapazitäten und ist kostenpflichtig (Standard: 3.000 USD), wobei Universitäten kostenfreien Zugang erhalten.</div>
+
+            <a href="https://www.heise.de/news/Wichtigster-Server-CPU-Benchmark-bekommt-ein-Update-nach-9-Jahren-11284408.html?wt_mc=rss.red.ho.ho.atom.beitrag.beitrag" class="source-button" target="_blank" onclick="event.stopPropagation()">
+                Vollständigen Artikel lesen
+            </a>
+        </div>
+        
+        <div class="article-card" onclick="this.classList.toggle('expanded')">
+            
+            <div class="image-wrapper">
+                <img src="https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/5/0/7/7/5/6/4/shutterstock_634024823-9ba5c2baa22dcfbb.jpg" class="article-image" alt="Vorschau" loading="lazy">
+            </div>
+            
+
+            <div class="meta">heise • news</div>
+
+            <div class="card-header">
+                <div class="title">US-Behörde CAISI vereinbart Sicherheitsbewertung von KI-Modellen mit führenden Technologieunternehmen</div>
+                <div class="relevance-container">
+                    <svg width="44" height="44">
+                        <circle stroke="rgba(255,255,255,0.08)" stroke-width="3" fill="transparent" r="19" cx="22" cy="22"/>
+                        <circle class="progress-ring__circle" stroke-width="3" stroke-dasharray="119.38" 
+                                stroke-dashoffset="24.609770669291464" 
+                                stroke-linecap="round" fill="transparent" r="19" cx="22" cy="22" transform="rotate(-90 22 22)"/>
+                    </svg>
+                    <div style="position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); font-size:11px; font-weight:800;">
+                        78
+                    </div>
+                </div>
+            </div>
+
+            <div class="summary">Das US-amerikanische CAISI (Teil des NIST unter dem US-Handelsministerium) hat neue Vereinbarungen mit Google DeepMind, Microsoft und xAI sowie neu verhandelte Abkommen mit OpenAI und Anthropic geschlossen, um KI-Modelle vor und nach deren Veröffentlichung im Sinne der nationalen Sicherheit zu evaluieren. Die Kooperation beinhaltet zudem Forschungsarbeiten und die Untersuchung von Modellen mit reduzierten Sicherheitsvorkehrungen, um den Informationsaustausch über KI-Fähigkeiten und den internationalen Wettbewerb zu unterstützen.</div>
+
+            <a href="https://www.heise.de/news/US-Behoerde-soll-KI-Modelle-vor-Veroeffentlichung-ueberpruefen-11284416.html?wt_mc=rss.red.ho.ho.atom.beitrag.beitrag" class="source-button" target="_blank" onclick="event.stopPropagation()">
+                Vollständigen Artikel lesen
+            </a>
+        </div>
+        
+        <div class="article-card" onclick="this.classList.toggle('expanded')">
+            
+            <div class="image-wrapper">
+                <img src="https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/5/0/7/7/4/6/4/Vespa_89-257ff906db4b8a22.jpg" class="article-image" alt="Vorschau" loading="lazy">
+            </div>
+            
+
+            <div class="meta">heise • news</div>
+
+            <div class="card-header">
+                <div class="title">Entwicklungsgeschichte und Produktionserfolge der Marke Vespa</div>
+                <div class="relevance-container">
+                    <svg width="44" height="44">
+                        <circle stroke="rgba(255,255,255,0.08)" stroke-width="3" fill="transparent" r="19" cx="22" cy="22"/>
+                        <circle class="progress-ring__circle" stroke-width="3" stroke-dasharray="119.38" 
+                                stroke-dashoffset="32.42649031111959" 
+                                stroke-linecap="round" fill="transparent" r="19" cx="22" cy="22" transform="rotate(-90 22 22)"/>
+                    </svg>
+                    <div style="position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); font-size:11px; font-weight:800;">
+                        71
+                    </div>
+                </div>
+            </div>
+
+            <div class="summary">Nach dem Zweiten Weltkrieg entwickelte der Ingenieur Corradino d’Ascanio im Auftrag des Flugzeugbauers Enrico Piaggio die 1946 patentierte Vespa, deren weltweite Produktion nach einem Debüt mit 2.000 Einheiten bis 1956 die Millionengrenze erreichte. Die technische Entwicklung umfasst neben dem Dreirad Ape (1948) auch die Vespa 50 (1963), die Einführung von Viertaktmotoren (1996) sowie moderne E-Modelle. Mit über 20 Millionen produzierten Rollern und einer jährlichen Fertigung von über 200.000 Stück feiert die Marke ihr Jubiläum in Rom.</div>
+
+            <a href="https://www.heise.de/news/80-Jahre-Vespa-Blech-auf-Taille-11284202.html?wt_mc=rss.red.ho.ho.atom.beitrag.beitrag" class="source-button" target="_blank" onclick="event.stopPropagation()">
+                Vollständigen Artikel lesen
+            </a>
+        </div>
+        
+        <div class="article-card" onclick="this.classList.toggle('expanded')">
+            
+            <div class="image-wrapper">
+                <img src="https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/5/0/7/7/3/3/5/heise_Podcasts_KIUpdate_ho_16_9-794748bc52f173fd.jpg" class="article-image" alt="Vorschau" loading="lazy">
+            </div>
+            
+
+            <div class="meta">heise • news</div>
+
+            <div class="card-header">
+                <div class="title">Aktuelle Entwicklungen in der globalen KI- und Technologiebranche</div>
+                <div class="relevance-container">
+                    <svg width="44" height="44">
+                        <circle stroke="rgba(255,255,255,0.08)" stroke-width="3" fill="transparent" r="19" cx="22" cy="22"/>
+                        <circle class="progress-ring__circle" stroke-width="3" stroke-dasharray="119.38" 
+                                stroke-dashoffset="4.418362986710548" 
+                                stroke-linecap="round" fill="transparent" r="19" cx="22" cy="22" transform="rotate(-90 22 22)"/>
+                    </svg>
+                    <div style="position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); font-size:11px; font-weight:800;">
+                        96
+                    </div>
+                </div>
+            </div>
+
+            <div class="summary">Mistral hat das Modell Medium 3.5 sowie neue Cloud- und Work-Funktionen vorgestellt, während die US-Regierung unter Trump eine verstärkte KI-Aufsicht plant und europäische Tech-Konzerne vor regulatorischer Deindustrialisierung warnen. Parallel zur Förderung der industriellen Souveränität in Deutschland und der Etablierung von Joint Ventures durch OpenAI und Anthropic für Unternehmensanwendungen, führt Meta KI-basierte Altersprüfungen ein und sieht sich mit Sammelklagen von Verlagen konfrontiert. Während die Pharmaindustrie massiv in KI-Infrastruktur zur Wirkstoffsuche investiert und Huawei in China von US-Exportbeschränkungen gegen Nvidia profitiert, hat OpenAI das präzisere GPT-5.5 Instant eingeführt. Wissenschaftliche Studien beleuchten zudem die Bedeutung von Informatikkenntnissen beim „Vibe-Coding“ sowie die Schwächen von KI-Modellen bei Extremwetterereignissen, ergänzt durch die Entwicklung eines interaktiven C-3PO-Kopfes auf Raspberry-Pi-Basis.</div>
+
+            <a href="https://www.heise.de/news/KI-Update-kompakt-Mistral-3-5-Joint-Ventures-Arzneistoffe-Vibe-Coding-11283944.html?wt_mc=rss.red.ho.ho.atom.beitrag.beitrag" class="source-button" target="_blank" onclick="event.stopPropagation()">
+                Vollständigen Artikel lesen
+            </a>
+        </div>
+        
+        <div class="article-card" onclick="this.classList.toggle('expanded')">
+            
+            <div class="image-wrapper">
+                <img src="https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/5/0/7/7/4/2/2/shutterstock_2270870965-5c20a6c2b72d8364.jpg" class="article-image" alt="Vorschau" loading="lazy">
+            </div>
+            
+
+            <div class="meta">heise • news</div>
+
+            <div class="card-header">
+                <div class="title">Pennsylvania verklagt Character.AI wegen Vorwurfs unzulässiger medizinischer Praxis</div>
+                <div class="relevance-container">
+                    <svg width="44" height="44">
+                        <circle stroke="rgba(255,255,255,0.08)" stroke-width="3" fill="transparent" r="19" cx="22" cy="22"/>
+                        <circle class="progress-ring__circle" stroke-width="3" stroke-dasharray="119.38" 
+                                stroke-dashoffset="7.254349449163399" 
+                                stroke-linecap="round" fill="transparent" r="19" cx="22" cy="22" transform="rotate(-90 22 22)"/>
+                    </svg>
+                    <div style="position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); font-size:11px; font-weight:800;">
+                        93
+                    </div>
+                </div>
+            </div>
+
+            <div class="summary">Der US-Bundesstaat Pennsylvania verklagt die Entwickler von Character.AI wegen des Vorwurfs der unzulässigen medizinischen Praxis, da KI-Charaktere als lizenzierte Ärzte auftreten und medizinische Einschätzungen abgeben. Die Klage ist Teil einer staatlichen Initiative gegen die falsche Identität von KI-Bots als Fachkräfte und wirft die rechtlich ungeklärte Frage der Haftung für KI-generierte Inhalte auf. Character.AI verweist zur Verteidigung auf den fiktionalen Charakter der Plattform und entsprechende Disclaimer.</div>
+
+            <a href="https://www.heise.de/news/Darf-sich-ein-Chatbot-als-Arzt-ausgeben-Pennsylvania-verklagt-KI-Plattform-11284118.html?wt_mc=rss.red.ho.ho.atom.beitrag.beitrag" class="source-button" target="_blank" onclick="event.stopPropagation()">
+                Vollständigen Artikel lesen
+            </a>
+        </div>
+        
+        <div class="article-card" onclick="this.classList.toggle('expanded')">
+            
+            <div class="image-wrapper">
+                <img src="https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/5/0/7/7/4/4/5/shutterstock_1333226120-b385c005420af6c0.jpg" class="article-image" alt="Vorschau" loading="lazy">
+            </div>
+            
+
+            <div class="meta">heise • news</div>
+
+            <div class="card-header">
+                <div class="title">SAP erweitert KI- und Datenportfolio durch Übernahmen von Prior Labs und Dremio</div>
+                <div class="relevance-container">
+                    <svg width="44" height="44">
+                        <circle stroke="rgba(255,255,255,0.08)" stroke-width="3" fill="transparent" r="19" cx="22" cy="22"/>
+                        <circle class="progress-ring__circle" stroke-width="3" stroke-dasharray="119.38" 
+                                stroke-dashoffset="43.170031442425355" 
+                                stroke-linecap="round" fill="transparent" r="19" cx="22" cy="22" transform="rotate(-90 22 22)"/>
+                    </svg>
+                    <div style="position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); font-size:11px; font-weight:800;">
+                        61
+                    </div>
+                </div>
+            </div>
+
+            <div class="summary">SAP erweitert sein KI-Portfolio durch die Übernahmen von Prior Labs und Dremio. In den deutschen Anbieter Prior Labs plant der Konzern, über vier Jahre mehr als eine Milliarde Euro zu investieren, um das Unternehmen als KI-Labor für strukturierte Daten auszubauen. Mit der US-Datenplattform Dremio will SAP die Business Data Cloud durch die Integration von SAP- und Nicht-SAP-Daten zu einem Apache-Iceberg-nativen Enterprise-Lakehouse erweitern. Die Kaufpreise für beide Akquisitionen wurden nicht veröffentlicht.</div>
+
+            <a href="https://www.heise.de/news/KI-SAP-kauft-Prior-Labs-und-will-ueber-eine-Milliarde-investieren-11284164.html?wt_mc=rss.red.ho.ho.atom.beitrag.beitrag" class="source-button" target="_blank" onclick="event.stopPropagation()">
+                Vollständigen Artikel lesen
+            </a>
+        </div>
+        
+        <div class="article-card" onclick="this.classList.toggle('expanded')">
+            
+            <div class="image-wrapper">
+                <img src="https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/5/0/7/3/8/3/2/one-ui-8_5-update-vignette-neu-82cacc42e6896fad.jpg" class="article-image" alt="Vorschau" loading="lazy">
+            </div>
+            
+
+            <div class="meta">heise • news</div>
+
+            <div class="card-header">
+                <div class="title">Samsung startet Rollout von One UI 8.5 für verschiedene Galaxy-Modelle</div>
+                <div class="relevance-container">
+                    <svg width="44" height="44">
+                        <circle stroke="rgba(255,255,255,0.08)" stroke-width="3" fill="transparent" r="19" cx="22" cy="22"/>
+                        <circle class="progress-ring__circle" stroke-width="3" stroke-dasharray="119.38" 
+                                stroke-dashoffset="39.162869512278846" 
+                                stroke-linecap="round" fill="transparent" r="19" cx="22" cy="22" transform="rotate(-90 22 22)"/>
+                    </svg>
+                    <div style="position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); font-size:11px; font-weight:800;">
+                        65
+                    </div>
+                </div>
+            </div>
+
+            <div class="summary">Samsung rollt das One UI 8.5 Update auf Basis von Android 16 aus, beginnend mit der Galaxy S25-Serie (Release in Deutschland ab ca. 11. Mai). Das Update bietet erweiterte Personalisierungsmöglichkeiten für den Homescreen und Lockscreen, AirDrop-Unterstützung via Quick Share (für S24/S25 sowie Z Fold/Flip 6/7), Audio Broadcast via Auracast sowie geräteübergreifende Dateifreigabe über Storage Share. Zu den Neuerungen gehören zudem neue KI-Funktionen wie der Advanced Audio Eraser, die Anrufprüfung und das Creative Studio (inklusive „Awesome Intelligence“ für die A-Serie) sowie verbesserter Diebstahlschutz und automatische Gerätesperren bei Fehlversuchen. Die Verteilung erfolgt für zahlreiche aktuelle Modelle der Galaxy S-, Z-, Tab- und A-Serien.</div>
+
+            <a href="https://www.heise.de/news/One-UI-8-5-fuer-Galaxy-S25-ist-fertig-Update-bringt-AirDrop-Support-und-mehr-11276947.html?wt_mc=rss.red.ho.ho.atom.beitrag.beitrag" class="source-button" target="_blank" onclick="event.stopPropagation()">
+                Vollständigen Artikel lesen
+            </a>
+        </div>
+        
+        <div class="article-card" onclick="this.classList.toggle('expanded')">
+            
+            <div class="image-wrapper">
+                <img src="https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/5/0/7/7/4/0/2/shutterstock_2424222439-3e91d973e81c2e6f.jpg" class="article-image" alt="Vorschau" loading="lazy">
+            </div>
+            
+
+            <div class="meta">heise • news</div>
+
+            <div class="card-header">
+                <div class="title">OpenAI plant 50 Milliarden Dollar Investitionen in Rechenleistung angesichts der Klage von Elon Musk</div>
+                <div class="relevance-container">
+                    <svg width="44" height="44">
+                        <circle stroke="rgba(255,255,255,0.08)" stroke-width="3" fill="transparent" r="19" cx="22" cy="22"/>
+                        <circle class="progress-ring__circle" stroke-width="3" stroke-dasharray="119.38" 
+                                stroke-dashoffset="4.910786358393267" 
+                                stroke-linecap="round" fill="transparent" r="19" cx="22" cy="22" transform="rotate(-90 22 22)"/>
+                    </svg>
+                    <div style="position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); font-size:11px; font-weight:800;">
+                        95
+                    </div>
+                </div>
+            </div>
+
+            <div class="summary">Im Rahmen der Klage von Elon Musk gegen OpenAI gab Top-Manager Greg Brockman bekannt, dass das Unternehmen allein in diesem Jahr rund 50 Milliarden Dollar für Rechenleistung ausgibt. Während Musk den Mitgründern vorwirft, die ursprüngliche Non-Profit-Mission zugunsten von Profitinteressen verändert zu haben, rechtfertigt OpenAI die gewinnorientierte Struktur als notwendig für geplante Milliarden-Investitionen in die KI-Infrastruktur.</div>
+
+            <a href="https://www.heise.de/news/OpenAI-Kosten-von-50-Milliarden-Dollar-fuer-Rechenleistung-11284078.html?wt_mc=rss.red.ho.ho.atom.beitrag.beitrag" class="source-button" target="_blank" onclick="event.stopPropagation()">
+                Vollständigen Artikel lesen
+            </a>
+        </div>
+        
+        <div class="article-card" onclick="this.classList.toggle('expanded')">
+            
+            <div class="image-wrapper">
+                <img src="https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/5/0/7/6/0/1/0/Screenshot_2026-05-06_at_12.28.19-00b60d6669c76855.png" class="article-image" alt="Vorschau" loading="lazy">
+            </div>
+            
+
+            <div class="meta">heise • news</div>
+
+            <div class="card-header">
+                <div class="title">Apple stellt Pride-Kollektion mit Armband und Software-Inhalten vor</div>
+                <div class="relevance-container">
+                    <svg width="44" height="44">
+                        <circle stroke="rgba(255,255,255,0.08)" stroke-width="3" fill="transparent" r="19" cx="22" cy="22"/>
+                        <circle class="progress-ring__circle" stroke-width="3" stroke-dasharray="119.38" 
+                                stroke-dashoffset="29.89289240592717" 
+                                stroke-linecap="round" fill="transparent" r="19" cx="22" cy="22" transform="rotate(-90 22 22)"/>
+                    </svg>
+                    <div style="position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); font-size:11px; font-weight:800;">
+                        73
+                    </div>
+                </div>
+            </div>
+
+            <div class="summary">Apple präsentiert eine neue Pride-Kollektion, bestehend aus einem Sport Loop Armband (Größen 40, 42, 46 mm; 49 Euro) aus recycelten Materialien mit Regenbogen-Design sowie kostenlosen Software-Inhalten. Die kommenden Betriebssystem-Updates (iOS, iPadOS und watchOS 26.5) beinhalten passende Hintergrundbilder und das Watch-Zifferblatt „Pride Luminance“. Apple unterstützt zudem Organisationen zur Förderung von LGBTQ+-Gemeinschaften.</div>
+
+            <a href="https://www.heise.de/news/Neues-Pride-Zubehoer-fuer-Apple-Watch-samt-Wallpaper-fuer-Geraete-11281219.html?wt_mc=rss.red.ho.ho.atom.beitrag.beitrag" class="source-button" target="_blank" onclick="event.stopPropagation()">
+                Vollständigen Artikel lesen
+            </a>
+        </div>
+        
+    </div>
+
+    <script>
+        (function() {
+            let currentCols = 0;
+            const feed = document.getElementById('news-feed');
+            const originalCards = Array.from(feed.querySelectorAll('.article-card'));
+
+            function layoutMasonry() {
+                let cols = 1;
+                if (window.innerWidth >= 1024) cols = 3;
+                else if (window.innerWidth >= 700) cols = 2;
+
+                if (cols === currentCols) return;
+                currentCols = cols;
+
+                feed.innerHTML = '';
+                feed.style.gridTemplateColumns = `repeat(${cols}, minmax(0, 1fr))`;
+
+                const columns = [];
+                for (let i = 0; i < cols; i++) {
+                    const col = document.createElement('div');
+                    col.style.display = 'flex';
+                    col.style.flexDirection = 'column';
+                    col.style.gap = '20px';
+                    col.style.minWidth = '0';
+                    columns.push(col);
+                    feed.appendChild(col);
+                }
+
+                originalCards.forEach((card, index) => {
+                    columns[index % cols].appendChild(card);
+                });
+            }
+
+            layoutMasonry();
+            window.addEventListener('resize', layoutMasonry);
+        })();
+
+        document.addEventListener("DOMContentLoaded", function() {
+            const ctx = document.getElementById('topicChart').getContext('2d');
+
+            const labels = ["news", "hintergrund"];
+            const currentData = [48, 2];
+            const baselineData = [45.3, 2.0];
+
+            const baseData = currentData.map((val, i) => Math.min(val, baselineData[i]));
+            const diffData = currentData.map((val, i) => Math.abs(val - baselineData[i]));
+
+            const diffBgColors = currentData.map((val, i) => 
+                val > baselineData[i] ? 'rgba(147, 51, 234, 0.8)' : 'rgba(0, 122, 255, 0.15)'
+            );
+
+            const diffBorders = currentData.map((val, i) => 
+                val > baselineData[i] ? 'rgba(147, 51, 234, 1)' : 'rgba(0, 122, 255, 0.6)'
+            );
+
+            const gradient = ctx.createLinearGradient(0, 0, 0, 220);
+            gradient.addColorStop(0, '#00f5d4');
+            gradient.addColorStop(1, 'rgba(0, 245, 212, 0.2)');
+
+            new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: labels,
+                    datasets: [
+                        {
+                            label: 'Basis',
+                            data: baseData,
+                            backgroundColor: gradient,
+                            borderRadius: 6,
+                            barPercentage: 0.45,  
+                            categoryPercentage: 0.8
+                        },
+                        {
+                            label: 'Differenz',
+                            data: diffData,
+                            backgroundColor: diffBgColors,
+                            borderColor: diffBorders,
+                            borderWidth: 1,
+                            borderRadius: 6,
+                            barPercentage: 0.45,  
+                            categoryPercentage: 0.8,
+                            borderDash: function(context) {
+                                const idx = context.dataIndex;
+                                if (idx === undefined) return [];
+                                return currentData[idx] >= baselineData[idx] ? [] : [4, 4];
+                            }
+                        }
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        x: {
+                            stacked: true,
+                            grid: { display: false, drawBorder: false },
+                            ticks: {
+                                color: 'rgba(255, 255, 255, 0.55)',
+                                font: { family: '-apple-system, sans-serif', size: 11 },
+                                maxRotation: 45,
+                                minRotation: 0
+                            }
+                        },
+                        y: {
+                            stacked: true,
+                            grid: { color: 'rgba(255, 255, 255, 0.05)', drawBorder: false },
+                            ticks: {
+                                color: 'rgba(255, 255, 255, 0.55)',
+                                font: { family: '-apple-system, sans-serif', size: 11 },
+                                beginAtZero: true
+                            }
+                        }
+                    },
+                    plugins: {
+                        legend: { display: false },
+                        tooltip: {
+                            mode: 'index',
+                            intersect: false,
+                            backgroundColor: 'rgba(0, 0, 0, 0.8)',
+                            titleFont: { family: '-apple-system, sans-serif', size: 13 },
+                            bodyFont: { family: '-apple-system, sans-serif', size: 14, weight: 'bold' },
+                            padding: 12,
+                            cornerRadius: 10,
+                            displayColors: false,
+                            callbacks: {
+                                label: function(context) {
+                                    if (context.datasetIndex === 1) return null;
+
+                                    const idx = context.dataIndex;
+                                    const current = currentData[idx];
+                                    const baseline = baselineData[idx];
+                                    const diff = (current - baseline).toFixed(1);
+
+                                    if (current > baseline) {
+                                        return `Aktuell: ${current} (+${diff} über Ø)`;
+                                    } else if (current < baseline) {
+                                        return `Aktuell: ${current} (${diff} unter Ø)`;
+                                    } else {
+                                        return `Aktuell: ${current} (Genau im Ø)`;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>
