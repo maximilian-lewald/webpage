@@ -309,9 +309,12 @@
 
     <header>
         <h1>Relevant</h1>
-        <p class="build-time">Aktualisiert: 08.05.2026, 11:25 Uhr</p>
+        <p class="build-time">Aktualisiert: 08.05.2026, 12:34 Uhr</p>
     </header>
 
+
+
+    
     <div class="dashboard-card">
         <div class="dashboard-rings">
             <div class="stat-item">
@@ -345,29 +348,91 @@
                     <svg width="60" height="60">
                         <circle stroke="rgba(255,255,255,0.08)" stroke-width="4" fill="transparent" r="26" cx="30" cy="30"/>
                         <circle class="dashboard-circle" stroke-width="4" stroke-dasharray="163.36" 
-                                stroke-dashoffset="6.534400000000005" 
+                                stroke-dashoffset="0.0" 
                                 stroke-linecap="round" fill="transparent" r="26" cx="30" cy="30" transform="rotate(-90 30 30)"/>
                     </svg>
-                    <div class="ring-text">96%</div>
+                    <div class="ring-text">100%</div>
                 </div>
                 <div class="stat-label">Last<br>24h</div>
             </div>
         </div>
     </div>
-
+    
+    
+    <!--
     <div class="dashboard-card">
         <h2 class="chart-title">Topic Distribution</h2>
         <div class="chart-container">
             <canvas id="topicChart"></canvas>
         </div>
     </div>
+    
+    -->
+    
+    
+    <!-- this inserts the graph for trends -->
+    
+    <div class="dashboard-card">
+        <h2 class="chart-title">Trend Explorer (Volatilste Themen / 3 Monate)</h2>
+        <div class="chart-container" style="height: 260px;">
+            <canvas id="keywordTrendChart"></canvas>
+        </div>
+    </div>
+
+    <script>
+        (function() {
+            const initChart = function() {
+                const ctx = document.getElementById('keywordTrendChart').getContext('2d');
+
+                Chart.defaults.color = 'rgba(255, 255, 255, 0.7)';
+                Chart.defaults.font.family = '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif';
+
+                new Chart(ctx, {
+                    type: 'line',
+                    data: {
+                        labels: ["2026-W07", "2026-W08", "2026-W09", "2026-W10", "2026-W11", "2026-W12", "2026-W13", "2026-W14", "2026-W15", "2026-W16", "2026-W17", "2026-W18", "2026-W19"],
+                        datasets: [{"label": "Hannover messe", "data": [0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 12, 0, 1], "borderColor": "#00f5d4", "backgroundColor": "transparent", "borderWidth": 2, "tension": 0.4, "pointRadius": 0, "pointHitRadius": 10}, {"label": "Stra\u00dfe von hormus", "data": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 2, 9], "borderColor": "#fee440", "backgroundColor": "transparent", "borderWidth": 2, "tension": 0.4, "pointRadius": 0, "pointHitRadius": 10}, {"label": "Paris saint-germain", "data": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 8], "borderColor": "#f15bb5", "backgroundColor": "transparent", "borderWidth": 2, "tension": 0.4, "pointRadius": 0, "pointHitRadius": 10}, {"label": "Nina warken", "data": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 7, 2, 1], "borderColor": "#9b5de5", "backgroundColor": "transparent", "borderWidth": 2, "tension": 0.4, "pointRadius": 0, "pointHitRadius": 10}, {"label": "Psychologie", "data": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 1, 7], "borderColor": "#00bbf9", "backgroundColor": "transparent", "borderWidth": 2, "tension": 0.4, "pointRadius": 0, "pointHitRadius": 10}]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        interaction: { mode: 'index', intersect: false },
+                        scales: {
+                            x: {
+                                grid: { display: false, drawBorder: false },
+                                // Wieder auf 45 Grad Rotation für 13 Wochen
+                                ticks: { color: 'rgba(255, 255, 255, 0.55)', maxRotation: 45, minRotation: 45, font: { size: 10 } }
+                            },
+                            y: {
+                                grid: { color: 'rgba(255, 255, 255, 0.05)', drawBorder: false },
+                                ticks: { color: 'rgba(255, 255, 255, 0.55)', beginAtZero: true, precision: 0 }
+                            }
+                        },
+                        plugins: {
+                            legend: { display: true, position: 'top', labels: { boxWidth: 12, usePointStyle: true, padding: 15 } },
+                            tooltip: { backgroundColor: 'rgba(0, 0, 0, 0.8)', titleFont: { size: 13 }, bodyFont: { size: 13 }, padding: 12, cornerRadius: 10 }
+                        }
+                    }
+                });
+            };
+
+            if (document.readyState === 'loading') {
+                document.addEventListener('DOMContentLoaded', initChart);
+            } else {
+                initChart();
+            }
+        })();
+    </script>
+    
+
+
 
     <div class="feed" id="news-feed">
         
         <div class="article-card" onclick="this.classList.toggle('expanded')">
             <div class="meta">Ollama AI • Top 10 (48h)</div>
             <div class="card-header">
-                <div class="title">KI-Branche: Technologischer Fortschritt und wachsende regulatorische Herausforderungen</div>
+                <div class="title">Aktuelle technologische und regulatorische Entwicklungen der KI</div>
                 <div class="relevance-container">
                     <svg width="44" height="44">
                         <circle stroke="rgba(255,255,255,0.08)" stroke-width="3" fill="transparent" r="19" cx="22" cy="22"/>
@@ -381,14 +446,138 @@
                 </div>
             </div>
             <!-- white-space: pre-wrap hält Absätze der KI intakt -->
-            <div class="summary" style="white-space: pre-wrap;">Die jüngsten Entwicklungen in der Technologiebranche sind geprägt von einem Spannungsfeld zwischen rasantem technologischem Fortschritt, massiven Investitionen und wachsendem regulatorischem sowie rechtlichem Druck. Im Bereich der Sprachmodelle hat OpenAI mit der Einführung von GPT-5.5 Instant einen bedeutenden Schritt gemacht, um Halluzinationen und Ungenauigkeiten massiv zu reduzieren und die Personalisierung durch Funktionen wie „Memory Sources“ zu verbessern. Parallel dazu stellte Mistral mit dem Modell Medium 3.5 sowie neuen Cloud-Funktionen neue Werkzeuge bereit. Dieser technologische Vorstoß geht mit enormen Kosten einher: OpenAI plant, allein in diesem Jahr rund 50 Milliarden Dollar in Rechenleistung zu investieren, was zugleich die Debatte über die Abkehr von der ursprünglichen Non-Profit-Mission befeuert, wie die Klage von Elon Musk verdeutlicht.
+            <div class="summary" style="white-space: pre-wrap;">Die aktuelle technologische und regulatorische Landschaft ist von erheblichen Veränderungen geprägt. Im Rechtswesen rügte das Kammergericht Berlin die Verwendung fiktiver Urteilssitate in Schriftsätzen, die auf KI-Halluzinationen beruhten, und mahnte Anwälte zur verstärkten Prüfung von KI-generierten Inhalten. Parallel dazu steht die EU-Kommission in der Kritik, da EU-Kommissionspräsidentin Ursula von der Leyen eine geplante Milliardenstrafe gegen Google wegen Verstößen gegen den Digital Markets Act (DMA) vorläufig ausgesetzt haben soll, was die Sorge vor politischem Druck auf die Wettbewerbsregulierung schürt. Ebenso sieht sich Meta mit massiven Urheberrechtsklagen von Verlagen und Autoren gegenüber, die das Training der KI „Llama“ mit illegal heruntergeladenen, urheberrechtlich geschützten Inhalten beklagen.
 
-Gleichzeitig verschärfen sich die rechtlichen Auseinandersetzungen um Urheberrechte und die Nutzung von KI-Daten. Führende Verlage wie Macmillan und Elsevier sowie der Autor Scott Turow verklagen Meta und Mark Zuckerberg persönlich wegen des Trainings der „Llama“-KI mit urheberrechtlich geschützten Inhalten. Auch im juristischen Alltag in Deutschland wächst die Aufmerksamkeit für die Risiken von KI-Fehlern; das Kammergericht Berlin rügte die Verwendung fiktiver Urteilszitate, die auf KI-Halluzinationen basierten. Auf regulatorischer Ebene stehen die EU-Kommission und die US-Regierung im Fokus: Während in den USA unter der Trump-Administration eine verstärkte KI-Aufsicht geplant ist, gibt es Kritik an der EU-Kommissionspräsidentin Ursula von der Leyen, die eine geplante Milliardenstrafe gegen Google wegen Verstößen gegen den Digital Markets Act (DMA) vorläufig ausgesetzt haben soll.
+Im Bereich der KI-Modelle hat OpenAI mit der Einführung von GPT-5.5 Instant ein Modell präsentiert, das Halluzinationen und Ungenauigkeiten signifikant reduziert und durch verbesserte Kontextualisierung sowie neue Funktionen zur Informationsverwaltung punktet. Dies geschieht vor dem Hintergrund massiver Investitionspläne: Das Unternehmen plant, allein in diesem Jahr rund 50 Milliarden Dollar für Rechenleistung auszugeben – eine Maßnahme, die trotz der Klage von Elon Musk gegen die Abkehr von der ursprünglichen Non-Profit-Mission als notwendig für die KI-Infrastruktur begründet wird. Auch andere Akteure passen ihre Strategien an: DeepL reduziert seine Belegschaft um etwa 25 %, um KI-Systeme tiefer in die Arbeitsprozesse zu integrieren, während Mistral neue Modelle und Cloud-Funktionen vorstellte. Im Bereich der Robotik hat 1X Technologies die Produktion des humanoiden Roboters „Neo“ für den privaten Gebrauch aufgenommen, der für den Einsatz in Haushalten konzipiert ist.
 
-Die Auswirkungen von KI auf die Arbeitswelt und die Industrie sind bereits spürbar. Das Unternehmen DeepL reduziert seine Belegschaft um etwa 25 % (250 Stellen), um durch eine strukturelle Neuausrichtung die Automatisierung interner Prozesse voranzutreiben. In der Medizinbranche wurden in Deutschland neue Orientierungshilfen für Hersteller von KI-gestützten Medizinprodukten veröffentlicht, um die Einhaltung der EU-KI-Verordnung zu erleichtern. Auch in der Forschung und industriellen Anwendung zeigen sich neue Trends: Ein Team der Cornell University entwickelte ein Modell zur Simulation der Flugstabilität von Vögeln und Insekten, das die Entwicklung flügelschlagender Roboter unterstützen könnte. Im Bereich der Nachhaltigkeit treibt das Fraunhofer-Projekt „Rob@t2Cell“ die Automatisierung des Batterierecyclings voran, um durch die Rückgewinnung von Rohstoffen einen Beitrag zur Kreislaufwirtschaft zu leisten.</div>
+Wissenschaftlich und industriell zeigen sich ebenfalls neue Entwicklungen: Forscher der Cornell University entwickelten ein Modell zur Simulation der Flugstabilität von Vögeln und Insekten, während die Pharmaindustrie verstärkt in KI-Infrastruktur zur Wirkstoffsuche investiert. Global betrachtet prägen zudem die US-Exportbeschränkungen gegenüber Nvidia, die geplante verstärkte KI-Aufsicht in den USA sowie neue regulatorische Orientierungshilfen für KI-Medizinprodukte in Deutschland die technologische Entwicklung.</div>
         </div>
         
 
+        
+        <div class="article-card" onclick="this.classList.toggle('expanded')">
+            
+            <div class="image-wrapper">
+                <img src="https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/5/0/7/9/0/1/5/Samsung-Press-Release-Fainting-Prediction-Galaxy-Watch_Main2-ba66814c7a1809e1.jpg" class="article-image" alt="Vorschau" loading="lazy">
+            </div>
+            
+
+            <div class="meta">heise • news</div>
+
+            <div class="card-header">
+                <div class="title">Klinische Studie belegt Vorhersage von vasovagalen Synkopen durch Galaxy Watch 6</div>
+                <div class="relevance-container">
+                    <svg width="44" height="44">
+                        <circle stroke="rgba(255,255,255,0.08)" stroke-width="3" fill="transparent" r="19" cx="22" cy="22"/>
+                        <circle class="progress-ring__circle" stroke-width="3" stroke-dasharray="119.38" 
+                                stroke-dashoffset="6.7193396029190495" 
+                                stroke-linecap="round" fill="transparent" r="19" cx="22" cy="22" transform="rotate(-90 22 22)"/>
+                    </svg>
+                    <div style="position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); font-size:11px; font-weight:800;">
+                        94
+                    </div>
+                </div>
+            </div>
+
+            <div class="summary">In einer klinischen Studie mit dem Chung-Ang University Gwangmyeong Hospital konnte Samsung nachweisen, dass die Galaxy Watch 6 mittels eines KI-Algorithmus und PPG-Sensordaten vasovagale Synkopen bis zu fünf Minuten im Voraus mit 84,6 % Genauigkeit (Sensitivität 90 %, Spezifität 64 %) vorhersagen kann. Die im „European Heart Journal – Digital Health“ veröffentlichten Ergebnisse zielen auf die Prävention von Folgeverletzungen durch Stürze ab, wobei eine Implementierung der Funktion in kommerzielle Serienmodelle derzeit noch ungeklärt ist.</div>
+
+            <a href="https://www.heise.de/news/Samsung-Studie-Galaxy-Watch-koennte-Ohnmachtsanfaelle-vorhersagen-11287289.html?wt_mc=rss.red.ho.ho.atom.beitrag.beitrag" class="source-button" target="_blank" onclick="event.stopPropagation()">
+                Vollständigen Artikel lesen
+            </a>
+        </div>
+        
+        <div class="article-card" onclick="this.classList.toggle('expanded')">
+            
+            <div class="image-wrapper">
+                <img src="https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/5/0/7/8/9/9/3/shutterstock_2424222439-3e91d973e81c2e6f.jpg" class="article-image" alt="Vorschau" loading="lazy">
+            </div>
+            
+
+            <div class="meta">heise • news</div>
+
+            <div class="card-header">
+                <div class="title">OpenAI veröffentlicht neue Audio-Modelle über die Realtime API</div>
+                <div class="relevance-container">
+                    <svg width="44" height="44">
+                        <circle stroke="rgba(255,255,255,0.08)" stroke-width="3" fill="transparent" r="19" cx="22" cy="22"/>
+                        <circle class="progress-ring__circle" stroke-width="3" stroke-dasharray="119.38" 
+                                stroke-dashoffset="13.22128822444813" 
+                                stroke-linecap="round" fill="transparent" r="19" cx="22" cy="22" transform="rotate(-90 22 22)"/>
+                    </svg>
+                    <div style="position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); font-size:11px; font-weight:800;">
+                        88
+                    </div>
+                </div>
+            </div>
+
+            <div class="summary">OpenAI hat die Audio-Modelle GPT-Realtime-2, GPT-Realtime-Translate und GPT-Realtime-Whisper über die Realtime API veröffentlicht, wobei GPT-Realtime-2 mit GPT-5-Reasoning, einem 128.000-Token-Kontextfenster und verbesserten Benchmarks bei unveränderten Preisen (32 USD/1M Input, 64 USD/1M Output) besticht. Die Modelle ermöglichen zudem Übersetzungen von über 70 Sprachen in 13 Zielsprachen (GPT-Realtime-Translate, 0,034 USD/Min) sowie latenzarme Transkription (GPT-Realtime-Whisper, 0,017 USD/Min), wobei die API EU Data Residency mit Ausnahme des API-Tracings unterstützt.</div>
+
+            <a href="https://www.heise.de/news/OpenAI-Neue-Audio-Modelle-fuer-Echtzeit-KI-Support-11287248.html?wt_mc=rss.red.ho.ho.atom.beitrag.beitrag" class="source-button" target="_blank" onclick="event.stopPropagation()">
+                Vollständigen Artikel lesen
+            </a>
+        </div>
+        
+        <div class="article-card" onclick="this.classList.toggle('expanded')">
+            
+            <div class="image-wrapper">
+                <img src="https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/5/0/7/8/8/2/8/apps-f19841d7c09be088.jpeg" class="article-image" alt="Vorschau" loading="lazy">
+            </div>
+            
+
+            <div class="meta">heise • news</div>
+
+            <div class="card-header">
+                <div class="title">Britisches Tribunal lässt Klage gegen Apple wegen iCloud-Praktiken für alle Nutzer zu</div>
+                <div class="relevance-container">
+                    <svg width="44" height="44">
+                        <circle stroke="rgba(255,255,255,0.08)" stroke-width="3" fill="transparent" r="19" cx="22" cy="22"/>
+                        <circle class="progress-ring__circle" stroke-width="3" stroke-dasharray="119.38" 
+                                stroke-dashoffset="29.64147687447317" 
+                                stroke-linecap="round" fill="transparent" r="19" cx="22" cy="22" transform="rotate(-90 22 22)"/>
+                    </svg>
+                    <div style="position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); font-size:11px; font-weight:800;">
+                        73
+                    </div>
+                </div>
+            </div>
+
+            <div class="summary">Ein britisches Tribunal hat die Klage der Verbraucherschutzorganisation Which? gegen Apple für alle iCloud-Nutzer seit November 2018 zugelassen und damit Apples Versuch, das Verfahren auf zahlende Kunden zu beschränken, abgelehnt. Die Kläger fordern bis zu 3 Milliarden Pfund Schadensersatz für etwa 40 Millionen Betroffene aufgrund von Vorwürfen des Marktmissbrauchs durch die Bevorzugung von iCloud in iOS und die Begrenzung des kostenlosen Speichers auf 5 GB. Die Klage basiert auf der Theorie des entgangenen Konsumentennutzens („Forgone Consumer Surplus“), wonach Kunden durch die Preisgestaltung finanzielle Vorteile entgangen seien.</div>
+
+            <a href="https://www.heise.de/news/iCloud-Lock-in-Apple-droht-weiter-Milliardenstrafe-in-Grossbritannien-11286923.html?wt_mc=rss.red.ho.ho.atom.beitrag.beitrag" class="source-button" target="_blank" onclick="event.stopPropagation()">
+                Vollständigen Artikel lesen
+            </a>
+        </div>
+        
+        <div class="article-card" onclick="this.classList.toggle('expanded')">
+            
+            <div class="image-wrapper">
+                <img src="https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/5/0/7/8/8/8/4/Neo-5810161506f0ce19.jpg" class="article-image" alt="Vorschau" loading="lazy">
+            </div>
+            
+
+            <div class="meta">heise • news</div>
+
+            <div class="card-header">
+                <div class="title">1X Technologies startet Produktion humanoider Roboter Neo für Privatkunden</div>
+                <div class="relevance-container">
+                    <svg width="44" height="44">
+                        <circle stroke="rgba(255,255,255,0.08)" stroke-width="3" fill="transparent" r="19" cx="22" cy="22"/>
+                        <circle class="progress-ring__circle" stroke-width="3" stroke-dasharray="119.38" 
+                                stroke-dashoffset="4.853955538163163" 
+                                stroke-linecap="round" fill="transparent" r="19" cx="22" cy="22" transform="rotate(-90 22 22)"/>
+                    </svg>
+                    <div style="position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); font-size:11px; font-weight:800;">
+                        95
+                    </div>
+                </div>
+            </div>
+
+            <div class="summary">1X Technologies hat die Produktion der humanoiden Roboter „Neo“ in Hayward, Kalifornien, aufgenommen, mit einer Auslieferung an Privatkunden bis Ende 2026. Die 1,65 m großen, 30 kg schweren und auf Nvidia-Plattformen basierenden Roboter sind für geräuscharmen Haushaltseinsatz (ca. 22 dB) und Traglasten bis 70 kg ausgelegt. Nach dem Ausverkauf der ersten 10.000 Einheiten plant das Unternehmen, die Produktion bis 2027 durch ein weiteres Werk in San Carlos auf 100.000 Einheiten zu steigern; die Kosten belaufen sich auf 20.000 US-Dollar für den Kauf oder 500 US-Dollar monatlich zur Miete.</div>
+
+            <a href="https://www.heise.de/news/1X-will-humanoiden-Haushaltsroboter-Neo-noch-2026-an-US-Kunden-ausliefern-11287035.html?wt_mc=rss.red.ho.ho.atom.beitrag.beitrag" class="source-button" target="_blank" onclick="event.stopPropagation()">
+                Vollständigen Artikel lesen
+            </a>
+        </div>
         
         <div class="article-card" onclick="this.classList.toggle('expanded')">
             
@@ -1812,130 +2001,6 @@ Die Auswirkungen von KI auf die Arbeitswelt und die Industrie sind bereits spür
             <div class="summary">Anthropic erhöht die Claude-Nutzungslimits und API-Token-Grenzen durch neue Rechenkapazitäten via SpaceX sowie die Prüfung orbitaler Rechenzentren. Honda stellt das Elektro-SUV Prologue in Nordamerika ein, setzt auf Hybridmodelle und storniert die geplante E-Auto- und Batterieproduktion in Kanada. Emco übernimmt die Markenrechte an der Schwalbe und plant die Wiederaufnahme der Produktion des E-Rollers in Suhl. Gegen LinkedIn wurde eine Beschwerde wegen der Beschränkung von DSGVO-Auskunftsrechten durch eine Bezahlschranke bei Profilbesucher-Daten eingereicht.</div>
 
             <a href="https://www.heise.de/news/Donnerstag-Anthropic-Kooperation-mit-SpaceX-Hondas-Aufgabe-von-Elektroplaenen-11285025.html?wt_mc=rss.red.ho.ho.atom.beitrag.beitrag" class="source-button" target="_blank" onclick="event.stopPropagation()">
-                Vollständigen Artikel lesen
-            </a>
-        </div>
-        
-        <div class="article-card" onclick="this.classList.toggle('expanded')">
-            
-            <div class="image-wrapper">
-                <img src="https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/5/0/7/7/8/5/8/EV_Ladestation_Wegweiser-281386880b770e67.jpg" class="article-image" alt="Vorschau" loading="lazy">
-            </div>
-            
-
-            <div class="meta">heise • news</div>
-
-            <div class="card-header">
-                <div class="title">Honda stellt Elektroauto-Produktion in Kanada ein und setzt auf Hybridmodelle</div>
-                <div class="relevance-container">
-                    <svg width="44" height="44">
-                        <circle stroke="rgba(255,255,255,0.08)" stroke-width="3" fill="transparent" r="19" cx="22" cy="22"/>
-                        <circle class="progress-ring__circle" stroke-width="3" stroke-dasharray="119.38" 
-                                stroke-dashoffset="33.29108225361246" 
-                                stroke-linecap="round" fill="transparent" r="19" cx="22" cy="22" transform="rotate(-90 22 22)"/>
-                    </svg>
-                    <div style="position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); font-size:11px; font-weight:800;">
-                        70
-                    </div>
-                </div>
-            </div>
-
-            <div class="summary">Honda stellt den Vertrieb des Elektro-SUV Prologue sowie die geplanten Elektroauto- und Batterieproduktionen in Kanada ein und setzt in Nordamerika stattdessen auf Hybridmodelle. Dieser Rückzug erfolgt im Zuge einer allgemeinen Reduzierung von E-Auto-Projekten in der Region durch Hersteller wie Volkswagen, GM und Stellantis aufgrund sinkender Nachfrage. Parallel dazu ermöglicht eine Vereinbarung zwischen Kanada und China den Import steigender Mengen chinesischer Elektrofahrzeuge zu niedrigen Zöllen, um chinesische Hersteller zur langfristigen lokalen Produktion in Kanada zu bewegen.</div>
-
-            <a href="https://www.heise.de/news/Honda-storniert-Elektroauto-Fabrik-in-Kanada-streicht-E-SUV-11285003.html?wt_mc=rss.red.ho.ho.atom.beitrag.beitrag" class="source-button" target="_blank" onclick="event.stopPropagation()">
-                Vollständigen Artikel lesen
-            </a>
-        </div>
-        
-        <div class="article-card" onclick="this.classList.toggle('expanded')">
-            
-            <div class="image-wrapper">
-                <img src="https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/5/0/7/7/8/6/4/shutterstock_2737162387-4aa6e0ef6212fe9b.jpg" class="article-image" alt="Vorschau" loading="lazy">
-            </div>
-            
-
-            <div class="meta">heise • news</div>
-
-            <div class="card-header">
-                <div class="title">Anthropic erweitert Claude-Nutzungslimits durch Partnerschaft mit SpaceX</div>
-                <div class="relevance-container">
-                    <svg width="44" height="44">
-                        <circle stroke="rgba(255,255,255,0.08)" stroke-width="3" fill="transparent" r="19" cx="22" cy="22"/>
-                        <circle class="progress-ring__circle" stroke-width="3" stroke-dasharray="119.38" 
-                                stroke-dashoffset="9.08566666197548" 
-                                stroke-linecap="round" fill="transparent" r="19" cx="22" cy="22" transform="rotate(-90 22 22)"/>
-                    </svg>
-                    <div style="position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); font-size:11px; font-weight:800;">
-                        91
-                    </div>
-                </div>
-            </div>
-
-            <div class="summary">Durch eine Partnerschaft mit SpaceX hat Anthropic die Rechenkapazität des Supercomputers Colossus (300 MW, über 220.000 Nvidia-GPUs) weitgehend gesichert, was eine massive Erhöhung der Nutzungslimits für Claude-Modelle ermöglicht: Bei Claude Code werden die Zeitbeschränkungen für Pro-, Max-, Team- und Enterprise-Abos verdoppelt und Spitzenzeit-Beschränkungen für Pro- und Max-Nutzer aufgehoben, während die API-Token-Limits für Claude Opus deutlich angehoben wurden. Zudem erwägt Anthropic eine künftige Zusammenarbeit mit SpaceX zur Entwicklung orbitaler KI-Rechenkapazitäten.</div>
-
-            <a href="https://www.heise.de/news/Anthropic-erhoeht-Claude-Nutzung-fuer-KI-Abonnenten-durch-Kooperation-mit-SpaceX-11285015.html?wt_mc=rss.red.ho.ho.atom.beitrag.beitrag" class="source-button" target="_blank" onclick="event.stopPropagation()">
-                Vollständigen Artikel lesen
-            </a>
-        </div>
-        
-        <div class="article-card" onclick="this.classList.toggle('expanded')">
-            
-            <div class="image-wrapper">
-                <img src="https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/5/0/7/7/8/0/6/hp-5359832ef9ddb5d7.jpg" class="article-image" alt="Vorschau" loading="lazy">
-            </div>
-            
-
-            <div class="meta">heise • news</div>
-
-            <div class="card-header">
-                <div class="title">Emco E-Roller plant Wiederaufnahme der Schwalbe-Produktion in Suhl</div>
-                <div class="relevance-container">
-                    <svg width="44" height="44">
-                        <circle stroke="rgba(255,255,255,0.08)" stroke-width="3" fill="transparent" r="19" cx="22" cy="22"/>
-                        <circle class="progress-ring__circle" stroke-width="3" stroke-dasharray="119.38" 
-                                stroke-dashoffset="15.866800848334591" 
-                                stroke-linecap="round" fill="transparent" r="19" cx="22" cy="22" transform="rotate(-90 22 22)"/>
-                    </svg>
-                    <div style="position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); font-size:11px; font-weight:800;">
-                        85
-                    </div>
-                </div>
-            </div>
-
-            <div class="summary">Nach einer Absichtserklärung zur Lizenzübernahme plant der Hersteller Emco E-Roller die Wiederaufnahme der Produktion des elektrischen Kleinkraftrads „Schwalbe“ am ehemaligen Simson-Gelände in Suhl, wobei der Produktionsstart nach der Einstellung der Fertigung durch das insolvente Unternehmen Govecs noch in diesem Jahr erfolgen soll.</div>
-
-            <a href="https://www.heise.de/news/Emco-bringt-die-Elektroschwalbe-zurueck-11284899.html?wt_mc=rss.red.ho.ho.atom.beitrag.beitrag" class="source-button" target="_blank" onclick="event.stopPropagation()">
-                Vollständigen Artikel lesen
-            </a>
-        </div>
-        
-        <div class="article-card" onclick="this.classList.toggle('expanded')">
-            
-            <div class="image-wrapper">
-                <img src="https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/5/0/7/7/8/0/4/bpk-bfdi-02f4f57d70b3eb89.jpg" class="article-image" alt="Vorschau" loading="lazy">
-            </div>
-            
-
-            <div class="meta">heise • news</div>
-
-            <div class="card-header">
-                <div class="title">BfDI-Beauftragte Louisa Specht-Riemenschneider verlässt Amt; Tätigkeitsbericht 2025 verzeichnet Rekordbeschwerdezahlen</div>
-                <div class="relevance-container">
-                    <svg width="44" height="44">
-                        <circle stroke="rgba(255,255,255,0.08)" stroke-width="3" fill="transparent" r="19" cx="22" cy="22"/>
-                        <circle class="progress-ring__circle" stroke-width="3" stroke-dasharray="119.38" 
-                                stroke-dashoffset="16.43986619553607" 
-                                stroke-linecap="round" fill="transparent" r="19" cx="22" cy="22" transform="rotate(-90 22 22)"/>
-                    </svg>
-                    <div style="position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); font-size:11px; font-weight:800;">
-                        85
-                    </div>
-                </div>
-            </div>
-
-            <div class="summary">Aufgrund gesundheitlicher Gründe wird die Bundesbeauftragte für den Datenschutz und die Informationsfreiheit (BfDI), Louisa Specht-Riemenschneider, ihr Amt verlassen. Der Tätigkeitsbericht 2025 verzeichnet mit 11.824 Beschwerden ein Rekordniveau sowie 129 aufsichtsrechtliche Maßnahmen, darunter ein 45-Millionen-Euro-Bußgeld gegen Vodafone. Specht-Riemenschneider kritisierte die zunehmende Ausweitung von Sicherheitsbefugnissen, die geplante Vorratsdatenspeicherung sowie die mangelnde Kontrolle von Nachrichtendiensten und mahnte eine datenschutzkonforme Gestaltung der EUDI-Wallet an. Angesichts eingeschränkter behördlicher Durchsetzungsmöglichkeiten befürwortete sie verstärkt privatrechtliche Schadenersatzklagen.</div>
-
-            <a href="https://www.heise.de/news/BfDI-Neue-Sicherheitsbefugnisse-nicht-zulaessig-11284895.html?wt_mc=rss.red.ho.ho.atom.beitrag.beitrag" class="source-button" target="_blank" onclick="event.stopPropagation()">
                 Vollständigen Artikel lesen
             </a>
         </div>
