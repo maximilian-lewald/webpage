@@ -31,7 +31,7 @@
         html {
             background-color: #010409;
             height: 100%;
-            overflow-x: hidden;
+            overflow-x: clip; 
             scroll-behavior: smooth;
         }
 
@@ -47,7 +47,7 @@
             padding: env(safe-area-inset-top) 20px calc(env(safe-area-inset-bottom) + 50vh) 20px;
             background: transparent;
             width: 100%;
-            overflow-x: hidden;
+            overflow-x: clip; 
         }
 
         .background-fixed {
@@ -196,7 +196,7 @@
             cursor: pointer;
             overflow: hidden;
             max-height: 600px; 
-            transition: max-height 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
+            transition: max-height 0.6s cubic-bezier(0.2, 0.8, 0.2, 1);
             box-shadow: 0 15px 45px rgba(0, 0, 0, 0.4);
             width: 100%;
             max-width: 100%;
@@ -209,7 +209,7 @@
         }
 
         /* ----------------------------------------------------
-           MOBILE: 3D STACK FROSTED GLASS EFFECTS
+           MOBILE: NATIVE STICKY OVERLAY (Wallet Effect)
            ---------------------------------------------------- */
         @media (max-width: 699px) {
             .feed {
@@ -220,23 +220,34 @@
             }
 
             .article-card {
-                background: rgba(25, 30, 40, 0.45);
+                background: rgba(20, 25, 32, 0.85); 
                 backdrop-filter: blur(25px) saturate(180%);
                 -webkit-backdrop-filter: blur(25px) saturate(180%);
                 border: 1px solid rgba(255, 255, 255, 0.1);
                 border-top: 1px solid rgba(255, 255, 255, 0.3);
-                box-shadow: 0 -10px 40px rgba(0, 0, 0, 0.4), 0 20px 40px rgba(0, 0, 0, 0.2);
-                transform-origin: top center;
+                box-shadow: 0 -15px 40px rgba(0, 0, 0, 0.5);
+
+                /* ALLE Karten kleben (egal ob expanded oder nicht)! */
                 position: sticky;
                 top: 100px; 
-                will-change: transform, opacity, filter;
+                transform-origin: top center;
+                will-change: transform, filter;
             }
 
-            /* WICHTIG: Erlaubt das Scrollen INNERHALB der ausgeklappten Kachel,
-               damit große Kacheln nicht das Stack-Layout kaputt machen. */
             .article-card.expanded {
-                max-height: calc(100vh - 160px) !important;
+                /* FIX: position:relative und top:0 entfernt! 
+                   Dadurch erbt die Karte das position:sticky und klebt korrekt. */
+
+                /* WICHTIG: Erlaubt das Scrollen innerhalb der Karte,
+                   damit sie weiterhin kleben kann, man den Text aber lesen kann. */
+                max-height: calc(100vh - 140px) !important;
                 overflow-y: auto !important;
+                overscroll-behavior: contain;
+            }
+
+            /* Scrollbar in der Karte unsichtbar machen für cleanen Look */
+            .article-card.expanded::-webkit-scrollbar {
+                display: none;
             }
 
             .title {
@@ -363,7 +374,7 @@
 
     <header>
         <h1>Relevant</h1>
-        <p class="build-time">Aktualisiert: 09.05.2026, 16:29 Uhr</p>
+        <p class="build-time">Aktualisiert: 09.05.2026, 16:57 Uhr</p>
     </header>
 
     <div class="dashboard-card">
@@ -463,16 +474,10 @@
     </script>
     
 
-    <div class="dashboard-card">
-        <h2 class="chart-title">Topic Distribution</h2>
-        <div class="chart-container">
-            <canvas id="topicChart"></canvas>
-        </div>
-    </div>
 
     <div class="feed" id="news-feed">
         
-        <div class="article-card" onclick="this.classList.toggle('expanded'); if(window.innerWidth < 700) { setTimeout(calculatePositions, 850); }">
+        <div class="article-card" onclick="this.classList.toggle('expanded'); setTimeout(updateMobileStack, 50);">
             <div class="meta">Ollama AI • Top 10 (48h)</div>
             <div class="card-header">
                 <div class="title">hello456</div>
@@ -493,7 +498,7 @@
         
 
         
-        <div class="article-card" onclick="this.classList.toggle('expanded'); if(window.innerWidth < 700) { setTimeout(calculatePositions, 850); }">
+        <div class="article-card" onclick="this.classList.toggle('expanded'); setTimeout(updateMobileStack, 50);">
             
             <div class="image-wrapper">
                 <img src="https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/5/0/7/9/5/8/4/shutterstock_2275867503-21245ffd1e46849d.jpg" class="article-image" alt="Vorschau" loading="lazy">
@@ -524,7 +529,7 @@
             </a>
         </div>
         
-        <div class="article-card" onclick="this.classList.toggle('expanded'); if(window.innerWidth < 700) { setTimeout(calculatePositions, 850); }">
+        <div class="article-card" onclick="this.classList.toggle('expanded'); setTimeout(updateMobileStack, 50);">
             
             <div class="image-wrapper">
                 <img src="https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/5/0/7/9/3/2/4/generated-image-1__2_-12fd567ea53ab774.png" class="article-image" alt="Vorschau" loading="lazy">
@@ -555,7 +560,7 @@
             </a>
         </div>
         
-        <div class="article-card" onclick="this.classList.toggle('expanded'); if(window.innerWidth < 700) { setTimeout(calculatePositions, 850); }">
+        <div class="article-card" onclick="this.classList.toggle('expanded'); setTimeout(updateMobileStack, 50);">
             
             <div class="image-wrapper">
                 <img src="https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/5/0/7/6/2/7/3/OVERLAY__Analyse-8d03a493fcbf3b04.jpg" class="article-image" alt="Vorschau" loading="lazy">
@@ -586,7 +591,7 @@
             </a>
         </div>
         
-        <div class="article-card" onclick="this.classList.toggle('expanded'); if(window.innerWidth < 700) { setTimeout(calculatePositions, 850); }">
+        <div class="article-card" onclick="this.classList.toggle('expanded'); setTimeout(updateMobileStack, 50);">
             
             <div class="image-wrapper">
                 <img src="https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/5/0/7/9/5/1/7/shutterstock_2542077749-e9f76f1a20e535a2.jpg" class="article-image" alt="Vorschau" loading="lazy">
@@ -617,7 +622,7 @@
             </a>
         </div>
         
-        <div class="article-card" onclick="this.classList.toggle('expanded'); if(window.innerWidth < 700) { setTimeout(calculatePositions, 850); }">
+        <div class="article-card" onclick="this.classList.toggle('expanded'); setTimeout(updateMobileStack, 50);">
             
             <div class="image-wrapper">
                 <img src="https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/5/0/7/9/5/2/5/shutterstock_1258390147-0a0aaa4dc0fdf3b1.jpg" class="article-image" alt="Vorschau" loading="lazy">
@@ -648,7 +653,7 @@
             </a>
         </div>
         
-        <div class="article-card" onclick="this.classList.toggle('expanded'); if(window.innerWidth < 700) { setTimeout(calculatePositions, 850); }">
+        <div class="article-card" onclick="this.classList.toggle('expanded'); setTimeout(updateMobileStack, 50);">
             
             <div class="image-wrapper">
                 <img src="https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/5/0/7/8/3/7/5/kaercher_hd-6-15_application-1-jpg-a97f588b5b44bf17.webp" class="article-image" alt="Vorschau" loading="lazy">
@@ -679,7 +684,7 @@
             </a>
         </div>
         
-        <div class="article-card" onclick="this.classList.toggle('expanded'); if(window.innerWidth < 700) { setTimeout(calculatePositions, 850); }">
+        <div class="article-card" onclick="this.classList.toggle('expanded'); setTimeout(updateMobileStack, 50);">
             
             <div class="image-wrapper">
                 <img src="https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/5/0/7/9/4/9/4/shutterstock_665882623-080dcd0146237320.jpg" class="article-image" alt="Vorschau" loading="lazy">
@@ -710,7 +715,7 @@
             </a>
         </div>
         
-        <div class="article-card" onclick="this.classList.toggle('expanded'); if(window.innerWidth < 700) { setTimeout(calculatePositions, 850); }">
+        <div class="article-card" onclick="this.classList.toggle('expanded'); setTimeout(updateMobileStack, 50);">
             
             <div class="image-wrapper">
                 <img src="https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/5/0/7/9/4/8/6/shutterstock_1415273714-bf3fb9eb45a2b344.jpg" class="article-image" alt="Vorschau" loading="lazy">
@@ -741,7 +746,7 @@
             </a>
         </div>
         
-        <div class="article-card" onclick="this.classList.toggle('expanded'); if(window.innerWidth < 700) { setTimeout(calculatePositions, 850); }">
+        <div class="article-card" onclick="this.classList.toggle('expanded'); setTimeout(updateMobileStack, 50);">
             
             <div class="image-wrapper">
                 <img src="https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/5/0/7/9/4/7/5/PDFSpaces1-64652f164ae7a5c2.webp" class="article-image" alt="Vorschau" loading="lazy">
@@ -772,7 +777,7 @@
             </a>
         </div>
         
-        <div class="article-card" onclick="this.classList.toggle('expanded'); if(window.innerWidth < 700) { setTimeout(calculatePositions, 850); }">
+        <div class="article-card" onclick="this.classList.toggle('expanded'); setTimeout(updateMobileStack, 50);">
             
             <div class="image-wrapper">
                 <img src="https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/5/0/7/9/3/2/7/07dd102ae49648ed9e12cc21c44ffad2-dac208fc913300d1.JPG" class="article-image" alt="Vorschau" loading="lazy">
@@ -803,7 +808,7 @@
             </a>
         </div>
         
-        <div class="article-card" onclick="this.classList.toggle('expanded'); if(window.innerWidth < 700) { setTimeout(calculatePositions, 850); }">
+        <div class="article-card" onclick="this.classList.toggle('expanded'); setTimeout(updateMobileStack, 50);">
             
             <div class="image-wrapper">
                 <img src="https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/5/0/7/9/2/5/7/shutterstock_1626983506-979e57d8aa7eecb3.jpg" class="article-image" alt="Vorschau" loading="lazy">
@@ -834,7 +839,7 @@
             </a>
         </div>
         
-        <div class="article-card" onclick="this.classList.toggle('expanded'); if(window.innerWidth < 700) { setTimeout(calculatePositions, 850); }">
+        <div class="article-card" onclick="this.classList.toggle('expanded'); setTimeout(updateMobileStack, 50);">
             
             <div class="image-wrapper">
                 <img src="https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/5/0/7/8/7/3/5/3003_Thumb_FOTOSHOSTEN_2-e4738c18044d2802.jpg" class="article-image" alt="Vorschau" loading="lazy">
@@ -865,7 +870,7 @@
             </a>
         </div>
         
-        <div class="article-card" onclick="this.classList.toggle('expanded'); if(window.innerWidth < 700) { setTimeout(calculatePositions, 850); }">
+        <div class="article-card" onclick="this.classList.toggle('expanded'); setTimeout(updateMobileStack, 50);">
             
             <div class="image-wrapper">
                 <img src="https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/5/0/7/9/3/9/9/Opel_Mokka_Electric-f8c6cb1075cd508e.jpg" class="article-image" alt="Vorschau" loading="lazy">
@@ -896,7 +901,7 @@
             </a>
         </div>
         
-        <div class="article-card" onclick="this.classList.toggle('expanded'); if(window.innerWidth < 700) { setTimeout(calculatePositions, 850); }">
+        <div class="article-card" onclick="this.classList.toggle('expanded'); setTimeout(updateMobileStack, 50);">
             
             <div class="image-wrapper">
                 <img src="https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/5/0/7/8/0/0/8/KIupdate_Titel_122023-4cd1ddee68e292c6.png" class="article-image" alt="Vorschau" loading="lazy">
@@ -927,7 +932,7 @@
             </a>
         </div>
         
-        <div class="article-card" onclick="this.classList.toggle('expanded'); if(window.innerWidth < 700) { setTimeout(calculatePositions, 850); }">
+        <div class="article-card" onclick="this.classList.toggle('expanded'); setTimeout(updateMobileStack, 50);">
             
             <div class="image-wrapper">
                 <img src="https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/5/0/3/1/9/6/9/https___xp.heise.de_fileserver_images_2610_711244121217777_hob.agenticco_2031751187_jnac_online-28113b598fc8f02a.jpg" class="article-image" alt="Vorschau" loading="lazy">
@@ -958,7 +963,7 @@
             </a>
         </div>
         
-        <div class="article-card" onclick="this.classList.toggle('expanded'); if(window.innerWidth < 700) { setTimeout(calculatePositions, 850); }">
+        <div class="article-card" onclick="this.classList.toggle('expanded'); setTimeout(updateMobileStack, 50);">
             
             <div class="image-wrapper">
                 <img src="https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/5/0/7/9/1/8/1/shutterstock_170954663-2d09c953d948f4b0.jpg" class="article-image" alt="Vorschau" loading="lazy">
@@ -989,7 +994,7 @@
             </a>
         </div>
         
-        <div class="article-card" onclick="this.classList.toggle('expanded'); if(window.innerWidth < 700) { setTimeout(calculatePositions, 850); }">
+        <div class="article-card" onclick="this.classList.toggle('expanded'); setTimeout(updateMobileStack, 50);">
             
             <div class="image-wrapper">
                 <img src="https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/5/0/7/3/5/4/3/visionpro_w-839b37c338f60e1f.png" class="article-image" alt="Vorschau" loading="lazy">
@@ -1020,7 +1025,7 @@
             </a>
         </div>
         
-        <div class="article-card" onclick="this.classList.toggle('expanded'); if(window.innerWidth < 700) { setTimeout(calculatePositions, 850); }">
+        <div class="article-card" onclick="this.classList.toggle('expanded'); setTimeout(updateMobileStack, 50);">
             
             <div class="image-wrapper">
                 <img src="https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/5/0/7/9/0/4/7/shutterstock_2258159717-a04fc35e24b96829.jpg" class="article-image" alt="Vorschau" loading="lazy">
@@ -1051,7 +1056,7 @@
             </a>
         </div>
         
-        <div class="article-card" onclick="this.classList.toggle('expanded'); if(window.innerWidth < 700) { setTimeout(calculatePositions, 850); }">
+        <div class="article-card" onclick="this.classList.toggle('expanded'); setTimeout(updateMobileStack, 50);">
             
             <div class="image-wrapper">
                 <img src="https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/5/0/7/8/9/8/0/shutterstock_2305366297-bfd7d1da39557d18.jpg" class="article-image" alt="Vorschau" loading="lazy">
@@ -1082,7 +1087,7 @@
             </a>
         </div>
         
-        <div class="article-card" onclick="this.classList.toggle('expanded'); if(window.innerWidth < 700) { setTimeout(calculatePositions, 850); }">
+        <div class="article-card" onclick="this.classList.toggle('expanded'); setTimeout(updateMobileStack, 50);">
             
             <div class="image-wrapper">
                 <img src="https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/5/0/7/8/4/4/3/ki_agenten-51744e251945f64a.png" class="article-image" alt="Vorschau" loading="lazy">
@@ -1113,7 +1118,7 @@
             </a>
         </div>
         
-        <div class="article-card" onclick="this.classList.toggle('expanded'); if(window.innerWidth < 700) { setTimeout(calculatePositions, 850); }">
+        <div class="article-card" onclick="this.classList.toggle('expanded'); setTimeout(updateMobileStack, 50);">
             
             <div class="image-wrapper">
                 <img src="https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/5/0/7/8/8/2/4/Screenshot_2025-09-16_at_00.12.07-43567d63113af58a.png" class="article-image" alt="Vorschau" loading="lazy">
@@ -1144,7 +1149,7 @@
             </a>
         </div>
         
-        <div class="article-card" onclick="this.classList.toggle('expanded'); if(window.innerWidth < 700) { setTimeout(calculatePositions, 850); }">
+        <div class="article-card" onclick="this.classList.toggle('expanded'); setTimeout(updateMobileStack, 50);">
             
             <div class="image-wrapper">
                 <img src="https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/5/0/7/9/0/1/5/Samsung-Press-Release-Fainting-Prediction-Galaxy-Watch_Main2-ba66814c7a1809e1.jpg" class="article-image" alt="Vorschau" loading="lazy">
@@ -1175,7 +1180,7 @@
             </a>
         </div>
         
-        <div class="article-card" onclick="this.classList.toggle('expanded'); if(window.innerWidth < 700) { setTimeout(calculatePositions, 850); }">
+        <div class="article-card" onclick="this.classList.toggle('expanded'); setTimeout(updateMobileStack, 50);">
             
             <div class="image-wrapper">
                 <img src="https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/5/0/7/8/9/9/3/shutterstock_2424222439-3e91d973e81c2e6f.jpg" class="article-image" alt="Vorschau" loading="lazy">
@@ -1206,7 +1211,7 @@
             </a>
         </div>
         
-        <div class="article-card" onclick="this.classList.toggle('expanded'); if(window.innerWidth < 700) { setTimeout(calculatePositions, 850); }">
+        <div class="article-card" onclick="this.classList.toggle('expanded'); setTimeout(updateMobileStack, 50);">
             
             <div class="image-wrapper">
                 <img src="https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/5/0/7/8/8/2/8/apps-f19841d7c09be088.jpeg" class="article-image" alt="Vorschau" loading="lazy">
@@ -1237,7 +1242,7 @@
             </a>
         </div>
         
-        <div class="article-card" onclick="this.classList.toggle('expanded'); if(window.innerWidth < 700) { setTimeout(calculatePositions, 850); }">
+        <div class="article-card" onclick="this.classList.toggle('expanded'); setTimeout(updateMobileStack, 50);">
             
             <div class="image-wrapper">
                 <img src="https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/5/0/7/8/8/8/4/Neo-5810161506f0ce19.jpg" class="article-image" alt="Vorschau" loading="lazy">
@@ -1268,7 +1273,7 @@
             </a>
         </div>
         
-        <div class="article-card" onclick="this.classList.toggle('expanded'); if(window.innerWidth < 700) { setTimeout(calculatePositions, 850); }">
+        <div class="article-card" onclick="this.classList.toggle('expanded'); setTimeout(updateMobileStack, 50);">
             
             <div class="image-wrapper">
                 <img src="https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/5/0/7/8/8/7/9/security-bug-fixes-1-2048x1152-1ce36ac959a4d999.png" class="article-image" alt="Vorschau" loading="lazy">
@@ -1299,7 +1304,7 @@
             </a>
         </div>
         
-        <div class="article-card" onclick="this.classList.toggle('expanded'); if(window.innerWidth < 700) { setTimeout(calculatePositions, 850); }">
+        <div class="article-card" onclick="this.classList.toggle('expanded'); setTimeout(updateMobileStack, 50);">
             
             <div class="image-wrapper">
                 <img src="https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/5/0/7/8/9/1/0/iPhone_tre-STZ_3258-c467c80d3337920a.JPG" class="article-image" alt="Vorschau" loading="lazy">
@@ -1330,7 +1335,7 @@
             </a>
         </div>
         
-        <div class="article-card" onclick="this.classList.toggle('expanded'); if(window.innerWidth < 700) { setTimeout(calculatePositions, 850); }">
+        <div class="article-card" onclick="this.classList.toggle('expanded'); setTimeout(updateMobileStack, 50);">
             
             <div class="image-wrapper">
                 <img src="https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/5/0/7/4/0/3/1/visualint-197c1cbbb620c263.png" class="article-image" alt="Vorschau" loading="lazy">
@@ -1361,7 +1366,7 @@
             </a>
         </div>
         
-        <div class="article-card" onclick="this.classList.toggle('expanded'); if(window.innerWidth < 700) { setTimeout(calculatePositions, 850); }">
+        <div class="article-card" onclick="this.classList.toggle('expanded'); setTimeout(updateMobileStack, 50);">
             
             <div class="image-wrapper">
                 <img src="https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/5/0/7/8/7/6/9/shutterstock_1516105634-61e7b9706cb1c081.jpg" class="article-image" alt="Vorschau" loading="lazy">
@@ -1392,7 +1397,7 @@
             </a>
         </div>
         
-        <div class="article-card" onclick="this.classList.toggle('expanded'); if(window.innerWidth < 700) { setTimeout(calculatePositions, 850); }">
+        <div class="article-card" onclick="this.classList.toggle('expanded'); setTimeout(updateMobileStack, 50);">
             
             <div class="image-wrapper">
                 <img src="https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/5/0/7/7/5/1/9/Screenshot_2026-05-06_at_13.57.15-727003e4831144d6.png" class="article-image" alt="Vorschau" loading="lazy">
@@ -1423,7 +1428,7 @@
             </a>
         </div>
         
-        <div class="article-card" onclick="this.classList.toggle('expanded'); if(window.innerWidth < 700) { setTimeout(calculatePositions, 850); }">
+        <div class="article-card" onclick="this.classList.toggle('expanded'); setTimeout(updateMobileStack, 50);">
             
             <div class="image-wrapper">
                 <img src="https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/5/0/7/8/7/5/7/shutterstock_1505640251-13872ce8c530c388.jpg" class="article-image" alt="Vorschau" loading="lazy">
@@ -1454,7 +1459,7 @@
             </a>
         </div>
         
-        <div class="article-card" onclick="this.classList.toggle('expanded'); if(window.innerWidth < 700) { setTimeout(calculatePositions, 850); }">
+        <div class="article-card" onclick="this.classList.toggle('expanded'); setTimeout(updateMobileStack, 50);">
             
             <div class="image-wrapper">
                 <img src="https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/5/0/7/8/7/4/3/010-3671d5552b07cd21.jpg" class="article-image" alt="Vorschau" loading="lazy">
@@ -1485,7 +1490,7 @@
             </a>
         </div>
         
-        <div class="article-card" onclick="this.classList.toggle('expanded'); if(window.innerWidth < 700) { setTimeout(calculatePositions, 850); }">
+        <div class="article-card" onclick="this.classList.toggle('expanded'); setTimeout(updateMobileStack, 50);">
             
             <div class="image-wrapper">
                 <img src="https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/5/0/7/8/7/1/6/shutterstock_2601785549-3e31096b27400a75.jpg" class="article-image" alt="Vorschau" loading="lazy">
@@ -1516,7 +1521,7 @@
             </a>
         </div>
         
-        <div class="article-card" onclick="this.classList.toggle('expanded'); if(window.innerWidth < 700) { setTimeout(calculatePositions, 850); }">
+        <div class="article-card" onclick="this.classList.toggle('expanded'); setTimeout(updateMobileStack, 50);">
             
             <div class="image-wrapper">
                 <img src="https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/5/0/7/8/6/9/7/shutterstock_1907369071-19ac2bc616ac1475.jpg" class="article-image" alt="Vorschau" loading="lazy">
@@ -1547,7 +1552,7 @@
             </a>
         </div>
         
-        <div class="article-card" onclick="this.classList.toggle('expanded'); if(window.innerWidth < 700) { setTimeout(calculatePositions, 850); }">
+        <div class="article-card" onclick="this.classList.toggle('expanded'); setTimeout(updateMobileStack, 50);">
             
             <div class="image-wrapper">
                 <img src="https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/5/0/7/8/7/0/0/demobat2-513cf04379635236.jpg" class="article-image" alt="Vorschau" loading="lazy">
@@ -1578,7 +1583,7 @@
             </a>
         </div>
         
-        <div class="article-card" onclick="this.classList.toggle('expanded'); if(window.innerWidth < 700) { setTimeout(calculatePositions, 850); }">
+        <div class="article-card" onclick="this.classList.toggle('expanded'); setTimeout(updateMobileStack, 50);">
             
             <div class="image-wrapper">
                 <img src="https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/5/0/7/8/6/8/3/shutterstock_2662120999-5a9d2b1736fbc13b.jpg" class="article-image" alt="Vorschau" loading="lazy">
@@ -1609,7 +1614,7 @@
             </a>
         </div>
         
-        <div class="article-card" onclick="this.classList.toggle('expanded'); if(window.innerWidth < 700) { setTimeout(calculatePositions, 850); }">
+        <div class="article-card" onclick="this.classList.toggle('expanded'); setTimeout(updateMobileStack, 50);">
             
             <div class="image-wrapper">
                 <img src="https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/5/0/7/8/6/8/1/shutterstock_2337605365-ba112356e9b01d00.jpg" class="article-image" alt="Vorschau" loading="lazy">
@@ -1640,7 +1645,7 @@
             </a>
         </div>
         
-        <div class="article-card" onclick="this.classList.toggle('expanded'); if(window.innerWidth < 700) { setTimeout(calculatePositions, 850); }">
+        <div class="article-card" onclick="this.classList.toggle('expanded'); setTimeout(updateMobileStack, 50);">
             
             <div class="image-wrapper">
                 <img src="https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/5/0/7/8/6/7/3/Elektroautos-f4cabae84712f2b5.webp" class="article-image" alt="Vorschau" loading="lazy">
@@ -1671,7 +1676,7 @@
             </a>
         </div>
         
-        <div class="article-card" onclick="this.classList.toggle('expanded'); if(window.innerWidth < 700) { setTimeout(calculatePositions, 850); }">
+        <div class="article-card" onclick="this.classList.toggle('expanded'); setTimeout(updateMobileStack, 50);">
             
             <div class="image-wrapper">
                 <img src="https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/5/0/7/8/6/5/5/shutterstock_778799230-73f39cf03f60116c.jpg" class="article-image" alt="Vorschau" loading="lazy">
@@ -1702,7 +1707,7 @@
             </a>
         </div>
         
-        <div class="article-card" onclick="this.classList.toggle('expanded'); if(window.innerWidth < 700) { setTimeout(calculatePositions, 850); }">
+        <div class="article-card" onclick="this.classList.toggle('expanded'); setTimeout(updateMobileStack, 50);">
             
             <div class="image-wrapper">
                 <img src="https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/5/0/7/8/6/3/9/shutterstock_2484002917-9639be2211f60cd1.jpg" class="article-image" alt="Vorschau" loading="lazy">
@@ -1733,7 +1738,7 @@
             </a>
         </div>
         
-        <div class="article-card" onclick="this.classList.toggle('expanded'); if(window.innerWidth < 700) { setTimeout(calculatePositions, 850); }">
+        <div class="article-card" onclick="this.classList.toggle('expanded'); setTimeout(updateMobileStack, 50);">
             
             <div class="image-wrapper">
                 <img src="https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/5/0/7/8/6/2/1/hp-26390d589ffc2c62.jpg" class="article-image" alt="Vorschau" loading="lazy">
@@ -1764,7 +1769,7 @@
             </a>
         </div>
         
-        <div class="article-card" onclick="this.classList.toggle('expanded'); if(window.innerWidth < 700) { setTimeout(calculatePositions, 850); }">
+        <div class="article-card" onclick="this.classList.toggle('expanded'); setTimeout(updateMobileStack, 50);">
             
             <div class="image-wrapper">
                 <img src="https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/5/0/7/8/6/1/4/shutterstock_2181593829-4dd9c3a60ce5346b.jpg" class="article-image" alt="Vorschau" loading="lazy">
@@ -1795,7 +1800,7 @@
             </a>
         </div>
         
-        <div class="article-card" onclick="this.classList.toggle('expanded'); if(window.innerWidth < 700) { setTimeout(calculatePositions, 850); }">
+        <div class="article-card" onclick="this.classList.toggle('expanded'); setTimeout(updateMobileStack, 50);">
             
             <div class="image-wrapper">
                 <img src="https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/5/0/7/8/6/2/3/shutterstock_2312656551-ceeba59a031b0351.jpg" class="article-image" alt="Vorschau" loading="lazy">
@@ -1826,7 +1831,7 @@
             </a>
         </div>
         
-        <div class="article-card" onclick="this.classList.toggle('expanded'); if(window.innerWidth < 700) { setTimeout(calculatePositions, 850); }">
+        <div class="article-card" onclick="this.classList.toggle('expanded'); setTimeout(updateMobileStack, 50);">
             
             <div class="image-wrapper">
                 <img src="https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/5/0/7/8/5/8/8/4748500-instinct-mi430x-fp64-7d3bdb53f31eb93e.jpg" class="article-image" alt="Vorschau" loading="lazy">
@@ -1857,7 +1862,7 @@
             </a>
         </div>
         
-        <div class="article-card" onclick="this.classList.toggle('expanded'); if(window.innerWidth < 700) { setTimeout(calculatePositions, 850); }">
+        <div class="article-card" onclick="this.classList.toggle('expanded'); setTimeout(updateMobileStack, 50);">
             
             <div class="image-wrapper">
                 <img src="https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/5/0/7/8/5/1/5/hp-0b0810687723d491.jpg" class="article-image" alt="Vorschau" loading="lazy">
@@ -1888,7 +1893,7 @@
             </a>
         </div>
         
-        <div class="article-card" onclick="this.classList.toggle('expanded'); if(window.innerWidth < 700) { setTimeout(calculatePositions, 850); }">
+        <div class="article-card" onclick="this.classList.toggle('expanded'); setTimeout(updateMobileStack, 50);">
             
             <div class="image-wrapper">
                 <img src="https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/5/0/7/8/1/2/8/swiftartikel-6e9d0baa46e71c65.png" class="article-image" alt="Vorschau" loading="lazy">
@@ -1919,7 +1924,7 @@
             </a>
         </div>
         
-        <div class="article-card" onclick="this.classList.toggle('expanded'); if(window.innerWidth < 700) { setTimeout(calculatePositions, 850); }">
+        <div class="article-card" onclick="this.classList.toggle('expanded'); setTimeout(updateMobileStack, 50);">
             
             <div class="image-wrapper">
                 <img src="https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/5/0/7/7/6/8/2/fitbit-air_hero-4d2e0c18a958da33.png" class="article-image" alt="Vorschau" loading="lazy">
@@ -1950,7 +1955,7 @@
             </a>
         </div>
         
-        <div class="article-card" onclick="this.classList.toggle('expanded'); if(window.innerWidth < 700) { setTimeout(calculatePositions, 850); }">
+        <div class="article-card" onclick="this.classList.toggle('expanded'); setTimeout(updateMobileStack, 50);">
             
             <div class="image-wrapper">
                 <img src="https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/5/0/7/8/3/7/7/Arm_AGI_CPU_FrontOnOffset_Chip-16x9-16bit-1-d7e98c8f042e7b9e-6c386cc3a5d5e815.jpeg" class="article-image" alt="Vorschau" loading="lazy">
@@ -1981,7 +1986,7 @@
             </a>
         </div>
         
-        <div class="article-card" onclick="this.classList.toggle('expanded'); if(window.innerWidth < 700) { setTimeout(calculatePositions, 850); }">
+        <div class="article-card" onclick="this.classList.toggle('expanded'); setTimeout(updateMobileStack, 50);">
             
             <div class="image-wrapper">
                 <img src="https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/5/0/7/8/4/2/0/Bildschirmfoto_2021-05-19_um_08-be00b63d173db78b-c6f4e037b91c5a78.webp" class="article-image" alt="Vorschau" loading="lazy">
@@ -2012,7 +2017,7 @@
             </a>
         </div>
         
-        <div class="article-card" onclick="this.classList.toggle('expanded'); if(window.innerWidth < 700) { setTimeout(calculatePositions, 850); }">
+        <div class="article-card" onclick="this.classList.toggle('expanded'); setTimeout(updateMobileStack, 50);">
             
             <div class="image-wrapper">
                 <img src="https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/5/0/7/8/3/4/6/shutterstock_2231964577-8977c99c7ded8160.jpg" class="article-image" alt="Vorschau" loading="lazy">
@@ -2046,96 +2051,61 @@
     </div>
 
     <script>
-        // Globale Variablen für den 3D Stack
-        let initialPositions = [];
-        const stickyTopOffset = 100;
-
-        function calculatePositions() {
-            if (window.innerWidth >= 700) return;
-            const currentCards = document.querySelectorAll('.article-card');
-
-            // Temporär transform entfernen, um akkurate Höhen und Tops zu messen
-            currentCards.forEach(c => {
-                c.style.position = 'relative'; 
-                c.style.transform = 'none';
-            });
-
-            // Wir speichern jetzt die Y-Position UND die echte Höhe der Kachel!
-            initialPositions = Array.from(currentCards).map(card => {
-                const rect = card.getBoundingClientRect();
-                return {
-                    top: rect.top + window.scrollY,
-                    height: rect.height
-                };
-            });
-
-            currentCards.forEach(c => c.style.position = '');
-
-            calculate3DStack();
-        }
-
-        function calculate3DStack() {
+        function updateMobileStack() {
+            // Nur auf dem Handy ausführen
             if (window.innerWidth >= 700) {
                 document.querySelectorAll('.article-card').forEach(card => {
                     card.style.transform = '';
-                    card.style.opacity = '';
                     card.style.filter = '';
                     card.style.pointerEvents = '';
                 });
                 return;
             }
 
-            const scrollY = window.scrollY;
-            const currentCards = document.querySelectorAll('.article-card');
+            const cards = document.querySelectorAll('.article-card');
+            const stickyTopOffset = 100;
+            // Distanz in Pixeln, ab der eine untere Karte anfängt, die obere "wegzudrücken"
+            const triggerDistance = 250; 
 
-            currentCards.forEach((card, index) => {
-                if (!initialPositions[index]) return;
+            cards.forEach((card, index) => {
+                const nextCard = cards[index + 1];
 
-                const initialCardY = initialPositions[index].top;
-                const cardHeight = initialPositions[index].height;
+                if (nextCard) {
+                    const nextRect = nextCard.getBoundingClientRect();
+                    // Abstand der nächsten Karte zum oberen Rand (100px-Grenze)
+                    const distanceToSticky = nextRect.top - stickyTopOffset;
 
-                // DAS IST DER FIX: Die Trigger-Linie liegt nun bei der NÄCHSTEN Kachel.
-                // Dadurch startest du den Effekt erst, wenn die nächste Karte physisch 
-                // in deine aktuelle Karte hineinschiebt.
-                const nextCardY = initialPositions[index + 1] ? initialPositions[index + 1].top : initialCardY + cardHeight + 24;
+                    // Wenn die nächste Karte näher als 250px an die Klebegrenze rückt...
+                    if (distanceToSticky <= triggerDistance && distanceToSticky > -100) {
 
-                // Wir ziehen 180px ab, damit der Effekt ganz sanft beginnt,
-                // wenn die untere Karte langsam hochfährt.
-                const triggerPoint = nextCardY - 180;
-                const distancePastCard = (scrollY + stickyTopOffset) - triggerPoint;
+                        // Berechnet einen Faktor von 0.0 (noch weit weg) bis 1.0 (liegt exakt drauf)
+                        const progress = Math.max(0, Math.min(1, 1 - (distanceToSticky / triggerDistance)));
 
-                if (distancePastCard > 3) {
-                    // NEUE PARAMETER FÜR MEHR TIEFE IM HINTERGRUND
-                    // Schrumpft stärker (bis 70% statt 88%)
-                    const scale = Math.max(0.70, 1 - (distancePastCard * 0.0006));
+                        // Werte stufenlos berechnen
+                        const scale = 1 - (progress * 0.12); // Schrumpft auf max 88%
+                        const yOffset = progress * -40; // Geht 40px nach oben in die Flucht
+                        const brightness = 1 - (progress * 0.65); // Wird abgedunkelt (Schatten)
+                        const blur = progress * 8; // Wird unscharf
 
-                    // Schiebt sich weiter nach oben zusammen (-80px statt -45px)
-                    const yOffset = Math.max(-80, distancePastCard * -0.15);
+                        // Force 3D Transform für flüssiges Rendering auf iOS
+                        card.style.transform = `translate3d(0, ${yOffset}px, 0) scale(${scale})`;
 
-                    // Fade-Out ist etwas langsamer, damit man die Karten tief im Hintergrund noch sieht
-                    const opacity = Math.max(0, 1 - (distancePastCard * 0.0012));
+                        // Kombiniert Abdunkelung und Unschärfe sauber
+                        card.style.filter = `brightness(${brightness}) blur(${blur}px)`;
 
-                    // Dunkelt aggressiver ab (bis 20% Helligkeit), um physischen Schattenwurf zu simulieren
-                    const brightness = Math.max(0.20, 1 - (distancePastCard * 0.002));
+                        // Verhindert versehentliche Klicks auf Karten im Hintergrund
+                        card.style.pointerEvents = progress > 0.6 ? 'none' : 'auto';
 
-                    // Etwas mehr Blur für die Tiefenunschärfe
-                    const selfBlur = Math.min(10, distancePastCard * 0.01);
-
-                    card.style.transform = `translateY(${yOffset}px) scale(${scale})`;
-                    card.style.opacity = opacity;
-
-                    if (selfBlur > 0.5 || brightness < 0.98) {
-                        card.style.filter = `blur(${selfBlur}px) brightness(${brightness})`;
-                    } else {
+                    } else if (distanceToSticky > triggerDistance) {
+                        // Karte ist noch im normalen Flow oder gerade erst an die Decke geklebt
+                        card.style.transform = 'none';
                         card.style.filter = 'none';
+                        card.style.pointerEvents = 'auto';
                     }
-                    card.style.pointerEvents = opacity <= 0.05 ? 'none' : 'auto';
-
                 } else {
+                    // Die letzte Karte im Feed schrumpft nie
                     card.style.transform = 'none';
-                    card.style.opacity = 1;
                     card.style.filter = 'none';
-                    card.style.pointerEvents = 'auto';
                 }
             });
         }
@@ -2162,7 +2132,7 @@
                     feed.style.gridTemplateColumns = '';
                     originalCards.forEach(card => feed.appendChild(card));
 
-                    setTimeout(calculatePositions, 100);
+                    setTimeout(updateMobileStack, 100);
                 } else {
                     feed.style.display = 'grid'; 
                     feed.style.gridTemplateColumns = `repeat(${cols}, minmax(0, 1fr))`;
@@ -2182,14 +2152,14 @@
                         columns[index % cols].appendChild(card);
                     });
 
-                    calculate3DStack(); 
+                    updateMobileStack(); 
                 }
             }
 
             layoutMasonry();
             window.addEventListener('resize', () => {
                 layoutMasonry();
-                if (window.innerWidth < 700) calculatePositions();
+                if (window.innerWidth < 700) updateMobileStack();
             });
 
             let isTicking = false;
@@ -2198,7 +2168,7 @@
 
                 if (!isTicking) {
                     window.requestAnimationFrame(() => {
-                        calculate3DStack();
+                        updateMobileStack();
                         isTicking = false;
                     });
                     isTicking = true;
