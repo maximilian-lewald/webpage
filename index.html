@@ -195,7 +195,7 @@
             padding: 22px;
             cursor: pointer;
             overflow: hidden;
-            max-height: 460px; 
+            max-height: 600px; 
             transition: max-height 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
             box-shadow: 0 15px 45px rgba(0, 0, 0, 0.4);
             width: 100%;
@@ -230,6 +230,13 @@
                 position: sticky;
                 top: 100px; 
                 will-change: transform, opacity, filter;
+            }
+
+            /* WICHTIG: Erlaubt das Scrollen INNERHALB der ausgeklappten Kachel,
+               damit große Kacheln nicht das Stack-Layout kaputt machen. */
+            .article-card.expanded {
+                max-height: calc(100vh - 160px) !important;
+                overflow-y: auto !important;
             }
 
             .title {
@@ -325,8 +332,10 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            margin-top: 26px;
-            padding: 16px;
+            margin-top: 0;
+            padding: 0;
+            max-height: 0;
+            overflow: hidden;
             background: rgba(255, 255, 255, 0.1);
             border-radius: 16px;
             color: #fff;
@@ -340,6 +349,9 @@
         }
 
         .article-card.expanded .source-button {
+            margin-top: 26px;
+            padding: 16px;
+            max-height: 100px; 
             opacity: 1;
             transform: translateY(0);
         }
@@ -351,7 +363,7 @@
 
     <header>
         <h1>Relevant</h1>
-        <p class="build-time">Aktualisiert: 09.05.2026, 16:06 Uhr</p>
+        <p class="build-time">Aktualisiert: 09.05.2026, 16:29 Uhr</p>
     </header>
 
     <div class="dashboard-card">
@@ -451,13 +463,19 @@
     </script>
     
 
+    <div class="dashboard-card">
+        <h2 class="chart-title">Topic Distribution</h2>
+        <div class="chart-container">
+            <canvas id="topicChart"></canvas>
+        </div>
+    </div>
 
     <div class="feed" id="news-feed">
         
         <div class="article-card" onclick="this.classList.toggle('expanded'); if(window.innerWidth < 700) { setTimeout(calculatePositions, 850); }">
             <div class="meta">Ollama AI • Top 10 (48h)</div>
             <div class="card-header">
-                <div class="title">Regulierungen, Fortschritte und Auswirkungen der Künstlichen Intelligenz</div>
+                <div class="title">hello456</div>
                 <div class="relevance-container">
                     <svg width="44" height="44">
                         <circle stroke="rgba(255,255,255,0.08)" stroke-width="3" fill="transparent" r="19" cx="22" cy="22"/>
@@ -470,11 +488,7 @@
                     </div>
                 </div>
             </div>
-            <div class="summary" style="white-space: pre-wrap;">Im Bereich der Regulierung und Rechtssicherheit rügt das Berliner Kamlargericht die Verwendung von KI-generierten, fiktiven Urteilszitaten und betont die Pflicht von Anwälten, die Richtigkeit von Schriftsätzen gründlich zu prüfen. Parallel dazu wurde auf EU-Ebene eine Anpassung des KI-Gesetzes vereinbart, die sexualisierte Deepfakes sowie Inhalte zum sexuellen Kindesmissbrauch verbietet und die Fristen für Kennzeichnungspflichten auf Ende 2026 verschiebt. Für die Medizintechnik wurden in Deutschland neue Orientierungshilfen für KI-gestützte Produkte veröffentlicht, um die Patientensicherheit unter der neuen EU-KI-Verordnung zu gewährleisten.
-
-Die technologische Entwicklung zeigt signifikante Fortschritte in der Robotik und Automatisierung: 1X Technologies hat die Produktion der humanoiden Roboter „Neo“ für den Privatmarkt gestartet, während das Projekt „Rob@t2Cell“ am Fraunhofer-Institut die automatisierte Rückgewinnung von Rohstoffen aus Batteriezellen vorantreibt. Im maritimen Bereich ermöglicht das Projekt „Ocean Charger“ durch induktive Technik das kontaktlose Laden von Elektro-Schiffen auf hoher See, was die Reichweite von Offshore-Booten erhöht.
-
-Wirtschaftliche und gesellschaftliche Auswirkungen der KI-Entwicklung sind vielfältig: DeepL reduziert seine Belegschaft um etwa 25 %, um durch verstärkte Automatisierung eine strukturelle Neuausrichtung zu erreichen. Zur Bewahrung des digitalen Gedächtnisses wurde die Internet Archive Switzerland zur systematischen Archivierung von KI-Modellen gegründet. Während OpenAI neue Sicherheitsfunktionen zur Benachrichtigung von Vertrauenspersonen bei potenzieller Selbstgefährdung einführt, warnt eine aktuelle Studie davor, dass die direkte Nutzung von KI zur unmittelbaren Lösungsfindung die kognitive Problemlösefähigkeit und mentale Ausdauer des Menschen beeinträchtigen kann.</div>
+            <div class="summary" style="white-space: pre-wrap;">hello1234</div>
         </div>
         
 
@@ -2036,32 +2050,32 @@ Wirtschaftliche und gesellschaftliche Auswirkungen der KI-Entwicklung sind vielf
         let initialPositions = [];
         const stickyTopOffset = 100;
 
-        // Berechnet die echten Koordinaten (nur auf Mobile wichtig)
         function calculatePositions() {
             if (window.innerWidth >= 700) return;
             const currentCards = document.querySelectorAll('.article-card');
 
-            // Temporär relative Position setzen, um ungestörte Top-Werte zu ermitteln
+            // Temporär transform entfernen, um akkurate Höhen und Tops zu messen
             currentCards.forEach(c => {
                 c.style.position = 'relative'; 
                 c.style.transform = 'none';
             });
 
+            // Wir speichern jetzt die Y-Position UND die echte Höhe der Kachel!
             initialPositions = Array.from(currentCards).map(card => {
                 const rect = card.getBoundingClientRect();
-                return rect.top + window.scrollY;
+                return {
+                    top: rect.top + window.scrollY,
+                    height: rect.height
+                };
             });
 
-            // Sticky wiederherstellen (leeres String = Fallback aufs CSS)
             currentCards.forEach(c => c.style.position = '');
 
             calculate3DStack();
         }
 
-        // Berechnet den Frosted Glass Stack Effekt
         function calculate3DStack() {
             if (window.innerWidth >= 700) {
-                // Desktop: Stack komplett abschalten
                 document.querySelectorAll('.article-card').forEach(card => {
                     card.style.transform = '';
                     card.style.opacity = '';
@@ -2075,17 +2089,37 @@ Wirtschaftliche und gesellschaftliche Auswirkungen der KI-Entwicklung sind vielf
             const currentCards = document.querySelectorAll('.article-card');
 
             currentCards.forEach((card, index) => {
-                const initialCardY = initialPositions[index];
-                if (!initialCardY) return; // Fallback falls Array noch leer
+                if (!initialPositions[index]) return;
 
-                const distancePastCard = scrollY + stickyTopOffset - initialCardY;
+                const initialCardY = initialPositions[index].top;
+                const cardHeight = initialPositions[index].height;
+
+                // DAS IST DER FIX: Die Trigger-Linie liegt nun bei der NÄCHSTEN Kachel.
+                // Dadurch startest du den Effekt erst, wenn die nächste Karte physisch 
+                // in deine aktuelle Karte hineinschiebt.
+                const nextCardY = initialPositions[index + 1] ? initialPositions[index + 1].top : initialCardY + cardHeight + 24;
+
+                // Wir ziehen 180px ab, damit der Effekt ganz sanft beginnt,
+                // wenn die untere Karte langsam hochfährt.
+                const triggerPoint = nextCardY - 180;
+                const distancePastCard = (scrollY + stickyTopOffset) - triggerPoint;
 
                 if (distancePastCard > 3) {
-                    const scale = Math.max(0.88, 1 - (distancePastCard * 0.0004));
-                    const yOffset = Math.max(-45, distancePastCard * -0.06);
-                    const opacity = Math.max(0, 1 - (distancePastCard * 0.001));
-                    const brightness = Math.max(0.35, 1 - (distancePastCard * 0.0015));
-                    const selfBlur = Math.min(4, distancePastCard * 0.008);
+                    // NEUE PARAMETER FÜR MEHR TIEFE IM HINTERGRUND
+                    // Schrumpft stärker (bis 70% statt 88%)
+                    const scale = Math.max(0.70, 1 - (distancePastCard * 0.0006));
+
+                    // Schiebt sich weiter nach oben zusammen (-80px statt -45px)
+                    const yOffset = Math.max(-80, distancePastCard * -0.15);
+
+                    // Fade-Out ist etwas langsamer, damit man die Karten tief im Hintergrund noch sieht
+                    const opacity = Math.max(0, 1 - (distancePastCard * 0.0012));
+
+                    // Dunkelt aggressiver ab (bis 20% Helligkeit), um physischen Schattenwurf zu simulieren
+                    const brightness = Math.max(0.20, 1 - (distancePastCard * 0.002));
+
+                    // Etwas mehr Blur für die Tiefenunschärfe
+                    const selfBlur = Math.min(10, distancePastCard * 0.01);
 
                     card.style.transform = `translateY(${yOffset}px) scale(${scale})`;
                     card.style.opacity = opacity;
@@ -2123,17 +2157,14 @@ Wirtschaftliche und gesellschaftliche Auswirkungen der KI-Entwicklung sind vielf
                 feed.innerHTML = '';
 
                 if (cols === 1) {
-                    // Mobile: Einfache Liste (Flex-Column) -> Wichtig für 3D Stack
                     feed.style.display = 'flex';
                     feed.style.flexDirection = 'column';
                     feed.style.gridTemplateColumns = '';
                     originalCards.forEach(card => feed.appendChild(card));
 
-                    // Verzögerte Berechnung der Positionen für den Fächer
                     setTimeout(calculatePositions, 100);
                 } else {
-                    // Desktop: Echtes Masonry Columns System
-                    feed.style.display = 'grid'; // Fallback
+                    feed.style.display = 'grid'; 
                     feed.style.gridTemplateColumns = `repeat(${cols}, minmax(0, 1fr))`;
 
                     const columns = [];
@@ -2151,7 +2182,6 @@ Wirtschaftliche und gesellschaftliche Auswirkungen der KI-Entwicklung sind vielf
                         columns[index % cols].appendChild(card);
                     });
 
-                    // Sicherstellen, dass auf Desktop der Stack bereinigt wird
                     calculate3DStack(); 
                 }
             }
@@ -2162,7 +2192,6 @@ Wirtschaftliche und gesellschaftliche Auswirkungen der KI-Entwicklung sind vielf
                 if (window.innerWidth < 700) calculatePositions();
             });
 
-            // Stack beim Scrollen feuern (Nur relevant für Mobile)
             let isTicking = false;
             window.addEventListener('scroll', () => {
                 if (window.innerWidth >= 700) return;
