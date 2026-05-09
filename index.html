@@ -187,7 +187,7 @@
         }
 
         .article-card {
-            background: rgba(255, 255, 255, 0.05);
+            background: rgba(255, 255, 255, 0.12); /* Deutlich hellerer Glass-Effekt für alle Karten */
             backdrop-filter: blur(40px) saturate(200%);
             -webkit-backdrop-filter: blur(40px) saturate(200%);
             border: 1px solid rgba(255, 255, 255, 0.12);
@@ -205,7 +205,6 @@
 
         .article-card.expanded {
             max-height: 3000px;
-            background: rgba(255, 255, 255, 0.08);
         }
 
         /* ----------------------------------------------------
@@ -220,12 +219,13 @@
             }
 
             .article-card {
-                background: rgba(20, 25, 32, 0.85); 
-                backdrop-filter: blur(25px) saturate(180%);
-                -webkit-backdrop-filter: blur(25px) saturate(180%);
-                border: 1px solid rgba(255, 255, 255, 0.1);
+                /* DIE ÄNDERUNG: Die dunkle Farbe (20, 25, 32) ist weg. Auch auf dem Handy leuchten die Karten nun hell. */
+                background: rgba(255, 255, 255, 0.12); 
+                backdrop-filter: blur(35px) saturate(200%);
+                -webkit-backdrop-filter: blur(35px) saturate(200%);
+                border: 1px solid rgba(255, 255, 255, 0.15);
                 border-top: 1px solid rgba(255, 255, 255, 0.3);
-                box-shadow: 0 -15px 40px rgba(0, 0, 0, 0.5);
+                box-shadow: 0 -15px 40px rgba(0, 0, 0, 0.4);
 
                 /* ALLE Karten kleben (egal ob expanded oder nicht)! */
                 position: sticky;
@@ -235,9 +235,6 @@
             }
 
             .article-card.expanded {
-                /* FIX: position:relative und top:0 entfernt! 
-                   Dadurch erbt die Karte das position:sticky und klebt korrekt. */
-
                 /* WICHTIG: Erlaubt das Scrollen innerhalb der Karte,
                    damit sie weiterhin kleben kann, man den Text aber lesen kann. */
                 max-height: calc(100vh - 140px) !important;
@@ -256,7 +253,7 @@
 
             .summary {
                 text-shadow: 0 1px 5px rgba(0,0,0,0.5);
-                color: var(--text-dim);
+                color: var(--text-main); /* Standardmäßig weiß auf Mobile */
             }
         }
         /* ---------------------------------------------------- */
@@ -321,7 +318,7 @@
 
         .summary {
             font-size: 16px;
-            color: var(--text-dim);
+            color: var(--text-main); /* Standardmäßig weiß */
             line-height: 1.55;
             display: -webkit-box;
             -webkit-line-clamp: 5;
@@ -336,7 +333,6 @@
 
         .article-card.expanded .summary {
             -webkit-line-clamp: unset;
-            color: var(--text-main);
         }
 
         .source-button {
@@ -374,7 +370,7 @@
 
     <header>
         <h1>Relevant</h1>
-        <p class="build-time">Aktualisiert: 09.05.2026, 16:57 Uhr</p>
+        <p class="build-time">Aktualisiert: 09.05.2026, 17:06 Uhr</p>
     </header>
 
     <div class="dashboard-card">
@@ -473,7 +469,6 @@
         })();
     </script>
     
-
 
     <div class="feed" id="news-feed">
         
