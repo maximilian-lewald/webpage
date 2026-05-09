@@ -9,7 +9,7 @@
     <meta name="apple-mobile-web-app-title" content="Relevant">
     <meta name="theme-color" content="#010409">
     <title>Relevant News</title>
-    
+
     <link rel="apple-touch-icon" href="apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="192x192" href="apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="512x512" href="apple-touch-icon.png">
@@ -32,6 +32,7 @@
             background-color: #010409;
             height: 100%;
             overflow-x: hidden;
+            scroll-behavior: smooth;
         }
 
         body {
@@ -43,7 +44,7 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            padding: env(safe-area-inset-top) 20px calc(env(safe-area-inset-bottom) + 40px) 20px;
+            padding: env(safe-area-inset-top) 20px calc(env(safe-area-inset-bottom) + 50vh) 20px;
             background: transparent;
             width: 100%;
             overflow-x: hidden;
@@ -111,6 +112,8 @@
             padding: 24px 16px;
             margin-bottom: 20px;
             box-shadow: 0 15px 45px rgba(0, 0, 0, 0.4);
+            position: relative;
+            z-index: 99;
         }
 
         .dashboard-rings {
@@ -204,6 +207,41 @@
             max-height: 3000px;
             background: rgba(255, 255, 255, 0.08);
         }
+
+        /* ----------------------------------------------------
+           MOBILE: 3D STACK FROSTED GLASS EFFECTS
+           ---------------------------------------------------- */
+        @media (max-width: 699px) {
+            .feed {
+                display: flex;
+                flex-direction: column;
+                gap: 24px;
+                grid-template-columns: none;
+            }
+
+            .article-card {
+                background: rgba(25, 30, 40, 0.45);
+                backdrop-filter: blur(25px) saturate(180%);
+                -webkit-backdrop-filter: blur(25px) saturate(180%);
+                border: 1px solid rgba(255, 255, 255, 0.1);
+                border-top: 1px solid rgba(255, 255, 255, 0.3);
+                box-shadow: 0 -10px 40px rgba(0, 0, 0, 0.4), 0 20px 40px rgba(0, 0, 0, 0.2);
+                transform-origin: top center;
+                position: sticky;
+                top: 100px; 
+                will-change: transform, opacity, filter;
+            }
+
+            .title {
+                text-shadow: 0 2px 10px rgba(0,0,0,0.5);
+            }
+
+            .summary {
+                text-shadow: 0 1px 5px rgba(0,0,0,0.5);
+                color: var(--text-dim);
+            }
+        }
+        /* ---------------------------------------------------- */
 
         .image-wrapper {
             width: 100%;
@@ -313,12 +351,9 @@
 
     <header>
         <h1>Relevant</h1>
-        <p class="build-time">Aktualisiert: 09.05.2026, 15:29 Uhr</p>
+        <p class="build-time">Aktualisiert: 09.05.2026, 16:06 Uhr</p>
     </header>
 
-
-
-    
     <div class="dashboard-card">
         <div class="dashboard-rings">
             <div class="stat-item">
@@ -361,20 +396,7 @@
             </div>
         </div>
     </div>
-    
-    
-    <!--
-    <div class="dashboard-card">
-        <h2 class="chart-title">Topic Distribution</h2>
-        <div class="chart-container">
-            <canvas id="topicChart"></canvas>
-        </div>
-    </div>
-    
-    -->
-    
-    
-    <!-- this inserts the graph for trends -->
+
     
     <div class="dashboard-card">
         <h2 class="chart-title">Trends over the last 3 months</h2>
@@ -430,13 +452,12 @@
     
 
 
-
     <div class="feed" id="news-feed">
         
-        <div class="article-card" onclick="this.classList.toggle('expanded')">
-            <div class="meta">AI summary • Top 10 (48h)</div>
+        <div class="article-card" onclick="this.classList.toggle('expanded'); if(window.innerWidth < 700) { setTimeout(calculatePositions, 850); }">
+            <div class="meta">Ollama AI • Top 10 (48h)</div>
             <div class="card-header">
-                <div class="title">Aktuelle Entwicklungen in Recht, Technik und Wirtschaft</div>
+                <div class="title">Regulierungen, Fortschritte und Auswirkungen der Künstlichen Intelligenz</div>
                 <div class="relevance-container">
                     <svg width="44" height="44">
                         <circle stroke="rgba(255,255,255,0.08)" stroke-width="3" fill="transparent" r="19" cx="22" cy="22"/>
@@ -449,17 +470,16 @@
                     </div>
                 </div>
             </div>
-            <!-- white-space: pre-wrap hält Absätze der KI intakt -->
-            <div class="summary" style="white-space: pre-wrap;">In der rechtlichen und regulatorischen Landschaft gibt es bedeutende Entwicklungen im Umgang mit Künstlicher Intelligenz (KI): Das Kammergericht Berlin rügte die Verwendung fiktiver Urteilssitate durch KI-Halluzinationen und unterstrich die verstärkte Prüfpflicht von Anwälten. Parallel dazu wurden Anpassungen am EU-KI-Gesetz vereinbart, die sexualisierte Deepfakes sowie KI-Inhalte zum Kindesmissbrauch verbieten und gleichzeitig die Fristen für die Kennzeichnungspflichten auf Ende 2026 verschoben haben. Im Gesundheitssektor veröffentlichten deutsche Behörden eine Orientierungshilfe für die Entwicklung KI-gestützter Medizinprodukte, während OpenAI eine Funktion zur Benachrichtigung von Vertrauenspersonen bei potenzieller Selbstgefährdung einführte.
+            <div class="summary" style="white-space: pre-wrap;">Im Bereich der Regulierung und Rechtssicherheit rügt das Berliner Kamlargericht die Verwendung von KI-generierten, fiktiven Urteilszitaten und betont die Pflicht von Anwälten, die Richtigkeit von Schriftsätzen gründlich zu prüfen. Parallel dazu wurde auf EU-Ebene eine Anpassung des KI-Gesetzes vereinbart, die sexualisierte Deepfakes sowie Inhalte zum sexuellen Kindesmissbrauch verbietet und die Fristen für Kennzeichnungspflichten auf Ende 2026 verschiebt. Für die Medizintechnik wurden in Deutschland neue Orientierungshilfen für KI-gestützte Produkte veröffentlicht, um die Patientensicherheit unter der neuen EU-KI-Verordnung zu gewährleisten.
 
-Im Bereich der technologischen Innovationen hat 1X Technologies die Produktion des humanoiden Roboters „Neo“ für den privaten Gebrauch gestartet, und das Projekt „Rob@t2Cell“ am Fraunhofer-Institut arbeitet an der automatisierten Aufbereitung und dem Recycling von Batteriezellen. Im maritimen Sektor ermöglicht das Projekt „Ocean Charger“ durch induktives Laden den kontaktlosen Energietransfer für Elektro-Schiffe auf hoher See. Zur langfristigen Sicherung von KI-Modellen wurde zudem die Internet Archive Switzerland zur Archivierung digitaler Inhalte gegründet.
+Die technologische Entwicklung zeigt signifikante Fortschritte in der Robotik und Automatisierung: 1X Technologies hat die Produktion der humanoiden Roboter „Neo“ für den Privatmarkt gestartet, während das Projekt „Rob@t2Cell“ am Fraunhofer-Institut die automatisierte Rückgewinnung von Rohstoffen aus Batteriezellen vorantreibt. Im maritimen Bereich ermöglicht das Projekt „Ocean Charger“ durch induktive Technik das kontaktlose Laden von Elektro-Schiffen auf hoher See, was die Reichweite von Offshore-Booten erhöht.
 
-Wirtschaftliche und kognitive Aspekte rücken ebenfalls in den Fokus: DeepL reduziert seine Belegschaft um etwa 25 %, um Arbeitsprozesse stärker zu automatisieren. Ergänzend dazu warnt eine aktuelle Studie davor, dass die direkte Nutzung von KI-Lösungen die Problemlösefähigkeit und mentale Ausdauer der Anwender beeinträchtigen kann, sofern die KI nicht lediglich als Hilfsmittel zur Klärung von Fragen eingesetzt wird.</div>
+Wirtschaftliche und gesellschaftliche Auswirkungen der KI-Entwicklung sind vielfältig: DeepL reduziert seine Belegschaft um etwa 25 %, um durch verstärkte Automatisierung eine strukturelle Neuausrichtung zu erreichen. Zur Bewahrung des digitalen Gedächtnisses wurde die Internet Archive Switzerland zur systematischen Archivierung von KI-Modellen gegründet. Während OpenAI neue Sicherheitsfunktionen zur Benachrichtigung von Vertrauenspersonen bei potenzieller Selbstgefährdung einführt, warnt eine aktuelle Studie davor, dass die direkte Nutzung von KI zur unmittelbaren Lösungsfindung die kognitive Problemlösefähigkeit und mentale Ausdauer des Menschen beeinträchtigen kann.</div>
         </div>
         
 
         
-        <div class="article-card" onclick="this.classList.toggle('expanded')">
+        <div class="article-card" onclick="this.classList.toggle('expanded'); if(window.innerWidth < 700) { setTimeout(calculatePositions, 850); }">
             
             <div class="image-wrapper">
                 <img src="https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/5/0/7/9/5/8/4/shutterstock_2275867503-21245ffd1e46849d.jpg" class="article-image" alt="Vorschau" loading="lazy">
@@ -490,7 +510,7 @@ Wirtschaftliche und kognitive Aspekte rücken ebenfalls in den Fokus: DeepL redu
             </a>
         </div>
         
-        <div class="article-card" onclick="this.classList.toggle('expanded')">
+        <div class="article-card" onclick="this.classList.toggle('expanded'); if(window.innerWidth < 700) { setTimeout(calculatePositions, 850); }">
             
             <div class="image-wrapper">
                 <img src="https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/5/0/7/9/3/2/4/generated-image-1__2_-12fd567ea53ab774.png" class="article-image" alt="Vorschau" loading="lazy">
@@ -521,7 +541,7 @@ Wirtschaftliche und kognitive Aspekte rücken ebenfalls in den Fokus: DeepL redu
             </a>
         </div>
         
-        <div class="article-card" onclick="this.classList.toggle('expanded')">
+        <div class="article-card" onclick="this.classList.toggle('expanded'); if(window.innerWidth < 700) { setTimeout(calculatePositions, 850); }">
             
             <div class="image-wrapper">
                 <img src="https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/5/0/7/6/2/7/3/OVERLAY__Analyse-8d03a493fcbf3b04.jpg" class="article-image" alt="Vorschau" loading="lazy">
@@ -552,7 +572,7 @@ Wirtschaftliche und kognitive Aspekte rücken ebenfalls in den Fokus: DeepL redu
             </a>
         </div>
         
-        <div class="article-card" onclick="this.classList.toggle('expanded')">
+        <div class="article-card" onclick="this.classList.toggle('expanded'); if(window.innerWidth < 700) { setTimeout(calculatePositions, 850); }">
             
             <div class="image-wrapper">
                 <img src="https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/5/0/7/9/5/1/7/shutterstock_2542077749-e9f76f1a20e535a2.jpg" class="article-image" alt="Vorschau" loading="lazy">
@@ -583,7 +603,7 @@ Wirtschaftliche und kognitive Aspekte rücken ebenfalls in den Fokus: DeepL redu
             </a>
         </div>
         
-        <div class="article-card" onclick="this.classList.toggle('expanded')">
+        <div class="article-card" onclick="this.classList.toggle('expanded'); if(window.innerWidth < 700) { setTimeout(calculatePositions, 850); }">
             
             <div class="image-wrapper">
                 <img src="https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/5/0/7/9/5/2/5/shutterstock_1258390147-0a0aaa4dc0fdf3b1.jpg" class="article-image" alt="Vorschau" loading="lazy">
@@ -614,7 +634,7 @@ Wirtschaftliche und kognitive Aspekte rücken ebenfalls in den Fokus: DeepL redu
             </a>
         </div>
         
-        <div class="article-card" onclick="this.classList.toggle('expanded')">
+        <div class="article-card" onclick="this.classList.toggle('expanded'); if(window.innerWidth < 700) { setTimeout(calculatePositions, 850); }">
             
             <div class="image-wrapper">
                 <img src="https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/5/0/7/8/3/7/5/kaercher_hd-6-15_application-1-jpg-a97f588b5b44bf17.webp" class="article-image" alt="Vorschau" loading="lazy">
@@ -645,7 +665,7 @@ Wirtschaftliche und kognitive Aspekte rücken ebenfalls in den Fokus: DeepL redu
             </a>
         </div>
         
-        <div class="article-card" onclick="this.classList.toggle('expanded')">
+        <div class="article-card" onclick="this.classList.toggle('expanded'); if(window.innerWidth < 700) { setTimeout(calculatePositions, 850); }">
             
             <div class="image-wrapper">
                 <img src="https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/5/0/7/9/4/9/4/shutterstock_665882623-080dcd0146237320.jpg" class="article-image" alt="Vorschau" loading="lazy">
@@ -676,7 +696,7 @@ Wirtschaftliche und kognitive Aspekte rücken ebenfalls in den Fokus: DeepL redu
             </a>
         </div>
         
-        <div class="article-card" onclick="this.classList.toggle('expanded')">
+        <div class="article-card" onclick="this.classList.toggle('expanded'); if(window.innerWidth < 700) { setTimeout(calculatePositions, 850); }">
             
             <div class="image-wrapper">
                 <img src="https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/5/0/7/9/4/8/6/shutterstock_1415273714-bf3fb9eb45a2b344.jpg" class="article-image" alt="Vorschau" loading="lazy">
@@ -707,7 +727,7 @@ Wirtschaftliche und kognitive Aspekte rücken ebenfalls in den Fokus: DeepL redu
             </a>
         </div>
         
-        <div class="article-card" onclick="this.classList.toggle('expanded')">
+        <div class="article-card" onclick="this.classList.toggle('expanded'); if(window.innerWidth < 700) { setTimeout(calculatePositions, 850); }">
             
             <div class="image-wrapper">
                 <img src="https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/5/0/7/9/4/7/5/PDFSpaces1-64652f164ae7a5c2.webp" class="article-image" alt="Vorschau" loading="lazy">
@@ -738,7 +758,7 @@ Wirtschaftliche und kognitive Aspekte rücken ebenfalls in den Fokus: DeepL redu
             </a>
         </div>
         
-        <div class="article-card" onclick="this.classList.toggle('expanded')">
+        <div class="article-card" onclick="this.classList.toggle('expanded'); if(window.innerWidth < 700) { setTimeout(calculatePositions, 850); }">
             
             <div class="image-wrapper">
                 <img src="https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/5/0/7/9/3/2/7/07dd102ae49648ed9e12cc21c44ffad2-dac208fc913300d1.JPG" class="article-image" alt="Vorschau" loading="lazy">
@@ -769,7 +789,7 @@ Wirtschaftliche und kognitive Aspekte rücken ebenfalls in den Fokus: DeepL redu
             </a>
         </div>
         
-        <div class="article-card" onclick="this.classList.toggle('expanded')">
+        <div class="article-card" onclick="this.classList.toggle('expanded'); if(window.innerWidth < 700) { setTimeout(calculatePositions, 850); }">
             
             <div class="image-wrapper">
                 <img src="https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/5/0/7/9/2/5/7/shutterstock_1626983506-979e57d8aa7eecb3.jpg" class="article-image" alt="Vorschau" loading="lazy">
@@ -800,7 +820,7 @@ Wirtschaftliche und kognitive Aspekte rücken ebenfalls in den Fokus: DeepL redu
             </a>
         </div>
         
-        <div class="article-card" onclick="this.classList.toggle('expanded')">
+        <div class="article-card" onclick="this.classList.toggle('expanded'); if(window.innerWidth < 700) { setTimeout(calculatePositions, 850); }">
             
             <div class="image-wrapper">
                 <img src="https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/5/0/7/8/7/3/5/3003_Thumb_FOTOSHOSTEN_2-e4738c18044d2802.jpg" class="article-image" alt="Vorschau" loading="lazy">
@@ -831,7 +851,7 @@ Wirtschaftliche und kognitive Aspekte rücken ebenfalls in den Fokus: DeepL redu
             </a>
         </div>
         
-        <div class="article-card" onclick="this.classList.toggle('expanded')">
+        <div class="article-card" onclick="this.classList.toggle('expanded'); if(window.innerWidth < 700) { setTimeout(calculatePositions, 850); }">
             
             <div class="image-wrapper">
                 <img src="https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/5/0/7/9/3/9/9/Opel_Mokka_Electric-f8c6cb1075cd508e.jpg" class="article-image" alt="Vorschau" loading="lazy">
@@ -862,7 +882,7 @@ Wirtschaftliche und kognitive Aspekte rücken ebenfalls in den Fokus: DeepL redu
             </a>
         </div>
         
-        <div class="article-card" onclick="this.classList.toggle('expanded')">
+        <div class="article-card" onclick="this.classList.toggle('expanded'); if(window.innerWidth < 700) { setTimeout(calculatePositions, 850); }">
             
             <div class="image-wrapper">
                 <img src="https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/5/0/7/8/0/0/8/KIupdate_Titel_122023-4cd1ddee68e292c6.png" class="article-image" alt="Vorschau" loading="lazy">
@@ -893,7 +913,7 @@ Wirtschaftliche und kognitive Aspekte rücken ebenfalls in den Fokus: DeepL redu
             </a>
         </div>
         
-        <div class="article-card" onclick="this.classList.toggle('expanded')">
+        <div class="article-card" onclick="this.classList.toggle('expanded'); if(window.innerWidth < 700) { setTimeout(calculatePositions, 850); }">
             
             <div class="image-wrapper">
                 <img src="https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/5/0/3/1/9/6/9/https___xp.heise.de_fileserver_images_2610_711244121217777_hob.agenticco_2031751187_jnac_online-28113b598fc8f02a.jpg" class="article-image" alt="Vorschau" loading="lazy">
@@ -924,7 +944,7 @@ Wirtschaftliche und kognitive Aspekte rücken ebenfalls in den Fokus: DeepL redu
             </a>
         </div>
         
-        <div class="article-card" onclick="this.classList.toggle('expanded')">
+        <div class="article-card" onclick="this.classList.toggle('expanded'); if(window.innerWidth < 700) { setTimeout(calculatePositions, 850); }">
             
             <div class="image-wrapper">
                 <img src="https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/5/0/7/9/1/8/1/shutterstock_170954663-2d09c953d948f4b0.jpg" class="article-image" alt="Vorschau" loading="lazy">
@@ -955,7 +975,7 @@ Wirtschaftliche und kognitive Aspekte rücken ebenfalls in den Fokus: DeepL redu
             </a>
         </div>
         
-        <div class="article-card" onclick="this.classList.toggle('expanded')">
+        <div class="article-card" onclick="this.classList.toggle('expanded'); if(window.innerWidth < 700) { setTimeout(calculatePositions, 850); }">
             
             <div class="image-wrapper">
                 <img src="https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/5/0/7/3/5/4/3/visionpro_w-839b37c338f60e1f.png" class="article-image" alt="Vorschau" loading="lazy">
@@ -986,7 +1006,7 @@ Wirtschaftliche und kognitive Aspekte rücken ebenfalls in den Fokus: DeepL redu
             </a>
         </div>
         
-        <div class="article-card" onclick="this.classList.toggle('expanded')">
+        <div class="article-card" onclick="this.classList.toggle('expanded'); if(window.innerWidth < 700) { setTimeout(calculatePositions, 850); }">
             
             <div class="image-wrapper">
                 <img src="https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/5/0/7/9/0/4/7/shutterstock_2258159717-a04fc35e24b96829.jpg" class="article-image" alt="Vorschau" loading="lazy">
@@ -1017,7 +1037,7 @@ Wirtschaftliche und kognitive Aspekte rücken ebenfalls in den Fokus: DeepL redu
             </a>
         </div>
         
-        <div class="article-card" onclick="this.classList.toggle('expanded')">
+        <div class="article-card" onclick="this.classList.toggle('expanded'); if(window.innerWidth < 700) { setTimeout(calculatePositions, 850); }">
             
             <div class="image-wrapper">
                 <img src="https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/5/0/7/8/9/8/0/shutterstock_2305366297-bfd7d1da39557d18.jpg" class="article-image" alt="Vorschau" loading="lazy">
@@ -1048,7 +1068,7 @@ Wirtschaftliche und kognitive Aspekte rücken ebenfalls in den Fokus: DeepL redu
             </a>
         </div>
         
-        <div class="article-card" onclick="this.classList.toggle('expanded')">
+        <div class="article-card" onclick="this.classList.toggle('expanded'); if(window.innerWidth < 700) { setTimeout(calculatePositions, 850); }">
             
             <div class="image-wrapper">
                 <img src="https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/5/0/7/8/4/4/3/ki_agenten-51744e251945f64a.png" class="article-image" alt="Vorschau" loading="lazy">
@@ -1079,7 +1099,7 @@ Wirtschaftliche und kognitive Aspekte rücken ebenfalls in den Fokus: DeepL redu
             </a>
         </div>
         
-        <div class="article-card" onclick="this.classList.toggle('expanded')">
+        <div class="article-card" onclick="this.classList.toggle('expanded'); if(window.innerWidth < 700) { setTimeout(calculatePositions, 850); }">
             
             <div class="image-wrapper">
                 <img src="https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/5/0/7/8/8/2/4/Screenshot_2025-09-16_at_00.12.07-43567d63113af58a.png" class="article-image" alt="Vorschau" loading="lazy">
@@ -1110,7 +1130,7 @@ Wirtschaftliche und kognitive Aspekte rücken ebenfalls in den Fokus: DeepL redu
             </a>
         </div>
         
-        <div class="article-card" onclick="this.classList.toggle('expanded')">
+        <div class="article-card" onclick="this.classList.toggle('expanded'); if(window.innerWidth < 700) { setTimeout(calculatePositions, 850); }">
             
             <div class="image-wrapper">
                 <img src="https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/5/0/7/9/0/1/5/Samsung-Press-Release-Fainting-Prediction-Galaxy-Watch_Main2-ba66814c7a1809e1.jpg" class="article-image" alt="Vorschau" loading="lazy">
@@ -1141,7 +1161,7 @@ Wirtschaftliche und kognitive Aspekte rücken ebenfalls in den Fokus: DeepL redu
             </a>
         </div>
         
-        <div class="article-card" onclick="this.classList.toggle('expanded')">
+        <div class="article-card" onclick="this.classList.toggle('expanded'); if(window.innerWidth < 700) { setTimeout(calculatePositions, 850); }">
             
             <div class="image-wrapper">
                 <img src="https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/5/0/7/8/9/9/3/shutterstock_2424222439-3e91d973e81c2e6f.jpg" class="article-image" alt="Vorschau" loading="lazy">
@@ -1172,7 +1192,7 @@ Wirtschaftliche und kognitive Aspekte rücken ebenfalls in den Fokus: DeepL redu
             </a>
         </div>
         
-        <div class="article-card" onclick="this.classList.toggle('expanded')">
+        <div class="article-card" onclick="this.classList.toggle('expanded'); if(window.innerWidth < 700) { setTimeout(calculatePositions, 850); }">
             
             <div class="image-wrapper">
                 <img src="https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/5/0/7/8/8/2/8/apps-f19841d7c09be088.jpeg" class="article-image" alt="Vorschau" loading="lazy">
@@ -1203,7 +1223,7 @@ Wirtschaftliche und kognitive Aspekte rücken ebenfalls in den Fokus: DeepL redu
             </a>
         </div>
         
-        <div class="article-card" onclick="this.classList.toggle('expanded')">
+        <div class="article-card" onclick="this.classList.toggle('expanded'); if(window.innerWidth < 700) { setTimeout(calculatePositions, 850); }">
             
             <div class="image-wrapper">
                 <img src="https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/5/0/7/8/8/8/4/Neo-5810161506f0ce19.jpg" class="article-image" alt="Vorschau" loading="lazy">
@@ -1234,7 +1254,7 @@ Wirtschaftliche und kognitive Aspekte rücken ebenfalls in den Fokus: DeepL redu
             </a>
         </div>
         
-        <div class="article-card" onclick="this.classList.toggle('expanded')">
+        <div class="article-card" onclick="this.classList.toggle('expanded'); if(window.innerWidth < 700) { setTimeout(calculatePositions, 850); }">
             
             <div class="image-wrapper">
                 <img src="https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/5/0/7/8/8/7/9/security-bug-fixes-1-2048x1152-1ce36ac959a4d999.png" class="article-image" alt="Vorschau" loading="lazy">
@@ -1265,7 +1285,7 @@ Wirtschaftliche und kognitive Aspekte rücken ebenfalls in den Fokus: DeepL redu
             </a>
         </div>
         
-        <div class="article-card" onclick="this.classList.toggle('expanded')">
+        <div class="article-card" onclick="this.classList.toggle('expanded'); if(window.innerWidth < 700) { setTimeout(calculatePositions, 850); }">
             
             <div class="image-wrapper">
                 <img src="https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/5/0/7/8/9/1/0/iPhone_tre-STZ_3258-c467c80d3337920a.JPG" class="article-image" alt="Vorschau" loading="lazy">
@@ -1296,7 +1316,7 @@ Wirtschaftliche und kognitive Aspekte rücken ebenfalls in den Fokus: DeepL redu
             </a>
         </div>
         
-        <div class="article-card" onclick="this.classList.toggle('expanded')">
+        <div class="article-card" onclick="this.classList.toggle('expanded'); if(window.innerWidth < 700) { setTimeout(calculatePositions, 850); }">
             
             <div class="image-wrapper">
                 <img src="https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/5/0/7/4/0/3/1/visualint-197c1cbbb620c263.png" class="article-image" alt="Vorschau" loading="lazy">
@@ -1327,7 +1347,7 @@ Wirtschaftliche und kognitive Aspekte rücken ebenfalls in den Fokus: DeepL redu
             </a>
         </div>
         
-        <div class="article-card" onclick="this.classList.toggle('expanded')">
+        <div class="article-card" onclick="this.classList.toggle('expanded'); if(window.innerWidth < 700) { setTimeout(calculatePositions, 850); }">
             
             <div class="image-wrapper">
                 <img src="https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/5/0/7/8/7/6/9/shutterstock_1516105634-61e7b9706cb1c081.jpg" class="article-image" alt="Vorschau" loading="lazy">
@@ -1358,7 +1378,7 @@ Wirtschaftliche und kognitive Aspekte rücken ebenfalls in den Fokus: DeepL redu
             </a>
         </div>
         
-        <div class="article-card" onclick="this.classList.toggle('expanded')">
+        <div class="article-card" onclick="this.classList.toggle('expanded'); if(window.innerWidth < 700) { setTimeout(calculatePositions, 850); }">
             
             <div class="image-wrapper">
                 <img src="https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/5/0/7/7/5/1/9/Screenshot_2026-05-06_at_13.57.15-727003e4831144d6.png" class="article-image" alt="Vorschau" loading="lazy">
@@ -1389,7 +1409,7 @@ Wirtschaftliche und kognitive Aspekte rücken ebenfalls in den Fokus: DeepL redu
             </a>
         </div>
         
-        <div class="article-card" onclick="this.classList.toggle('expanded')">
+        <div class="article-card" onclick="this.classList.toggle('expanded'); if(window.innerWidth < 700) { setTimeout(calculatePositions, 850); }">
             
             <div class="image-wrapper">
                 <img src="https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/5/0/7/8/7/5/7/shutterstock_1505640251-13872ce8c530c388.jpg" class="article-image" alt="Vorschau" loading="lazy">
@@ -1420,7 +1440,7 @@ Wirtschaftliche und kognitive Aspekte rücken ebenfalls in den Fokus: DeepL redu
             </a>
         </div>
         
-        <div class="article-card" onclick="this.classList.toggle('expanded')">
+        <div class="article-card" onclick="this.classList.toggle('expanded'); if(window.innerWidth < 700) { setTimeout(calculatePositions, 850); }">
             
             <div class="image-wrapper">
                 <img src="https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/5/0/7/8/7/4/3/010-3671d5552b07cd21.jpg" class="article-image" alt="Vorschau" loading="lazy">
@@ -1451,7 +1471,7 @@ Wirtschaftliche und kognitive Aspekte rücken ebenfalls in den Fokus: DeepL redu
             </a>
         </div>
         
-        <div class="article-card" onclick="this.classList.toggle('expanded')">
+        <div class="article-card" onclick="this.classList.toggle('expanded'); if(window.innerWidth < 700) { setTimeout(calculatePositions, 850); }">
             
             <div class="image-wrapper">
                 <img src="https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/5/0/7/8/7/1/6/shutterstock_2601785549-3e31096b27400a75.jpg" class="article-image" alt="Vorschau" loading="lazy">
@@ -1482,7 +1502,7 @@ Wirtschaftliche und kognitive Aspekte rücken ebenfalls in den Fokus: DeepL redu
             </a>
         </div>
         
-        <div class="article-card" onclick="this.classList.toggle('expanded')">
+        <div class="article-card" onclick="this.classList.toggle('expanded'); if(window.innerWidth < 700) { setTimeout(calculatePositions, 850); }">
             
             <div class="image-wrapper">
                 <img src="https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/5/0/7/8/6/9/7/shutterstock_1907369071-19ac2bc616ac1475.jpg" class="article-image" alt="Vorschau" loading="lazy">
@@ -1513,7 +1533,7 @@ Wirtschaftliche und kognitive Aspekte rücken ebenfalls in den Fokus: DeepL redu
             </a>
         </div>
         
-        <div class="article-card" onclick="this.classList.toggle('expanded')">
+        <div class="article-card" onclick="this.classList.toggle('expanded'); if(window.innerWidth < 700) { setTimeout(calculatePositions, 850); }">
             
             <div class="image-wrapper">
                 <img src="https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/5/0/7/8/7/0/0/demobat2-513cf04379635236.jpg" class="article-image" alt="Vorschau" loading="lazy">
@@ -1544,7 +1564,7 @@ Wirtschaftliche und kognitive Aspekte rücken ebenfalls in den Fokus: DeepL redu
             </a>
         </div>
         
-        <div class="article-card" onclick="this.classList.toggle('expanded')">
+        <div class="article-card" onclick="this.classList.toggle('expanded'); if(window.innerWidth < 700) { setTimeout(calculatePositions, 850); }">
             
             <div class="image-wrapper">
                 <img src="https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/5/0/7/8/6/8/3/shutterstock_2662120999-5a9d2b1736fbc13b.jpg" class="article-image" alt="Vorschau" loading="lazy">
@@ -1575,7 +1595,7 @@ Wirtschaftliche und kognitive Aspekte rücken ebenfalls in den Fokus: DeepL redu
             </a>
         </div>
         
-        <div class="article-card" onclick="this.classList.toggle('expanded')">
+        <div class="article-card" onclick="this.classList.toggle('expanded'); if(window.innerWidth < 700) { setTimeout(calculatePositions, 850); }">
             
             <div class="image-wrapper">
                 <img src="https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/5/0/7/8/6/8/1/shutterstock_2337605365-ba112356e9b01d00.jpg" class="article-image" alt="Vorschau" loading="lazy">
@@ -1606,7 +1626,7 @@ Wirtschaftliche und kognitive Aspekte rücken ebenfalls in den Fokus: DeepL redu
             </a>
         </div>
         
-        <div class="article-card" onclick="this.classList.toggle('expanded')">
+        <div class="article-card" onclick="this.classList.toggle('expanded'); if(window.innerWidth < 700) { setTimeout(calculatePositions, 850); }">
             
             <div class="image-wrapper">
                 <img src="https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/5/0/7/8/6/7/3/Elektroautos-f4cabae84712f2b5.webp" class="article-image" alt="Vorschau" loading="lazy">
@@ -1637,7 +1657,7 @@ Wirtschaftliche und kognitive Aspekte rücken ebenfalls in den Fokus: DeepL redu
             </a>
         </div>
         
-        <div class="article-card" onclick="this.classList.toggle('expanded')">
+        <div class="article-card" onclick="this.classList.toggle('expanded'); if(window.innerWidth < 700) { setTimeout(calculatePositions, 850); }">
             
             <div class="image-wrapper">
                 <img src="https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/5/0/7/8/6/5/5/shutterstock_778799230-73f39cf03f60116c.jpg" class="article-image" alt="Vorschau" loading="lazy">
@@ -1668,7 +1688,7 @@ Wirtschaftliche und kognitive Aspekte rücken ebenfalls in den Fokus: DeepL redu
             </a>
         </div>
         
-        <div class="article-card" onclick="this.classList.toggle('expanded')">
+        <div class="article-card" onclick="this.classList.toggle('expanded'); if(window.innerWidth < 700) { setTimeout(calculatePositions, 850); }">
             
             <div class="image-wrapper">
                 <img src="https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/5/0/7/8/6/3/9/shutterstock_2484002917-9639be2211f60cd1.jpg" class="article-image" alt="Vorschau" loading="lazy">
@@ -1699,7 +1719,7 @@ Wirtschaftliche und kognitive Aspekte rücken ebenfalls in den Fokus: DeepL redu
             </a>
         </div>
         
-        <div class="article-card" onclick="this.classList.toggle('expanded')">
+        <div class="article-card" onclick="this.classList.toggle('expanded'); if(window.innerWidth < 700) { setTimeout(calculatePositions, 850); }">
             
             <div class="image-wrapper">
                 <img src="https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/5/0/7/8/6/2/1/hp-26390d589ffc2c62.jpg" class="article-image" alt="Vorschau" loading="lazy">
@@ -1730,7 +1750,7 @@ Wirtschaftliche und kognitive Aspekte rücken ebenfalls in den Fokus: DeepL redu
             </a>
         </div>
         
-        <div class="article-card" onclick="this.classList.toggle('expanded')">
+        <div class="article-card" onclick="this.classList.toggle('expanded'); if(window.innerWidth < 700) { setTimeout(calculatePositions, 850); }">
             
             <div class="image-wrapper">
                 <img src="https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/5/0/7/8/6/1/4/shutterstock_2181593829-4dd9c3a60ce5346b.jpg" class="article-image" alt="Vorschau" loading="lazy">
@@ -1761,7 +1781,7 @@ Wirtschaftliche und kognitive Aspekte rücken ebenfalls in den Fokus: DeepL redu
             </a>
         </div>
         
-        <div class="article-card" onclick="this.classList.toggle('expanded')">
+        <div class="article-card" onclick="this.classList.toggle('expanded'); if(window.innerWidth < 700) { setTimeout(calculatePositions, 850); }">
             
             <div class="image-wrapper">
                 <img src="https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/5/0/7/8/6/2/3/shutterstock_2312656551-ceeba59a031b0351.jpg" class="article-image" alt="Vorschau" loading="lazy">
@@ -1792,7 +1812,7 @@ Wirtschaftliche und kognitive Aspekte rücken ebenfalls in den Fokus: DeepL redu
             </a>
         </div>
         
-        <div class="article-card" onclick="this.classList.toggle('expanded')">
+        <div class="article-card" onclick="this.classList.toggle('expanded'); if(window.innerWidth < 700) { setTimeout(calculatePositions, 850); }">
             
             <div class="image-wrapper">
                 <img src="https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/5/0/7/8/5/8/8/4748500-instinct-mi430x-fp64-7d3bdb53f31eb93e.jpg" class="article-image" alt="Vorschau" loading="lazy">
@@ -1823,7 +1843,7 @@ Wirtschaftliche und kognitive Aspekte rücken ebenfalls in den Fokus: DeepL redu
             </a>
         </div>
         
-        <div class="article-card" onclick="this.classList.toggle('expanded')">
+        <div class="article-card" onclick="this.classList.toggle('expanded'); if(window.innerWidth < 700) { setTimeout(calculatePositions, 850); }">
             
             <div class="image-wrapper">
                 <img src="https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/5/0/7/8/5/1/5/hp-0b0810687723d491.jpg" class="article-image" alt="Vorschau" loading="lazy">
@@ -1854,7 +1874,7 @@ Wirtschaftliche und kognitive Aspekte rücken ebenfalls in den Fokus: DeepL redu
             </a>
         </div>
         
-        <div class="article-card" onclick="this.classList.toggle('expanded')">
+        <div class="article-card" onclick="this.classList.toggle('expanded'); if(window.innerWidth < 700) { setTimeout(calculatePositions, 850); }">
             
             <div class="image-wrapper">
                 <img src="https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/5/0/7/8/1/2/8/swiftartikel-6e9d0baa46e71c65.png" class="article-image" alt="Vorschau" loading="lazy">
@@ -1885,7 +1905,7 @@ Wirtschaftliche und kognitive Aspekte rücken ebenfalls in den Fokus: DeepL redu
             </a>
         </div>
         
-        <div class="article-card" onclick="this.classList.toggle('expanded')">
+        <div class="article-card" onclick="this.classList.toggle('expanded'); if(window.innerWidth < 700) { setTimeout(calculatePositions, 850); }">
             
             <div class="image-wrapper">
                 <img src="https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/5/0/7/7/6/8/2/fitbit-air_hero-4d2e0c18a958da33.png" class="article-image" alt="Vorschau" loading="lazy">
@@ -1916,7 +1936,7 @@ Wirtschaftliche und kognitive Aspekte rücken ebenfalls in den Fokus: DeepL redu
             </a>
         </div>
         
-        <div class="article-card" onclick="this.classList.toggle('expanded')">
+        <div class="article-card" onclick="this.classList.toggle('expanded'); if(window.innerWidth < 700) { setTimeout(calculatePositions, 850); }">
             
             <div class="image-wrapper">
                 <img src="https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/5/0/7/8/3/7/7/Arm_AGI_CPU_FrontOnOffset_Chip-16x9-16bit-1-d7e98c8f042e7b9e-6c386cc3a5d5e815.jpeg" class="article-image" alt="Vorschau" loading="lazy">
@@ -1947,7 +1967,7 @@ Wirtschaftliche und kognitive Aspekte rücken ebenfalls in den Fokus: DeepL redu
             </a>
         </div>
         
-        <div class="article-card" onclick="this.classList.toggle('expanded')">
+        <div class="article-card" onclick="this.classList.toggle('expanded'); if(window.innerWidth < 700) { setTimeout(calculatePositions, 850); }">
             
             <div class="image-wrapper">
                 <img src="https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/5/0/7/8/4/2/0/Bildschirmfoto_2021-05-19_um_08-be00b63d173db78b-c6f4e037b91c5a78.webp" class="article-image" alt="Vorschau" loading="lazy">
@@ -1978,7 +1998,7 @@ Wirtschaftliche und kognitive Aspekte rücken ebenfalls in den Fokus: DeepL redu
             </a>
         </div>
         
-        <div class="article-card" onclick="this.classList.toggle('expanded')">
+        <div class="article-card" onclick="this.classList.toggle('expanded'); if(window.innerWidth < 700) { setTimeout(calculatePositions, 850); }">
             
             <div class="image-wrapper">
                 <img src="https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/5/0/7/8/3/4/6/shutterstock_2231964577-8977c99c7ded8160.jpg" class="article-image" alt="Vorschau" loading="lazy">
@@ -2012,6 +2032,81 @@ Wirtschaftliche und kognitive Aspekte rücken ebenfalls in den Fokus: DeepL redu
     </div>
 
     <script>
+        // Globale Variablen für den 3D Stack
+        let initialPositions = [];
+        const stickyTopOffset = 100;
+
+        // Berechnet die echten Koordinaten (nur auf Mobile wichtig)
+        function calculatePositions() {
+            if (window.innerWidth >= 700) return;
+            const currentCards = document.querySelectorAll('.article-card');
+
+            // Temporär relative Position setzen, um ungestörte Top-Werte zu ermitteln
+            currentCards.forEach(c => {
+                c.style.position = 'relative'; 
+                c.style.transform = 'none';
+            });
+
+            initialPositions = Array.from(currentCards).map(card => {
+                const rect = card.getBoundingClientRect();
+                return rect.top + window.scrollY;
+            });
+
+            // Sticky wiederherstellen (leeres String = Fallback aufs CSS)
+            currentCards.forEach(c => c.style.position = '');
+
+            calculate3DStack();
+        }
+
+        // Berechnet den Frosted Glass Stack Effekt
+        function calculate3DStack() {
+            if (window.innerWidth >= 700) {
+                // Desktop: Stack komplett abschalten
+                document.querySelectorAll('.article-card').forEach(card => {
+                    card.style.transform = '';
+                    card.style.opacity = '';
+                    card.style.filter = '';
+                    card.style.pointerEvents = '';
+                });
+                return;
+            }
+
+            const scrollY = window.scrollY;
+            const currentCards = document.querySelectorAll('.article-card');
+
+            currentCards.forEach((card, index) => {
+                const initialCardY = initialPositions[index];
+                if (!initialCardY) return; // Fallback falls Array noch leer
+
+                const distancePastCard = scrollY + stickyTopOffset - initialCardY;
+
+                if (distancePastCard > 3) {
+                    const scale = Math.max(0.88, 1 - (distancePastCard * 0.0004));
+                    const yOffset = Math.max(-45, distancePastCard * -0.06);
+                    const opacity = Math.max(0, 1 - (distancePastCard * 0.001));
+                    const brightness = Math.max(0.35, 1 - (distancePastCard * 0.0015));
+                    const selfBlur = Math.min(4, distancePastCard * 0.008);
+
+                    card.style.transform = `translateY(${yOffset}px) scale(${scale})`;
+                    card.style.opacity = opacity;
+
+                    if (selfBlur > 0.5 || brightness < 0.98) {
+                        card.style.filter = `blur(${selfBlur}px) brightness(${brightness})`;
+                    } else {
+                        card.style.filter = 'none';
+                    }
+                    card.style.pointerEvents = opacity <= 0.05 ? 'none' : 'auto';
+
+                } else {
+                    card.style.transform = 'none';
+                    card.style.opacity = 1;
+                    card.style.filter = 'none';
+                    card.style.pointerEvents = 'auto';
+                }
+            });
+        }
+
+        // Masonry Grid (Desktop) & Event Listeners
         (function() {
             let currentCols = 0;
             const feed = document.getElementById('news-feed');
@@ -2026,30 +2121,66 @@ Wirtschaftliche und kognitive Aspekte rücken ebenfalls in den Fokus: DeepL redu
                 currentCols = cols;
 
                 feed.innerHTML = '';
-                feed.style.gridTemplateColumns = `repeat(${cols}, minmax(0, 1fr))`;
 
-                const columns = [];
-                for (let i = 0; i < cols; i++) {
-                    const col = document.createElement('div');
-                    col.style.display = 'flex';
-                    col.style.flexDirection = 'column';
-                    col.style.gap = '20px';
-                    col.style.minWidth = '0';
-                    columns.push(col);
-                    feed.appendChild(col);
+                if (cols === 1) {
+                    // Mobile: Einfache Liste (Flex-Column) -> Wichtig für 3D Stack
+                    feed.style.display = 'flex';
+                    feed.style.flexDirection = 'column';
+                    feed.style.gridTemplateColumns = '';
+                    originalCards.forEach(card => feed.appendChild(card));
+
+                    // Verzögerte Berechnung der Positionen für den Fächer
+                    setTimeout(calculatePositions, 100);
+                } else {
+                    // Desktop: Echtes Masonry Columns System
+                    feed.style.display = 'grid'; // Fallback
+                    feed.style.gridTemplateColumns = `repeat(${cols}, minmax(0, 1fr))`;
+
+                    const columns = [];
+                    for (let i = 0; i < cols; i++) {
+                        const col = document.createElement('div');
+                        col.style.display = 'flex';
+                        col.style.flexDirection = 'column';
+                        col.style.gap = '20px';
+                        col.style.minWidth = '0';
+                        columns.push(col);
+                        feed.appendChild(col);
+                    }
+
+                    originalCards.forEach((card, index) => {
+                        columns[index % cols].appendChild(card);
+                    });
+
+                    // Sicherstellen, dass auf Desktop der Stack bereinigt wird
+                    calculate3DStack(); 
                 }
-
-                originalCards.forEach((card, index) => {
-                    columns[index % cols].appendChild(card);
-                });
             }
 
             layoutMasonry();
-            window.addEventListener('resize', layoutMasonry);
+            window.addEventListener('resize', () => {
+                layoutMasonry();
+                if (window.innerWidth < 700) calculatePositions();
+            });
+
+            // Stack beim Scrollen feuern (Nur relevant für Mobile)
+            let isTicking = false;
+            window.addEventListener('scroll', () => {
+                if (window.innerWidth >= 700) return;
+
+                if (!isTicking) {
+                    window.requestAnimationFrame(() => {
+                        calculate3DStack();
+                        isTicking = false;
+                    });
+                    isTicking = true;
+                }
+            }, { passive: true });
         })();
 
+        // Chart.js Topic Distribution Logik
         document.addEventListener("DOMContentLoaded", function() {
-            const ctx = document.getElementById('topicChart').getContext('2d');
+            const ctx = document.getElementById('topicChart');
+            if(!ctx) return;
 
             const labels = ["news", "hintergrund"];
             const currentData = [47, 3];
@@ -2066,7 +2197,7 @@ Wirtschaftliche und kognitive Aspekte rücken ebenfalls in den Fokus: DeepL redu
                 val > baselineData[i] ? 'rgba(147, 51, 234, 1)' : 'rgba(0, 122, 255, 0.6)'
             );
 
-            const gradient = ctx.createLinearGradient(0, 0, 0, 220);
+            const gradient = ctx.getContext('2d').createLinearGradient(0, 0, 0, 220);
             gradient.addColorStop(0, '#00f5d4');
             gradient.addColorStop(1, 'rgba(0, 245, 212, 0.2)');
 
