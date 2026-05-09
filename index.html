@@ -9,7 +9,7 @@
     <meta name="apple-mobile-web-app-title" content="Relevant">
     <meta name="theme-color" content="#010409">
     <title>Relevant News</title>
-
+    
     <link rel="apple-touch-icon" href="apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="192x192" href="apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="512x512" href="apple-touch-icon.png">
@@ -31,8 +31,7 @@
         html {
             background-color: #010409;
             height: 100%;
-            overflow-x: clip; 
-            scroll-behavior: smooth;
+            overflow-x: hidden;
         }
 
         body {
@@ -44,10 +43,10 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            padding: env(safe-area-inset-top) 20px calc(env(safe-area-inset-bottom) + 50vh) 20px;
+            padding: env(safe-area-inset-top) 20px calc(env(safe-area-inset-bottom) + 40px) 20px;
             background: transparent;
             width: 100%;
-            overflow-x: clip; 
+            overflow-x: hidden;
         }
 
         .background-fixed {
@@ -112,8 +111,6 @@
             padding: 24px 16px;
             margin-bottom: 20px;
             box-shadow: 0 15px 45px rgba(0, 0, 0, 0.4);
-            position: relative;
-            z-index: 99;
         }
 
         .dashboard-rings {
@@ -187,7 +184,7 @@
         }
 
         .article-card {
-            background: rgba(255, 255, 255, 0.12); /* Deutlich hellerer Glass-Effekt für alle Karten */
+            background: rgba(255, 255, 255, 0.05);
             backdrop-filter: blur(40px) saturate(200%);
             -webkit-backdrop-filter: blur(40px) saturate(200%);
             border: 1px solid rgba(255, 255, 255, 0.12);
@@ -195,8 +192,8 @@
             padding: 22px;
             cursor: pointer;
             overflow: hidden;
-            max-height: 600px; 
-            transition: max-height 0.6s cubic-bezier(0.2, 0.8, 0.2, 1);
+            max-height: 460px; 
+            transition: max-height 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
             box-shadow: 0 15px 45px rgba(0, 0, 0, 0.4);
             width: 100%;
             max-width: 100%;
@@ -205,58 +202,8 @@
 
         .article-card.expanded {
             max-height: 3000px;
+            background: rgba(255, 255, 255, 0.08);
         }
-
-        /* ----------------------------------------------------
-           MOBILE: NATIVE STICKY OVERLAY (Wallet Effect)
-           ---------------------------------------------------- */
-        @media (max-width: 699px) {
-            .feed {
-                display: flex;
-                flex-direction: column;
-                gap: 24px;
-                grid-template-columns: none;
-            }
-
-            .article-card {
-                /* DIE ÄNDERUNG: Die dunkle Farbe (20, 25, 32) ist weg. Auch auf dem Handy leuchten die Karten nun hell. */
-                background: rgba(255, 255, 255, 0.12); 
-                backdrop-filter: blur(35px) saturate(200%);
-                -webkit-backdrop-filter: blur(35px) saturate(200%);
-                border: 1px solid rgba(255, 255, 255, 0.15);
-                border-top: 1px solid rgba(255, 255, 255, 0.3);
-                box-shadow: 0 -15px 40px rgba(0, 0, 0, 0.4);
-
-                /* ALLE Karten kleben (egal ob expanded oder nicht)! */
-                position: sticky;
-                top: 100px; 
-                transform-origin: top center;
-                will-change: transform, filter;
-            }
-
-            .article-card.expanded {
-                /* WICHTIG: Erlaubt das Scrollen innerhalb der Karte,
-                   damit sie weiterhin kleben kann, man den Text aber lesen kann. */
-                max-height: calc(100vh - 140px) !important;
-                overflow-y: auto !important;
-                overscroll-behavior: contain;
-            }
-
-            /* Scrollbar in der Karte unsichtbar machen für cleanen Look */
-            .article-card.expanded::-webkit-scrollbar {
-                display: none;
-            }
-
-            .title {
-                text-shadow: 0 2px 10px rgba(0,0,0,0.5);
-            }
-
-            .summary {
-                text-shadow: 0 1px 5px rgba(0,0,0,0.5);
-                color: var(--text-main); /* Standardmäßig weiß auf Mobile */
-            }
-        }
-        /* ---------------------------------------------------- */
 
         .image-wrapper {
             width: 100%;
@@ -318,7 +265,7 @@
 
         .summary {
             font-size: 16px;
-            color: var(--text-main); /* Standardmäßig weiß */
+            color: var(--text-dim);
             line-height: 1.55;
             display: -webkit-box;
             -webkit-line-clamp: 5;
@@ -333,16 +280,15 @@
 
         .article-card.expanded .summary {
             -webkit-line-clamp: unset;
+            color: var(--text-main);
         }
 
         .source-button {
             display: flex;
             align-items: center;
             justify-content: center;
-            margin-top: 0;
-            padding: 0;
-            max-height: 0;
-            overflow: hidden;
+            margin-top: 26px;
+            padding: 16px;
             background: rgba(255, 255, 255, 0.1);
             border-radius: 16px;
             color: #fff;
@@ -356,9 +302,6 @@
         }
 
         .article-card.expanded .source-button {
-            margin-top: 26px;
-            padding: 16px;
-            max-height: 100px; 
             opacity: 1;
             transform: translateY(0);
         }
@@ -370,9 +313,12 @@
 
     <header>
         <h1>Relevant</h1>
-        <p class="build-time">Aktualisiert: 09.05.2026, 18:09 Uhr</p>
+        <p class="build-time">Aktualisiert: 09.05.2026, 21:23 Uhr</p>
     </header>
 
+
+
+    
     <div class="dashboard-card">
         <div class="dashboard-rings">
             <div class="stat-item">
@@ -415,7 +361,20 @@
             </div>
         </div>
     </div>
-
+    
+    
+    <!--
+    <div class="dashboard-card">
+        <h2 class="chart-title">Topic Distribution</h2>
+        <div class="chart-container">
+            <canvas id="topicChart"></canvas>
+        </div>
+    </div>
+    
+    -->
+    
+    
+    <!-- this inserts the graph for trends -->
     
     <div class="dashboard-card">
         <h2 class="chart-title">Trends over the last 3 months</h2>
@@ -470,12 +429,14 @@
     </script>
     
 
+
+
     <div class="feed" id="news-feed">
         
-        <div class="article-card" onclick="this.classList.toggle('expanded'); setTimeout(updateMobileStack, 50);">
-            <div class="meta">Ollama AI • Top 10 (48h)</div>
+        <div class="article-card" onclick="this.classList.toggle('expanded')">
+            <div class="meta">AI summary • Top 10 (48h)</div>
             <div class="card-header">
-                <div class="title">Trends in KI-Regulierung, Robotik und digitaler Technologie</div>
+                <div class="title">Aktuelle Entwicklungen in KI-Regulierung, Wirtschaft und Technologie</div>
                 <div class="relevance-container">
                     <svg width="44" height="44">
                         <circle stroke="rgba(255,255,255,0.08)" stroke-width="3" fill="transparent" r="19" cx="22" cy="22"/>
@@ -488,16 +449,17 @@
                     </div>
                 </div>
             </div>
-            <div class="summary" style="white-space: pre-wrap;">Die jüngsten Entwicklungen im Bereich der Künstlichen Intelligenz (KI) sind von zunehmender rechtlicher und regulatorischer Komplexität geprägt. Das Kammergericht Berlin rügte in einem aktuellen Beschluss die Verwendung fiktiver, durch KI-Halluzinationen entstandener Urteilszitate und betonte die Pflicht von Rechtsanwälten, KI-generierte Inhalte gründlich zu prüfen. Auf EU-Ebene wurde eine Anpassung des KI-Gesetzes vereinbart, die die Erstellung sexualisierter Deepfakes sowie von Inhalten zum sexuellen Kindesmissbrauch verbietet; dabei wurden die Fristen für die Kennzeichnungspflicht und die Durchsetzung durch das EU-KI-Amt auf Dezember 2026 verschoben. Im Bereich der digitalen Sicherheit steht die EU vor der Herausforderung, den Jugendschutz gegen VPN-Technologien durchzusetzen, weshalb bis 2026 ein datensparendes Verifikationssystem auf Basis der EUDI-Wallet geplant ist. Ergänzend dazu führt OpenAI eine Funktion ein, die bei potenzieller Selbstgefährdung benannte Vertrauenspersonen benachrichtigen kann. Parallel dazu haben deutsche Behörden eine neue Orientierungshilfe für Hersteller von KI-gestützten Medizinprodukten veröffentlicht, um regulatorische Klarheit zu schaffen.
+            <!-- white-space: pre-wrap hält Absätze der KI intakt -->
+            <div class="summary" style="white-space: pre-wrap;">Die regulatorische Landschaft für Künstliche Intelligenz (KI) erfährt derzeit weitreichende Veränderungen: Während das Kammergericht Berlin die Verwendung fiktiver Urteilsszitate aufgrund von KI-Halluzinationen rügte und die verstärkte Prüfpflicht von Anwälern betonte, haben EU-Mitgliedstaaten und das Europäische Parlament eine Anpassung des KI-Gesetzes vereinbart. Diese untersagt künftig sexualisierte Deepfakes sowie Inhalte zum sexuellen Missbrauch von Kindern, wobei die Durchsetzungs- und Kennzeichnungspflichten auf Ende 2026 bzw. 2027 verschoben wurden. Parallel dazu stehen EU-Maßnahmen zum digitalen Jugendschutz vor Herausforderungen durch VPN-Technologien, während deutsche Behörden eine neue Orientierungshilfe für KI-gestützte Medizinprodukte veröffentlicht haben, die jedoch aufgrund der neuen EU-KI-Verordnung zeitnah überarbeitet werden muss.
 
-Auch in der Wirtschaft und der Sicherung von Datenstrukturen finden tiefgreifende Veränderungen statt. DeepL reduziert seine Belegschaft um etwa 250 Stellen, um eine strukturelle Neuausrichtung durch eine tiefere Integration von KI in die Arbeitsprozesse zu erreichen. Um das digitale kulturelle Gedächtnis gegen zunehmende Inhaltsblockaden von Verlagen zu schützen, wird in St. Gallen die „Internet Archive Switzerland“ gegründet, die sich auf die systematische Archivierung von KI-Modellen konzentriert.
+In der Wirtschaft führt die strukturelle Neuausrichtung von DeepL zu einem Abbau von etwa 25 % der Belegschaft, um die Integration von KI-Systemen in die Arbeitsprozesse zu forcieren. Zur Erhöhung der Anwender-Sicherheit führt OpenAI eine Funktion ein, die bei Anzeichen potenzieller Selbstgefährdung eine benannte Vertrauensperson benachrichtigen kann. Dem Erhalt digitaler Inhalte dient die Neugründung der Internet Archive Switzerland, die sich als Teil eines globalen Netzwerks auf die systematische Archivierung von KI-Modellen konzentriert.
 
-Im Bereich der Robotik und Automatisierung zeichnen sich technologische Fortschritte bei der physischen Anwendung ab. 1X Technologies hat die Produktion des humanoiden Roboters „Neo“ für den Privatgebrauch aufgenommen, dessen Auslieferung bis Ende 2026 geplant ist. In der Nachhaltigkeitstechnologie entwickelt das Fraunhofer-Institut im Projekt „Rob@t2Cell“ ein robotenbasiertes System zur automatisierten Aufbereitung und zum Recycling von Batteriezellen. Ergänzend dazu ermöglicht das Projekt „Ocean Charger“ durch die Entwicklung eines induktiven Ladeanschlusses die kontaktlose Energieübertragung für Elektro-Schiffe auf hoher See, wodurch die Reichweite von Offshore-Booten ohne Zwischenstopps in Häfen erhöht wird.</div>
+Technologische Fortschritte zeigen sich zudem in der Robotik und Automatisierung: 1X Technologies hat die Produktion des humanoiden Roboters „Neo“ für den Privatmarkt gestartet, wobei die Auslieferung bis Ende 202​26 geplant ist. Im Bereich der Nachhaltigkeit entwickelt das Fraunhofer-Institut ein roboterbasiertes System zum automatisierten Recycling von Batteriezellen. Ergänzend dazu realisiert das Projekt „Ocean Charger“ ein induktives Ladesystem für Elektro-Schiffe auf hoher See, um die Reichweite von Offshore-Booten durch kontaktloses Laden an Windparks zu erhöhen.</div>
         </div>
         
 
         
-        <div class="article-card" onclick="this.classList.toggle('expanded'); setTimeout(updateMobileStack, 50);">
+        <div class="article-card" onclick="this.classList.toggle('expanded')">
             
             <div class="image-wrapper">
                 <img src="https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/5/0/7/9/6/6/7/shutterstock_1931787956-917d6d1d7b2905d1.jpg" class="article-image" alt="Vorschau" loading="lazy">
@@ -528,7 +490,7 @@ Im Bereich der Robotik und Automatisierung zeichnen sich technologische Fortschr
             </a>
         </div>
         
-        <div class="article-card" onclick="this.classList.toggle('expanded'); setTimeout(updateMobileStack, 50);">
+        <div class="article-card" onclick="this.classList.toggle('expanded')">
             
             <div class="image-wrapper">
                 <img src="https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/5/0/7/9/6/3/8/shutterstock_1920465827-62c52586fc7674ac.jpg" class="article-image" alt="Vorschau" loading="lazy">
@@ -559,7 +521,7 @@ Im Bereich der Robotik und Automatisierung zeichnen sich technologische Fortschr
             </a>
         </div>
         
-        <div class="article-card" onclick="this.classList.toggle('expanded'); setTimeout(updateMobileStack, 50);">
+        <div class="article-card" onclick="this.classList.toggle('expanded')">
             
             <div class="image-wrapper">
                 <img src="https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/5/0/7/9/5/8/4/shutterstock_2275867503-21245ffd1e46849d.jpg" class="article-image" alt="Vorschau" loading="lazy">
@@ -590,7 +552,7 @@ Im Bereich der Robotik und Automatisierung zeichnen sich technologische Fortschr
             </a>
         </div>
         
-        <div class="article-card" onclick="this.classList.toggle('expanded'); setTimeout(updateMobileStack, 50);">
+        <div class="article-card" onclick="this.classList.toggle('expanded')">
             
             <div class="image-wrapper">
                 <img src="https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/5/0/7/9/3/2/4/generated-image-1__2_-12fd567ea53ab774.png" class="article-image" alt="Vorschau" loading="lazy">
@@ -621,7 +583,7 @@ Im Bereich der Robotik und Automatisierung zeichnen sich technologische Fortschr
             </a>
         </div>
         
-        <div class="article-card" onclick="this.classList.toggle('expanded'); setTimeout(updateMobileStack, 50);">
+        <div class="article-card" onclick="this.classList.toggle('expanded')">
             
             <div class="image-wrapper">
                 <img src="https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/5/0/7/6/2/7/3/OVERLAY__Analyse-8d03a493fcbf3b04.jpg" class="article-image" alt="Vorschau" loading="lazy">
@@ -652,7 +614,7 @@ Im Bereich der Robotik und Automatisierung zeichnen sich technologische Fortschr
             </a>
         </div>
         
-        <div class="article-card" onclick="this.classList.toggle('expanded'); setTimeout(updateMobileStack, 50);">
+        <div class="article-card" onclick="this.classList.toggle('expanded')">
             
             <div class="image-wrapper">
                 <img src="https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/5/0/7/9/5/1/7/shutterstock_2542077749-e9f76f1a20e535a2.jpg" class="article-image" alt="Vorschau" loading="lazy">
@@ -683,7 +645,7 @@ Im Bereich der Robotik und Automatisierung zeichnen sich technologische Fortschr
             </a>
         </div>
         
-        <div class="article-card" onclick="this.classList.toggle('expanded'); setTimeout(updateMobileStack, 50);">
+        <div class="article-card" onclick="this.classList.toggle('expanded')">
             
             <div class="image-wrapper">
                 <img src="https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/5/0/7/9/5/2/5/shutterstock_1258390147-0a0aaa4dc0fdf3b1.jpg" class="article-image" alt="Vorschau" loading="lazy">
@@ -714,7 +676,7 @@ Im Bereich der Robotik und Automatisierung zeichnen sich technologische Fortschr
             </a>
         </div>
         
-        <div class="article-card" onclick="this.classList.toggle('expanded'); setTimeout(updateMobileStack, 50);">
+        <div class="article-card" onclick="this.classList.toggle('expanded')">
             
             <div class="image-wrapper">
                 <img src="https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/5/0/7/8/3/7/5/kaercher_hd-6-15_application-1-jpg-a97f588b5b44bf17.webp" class="article-image" alt="Vorschau" loading="lazy">
@@ -745,7 +707,7 @@ Im Bereich der Robotik und Automatisierung zeichnen sich technologische Fortschr
             </a>
         </div>
         
-        <div class="article-card" onclick="this.classList.toggle('expanded'); setTimeout(updateMobileStack, 50);">
+        <div class="article-card" onclick="this.classList.toggle('expanded')">
             
             <div class="image-wrapper">
                 <img src="https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/5/0/7/9/4/9/4/shutterstock_665882623-080dcd0146237320.jpg" class="article-image" alt="Vorschau" loading="lazy">
@@ -776,7 +738,7 @@ Im Bereich der Robotik und Automatisierung zeichnen sich technologische Fortschr
             </a>
         </div>
         
-        <div class="article-card" onclick="this.classList.toggle('expanded'); setTimeout(updateMobileStack, 50);">
+        <div class="article-card" onclick="this.classList.toggle('expanded')">
             
             <div class="image-wrapper">
                 <img src="https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/5/0/7/9/4/8/6/shutterstock_1415273714-bf3fb9eb45a2b344.jpg" class="article-image" alt="Vorschau" loading="lazy">
@@ -807,7 +769,7 @@ Im Bereich der Robotik und Automatisierung zeichnen sich technologische Fortschr
             </a>
         </div>
         
-        <div class="article-card" onclick="this.classList.toggle('expanded'); setTimeout(updateMobileStack, 50);">
+        <div class="article-card" onclick="this.classList.toggle('expanded')">
             
             <div class="image-wrapper">
                 <img src="https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/5/0/7/9/4/7/5/PDFSpaces1-64652f164ae7a5c2.webp" class="article-image" alt="Vorschau" loading="lazy">
@@ -838,7 +800,7 @@ Im Bereich der Robotik und Automatisierung zeichnen sich technologische Fortschr
             </a>
         </div>
         
-        <div class="article-card" onclick="this.classList.toggle('expanded'); setTimeout(updateMobileStack, 50);">
+        <div class="article-card" onclick="this.classList.toggle('expanded')">
             
             <div class="image-wrapper">
                 <img src="https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/5/0/7/9/3/2/7/07dd102ae49648ed9e12cc21c44ffad2-dac208fc913300d1.JPG" class="article-image" alt="Vorschau" loading="lazy">
@@ -869,7 +831,7 @@ Im Bereich der Robotik und Automatisierung zeichnen sich technologische Fortschr
             </a>
         </div>
         
-        <div class="article-card" onclick="this.classList.toggle('expanded'); setTimeout(updateMobileStack, 50);">
+        <div class="article-card" onclick="this.classList.toggle('expanded')">
             
             <div class="image-wrapper">
                 <img src="https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/5/0/7/9/2/5/7/shutterstock_1626983506-979e57d8aa7eecb3.jpg" class="article-image" alt="Vorschau" loading="lazy">
@@ -900,7 +862,7 @@ Im Bereich der Robotik und Automatisierung zeichnen sich technologische Fortschr
             </a>
         </div>
         
-        <div class="article-card" onclick="this.classList.toggle('expanded'); setTimeout(updateMobileStack, 50);">
+        <div class="article-card" onclick="this.classList.toggle('expanded')">
             
             <div class="image-wrapper">
                 <img src="https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/5/0/7/8/7/3/5/3003_Thumb_FOTOSHOSTEN_2-e4738c18044d2802.jpg" class="article-image" alt="Vorschau" loading="lazy">
@@ -931,7 +893,7 @@ Im Bereich der Robotik und Automatisierung zeichnen sich technologische Fortschr
             </a>
         </div>
         
-        <div class="article-card" onclick="this.classList.toggle('expanded'); setTimeout(updateMobileStack, 50);">
+        <div class="article-card" onclick="this.classList.toggle('expanded')">
             
             <div class="image-wrapper">
                 <img src="https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/5/0/7/9/3/9/9/Opel_Mokka_Electric-f8c6cb1075cd508e.jpg" class="article-image" alt="Vorschau" loading="lazy">
@@ -962,7 +924,7 @@ Im Bereich der Robotik und Automatisierung zeichnen sich technologische Fortschr
             </a>
         </div>
         
-        <div class="article-card" onclick="this.classList.toggle('expanded'); setTimeout(updateMobileStack, 50);">
+        <div class="article-card" onclick="this.classList.toggle('expanded')">
             
             <div class="image-wrapper">
                 <img src="https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/5/0/7/8/0/0/8/KIupdate_Titel_122023-4cd1ddee68e292c6.png" class="article-image" alt="Vorschau" loading="lazy">
@@ -993,7 +955,7 @@ Im Bereich der Robotik und Automatisierung zeichnen sich technologische Fortschr
             </a>
         </div>
         
-        <div class="article-card" onclick="this.classList.toggle('expanded'); setTimeout(updateMobileStack, 50);">
+        <div class="article-card" onclick="this.classList.toggle('expanded')">
             
             <div class="image-wrapper">
                 <img src="https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/5/0/3/1/9/6/9/https___xp.heise.de_fileserver_images_2610_711244121217777_hob.agenticco_2031751187_jnac_online-28113b598fc8f02a.jpg" class="article-image" alt="Vorschau" loading="lazy">
@@ -1024,7 +986,7 @@ Im Bereich der Robotik und Automatisierung zeichnen sich technologische Fortschr
             </a>
         </div>
         
-        <div class="article-card" onclick="this.classList.toggle('expanded'); setTimeout(updateMobileStack, 50);">
+        <div class="article-card" onclick="this.classList.toggle('expanded')">
             
             <div class="image-wrapper">
                 <img src="https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/5/0/7/9/1/8/1/shutterstock_170954663-2d09c953d948f4b0.jpg" class="article-image" alt="Vorschau" loading="lazy">
@@ -1055,7 +1017,7 @@ Im Bereich der Robotik und Automatisierung zeichnen sich technologische Fortschr
             </a>
         </div>
         
-        <div class="article-card" onclick="this.classList.toggle('expanded'); setTimeout(updateMobileStack, 50);">
+        <div class="article-card" onclick="this.classList.toggle('expanded')">
             
             <div class="image-wrapper">
                 <img src="https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/5/0/7/3/5/4/3/visionpro_w-839b37c338f60e1f.png" class="article-image" alt="Vorschau" loading="lazy">
@@ -1086,7 +1048,7 @@ Im Bereich der Robotik und Automatisierung zeichnen sich technologische Fortschr
             </a>
         </div>
         
-        <div class="article-card" onclick="this.classList.toggle('expanded'); setTimeout(updateMobileStack, 50);">
+        <div class="article-card" onclick="this.classList.toggle('expanded')">
             
             <div class="image-wrapper">
                 <img src="https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/5/0/7/9/0/4/7/shutterstock_2258159717-a04fc35e24b96829.jpg" class="article-image" alt="Vorschau" loading="lazy">
@@ -1117,7 +1079,7 @@ Im Bereich der Robotik und Automatisierung zeichnen sich technologische Fortschr
             </a>
         </div>
         
-        <div class="article-card" onclick="this.classList.toggle('expanded'); setTimeout(updateMobileStack, 50);">
+        <div class="article-card" onclick="this.classList.toggle('expanded')">
             
             <div class="image-wrapper">
                 <img src="https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/5/0/7/8/9/8/0/shutterstock_2305366297-bfd7d1da39557d18.jpg" class="article-image" alt="Vorschau" loading="lazy">
@@ -1148,7 +1110,7 @@ Im Bereich der Robotik und Automatisierung zeichnen sich technologische Fortschr
             </a>
         </div>
         
-        <div class="article-card" onclick="this.classList.toggle('expanded'); setTimeout(updateMobileStack, 50);">
+        <div class="article-card" onclick="this.classList.toggle('expanded')">
             
             <div class="image-wrapper">
                 <img src="https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/5/0/7/8/4/4/3/ki_agenten-51744e251945f64a.png" class="article-image" alt="Vorschau" loading="lazy">
@@ -1179,7 +1141,7 @@ Im Bereich der Robotik und Automatisierung zeichnen sich technologische Fortschr
             </a>
         </div>
         
-        <div class="article-card" onclick="this.classList.toggle('expanded'); setTimeout(updateMobileStack, 50);">
+        <div class="article-card" onclick="this.classList.toggle('expanded')">
             
             <div class="image-wrapper">
                 <img src="https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/5/0/7/8/8/2/4/Screenshot_2025-09-16_at_00.12.07-43567d63113af58a.png" class="article-image" alt="Vorschau" loading="lazy">
@@ -1210,7 +1172,7 @@ Im Bereich der Robotik und Automatisierung zeichnen sich technologische Fortschr
             </a>
         </div>
         
-        <div class="article-card" onclick="this.classList.toggle('expanded'); setTimeout(updateMobileStack, 50);">
+        <div class="article-card" onclick="this.classList.toggle('expanded')">
             
             <div class="image-wrapper">
                 <img src="https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/5/0/7/9/0/1/5/Samsung-Press-Release-Fainting-Prediction-Galaxy-Watch_Main2-ba66814c7a1809e1.jpg" class="article-image" alt="Vorschau" loading="lazy">
@@ -1241,7 +1203,7 @@ Im Bereich der Robotik und Automatisierung zeichnen sich technologische Fortschr
             </a>
         </div>
         
-        <div class="article-card" onclick="this.classList.toggle('expanded'); setTimeout(updateMobileStack, 50);">
+        <div class="article-card" onclick="this.classList.toggle('expanded')">
             
             <div class="image-wrapper">
                 <img src="https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/5/0/7/8/9/9/3/shutterstock_2424222439-3e91d973e81c2e6f.jpg" class="article-image" alt="Vorschau" loading="lazy">
@@ -1272,7 +1234,7 @@ Im Bereich der Robotik und Automatisierung zeichnen sich technologische Fortschr
             </a>
         </div>
         
-        <div class="article-card" onclick="this.classList.toggle('expanded'); setTimeout(updateMobileStack, 50);">
+        <div class="article-card" onclick="this.classList.toggle('expanded')">
             
             <div class="image-wrapper">
                 <img src="https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/5/0/7/8/8/2/8/apps-f19841d7c09be088.jpeg" class="article-image" alt="Vorschau" loading="lazy">
@@ -1303,7 +1265,7 @@ Im Bereich der Robotik und Automatisierung zeichnen sich technologische Fortschr
             </a>
         </div>
         
-        <div class="article-card" onclick="this.classList.toggle('expanded'); setTimeout(updateMobileStack, 50);">
+        <div class="article-card" onclick="this.classList.toggle('expanded')">
             
             <div class="image-wrapper">
                 <img src="https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/5/0/7/8/8/8/4/Neo-5810161506f0ce19.jpg" class="article-image" alt="Vorschau" loading="lazy">
@@ -1334,7 +1296,7 @@ Im Bereich der Robotik und Automatisierung zeichnen sich technologische Fortschr
             </a>
         </div>
         
-        <div class="article-card" onclick="this.classList.toggle('expanded'); setTimeout(updateMobileStack, 50);">
+        <div class="article-card" onclick="this.classList.toggle('expanded')">
             
             <div class="image-wrapper">
                 <img src="https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/5/0/7/8/8/7/9/security-bug-fixes-1-2048x1152-1ce36ac959a4d999.png" class="article-image" alt="Vorschau" loading="lazy">
@@ -1365,7 +1327,7 @@ Im Bereich der Robotik und Automatisierung zeichnen sich technologische Fortschr
             </a>
         </div>
         
-        <div class="article-card" onclick="this.classList.toggle('expanded'); setTimeout(updateMobileStack, 50);">
+        <div class="article-card" onclick="this.classList.toggle('expanded')">
             
             <div class="image-wrapper">
                 <img src="https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/5/0/7/8/9/1/0/iPhone_tre-STZ_3258-c467c80d3337920a.JPG" class="article-image" alt="Vorschau" loading="lazy">
@@ -1396,7 +1358,7 @@ Im Bereich der Robotik und Automatisierung zeichnen sich technologische Fortschr
             </a>
         </div>
         
-        <div class="article-card" onclick="this.classList.toggle('expanded'); setTimeout(updateMobileStack, 50);">
+        <div class="article-card" onclick="this.classList.toggle('expanded')">
             
             <div class="image-wrapper">
                 <img src="https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/5/0/7/4/0/3/1/visualint-197c1cbbb620c263.png" class="article-image" alt="Vorschau" loading="lazy">
@@ -1427,7 +1389,7 @@ Im Bereich der Robotik und Automatisierung zeichnen sich technologische Fortschr
             </a>
         </div>
         
-        <div class="article-card" onclick="this.classList.toggle('expanded'); setTimeout(updateMobileStack, 50);">
+        <div class="article-card" onclick="this.classList.toggle('expanded')">
             
             <div class="image-wrapper">
                 <img src="https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/5/0/7/8/7/6/9/shutterstock_1516105634-61e7b9706cb1c081.jpg" class="article-image" alt="Vorschau" loading="lazy">
@@ -1458,7 +1420,7 @@ Im Bereich der Robotik und Automatisierung zeichnen sich technologische Fortschr
             </a>
         </div>
         
-        <div class="article-card" onclick="this.classList.toggle('expanded'); setTimeout(updateMobileStack, 50);">
+        <div class="article-card" onclick="this.classList.toggle('expanded')">
             
             <div class="image-wrapper">
                 <img src="https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/5/0/7/7/5/1/9/Screenshot_2026-05-06_at_13.57.15-727003e4831144d6.png" class="article-image" alt="Vorschau" loading="lazy">
@@ -1489,7 +1451,7 @@ Im Bereich der Robotik und Automatisierung zeichnen sich technologische Fortschr
             </a>
         </div>
         
-        <div class="article-card" onclick="this.classList.toggle('expanded'); setTimeout(updateMobileStack, 50);">
+        <div class="article-card" onclick="this.classList.toggle('expanded')">
             
             <div class="image-wrapper">
                 <img src="https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/5/0/7/8/7/5/7/shutterstock_1505640251-13872ce8c530c388.jpg" class="article-image" alt="Vorschau" loading="lazy">
@@ -1520,7 +1482,7 @@ Im Bereich der Robotik und Automatisierung zeichnen sich technologische Fortschr
             </a>
         </div>
         
-        <div class="article-card" onclick="this.classList.toggle('expanded'); setTimeout(updateMobileStack, 50);">
+        <div class="article-card" onclick="this.classList.toggle('expanded')">
             
             <div class="image-wrapper">
                 <img src="https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/5/0/7/8/7/4/3/010-3671d5552b07cd21.jpg" class="article-image" alt="Vorschau" loading="lazy">
@@ -1551,7 +1513,7 @@ Im Bereich der Robotik und Automatisierung zeichnen sich technologische Fortschr
             </a>
         </div>
         
-        <div class="article-card" onclick="this.classList.toggle('expanded'); setTimeout(updateMobileStack, 50);">
+        <div class="article-card" onclick="this.classList.toggle('expanded')">
             
             <div class="image-wrapper">
                 <img src="https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/5/0/7/8/7/1/6/shutterstock_2601785549-3e31096b27400a75.jpg" class="article-image" alt="Vorschau" loading="lazy">
@@ -1582,7 +1544,7 @@ Im Bereich der Robotik und Automatisierung zeichnen sich technologische Fortschr
             </a>
         </div>
         
-        <div class="article-card" onclick="this.classList.toggle('expanded'); setTimeout(updateMobileStack, 50);">
+        <div class="article-card" onclick="this.classList.toggle('expanded')">
             
             <div class="image-wrapper">
                 <img src="https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/5/0/7/8/6/9/7/shutterstock_1907369071-19ac2bc616ac1475.jpg" class="article-image" alt="Vorschau" loading="lazy">
@@ -1613,7 +1575,7 @@ Im Bereich der Robotik und Automatisierung zeichnen sich technologische Fortschr
             </a>
         </div>
         
-        <div class="article-card" onclick="this.classList.toggle('expanded'); setTimeout(updateMobileStack, 50);">
+        <div class="article-card" onclick="this.classList.toggle('expanded')">
             
             <div class="image-wrapper">
                 <img src="https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/5/0/7/8/7/0/0/demobat2-513cf04379635236.jpg" class="article-image" alt="Vorschau" loading="lazy">
@@ -1644,7 +1606,7 @@ Im Bereich der Robotik und Automatisierung zeichnen sich technologische Fortschr
             </a>
         </div>
         
-        <div class="article-card" onclick="this.classList.toggle('expanded'); setTimeout(updateMobileStack, 50);">
+        <div class="article-card" onclick="this.classList.toggle('expanded')">
             
             <div class="image-wrapper">
                 <img src="https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/5/0/7/8/6/8/3/shutterstock_2662120999-5a9d2b1736fbc13b.jpg" class="article-image" alt="Vorschau" loading="lazy">
@@ -1675,7 +1637,7 @@ Im Bereich der Robotik und Automatisierung zeichnen sich technologische Fortschr
             </a>
         </div>
         
-        <div class="article-card" onclick="this.classList.toggle('expanded'); setTimeout(updateMobileStack, 50);">
+        <div class="article-card" onclick="this.classList.toggle('expanded')">
             
             <div class="image-wrapper">
                 <img src="https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/5/0/7/8/6/8/1/shutterstock_2337605365-ba112356e9b01d00.jpg" class="article-image" alt="Vorschau" loading="lazy">
@@ -1706,7 +1668,7 @@ Im Bereich der Robotik und Automatisierung zeichnen sich technologische Fortschr
             </a>
         </div>
         
-        <div class="article-card" onclick="this.classList.toggle('expanded'); setTimeout(updateMobileStack, 50);">
+        <div class="article-card" onclick="this.classList.toggle('expanded')">
             
             <div class="image-wrapper">
                 <img src="https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/5/0/7/8/6/7/3/Elektroautos-f4cabae84712f2b5.webp" class="article-image" alt="Vorschau" loading="lazy">
@@ -1737,7 +1699,7 @@ Im Bereich der Robotik und Automatisierung zeichnen sich technologische Fortschr
             </a>
         </div>
         
-        <div class="article-card" onclick="this.classList.toggle('expanded'); setTimeout(updateMobileStack, 50);">
+        <div class="article-card" onclick="this.classList.toggle('expanded')">
             
             <div class="image-wrapper">
                 <img src="https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/5/0/7/8/6/5/5/shutterstock_778799230-73f39cf03f60116c.jpg" class="article-image" alt="Vorschau" loading="lazy">
@@ -1768,7 +1730,7 @@ Im Bereich der Robotik und Automatisierung zeichnen sich technologische Fortschr
             </a>
         </div>
         
-        <div class="article-card" onclick="this.classList.toggle('expanded'); setTimeout(updateMobileStack, 50);">
+        <div class="article-card" onclick="this.classList.toggle('expanded')">
             
             <div class="image-wrapper">
                 <img src="https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/5/0/7/8/6/3/9/shutterstock_2484002917-9639be2211f60cd1.jpg" class="article-image" alt="Vorschau" loading="lazy">
@@ -1799,7 +1761,7 @@ Im Bereich der Robotik und Automatisierung zeichnen sich technologische Fortschr
             </a>
         </div>
         
-        <div class="article-card" onclick="this.classList.toggle('expanded'); setTimeout(updateMobileStack, 50);">
+        <div class="article-card" onclick="this.classList.toggle('expanded')">
             
             <div class="image-wrapper">
                 <img src="https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/5/0/7/8/6/2/1/hp-26390d589ffc2c62.jpg" class="article-image" alt="Vorschau" loading="lazy">
@@ -1830,7 +1792,7 @@ Im Bereich der Robotik und Automatisierung zeichnen sich technologische Fortschr
             </a>
         </div>
         
-        <div class="article-card" onclick="this.classList.toggle('expanded'); setTimeout(updateMobileStack, 50);">
+        <div class="article-card" onclick="this.classList.toggle('expanded')">
             
             <div class="image-wrapper">
                 <img src="https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/5/0/7/8/6/1/4/shutterstock_2181593829-4dd9c3a60ce5346b.jpg" class="article-image" alt="Vorschau" loading="lazy">
@@ -1861,7 +1823,7 @@ Im Bereich der Robotik und Automatisierung zeichnen sich technologische Fortschr
             </a>
         </div>
         
-        <div class="article-card" onclick="this.classList.toggle('expanded'); setTimeout(updateMobileStack, 50);">
+        <div class="article-card" onclick="this.classList.toggle('expanded')">
             
             <div class="image-wrapper">
                 <img src="https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/5/0/7/8/6/2/3/shutterstock_2312656551-ceeba59a031b0351.jpg" class="article-image" alt="Vorschau" loading="lazy">
@@ -1892,7 +1854,7 @@ Im Bereich der Robotik und Automatisierung zeichnen sich technologische Fortschr
             </a>
         </div>
         
-        <div class="article-card" onclick="this.classList.toggle('expanded'); setTimeout(updateMobileStack, 50);">
+        <div class="article-card" onclick="this.classList.toggle('expanded')">
             
             <div class="image-wrapper">
                 <img src="https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/5/0/7/8/5/8/8/4748500-instinct-mi430x-fp64-7d3bdb53f31eb93e.jpg" class="article-image" alt="Vorschau" loading="lazy">
@@ -1923,7 +1885,7 @@ Im Bereich der Robotik und Automatisierung zeichnen sich technologische Fortschr
             </a>
         </div>
         
-        <div class="article-card" onclick="this.classList.toggle('expanded'); setTimeout(updateMobileStack, 50);">
+        <div class="article-card" onclick="this.classList.toggle('expanded')">
             
             <div class="image-wrapper">
                 <img src="https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/5/0/7/8/5/1/5/hp-0b0810687723d491.jpg" class="article-image" alt="Vorschau" loading="lazy">
@@ -1954,7 +1916,7 @@ Im Bereich der Robotik und Automatisierung zeichnen sich technologische Fortschr
             </a>
         </div>
         
-        <div class="article-card" onclick="this.classList.toggle('expanded'); setTimeout(updateMobileStack, 50);">
+        <div class="article-card" onclick="this.classList.toggle('expanded')">
             
             <div class="image-wrapper">
                 <img src="https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/5/0/7/8/1/2/8/swiftartikel-6e9d0baa46e71c65.png" class="article-image" alt="Vorschau" loading="lazy">
@@ -1985,7 +1947,7 @@ Im Bereich der Robotik und Automatisierung zeichnen sich technologische Fortschr
             </a>
         </div>
         
-        <div class="article-card" onclick="this.classList.toggle('expanded'); setTimeout(updateMobileStack, 50);">
+        <div class="article-card" onclick="this.classList.toggle('expanded')">
             
             <div class="image-wrapper">
                 <img src="https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/5/0/7/7/6/8/2/fitbit-air_hero-4d2e0c18a958da33.png" class="article-image" alt="Vorschau" loading="lazy">
@@ -2016,7 +1978,7 @@ Im Bereich der Robotik und Automatisierung zeichnen sich technologische Fortschr
             </a>
         </div>
         
-        <div class="article-card" onclick="this.classList.toggle('expanded'); setTimeout(updateMobileStack, 50);">
+        <div class="article-card" onclick="this.classList.toggle('expanded')">
             
             <div class="image-wrapper">
                 <img src="https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/5/0/7/8/3/7/7/Arm_AGI_CPU_FrontOnOffset_Chip-16x9-16bit-1-d7e98c8f042e7b9e-6c386cc3a5d5e815.jpeg" class="article-image" alt="Vorschau" loading="lazy">
@@ -2050,66 +2012,6 @@ Im Bereich der Robotik und Automatisierung zeichnen sich technologische Fortschr
     </div>
 
     <script>
-        function updateMobileStack() {
-            // Nur auf dem Handy ausführen
-            if (window.innerWidth >= 700) {
-                document.querySelectorAll('.article-card').forEach(card => {
-                    card.style.transform = '';
-                    card.style.filter = '';
-                    card.style.pointerEvents = '';
-                });
-                return;
-            }
-
-            const cards = document.querySelectorAll('.article-card');
-            const stickyTopOffset = 100;
-            // Distanz in Pixeln, ab der eine untere Karte anfängt, die obere "wegzudrücken"
-            const triggerDistance = 250; 
-
-            cards.forEach((card, index) => {
-                const nextCard = cards[index + 1];
-
-                if (nextCard) {
-                    const nextRect = nextCard.getBoundingClientRect();
-                    // Abstand der nächsten Karte zum oberen Rand (100px-Grenze)
-                    const distanceToSticky = nextRect.top - stickyTopOffset;
-
-                    // Wenn die nächste Karte näher als 250px an die Klebegrenze rückt...
-                    if (distanceToSticky <= triggerDistance && distanceToSticky > -100) {
-
-                        // Berechnet einen Faktor von 0.0 (noch weit weg) bis 1.0 (liegt exakt drauf)
-                        const progress = Math.max(0, Math.min(1, 1 - (distanceToSticky / triggerDistance)));
-
-                        // Werte stufenlos berechnen
-                        const scale = 1 - (progress * 0.12); // Schrumpft auf max 88%
-                        const yOffset = progress * -40; // Geht 40px nach oben in die Flucht
-                        const brightness = 1 - (progress * 0.65); // Wird abgedunkelt (Schatten)
-                        const blur = progress * 8; // Wird unscharf
-
-                        // Force 3D Transform für flüssiges Rendering auf iOS
-                        card.style.transform = `translate3d(0, ${yOffset}px, 0) scale(${scale})`;
-
-                        // Kombiniert Abdunkelung und Unschärfe sauber
-                        card.style.filter = `brightness(${brightness}) blur(${blur}px)`;
-
-                        // Verhindert versehentliche Klicks auf Karten im Hintergrund
-                        card.style.pointerEvents = progress > 0.6 ? 'none' : 'auto';
-
-                    } else if (distanceToSticky > triggerDistance) {
-                        // Karte ist noch im normalen Flow oder gerade erst an die Decke geklebt
-                        card.style.transform = 'none';
-                        card.style.filter = 'none';
-                        card.style.pointerEvents = 'auto';
-                    }
-                } else {
-                    // Die letzte Karte im Feed schrumpft nie
-                    card.style.transform = 'none';
-                    card.style.filter = 'none';
-                }
-            });
-        }
-
-        // Masonry Grid (Desktop) & Event Listeners
         (function() {
             let currentCols = 0;
             const feed = document.getElementById('news-feed');
@@ -2124,61 +2026,30 @@ Im Bereich der Robotik und Automatisierung zeichnen sich technologische Fortschr
                 currentCols = cols;
 
                 feed.innerHTML = '';
+                feed.style.gridTemplateColumns = `repeat(${cols}, minmax(0, 1fr))`;
 
-                if (cols === 1) {
-                    feed.style.display = 'flex';
-                    feed.style.flexDirection = 'column';
-                    feed.style.gridTemplateColumns = '';
-                    originalCards.forEach(card => feed.appendChild(card));
-
-                    setTimeout(updateMobileStack, 100);
-                } else {
-                    feed.style.display = 'grid'; 
-                    feed.style.gridTemplateColumns = `repeat(${cols}, minmax(0, 1fr))`;
-
-                    const columns = [];
-                    for (let i = 0; i < cols; i++) {
-                        const col = document.createElement('div');
-                        col.style.display = 'flex';
-                        col.style.flexDirection = 'column';
-                        col.style.gap = '20px';
-                        col.style.minWidth = '0';
-                        columns.push(col);
-                        feed.appendChild(col);
-                    }
-
-                    originalCards.forEach((card, index) => {
-                        columns[index % cols].appendChild(card);
-                    });
-
-                    updateMobileStack(); 
+                const columns = [];
+                for (let i = 0; i < cols; i++) {
+                    const col = document.createElement('div');
+                    col.style.display = 'flex';
+                    col.style.flexDirection = 'column';
+                    col.style.gap = '20px';
+                    col.style.minWidth = '0';
+                    columns.push(col);
+                    feed.appendChild(col);
                 }
+
+                originalCards.forEach((card, index) => {
+                    columns[index % cols].appendChild(card);
+                });
             }
 
             layoutMasonry();
-            window.addEventListener('resize', () => {
-                layoutMasonry();
-                if (window.innerWidth < 700) updateMobileStack();
-            });
-
-            let isTicking = false;
-            window.addEventListener('scroll', () => {
-                if (window.innerWidth >= 700) return;
-
-                if (!isTicking) {
-                    window.requestAnimationFrame(() => {
-                        updateMobileStack();
-                        isTicking = false;
-                    });
-                    isTicking = true;
-                }
-            }, { passive: true });
+            window.addEventListener('resize', layoutMasonry);
         })();
 
-        // Chart.js Topic Distribution Logik
         document.addEventListener("DOMContentLoaded", function() {
-            const ctx = document.getElementById('topicChart');
-            if(!ctx) return;
+            const ctx = document.getElementById('topicChart').getContext('2d');
 
             const labels = ["news", "hintergrund"];
             const currentData = [47, 3];
@@ -2195,7 +2066,7 @@ Im Bereich der Robotik und Automatisierung zeichnen sich technologische Fortschr
                 val > baselineData[i] ? 'rgba(147, 51, 234, 1)' : 'rgba(0, 122, 255, 0.6)'
             );
 
-            const gradient = ctx.getContext('2d').createLinearGradient(0, 0, 0, 220);
+            const gradient = ctx.createLinearGradient(0, 0, 0, 220);
             gradient.addColorStop(0, '#00f5d4');
             gradient.addColorStop(1, 'rgba(0, 245, 212, 0.2)');
 
