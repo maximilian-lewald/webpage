@@ -32,7 +32,7 @@
             background-color: #010409;
             height: 100%;
             overflow-x: clip; 
-            scroll-behavior: smooth;
+            scroll-behavior: auto; /* Let JS handle smooth scrolling perfectly */
         }
 
         body {
@@ -201,12 +201,20 @@
             width: 100%;
             max-width: 100%;
             min-width: 0; 
-            z-index: 1; /* Establish base z-index */
+            z-index: 1; /* Establishes stacking base */
+        }
+
+        /* Smoothly handles the un-tucking animation */
+        body.stack-animating .article-card {
+            transition: max-height 0.6s cubic-bezier(0.2, 0.8, 0.2, 1), 
+                        transform 0.6s cubic-bezier(0.2, 0.8, 0.2, 1), 
+                        filter 0.6s cubic-bezier(0.2, 0.8, 0.2, 1),
+                        opacity 0.6s cubic-bezier(0.2, 0.8, 0.2, 1);
         }
 
         .article-card.expanded {
             max-height: 3000px;
-            z-index: 50 !important; /* Force to sit on top of subsequent cards */
+            z-index: 50 !important; /* Forces the active card on top */
         }
 
         @media (max-width: 699px) {
@@ -225,12 +233,12 @@
                 border-top: 1px solid rgba(255, 255, 255, 0.3);
                 box-shadow: 0 -15px 40px rgba(0, 0, 0, 0.4);
                 position: sticky;
-                top: 100px; 
+                top: 20px; /* OFFSET FIXED: Pushes cards to the very top */
                 transform-origin: top center;
             }
 
             .article-card.expanded {
-                max-height: calc(100vh - 140px) !important;
+                max-height: calc(100vh - 50px) !important; /* Gives expanded card more reading height */
                 overflow-y: auto !important;
                 overscroll-behavior: contain;
             }
@@ -361,7 +369,7 @@
 
     <header>
         <h1>Relevant</h1>
-        <p class="build-time">Aktualisiert: 11.05.2026, 18:23 Uhr</p>
+        <p class="build-time">Aktualisiert: 11.05.2026, 18:38 Uhr</p>
     </header>
 
     <div class="dashboard-card">
@@ -2040,6 +2048,9 @@
         function toggleCard(card) {
             const isExpanding = !card.classList.contains('expanded');
 
+            document.body.classList.add('stack-animating');
+            setTimeout(() => document.body.classList.remove('stack-animating'), 650);
+
             document.querySelectorAll('.article-card.expanded').forEach(c => {
                 if (c !== card) {
                     c.classList.remove('expanded');
@@ -2050,32 +2061,43 @@
                 card.classList.add('expanded');
 
                 if (window.innerWidth < 700) {
-                    setTimeout(() => {
-                        let absoluteTop = 0;
-                        let currentElement = card;
+                    const transitionDuration = 600; 
+                    const start = Date.now();
+                    let lastY = card.getBoundingClientRect().top;
 
-                        while (currentElement) {
-                            absoluteTop += currentElement.offsetTop;
-                            currentElement = currentElement.offsetParent;
+                    function trackScroll() {
+                        const now = Date.now();
+                        if (now - start > transitionDuration) return;
+
+                        const currentY = card.getBoundingClientRect().top;
+                        const shiftDelta = currentY - lastY;
+
+                        if (Math.abs(shiftDelta) > 0.5) {
+                            window.scrollBy(0, shiftDelta);
                         }
 
-                        window.scrollTo({
-                            top: absoluteTop - 100,
-                            behavior: 'smooth'
-                        });
-                    }, 20);
+                        // OFFSET FIXED: Math targets 20px now instead of 100
+                        const updatedY = card.getBoundingClientRect().top;
+                        const distanceToTarget = updatedY - 20; 
+                        if (Math.abs(distanceToTarget) > 0.5) {
+                            const step = distanceToTarget * 0.15; 
+                            window.scrollBy(0, step);
+                        }
+
+                        lastY = card.getBoundingClientRect().top;
+                        requestAnimationFrame(trackScroll);
+                    }
+
+                    requestAnimationFrame(trackScroll);
                 }
             } else {
                 card.classList.remove('expanded');
             }
 
-            // Run a continuous animation loop to smoothly un-stack underlying 
-            // cards while the CSS max-height transition pushes them down.
-            const start = Date.now();
+            const startStack = Date.now();
             function animateStack() {
                 updateMobileStack();
-                // 650ms covers the 0.6s CSS transition plus a slight buffer
-                if (Date.now() - start < 650) {
+                if (Date.now() - startStack < 650) {
                     requestAnimationFrame(animateStack);
                 }
             }
@@ -2096,16 +2118,26 @@
             }
 
             const cards = document.querySelectorAll('.article-card');
-            const stickyTopOffset = 100;
+            const stickyTopOffset = 20; // OFFSET FIXED: Changed from 100 to 20
             const triggerDistance = 250;
 
             const rects = Array.from(cards).map(card => card.getBoundingClientRect());
             const cardStates = [];
             let highestStackedIndex = -1;
+            let isAnyExpandedAbove = false;
 
             cards.forEach((card, index) => {
                 let progress = 0;
                 let isActive = false;
+
+                if (isAnyExpandedAbove) {
+                    cardStates.push({ progress: 0, isActive: false });
+                    return;
+                }
+
+                if (card.classList.contains('expanded')) {
+                    isAnyExpandedAbove = true;
+                }
 
                 const nextCard = cards[index + 1];
                 if (nextCard) {
@@ -2136,7 +2168,6 @@
                     return;
                 }
 
-                // If the card is expanded, completely ignore stacking logic
                 if (state.isActive && !card.classList.contains('expanded')) {
                     if (state.progress >= 1 && index < highestStackedIndex - 1) {
                         card.style.opacity = '0';
