@@ -9,7 +9,7 @@
     <meta name="apple-mobile-web-app-title" content="Relevant">
     <meta name="theme-color" content="#010409">
     <title>Relevant News</title>
-    
+
     <link rel="apple-touch-icon" href="apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="192x192" href="apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="512x512" href="apple-touch-icon.png">
@@ -31,7 +31,8 @@
         html {
             background-color: #010409;
             height: 100%;
-            overflow-x: hidden;
+            overflow-x: clip; 
+            scroll-behavior: smooth;
         }
 
         body {
@@ -43,10 +44,10 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            padding: env(safe-area-inset-top) 20px calc(env(safe-area-inset-bottom) + 40px) 20px;
+            padding: env(safe-area-inset-top) 20px calc(env(safe-area-inset-bottom) + 50vh) 20px;
             background: transparent;
             width: 100%;
-            overflow-x: hidden;
+            overflow-x: clip; 
         }
 
         .background-fixed {
@@ -111,6 +112,8 @@
             padding: 24px 16px;
             margin-bottom: 20px;
             box-shadow: 0 15px 45px rgba(0, 0, 0, 0.4);
+            position: relative;
+            z-index: 99;
         }
 
         .dashboard-rings {
@@ -184,7 +187,7 @@
         }
 
         .article-card {
-            background: rgba(255, 255, 255, 0.05);
+            background: rgba(255, 255, 255, 0.12);
             backdrop-filter: blur(40px) saturate(200%);
             -webkit-backdrop-filter: blur(40px) saturate(200%);
             border: 1px solid rgba(255, 255, 255, 0.12);
@@ -192,8 +195,8 @@
             padding: 22px;
             cursor: pointer;
             overflow: hidden;
-            max-height: 460px; 
-            transition: max-height 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
+            max-height: 600px; 
+            transition: max-height 0.6s cubic-bezier(0.2, 0.8, 0.2, 1);
             box-shadow: 0 15px 45px rgba(0, 0, 0, 0.4);
             width: 100%;
             max-width: 100%;
@@ -202,7 +205,46 @@
 
         .article-card.expanded {
             max-height: 3000px;
-            background: rgba(255, 255, 255, 0.08);
+        }
+
+        @media (max-width: 699px) {
+            .feed {
+                display: flex;
+                flex-direction: column;
+                gap: 24px;
+                grid-template-columns: none;
+            }
+
+            .article-card {
+                background: rgba(255, 255, 255, 0.12); 
+                backdrop-filter: blur(35px) saturate(200%);
+                -webkit-backdrop-filter: blur(35px) saturate(200%);
+                border: 1px solid rgba(255, 255, 255, 0.15);
+                border-top: 1px solid rgba(255, 255, 255, 0.3);
+                box-shadow: 0 -15px 40px rgba(0, 0, 0, 0.4);
+                position: sticky;
+                top: 100px; 
+                transform-origin: top center;
+            }
+
+            .article-card.expanded {
+                max-height: calc(100vh - 140px) !important;
+                overflow-y: auto !important;
+                overscroll-behavior: contain;
+            }
+
+            .article-card.expanded::-webkit-scrollbar {
+                display: none;
+            }
+
+            .title {
+                text-shadow: 0 2px 10px rgba(0,0,0,0.5);
+            }
+
+            .summary {
+                text-shadow: 0 1px 5px rgba(0,0,0,0.5);
+                color: var(--text-main);
+            }
         }
 
         .image-wrapper {
@@ -265,7 +307,7 @@
 
         .summary {
             font-size: 16px;
-            color: var(--text-dim);
+            color: var(--text-main);
             line-height: 1.55;
             display: -webkit-box;
             -webkit-line-clamp: 5;
@@ -280,15 +322,16 @@
 
         .article-card.expanded .summary {
             -webkit-line-clamp: unset;
-            color: var(--text-main);
         }
 
         .source-button {
             display: flex;
             align-items: center;
             justify-content: center;
-            margin-top: 26px;
-            padding: 16px;
+            margin-top: 0;
+            padding: 0;
+            max-height: 0;
+            overflow: hidden;
             background: rgba(255, 255, 255, 0.1);
             border-radius: 16px;
             color: #fff;
@@ -302,6 +345,9 @@
         }
 
         .article-card.expanded .source-button {
+            margin-top: 26px;
+            padding: 16px;
+            max-height: 100px; 
             opacity: 1;
             transform: translateY(0);
         }
@@ -313,12 +359,9 @@
 
     <header>
         <h1>Relevant</h1>
-        <p class="build-time">Aktualisiert: 11.05.2026, 07:46 Uhr</p>
+        <p class="build-time">Aktualisiert: 11.05.2026, 16:37 Uhr</p>
     </header>
 
-
-
-    
     <div class="dashboard-card">
         <div class="dashboard-rings">
             <div class="stat-item">
@@ -326,10 +369,10 @@
                     <svg width="60" height="60">
                         <circle stroke="rgba(255,255,255,0.08)" stroke-width="4" fill="transparent" r="26" cx="30" cy="30"/>
                         <circle class="dashboard-circle" stroke-width="4" stroke-dasharray="163.36" 
-                                stroke-dashoffset="52.2752" 
+                                stroke-dashoffset="75.1456" 
                                 stroke-linecap="round" fill="transparent" r="26" cx="30" cy="30" transform="rotate(-90 30 30)"/>
                     </svg>
-                    <div class="ring-text">68%</div>
+                    <div class="ring-text">54%</div>
                 </div>
                 <div class="stat-label">Relevant<br>Share</div>
             </div>
@@ -352,29 +395,16 @@
                     <svg width="60" height="60">
                         <circle stroke="rgba(255,255,255,0.08)" stroke-width="4" fill="transparent" r="26" cx="30" cy="30"/>
                         <circle class="dashboard-circle" stroke-width="4" stroke-dasharray="163.36" 
-                                stroke-dashoffset="130.68800000000002" 
+                                stroke-dashoffset="81.68" 
                                 stroke-linecap="round" fill="transparent" r="26" cx="30" cy="30" transform="rotate(-90 30 30)"/>
                     </svg>
-                    <div class="ring-text">20%</div>
+                    <div class="ring-text">50%</div>
                 </div>
                 <div class="stat-label">Last<br>24h</div>
             </div>
         </div>
     </div>
-    
-    
-    <!--
-    <div class="dashboard-card">
-        <h2 class="chart-title">Topic Distribution</h2>
-        <div class="chart-container">
-            <canvas id="topicChart"></canvas>
-        </div>
-    </div>
-    
-    -->
-    
-    
-    <!-- this inserts the graph for trends -->
+
     
     <div class="dashboard-card">
         <h2 class="chart-title">Trends over the last 3 months</h2>
@@ -429,14 +459,12 @@
     </script>
     
 
-
-
     <div class="feed" id="news-feed">
         
-        <div class="article-card" onclick="this.classList.toggle('expanded')">
-            <div class="meta">AI summary • Top 10 (48h)</div>
+        <div class="article-card" onclick="this.classList.toggle('expanded'); setTimeout(updateMobileStack, 50);">
+            <div class="meta">Ollama AI • Top 10 (48h)</div>
             <div class="card-header">
-                <div class="title">Aktuelle Entwicklungen in Technologie, Wirtschaft und Recht</div>
+                <div class="title">hello456</div>
                 <div class="relevance-container">
                     <svg width="44" height="44">
                         <circle stroke="rgba(255,255,255,0.08)" stroke-width="3" fill="transparent" r="19" cx="22" cy="22"/>
@@ -449,15 +477,477 @@
                     </div>
                 </div>
             </div>
-            <!-- white-space: pre-wrap hält Absätze der KI intakt -->
-            <div class="summary" style="white-space: pre-wrap;">In der Halbleiter- und Technologiebranche zeichnen sich bedeutende strategische Verschiebungen ab: Apple und Intel haben eine vorläufige Einigung über die künftige Fertigung von Apple-Chips durch Intel erzielt, was durch die Unterstützung der US-Regierung zur Förderung der heimischen Produktion forciert wird und die Abhängigkeit von TSMC reduzieren soll. Parallel dazu unterzeichneten Sony und TSMC eine Absichtserklärung für ein Joint Venture zur Produktion hochmoderner Bildsensoren in Japan. Im Bereich der Datenspeicherung hat Micron seine SSD-Serie „6600 Ion“ für Rechenzentren auf bis zu 245 TByte pro Laufwerk erweitert. Im Finanzsektor hat der Hedgefonds TCI seine Microsoft-Beteiligung massiv von 10 auf 1 Prozent reduziert und stattdessen Alphabet-Anteile erhöht, was die Sorge widerspiegelt, dass KI-Agenten etablierte Software-Geschäftsmodelle untergraben könnten.
-
-Regulatorische und rechtliche Herausforderungen prägen weitere Entwicklungen: Die Nutzung generativer Sprachmodelle zur Simulation von Kindermissbrauch erschwert die Moderation auf Plattformen und stellt die globale Regulierung vor Probleme, während die EU bis 2027 die Kriminalisierung der Erstellung solcher Inhalte umsetzen muss. Im Bereich des digitalen Jugendschutzes bereitet die Umgehung von Altersprüfungen durch VPN-Technologie die EU-Organe, die bis 2026 ein neues, datensparendes Verifikationssystem planen. Rechtlich streitet die Musikerin Dua Lipa gegen Samsung wegen einer Urheberrechtsverletzung durch die unbefugte Nutzung ihres Bildnisses auf Produktverpackungen. In Deutschland plant der Bundesumweltminister ein Verbot von Einweg-E-Zigaretten, um Brandgefahren in Entsorgungsanlagen durch Lithium-Batterien zu senken. Zudem steht in Baden-Württemberg die geplante Kürzung der Stellen beim Landesbeauftragten für Datenschutz sowie die Ausweitung der KI-gestützten Überwachung in der Kritik. Wissenschaftlich betrachtet lässt sich eine vermeintliche Häufung von Todesfällen unter US-Wissenschaftlern statistisch als zufälliges Ereignis innerhalb einer großen Grundgesamtheit erklären.</div>
+            <div class="summary" style="white-space: pre-wrap;">hello1234</div>
         </div>
         
 
         
-        <div class="article-card" onclick="this.classList.toggle('expanded')">
+        <div class="article-card" onclick="this.classList.toggle('expanded'); setTimeout(updateMobileStack, 50);">
+            
+            <div class="image-wrapper">
+                <img src="https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/5/0/8/0/5/2/2/000-dd0292b38e13936c.webp" class="article-image" alt="Vorschau" loading="lazy">
+            </div>
+            
+
+            <div class="meta">heise • news</div>
+
+            <div class="card-header">
+                <div class="title">NASA testet Blue Origin Mondlander Endurance zur Vorbereitung auf Artemis-Missionen</div>
+                <div class="relevance-container">
+                    <svg width="44" height="44">
+                        <circle stroke="rgba(255,255,255,0.08)" stroke-width="3" fill="transparent" r="19" cx="22" cy="22"/>
+                        <circle class="progress-ring__circle" stroke-width="3" stroke-dasharray="119.38" 
+                                stroke-dashoffset="7.41217676822383" 
+                                stroke-linecap="round" fill="transparent" r="19" cx="22" cy="22" transform="rotate(-90 22 22)"/>
+                    </svg>
+                    <div style="position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); font-size:11px; font-weight:800;">
+                        93
+                    </div>
+                </div>
+            </div>
+
+            <div class="summary">Die NASA testet den unbemannten Mondlander „Endurance“ (Blue Moon MK1) von Blue Origin für eine diesjährige Mission zum Mond. Nach erfolgreichen thermischen und strukturellen Integritätstests in Houston werden derzeit die Kommunikationssysteme in Florida geprüft. Die Mission soll Präzisionslandung, Antrieb und autonome Navigation sowie den Einsatz wissenschaftlicher Nutzlasten (Kamerasystem und Laser) demonstrieren und dient der Vorbereitung der bemannten Artemis-Missionen (Artemis 3 und 4).</div>
+
+            <a href="https://www.heise.de/news/Blue-Origins-Mondlandefahrzeug-Blue-Moon-MK1-besteht-wichtigen-Test-der-NASA-11290207.html?wt_mc=rss.red.ho.ho.atom.beitrag.beitrag" class="source-button" target="_blank" onclick="event.stopPropagation()">
+                Vollständigen Artikel lesen
+            </a>
+        </div>
+        
+        <div class="article-card" onclick="this.classList.toggle('expanded'); setTimeout(updateMobileStack, 50);">
+            
+            <div class="image-wrapper">
+                <img src="https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/5/0/7/3/0/7/3/Aufmacher-online-c1b45c8cc1ecb751.png" class="article-image" alt="Vorschau" loading="lazy">
+            </div>
+            
+
+            <div class="meta">heise • ratgeber</div>
+
+            <div class="card-header">
+                <div class="title">Insta360 und Splatica kooperieren für die Erstellung von 3D Gaussian Splats mit Insta360-Kameras</div>
+                <div class="relevance-container">
+                    <svg width="44" height="44">
+                        <circle stroke="rgba(255,255,255,0.08)" stroke-width="3" fill="transparent" r="19" cx="22" cy="22"/>
+                        <circle class="progress-ring__circle" stroke-width="3" stroke-dasharray="119.38" 
+                                stroke-dashoffset="35.046067690000484" 
+                                stroke-linecap="round" fill="transparent" r="19" cx="22" cy="22" transform="rotate(-90 22 22)"/>
+                    </svg>
+                    <div style="position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); font-size:11px; font-weight:800;">
+                        69
+                    </div>
+                </div>
+            </div>
+
+            <div class="summary">Die Kooperation von Insta360 und Splatica ermöglicht die Erstellung begehbarer „3D Gaussian Splats“ aus Aufnahmen der Insta360 X2 bis X5 Kameras, wodurch komplexe Fotogrammetrie-Verfahren durch digitale 3D-Umgebungen für Browser und VR-Brillen ersetzt werden. Der Splatica-Dienst ist kostenpflichtig (Standard-Abo: 34,95 US-Dollar monatlich für 300 Punkte).</div>
+
+            <a href="https://www.heise.de/ratgeber/3D-Welten-aus-einem-kurzen-Video-Gaussian-Splats-selbst-erstellen-11275448.html?wt_mc=rss.red.ho.ho.atom.beitrag_plus.beitrag_plus" class="source-button" target="_blank" onclick="event.stopPropagation()">
+                Vollständigen Artikel lesen
+            </a>
+        </div>
+        
+        <div class="article-card" onclick="this.classList.toggle('expanded'); setTimeout(updateMobileStack, 50);">
+            
+            <div class="image-wrapper">
+                <img src="https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/5/0/7/9/7/5/1/KIupdate_Titel_122023-4cd1ddee68e292c6.png" class="article-image" alt="Vorschau" loading="lazy">
+            </div>
+            
+
+            <div class="meta">heise • news</div>
+
+            <div class="card-header">
+                <div class="title">Regulatorische, technologische und wirtschaftliche Entwicklungen im Bereich der Künstlichen Intelligenz</div>
+                <div class="relevance-container">
+                    <svg width="44" height="44">
+                        <circle stroke="rgba(255,255,255,0.08)" stroke-width="3" fill="transparent" r="19" cx="22" cy="22"/>
+                        <circle class="progress-ring__circle" stroke-width="3" stroke-dasharray="119.38" 
+                                stroke-dashoffset="12.83924221899052" 
+                                stroke-linecap="round" fill="transparent" r="19" cx="22" cy="22" transform="rotate(-90 22 22)"/>
+                    </svg>
+                    <div style="position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); font-size:11px; font-weight:800;">
+                        88
+                    </div>
+                </div>
+            </div>
+
+            <div class="summary">Generative KI wird zur Simulation von Kindesmissbrauch genutzt, weshalb die EU bis 2027 die Erstellung solcher Inhalte unter Strafe stellen will. OpenAI führt eine Notfallkontakt-Funierung für psychische Krisen sowie neue Echtzeit-Audiomodelle ein. Trotz der Einschränkungen durch den EU AI Act nimmt die KI-basierte Emotionserkennung am Arbeitsplatz zu. Im rechtlichen Bereich mahnen Gerichte gegen KI-Halluzinationen in Schriftsätzen, während Anthropics „Mythos“ Sicherheitslücken in Firefox fand und ChatGPT 5.5 Pro ein mathematisches Problem löste. Wirtschaftlich reduziert Cloudflare die Belegschaft um 20 % zur KI-Strukturierung, der Hedgefonds TCI verringerte seine Microsoft-Beteiligung aufgrund von KI-Risiken und Schweizer Medien verabschiedeten einen neuen KI-Kodex.</div>
+
+            <a href="https://www.heise.de/news/KI-Update-Verstoerende-Chatbots-Neue-Audio-Modelle-Mythos-Cloudflare-11288660.html?wt_mc=rss.red.ho.ho.atom.beitrag.beitrag" class="source-button" target="_blank" onclick="event.stopPropagation()">
+                Vollständigen Artikel lesen
+            </a>
+        </div>
+        
+        <div class="article-card" onclick="this.classList.toggle('expanded'); setTimeout(updateMobileStack, 50);">
+            
+            <div class="image-wrapper">
+                <img src="https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/5/0/8/0/4/3/4/shutterstock_2103114116-8544d16fdaba394a.jpg" class="article-image" alt="Vorschau" loading="lazy">
+            </div>
+            
+
+            <div class="meta">heise • news</div>
+
+            <div class="card-header">
+                <div class="title">Entwicklung der KI-Nutzung und deren Auswirkungen auf die deutsche Arbeitswelt</div>
+                <div class="relevance-container">
+                    <svg width="44" height="44">
+                        <circle stroke="rgba(255,255,255,0.08)" stroke-width="3" fill="transparent" r="19" cx="22" cy="22"/>
+                        <circle class="progress-ring__circle" stroke-width="3" stroke-dasharray="119.38" 
+                                stroke-dashoffset="12.171081417550354" 
+                                stroke-linecap="round" fill="transparent" r="19" cx="22" cy="22" transform="rotate(-90 22 22)"/>
+                    </svg>
+                    <div style="position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); font-size:11px; font-weight:800;">
+                        89
+                    </div>
+                </div>
+            </div>
+
+            <div class="summary">Laut einer Bitkom-Umfrage halten 29 Prozent der deutschen Beschäftigten ihre Vorgesetzten für durch KI ersetzbar, während 22 Prozent bereits Stellenabbau oder Nicht-Nachbesetzungen durch KI melden. Die regelmäßige Nutzung von KI-Anwendungen am Arbeitsplatz hat sich laut McKinsey von 19 auf 38 Prozent verdoppelt, wenngleich 31 Prozent der Befragten keinen Zugang zu entsprechenden Tools haben. Angesichts eines hohen Qualifizierungsbedarfs, der in kleinen Unternehmen (21 %) seltener durch Schulungen abgedeckt wird als in Großunternehmen (49 %), sieht Bitkom die Technologie als Antwort auf den demografisch bedingten Fachkräftemangel.</div>
+
+            <a href="https://www.heise.de/news/KI-kann-den-Chef-ersetzen-aber-nicht-mich-11290037.html?wt_mc=rss.red.ho.ho.atom.beitrag.beitrag" class="source-button" target="_blank" onclick="event.stopPropagation()">
+                Vollständigen Artikel lesen
+            </a>
+        </div>
+        
+        <div class="article-card" onclick="this.classList.toggle('expanded'); setTimeout(updateMobileStack, 50);">
+            
+            <div class="image-wrapper">
+                <img src="https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/5/0/8/0/4/2/4/rheinmetall-logo-e174118bc1d0a961.jpg" class="article-image" alt="Vorschau" loading="lazy">
+            </div>
+            
+
+            <div class="meta">heise • news</div>
+
+            <div class="card-header">
+                <div class="title">Rheinmetall und Deutsche Telekom entwickeln System zur Abwehr von Drohnen und Cyberangriffen</div>
+                <div class="relevance-container">
+                    <svg width="44" height="44">
+                        <circle stroke="rgba(255,255,255,0.08)" stroke-width="3" fill="transparent" r="19" cx="22" cy="22"/>
+                        <circle class="progress-ring__circle" stroke-width="3" stroke-dasharray="119.38" 
+                                stroke-dashoffset="22.769652328665998" 
+                                stroke-linecap="round" fill="transparent" r="19" cx="22" cy="22" transform="rotate(-90 22 22)"/>
+                    </svg>
+                    <div style="position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); font-size:11px; font-weight:800;">
+                        79
+                    </div>
+                </div>
+            </div>
+
+            <div class="summary">Rheinmetall und die Deutsche Telekom entwickeln in einem frühen Projektstadium ein System zur Abwehr feindlicher Drohnen und Cyberangriffe auf kritische Infrastrukturen. Das Vorhaben kombiniert die Telekom-Expertise in Mobilfunknetzen, Frequenzerkennung und Datenanalyse mit der Rheinmetall-Sensorik und Effektoren wie Jamming, Abfangdrohnen oder Lasersystemen, um Drohnen sowohl über Funkfrequenzen als auch über das Mobilfunknetz frühzeitig zu erkennen und zu neutralisieren.</div>
+
+            <a href="https://www.heise.de/news/Rheinmetall-und-Telekom-entwickeln-Anti-Drohnen-Abwehrschirm-11290017.html?wt_mc=rss.red.ho.ho.atom.beitrag.beitrag" class="source-button" target="_blank" onclick="event.stopPropagation()">
+                Vollständigen Artikel lesen
+            </a>
+        </div>
+        
+        <div class="article-card" onclick="this.classList.toggle('expanded'); setTimeout(updateMobileStack, 50);">
+            
+            <div class="image-wrapper">
+                <img src="https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/5/0/8/0/1/6/5/PXL_20260505_084217285-3f4e2a06546149c8.jpg" class="article-image" alt="Vorschau" loading="lazy">
+            </div>
+            
+
+            <div class="meta">heise • hintergrund</div>
+
+            <div class="card-header">
+                <div class="title">Learntec 2024 verzeichnet Rückgang der Besucherzahlen</div>
+                <div class="relevance-container">
+                    <svg width="44" height="44">
+                        <circle stroke="rgba(255,255,255,0.08)" stroke-width="3" fill="transparent" r="19" cx="22" cy="22"/>
+                        <circle class="progress-ring__circle" stroke-width="3" stroke-dasharray="119.38" 
+                                stroke-dashoffset="7.407055671302743" 
+                                stroke-linecap="round" fill="transparent" r="19" cx="22" cy="22" transform="rotate(-90 22 22)"/>
+                    </svg>
+                    <div style="position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); font-size:11px; font-weight:800;">
+                        93
+                    </div>
+                </div>
+            </div>
+
+            <div class="summary">Die Learntec 2024 in Karlsruhe verzeichnete mit 11.000 Besuchern einen Rückgang gegenüber den Vorjahren. Ursächlich sind die Entwicklung einer staatlichen Bildungsmedieninfrastruktur (BMI) durch das FWU, welche private Anbieter verdrängt und auf Widerstand von Verlagen sowie Verbänden stößt, sowie die unsichere Finanzierung digitaler Bildung durch den Digitalpakt. Weitere Faktoren sind die zunehmende Skepsis gegenüber KI-Modellen und digitalen Medien sowie die Konkurrenz durch andere Fachmessen wie die Didacta.</div>
+
+            <a href="https://www.heise.de/hintergrund/Learntec-2026-Den-Stoepsel-gezogen-11289495.html?wt_mc=rss.red.ho.ho.atom.beitrag.beitrag" class="source-button" target="_blank" onclick="event.stopPropagation()">
+                Vollständigen Artikel lesen
+            </a>
+        </div>
+        
+        <div class="article-card" onclick="this.classList.toggle('expanded'); setTimeout(updateMobileStack, 50);">
+            
+            <div class="image-wrapper">
+                <img src="https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/5/0/8/0/1/3/8/Snowball_Huronian_copy-0960640188162c1f.jpg" class="article-image" alt="Vorschau" loading="lazy">
+            </div>
+            
+
+            <div class="meta">heise • news</div>
+
+            <div class="card-header">
+                <div class="title">Schneeball-Erde-Epoche durch zyklische eisfreie Phasen geprägt</div>
+                <div class="relevance-container">
+                    <svg width="44" height="44">
+                        <circle stroke="rgba(255,255,255,0.08)" stroke-width="3" fill="transparent" r="19" cx="22" cy="22"/>
+                        <circle class="progress-ring__circle" stroke-width="3" stroke-dasharray="119.38" 
+                                stroke-dashoffset="7.241684031537147" 
+                                stroke-linecap="round" fill="transparent" r="19" cx="22" cy="22" transform="rotate(-90 22 22)"/>
+                    </svg>
+                    <div style="position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); font-size:11px; font-weight:800;">
+                        93
+                    </div>
+                </div>
+            </div>
+
+            <div class="summary">Ein US-amerikanisches Forschungsteam hat herausgefunden, dass die „Schneeball-Erde“-Epoche (vor 717 bis 660 Millionen Jahren) vermutlich nicht durch eine kontinuierliche 56-Millionen-Jahre-Vereisung, sondern durch zyklische, eisfreie „Treibhaus-Unterbrechungen“ geprägt war. Diese durch vulkanisch bedingte CO₂-Schwankungen verursachten Phasen erklären die Aufrechterhaltung des atmosphärischen Sauerstoffgehalts für Organismen sowie die Diskrepanzen zwischen bisherigen Klimamodellen und Sedimentmustern.</div>
+
+            <a href="https://www.heise.de/news/Erdgeschichte-Schneeball-Erde-wohl-doch-nicht-ununterbrochen-eingefroren-11289443.html?wt_mc=rss.red.ho.ho.atom.beitrag.beitrag" class="source-button" target="_blank" onclick="event.stopPropagation()">
+                Vollständigen Artikel lesen
+            </a>
+        </div>
+        
+        <div class="article-card" onclick="this.classList.toggle('expanded'); setTimeout(updateMobileStack, 50);">
+            
+            <div class="image-wrapper">
+                <img src="https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/5/0/8/0/3/2/1/shutterstock_2629798517-c409dc661489a6ed.jpg" class="article-image" alt="Vorschau" loading="lazy">
+            </div>
+            
+
+            <div class="meta">heise • news</div>
+
+            <div class="card-header">
+                <div class="title">Lime reicht Unterlagen für Börsengang an der Nasdaq mit angestrebter Bewertung von 2 Milliarden US-Dollar ein</div>
+                <div class="relevance-container">
+                    <svg width="44" height="44">
+                        <circle stroke="rgba(255,255,255,0.08)" stroke-width="3" fill="transparent" r="19" cx="22" cy="22"/>
+                        <circle class="progress-ring__circle" stroke-width="3" stroke-dasharray="119.38" 
+                                stroke-dashoffset="17.148291432578418" 
+                                stroke-linecap="round" fill="transparent" r="19" cx="22" cy="22" transform="rotate(-90 22 22)"/>
+                    </svg>
+                    <div style="position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); font-size:11px; font-weight:800;">
+                        84
+                    </div>
+                </div>
+            </div>
+
+            <div class="summary">Lime hat Unterlagen für einen Börsengang an der Nasdaq (Ticker „LIME“) mit einer angestrebten Bewertung von rund 2 Milliarden US-Dollar eingereicht, um eine Liquiditätslücke zu schließen, da fällige Zahlungsverpflichtungen von etwa 846 Millionen US-Dollar dem verfügbaren Barmittelbestand von 261 Millionen US-Dollar gegenüberstehen. Trotz steigender Umsätze (887 Millionen US-Dollar in 2025) verzeichnet das in 29 Ländern tätige Unternehmen kontinuierliche Nettoverluste und beabsichtigt, die IPO-Erlöse zur Schuldentilgung sowie für Investitionen zu nutzen. Das Unternehmen, das eine enge Partnerschaft mit Uber (Beteiligung >5 %) unterhält, agiert in einem stark regulierten Marktumfeld mit hohen Kosten für Wartung, Diebstahl und Vandalismus.</div>
+
+            <a href="https://www.heise.de/news/Micromobility-Anbieter-Lime-bereitet-Boersengang-vor-11289811.html?wt_mc=rss.red.ho.ho.atom.beitrag.beitrag" class="source-button" target="_blank" onclick="event.stopPropagation()">
+                Vollständigen Artikel lesen
+            </a>
+        </div>
+        
+        <div class="article-card" onclick="this.classList.toggle('expanded'); setTimeout(updateMobileStack, 50);">
+            
+            <div class="image-wrapper">
+                <img src="https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/5/0/7/9/7/6/8/Apple-Vision-Pro-cdbb55a3b952ed98.jpg" class="article-image" alt="Vorschau" loading="lazy">
+            </div>
+            
+
+            <div class="meta">heise • news</div>
+
+            <div class="card-header">
+                <div class="title">Apple reduziert Fokus auf Vision Pro Hardware zugunsten von visionOS und KI-Entwicklung</div>
+                <div class="relevance-container">
+                    <svg width="44" height="44">
+                        <circle stroke="rgba(255,255,255,0.08)" stroke-width="3" fill="transparent" r="19" cx="22" cy="22"/>
+                        <circle class="progress-ring__circle" stroke-width="3" stroke-dasharray="119.38" 
+                                stroke-dashoffset="19.48384231482251" 
+                                stroke-linecap="round" fill="transparent" r="19" cx="22" cy="22" transform="rotate(-90 22 22)"/>
+                    </svg>
+                    <div style="position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); font-size:11px; font-weight:800;">
+                        82
+                    </div>
+                </div>
+            </div>
+
+            <div class="summary">Apple hat die Entwicklung eines wesentlich verbesserten Vision-Pro-Headsets vorerst depriorisiert, wobei die Arbeit an der Hardware nur noch langsam voranschreitet. Während Projekte für leichtere Hardware vorübergehend pausieren, bleibt die Entwicklung von visionOS als technologische Grundlage für künftige Smartglasses mit Bildschirmen ein Fokusprojekt, das zudem neue KI-Funktionen erhalten soll.</div>
+
+            <a href="https://www.heise.de/news/Insider-zur-Vision-Pro-Keine-neue-Hardware-in-den-kommenden-zwei-Jahren-11288694.html?wt_mc=rss.red.ho.ho.atom.beitrag.beitrag" class="source-button" target="_blank" onclick="event.stopPropagation()">
+                Vollständigen Artikel lesen
+            </a>
+        </div>
+        
+        <div class="article-card" onclick="this.classList.toggle('expanded'); setTimeout(updateMobileStack, 50);">
+            
+            <div class="image-wrapper">
+                <img src="https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/5/0/7/9/8/8/5/pin_dienst3-9e4c8221b2e67d5b.jpg" class="article-image" alt="Vorschau" loading="lazy">
+            </div>
+            
+
+            <div class="meta">heise • news</div>
+
+            <div class="card-header">
+                <div class="title">BMDS führt PIN-Rücksetzdienst für den elektronischen Personalausweis vorübergehend wieder ein</div>
+                <div class="relevance-container">
+                    <svg width="44" height="44">
+                        <circle stroke="rgba(255,255,255,0.08)" stroke-width="3" fill="transparent" r="19" cx="22" cy="22"/>
+                        <circle class="progress-ring__circle" stroke-width="3" stroke-dasharray="119.38" 
+                                stroke-dashoffset="29.682565129109577" 
+                                stroke-linecap="round" fill="transparent" r="19" cx="22" cy="22" transform="rotate(-90 22 22)"/>
+                    </svg>
+                    <div style="position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); font-size:11px; font-weight:800;">
+                        73
+                    </div>
+                </div>
+            </div>
+
+            <div class="summary">Das Bundesministerium für Digitales und Staatsmodernisierung (BMDS) führt den kostenfreien PIN-Rücksetzdienst für den elektronischen Personalausweis in der zweiten Jahreshälfte 2026 vorübergehend wieder ein, um den Start der deutschen EUDI-Wallet im Januar 2027 zu unterstützen. Der Dienst, der nach einer Einstellung Ende 2023 aufgrund von Budgetbeschränkungen pausierte, ermöglicht die Beantragung einer neuen PIN oder die Aktivierung der Online-Ausweisfunktion per Post (Postident-Verfahren) ohne Behördengang. Parallel dazu prüft das BMDS die Umsetzung eines vollständig digitalen Rücksetzdienstes unter Einhaltung hoher Sicherheitsstandards.</div>
+
+            <a href="https://www.heise.de/news/Fuer-Nutzer-kostenlos-Bundesregierung-bringt-PIN-Ruecksetzdienst-zurueck-11288942.html?wt_mc=rss.red.ho.ho.atom.beitrag.beitrag" class="source-button" target="_blank" onclick="event.stopPropagation()">
+                Vollständigen Artikel lesen
+            </a>
+        </div>
+        
+        <div class="article-card" onclick="this.classList.toggle('expanded'); setTimeout(updateMobileStack, 50);">
+            
+            <div class="image-wrapper">
+                <img src="https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/5/0/7/9/8/7/8/inkontakt-5ed741bfd2f51f6b.png" class="article-image" alt="Vorschau" loading="lazy">
+            </div>
+            
+
+            <div class="meta">heise • hintergrund</div>
+
+            <div class="card-header">
+                <div class="title">App in.kontakt bietet Online-Selbsthilfe für pflegende Angehörige</div>
+                <div class="relevance-container">
+                    <svg width="44" height="44">
+                        <circle stroke="rgba(255,255,255,0.08)" stroke-width="3" fill="transparent" r="19" cx="22" cy="22"/>
+                        <circle class="progress-ring__circle" stroke-width="3" stroke-dasharray="119.38" 
+                                stroke-dashoffset="12.040375563051498" 
+                                stroke-linecap="round" fill="transparent" r="19" cx="22" cy="22" transform="rotate(-90 22 22)"/>
+                    </svg>
+                    <div style="position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); font-size:11px; font-weight:800;">
+                        89
+                    </div>
+                </div>
+            </div>
+
+            <div class="summary">Die kostenlose, anonyme App „in.kontakt“ des Bundesverbandes „wir pflegen“ bietet pflegenden Angehörigen eine Online-Selbsthilfe-Plattform zum Wissensaustausch und zur Vernetzung. Entstanden aus dem OSHI-PA-Projekt (2018–2020) mit Förderung durch das Bundesministerium für Gesundheit und die Techniker Krankenkasse, wird das Angebot aktuell durch den Spitzenverband der gesetzlichen Krankenkassen finanziert. Die Anwendung mit Chatkanälen und Ratgebern verzeichnet bislang über 5.700 Downloads sowie rund 1.300 Profile.</div>
+
+            <a href="https://www.heise.de/hintergrund/Digitale-Selbsthilfe-App-bietet-Unterstuetzung-fuer-pflegende-Angehoerige-11288928.html?wt_mc=rss.red.ho.ho.atom.beitrag.beitrag" class="source-button" target="_blank" onclick="event.stopPropagation()">
+                Vollständigen Artikel lesen
+            </a>
+        </div>
+        
+        <div class="article-card" onclick="this.classList.toggle('expanded'); setTimeout(updateMobileStack, 50);">
+            
+            <div class="image-wrapper">
+                <img src="https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/5/0/8/0/1/5/1/Screenshot_2026-05-11_at_11.05.27-3a63ff506490cb30.png" class="article-image" alt="Vorschau" loading="lazy">
+            </div>
+            
+
+            <div class="meta">heise • news</div>
+
+            <div class="card-header">
+                <div class="title">EUIPO spricht Apple im Markenstreit um Logo zu</div>
+                <div class="relevance-container">
+                    <svg width="44" height="44">
+                        <circle stroke="rgba(255,255,255,0.08)" stroke-width="3" fill="transparent" r="19" cx="22" cy="22"/>
+                        <circle class="progress-ring__circle" stroke-width="3" stroke-dasharray="119.38" 
+                                stroke-dashoffset="10.52380809087201" 
+                                stroke-linecap="round" fill="transparent" r="19" cx="22" cy="22" transform="rotate(-90 22 22)"/>
+                    </svg>
+                    <div style="position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); font-size:11px; font-weight:800;">
+                        90
+                    </div>
+                </div>
+            </div>
+
+            <div class="summary">Das Amt der Europäischen Union für geistiges Eigentum (EUIPO) hat Apple im Widerspruch gegen die EU-Markeneintragung eines Logos der chinesischen Yichun QinNingMeng Electronics Co., Ltd. zugunsten des US-Konzerns entschieden, da das zitronengelbe Logo unfaire Vorteile aus Apples Reputation ziehen könnte. Damit ist die Nutzung für Tastatur- und Computerprodukte in der EU untersagt, wobei ein Berufungsverfahren innerhalb von zwei Monaten möglich bleibt und das Verfahren für Solartechnik noch andauert.</div>
+
+            <a href="https://www.heise.de/news/EU-Markenstreit-mit-chinesischer-Firma-Zitrone-mit-Apple-Logo-verwechselbar-11289467.html?wt_mc=rss.red.ho.ho.atom.beitrag.beitrag" class="source-button" target="_blank" onclick="event.stopPropagation()">
+                Vollständigen Artikel lesen
+            </a>
+        </div>
+        
+        <div class="article-card" onclick="this.classList.toggle('expanded'); setTimeout(updateMobileStack, 50);">
+            
+            <div class="image-wrapper">
+                <img src="https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/5/0/7/9/7/6/6/Screenshot_2026-03-05_at_13.09.19-2-aeb0810c09801fd7.png" class="article-image" alt="Vorschau" loading="lazy">
+            </div>
+            
+
+            <div class="meta">heise • news</div>
+
+            <div class="card-header">
+                <div class="title">macOS 27 und iOS 27 sollen Stabilität, Design-Anpassungen und neue KI-Funktionen bieten</div>
+                <div class="relevance-container">
+                    <svg width="44" height="44">
+                        <circle stroke="rgba(255,255,255,0.08)" stroke-width="3" fill="transparent" r="19" cx="22" cy="22"/>
+                        <circle class="progress-ring__circle" stroke-width="3" stroke-dasharray="119.38" 
+                                stroke-dashoffset="30.493958949670414" 
+                                stroke-linecap="round" fill="transparent" r="19" cx="22" cy="22" transform="rotate(-90 22 22)"/>
+                    </svg>
+                    <div style="position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); font-size:11px; font-weight:800;">
+                        73
+                    </div>
+                </div>
+            </div>
+
+            <div class="summary">macOS 27 und iOS 27 sollen primär zur Stabilisierung dienen, wobei macOS 27 laut Bloomberg durch ein „leichtes Redesign“ Designinkonsistenzen und Lesbarkeitsprobleme des „Liquid-Glass-Looks“ beheben soll. Neben Performance-, Fehlerbehebungs- und Batterie-Optimierungen sind erweiterte KI-Funktionen, darunter ein verbesserter Siri und ein Chatbot, geplant; die Präsentation erfolgt auf der WWDC 2026 im Juni.</div>
+
+            <a href="https://www.heise.de/news/macOS-27-Apple-soll-Designaenderungen-planen-11288690.html?wt_mc=rss.red.ho.ho.atom.beitrag.beitrag" class="source-button" target="_blank" onclick="event.stopPropagation()">
+                Vollständigen Artikel lesen
+            </a>
+        </div>
+        
+        <div class="article-card" onclick="this.classList.toggle('expanded'); setTimeout(updateMobileStack, 50);">
+            
+            <div class="image-wrapper">
+                <img src="https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/5/0/7/9/2/2/1/shutterstock_2603902713-ba85c6b3f2a891b7.jpg" class="article-image" alt="Vorschau" loading="lazy">
+            </div>
+            
+
+            <div class="meta">heise • news</div>
+
+            <div class="card-header">
+                <div class="title">Umfrage der Standard C++ Foundation: Zunahme der KI-Nutzung bei anhaltender Skepsis unter Programmierern</div>
+                <div class="relevance-container">
+                    <svg width="44" height="44">
+                        <circle stroke="rgba(255,255,255,0.08)" stroke-width="3" fill="transparent" r="19" cx="22" cy="22"/>
+                        <circle class="progress-ring__circle" stroke-width="3" stroke-dasharray="119.38" 
+                                stroke-dashoffset="19.288847737676164" 
+                                stroke-linecap="round" fill="transparent" r="19" cx="22" cy="22" transform="rotate(-90 22 22)"/>
+                    </svg>
+                    <div style="position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); font-size:11px; font-weight:800;">
+                        82
+                    </div>
+                </div>
+            </div>
+
+            <div class="summary">Eine Umfrage der Standard C++ Foundation unter 1.434 erfahrenen Programmierern zeigt einen Anstieg beim Einsatz von KI-Assistenten beim Coden, Testen und Debuggen, trotz großer Skepsis hinsichtlich fehlerhaftem Output (77,5 %), mangelndem Kontextverständnis (51 %) und Datensicherheit (49,5 %). Zu den am häufigsten genutzten Tools gehören GitHub Copilot und ChatGPT; die Projekte konzentrieren sich primär auf Entwicklungstools und Hardware/IoT. Als Standardwerkzeuge dominieren CMake, VS Code und der GCC-Compiler, während für C++ ein standardisiertes Paketmanagement sowie kürzere Build-Zeiten gefordert werden.</div>
+
+            <a href="https://www.heise.de/news/C-Entwickler-nutzen-KI-haeufiger-bleiben-aber-skeptisch-11287695.html?wt_mc=rss.red.ho.ho.atom.beitrag.beitrag" class="source-button" target="_blank" onclick="event.stopPropagation()">
+                Vollständigen Artikel lesen
+            </a>
+        </div>
+        
+        <div class="article-card" onclick="this.classList.toggle('expanded'); setTimeout(updateMobileStack, 50);">
+            
+            <div class="image-wrapper">
+                <img src="https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/5/0/8/0/0/0/3/hp-65938c7266766326.jpg" class="article-image" alt="Vorschau" loading="lazy">
+            </div>
+            
+
+            <div class="meta">heise • news</div>
+
+            <div class="card-header">
+                <div class="title">Unbemanntes Versorgungsschiff Tianzhou 10 an der Raumstation Tiangong angedockt</div>
+                <div class="relevance-container">
+                    <svg width="44" height="44">
+                        <circle stroke="rgba(255,255,255,0.08)" stroke-width="3" fill="transparent" r="19" cx="22" cy="22"/>
+                        <circle class="progress-ring__circle" stroke-width="3" stroke-dasharray="119.38" 
+                                stroke-dashoffset="19.74739011039189" 
+                                stroke-linecap="round" fill="transparent" r="19" cx="22" cy="22" transform="rotate(-90 22 22)"/>
+                    </svg>
+                    <div style="position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); font-size:11px; font-weight:800;">
+                        82
+                    </div>
+                </div>
+            </div>
+
+            <div class="summary">Das unbemannte Versorgungsschiff „Tianzhou 10“ ist am Montag mit einer „Langer Marsch 7“-Rakete von Wenchang zur chinesischen Weltraumstation „Tiangong“ gestartet und dort angedockt. Die Fracht umfasst etwa 6,3 Tonnen Versorgungsgüter (u. a. Laufband, wissenschaftliche Geräte, Raumanzug) sowie 700 Kilogramm Treibstoff zur Versorgung der dreiköpfigen Besatzung der Mission Shenzhou 21.</div>
+
+            <a href="https://www.heise.de/news/Unbemannter-Raumfrachter-erreicht-chinesische-Raumstation-11289168.html?wt_mc=rss.red.ho.ho.atom.beitrag.beitrag" class="source-button" target="_blank" onclick="event.stopPropagation()">
+                Vollständigen Artikel lesen
+            </a>
+        </div>
+        
+        <div class="article-card" onclick="this.classList.toggle('expanded'); setTimeout(updateMobileStack, 50);">
             
             <div class="image-wrapper">
                 <img src="https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/5/0/7/9/8/0/8/canvas-4955cbd8597ccfac.png" class="article-image" alt="Vorschau" loading="lazy">
@@ -488,7 +978,7 @@ Regulatorische und rechtliche Herausforderungen prägen weitere Entwicklungen: D
             </a>
         </div>
         
-        <div class="article-card" onclick="this.classList.toggle('expanded')">
+        <div class="article-card" onclick="this.classList.toggle('expanded'); setTimeout(updateMobileStack, 50);">
             
             <div class="image-wrapper">
                 <img src="https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/5/0/7/9/8/0/2/monday-20835b03c9bd4115.webp" class="article-image" alt="Vorschau" loading="lazy">
@@ -519,7 +1009,7 @@ Regulatorische und rechtliche Herausforderungen prägen weitere Entwicklungen: D
             </a>
         </div>
         
-        <div class="article-card" onclick="this.classList.toggle('expanded')">
+        <div class="article-card" onclick="this.classList.toggle('expanded'); setTimeout(updateMobileStack, 50);">
             
             <div class="image-wrapper">
                 <img src="https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/5/0/7/9/7/8/4/Sony-A9-III-Sensor-64f42965a18e9b83.png" class="article-image" alt="Vorschau" loading="lazy">
@@ -550,7 +1040,7 @@ Regulatorische und rechtliche Herausforderungen prägen weitere Entwicklungen: D
             </a>
         </div>
         
-        <div class="article-card" onclick="this.classList.toggle('expanded')">
+        <div class="article-card" onclick="this.classList.toggle('expanded'); setTimeout(updateMobileStack, 50);">
             
             <div class="image-wrapper">
                 <img src="https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/5/0/7/9/7/9/6/shutterstock_183590216-700acf79ded5d17d.jpg" class="article-image" alt="Vorschau" loading="lazy">
@@ -581,7 +1071,7 @@ Regulatorische und rechtliche Herausforderungen prägen weitere Entwicklungen: D
             </a>
         </div>
         
-        <div class="article-card" onclick="this.classList.toggle('expanded')">
+        <div class="article-card" onclick="this.classList.toggle('expanded'); setTimeout(updateMobileStack, 50);">
             
             <div class="image-wrapper">
                 <img src="https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/5/0/7/9/7/4/9/shutterstock_2557538339-ddc6d0964ca0f463.jpg" class="article-image" alt="Vorschau" loading="lazy">
@@ -612,7 +1102,7 @@ Regulatorische und rechtliche Herausforderungen prägen weitere Entwicklungen: D
             </a>
         </div>
         
-        <div class="article-card" onclick="this.classList.toggle('expanded')">
+        <div class="article-card" onclick="this.classList.toggle('expanded'); setTimeout(updateMobileStack, 50);">
             
             <div class="image-wrapper">
                 <img src="https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/5/0/7/9/5/6/5/ChatGPT_Image_10._Mai_2026__00_26_35-c00c9b263d8c6363.png" class="article-image" alt="Vorschau" loading="lazy">
@@ -643,7 +1133,7 @@ Regulatorische und rechtliche Herausforderungen prägen weitere Entwicklungen: D
             </a>
         </div>
         
-        <div class="article-card" onclick="this.classList.toggle('expanded')">
+        <div class="article-card" onclick="this.classList.toggle('expanded'); setTimeout(updateMobileStack, 50);">
             
             <div class="image-wrapper">
                 <img src="https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/5/0/7/9/7/4/1/shutterstock_370707185-235358acdf48afcb.jpg" class="article-image" alt="Vorschau" loading="lazy">
@@ -674,7 +1164,7 @@ Regulatorische und rechtliche Herausforderungen prägen weitere Entwicklungen: D
             </a>
         </div>
         
-        <div class="article-card" onclick="this.classList.toggle('expanded')">
+        <div class="article-card" onclick="this.classList.toggle('expanded'); setTimeout(updateMobileStack, 50);">
             
             <div class="image-wrapper">
                 <img src="https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/5/0/7/9/7/3/6/Micron-245TB-2fdf37db26e36f4a.png" class="article-image" alt="Vorschau" loading="lazy">
@@ -705,7 +1195,7 @@ Regulatorische und rechtliche Herausforderungen prägen weitere Entwicklungen: D
             </a>
         </div>
         
-        <div class="article-card" onclick="this.classList.toggle('expanded')">
+        <div class="article-card" onclick="this.classList.toggle('expanded'); setTimeout(updateMobileStack, 50);">
             
             <div class="image-wrapper">
                 <img src="https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/5/0/7/9/6/3/0/shutterstock_1857802108-9229143dfea9cc3b.jpg" class="article-image" alt="Vorschau" loading="lazy">
@@ -736,7 +1226,7 @@ Regulatorische und rechtliche Herausforderungen prägen weitere Entwicklungen: D
             </a>
         </div>
         
-        <div class="article-card" onclick="this.classList.toggle('expanded')">
+        <div class="article-card" onclick="this.classList.toggle('expanded'); setTimeout(updateMobileStack, 50);">
             
             <div class="image-wrapper">
                 <img src="https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/5/0/7/9/7/0/9/shutterstock_2276252513-44ac847f78306dac.jpg" class="article-image" alt="Vorschau" loading="lazy">
@@ -767,7 +1257,7 @@ Regulatorische und rechtliche Herausforderungen prägen weitere Entwicklungen: D
             </a>
         </div>
         
-        <div class="article-card" onclick="this.classList.toggle('expanded')">
+        <div class="article-card" onclick="this.classList.toggle('expanded'); setTimeout(updateMobileStack, 50);">
             
             <div class="image-wrapper">
                 <img src="https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/5/0/7/9/6/6/7/shutterstock_1931787956-917d6d1d7b2905d1.jpg" class="article-image" alt="Vorschau" loading="lazy">
@@ -798,7 +1288,7 @@ Regulatorische und rechtliche Herausforderungen prägen weitere Entwicklungen: D
             </a>
         </div>
         
-        <div class="article-card" onclick="this.classList.toggle('expanded')">
+        <div class="article-card" onclick="this.classList.toggle('expanded'); setTimeout(updateMobileStack, 50);">
             
             <div class="image-wrapper">
                 <img src="https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/5/0/7/9/6/3/8/shutterstock_1920465827-62c52586fc7674ac.jpg" class="article-image" alt="Vorschau" loading="lazy">
@@ -829,7 +1319,7 @@ Regulatorische und rechtliche Herausforderungen prägen weitere Entwicklungen: D
             </a>
         </div>
         
-        <div class="article-card" onclick="this.classList.toggle('expanded')">
+        <div class="article-card" onclick="this.classList.toggle('expanded'); setTimeout(updateMobileStack, 50);">
             
             <div class="image-wrapper">
                 <img src="https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/5/0/7/9/6/1/6/shutterstock_2398433065-0aad0814b7aae4e3.jpg" class="article-image" alt="Vorschau" loading="lazy">
@@ -860,7 +1350,7 @@ Regulatorische und rechtliche Herausforderungen prägen weitere Entwicklungen: D
             </a>
         </div>
         
-        <div class="article-card" onclick="this.classList.toggle('expanded')">
+        <div class="article-card" onclick="this.classList.toggle('expanded'); setTimeout(updateMobileStack, 50);">
             
             <div class="image-wrapper">
                 <img src="https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/5/0/7/9/5/8/4/shutterstock_2275867503-21245ffd1e46849d.jpg" class="article-image" alt="Vorschau" loading="lazy">
@@ -891,7 +1381,7 @@ Regulatorische und rechtliche Herausforderungen prägen weitere Entwicklungen: D
             </a>
         </div>
         
-        <div class="article-card" onclick="this.classList.toggle('expanded')">
+        <div class="article-card" onclick="this.classList.toggle('expanded'); setTimeout(updateMobileStack, 50);">
             
             <div class="image-wrapper">
                 <img src="https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/5/0/7/9/3/2/4/generated-image-1__2_-12fd567ea53ab774.png" class="article-image" alt="Vorschau" loading="lazy">
@@ -922,7 +1412,7 @@ Regulatorische und rechtliche Herausforderungen prägen weitere Entwicklungen: D
             </a>
         </div>
         
-        <div class="article-card" onclick="this.classList.toggle('expanded')">
+        <div class="article-card" onclick="this.classList.toggle('expanded'); setTimeout(updateMobileStack, 50);">
             
             <div class="image-wrapper">
                 <img src="https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/5/0/7/6/2/7/3/OVERLAY__Analyse-8d03a493fcbf3b04.jpg" class="article-image" alt="Vorschau" loading="lazy">
@@ -953,7 +1443,7 @@ Regulatorische und rechtliche Herausforderungen prägen weitere Entwicklungen: D
             </a>
         </div>
         
-        <div class="article-card" onclick="this.classList.toggle('expanded')">
+        <div class="article-card" onclick="this.classList.toggle('expanded'); setTimeout(updateMobileStack, 50);">
             
             <div class="image-wrapper">
                 <img src="https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/5/0/7/9/5/1/7/shutterstock_2542077749-e9f76f1a20e535a2.jpg" class="article-image" alt="Vorschau" loading="lazy">
@@ -984,7 +1474,7 @@ Regulatorische und rechtliche Herausforderungen prägen weitere Entwicklungen: D
             </a>
         </div>
         
-        <div class="article-card" onclick="this.classList.toggle('expanded')">
+        <div class="article-card" onclick="this.classList.toggle('expanded'); setTimeout(updateMobileStack, 50);">
             
             <div class="image-wrapper">
                 <img src="https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/5/0/7/9/5/3/4/shutterstock_1917956951-3efc4d5abf04946f.jpg" class="article-image" alt="Vorschau" loading="lazy">
@@ -1015,7 +1505,7 @@ Regulatorische und rechtliche Herausforderungen prägen weitere Entwicklungen: D
             </a>
         </div>
         
-        <div class="article-card" onclick="this.classList.toggle('expanded')">
+        <div class="article-card" onclick="this.classList.toggle('expanded'); setTimeout(updateMobileStack, 50);">
             
             <div class="image-wrapper">
                 <img src="https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/5/0/7/9/5/2/5/shutterstock_1258390147-0a0aaa4dc0fdf3b1.jpg" class="article-image" alt="Vorschau" loading="lazy">
@@ -1046,7 +1536,7 @@ Regulatorische und rechtliche Herausforderungen prägen weitere Entwicklungen: D
             </a>
         </div>
         
-        <div class="article-card" onclick="this.classList.toggle('expanded')">
+        <div class="article-card" onclick="this.classList.toggle('expanded'); setTimeout(updateMobileStack, 50);">
             
             <div class="image-wrapper">
                 <img src="https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/5/0/7/8/3/7/5/kaercher_hd-6-15_application-1-jpg-a97f588b5b44bf17.webp" class="article-image" alt="Vorschau" loading="lazy">
@@ -1077,7 +1567,7 @@ Regulatorische und rechtliche Herausforderungen prägen weitere Entwicklungen: D
             </a>
         </div>
         
-        <div class="article-card" onclick="this.classList.toggle('expanded')">
+        <div class="article-card" onclick="this.classList.toggle('expanded'); setTimeout(updateMobileStack, 50);">
             
             <div class="image-wrapper">
                 <img src="https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/5/0/7/9/4/9/4/shutterstock_665882623-080dcd0146237320.jpg" class="article-image" alt="Vorschau" loading="lazy">
@@ -1108,7 +1598,7 @@ Regulatorische und rechtliche Herausforderungen prägen weitere Entwicklungen: D
             </a>
         </div>
         
-        <div class="article-card" onclick="this.classList.toggle('expanded')">
+        <div class="article-card" onclick="this.classList.toggle('expanded'); setTimeout(updateMobileStack, 50);">
             
             <div class="image-wrapper">
                 <img src="https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/5/0/7/9/4/8/6/shutterstock_1415273714-bf3fb9eb45a2b344.jpg" class="article-image" alt="Vorschau" loading="lazy">
@@ -1139,7 +1629,7 @@ Regulatorische und rechtliche Herausforderungen prägen weitere Entwicklungen: D
             </a>
         </div>
         
-        <div class="article-card" onclick="this.classList.toggle('expanded')">
+        <div class="article-card" onclick="this.classList.toggle('expanded'); setTimeout(updateMobileStack, 50);">
             
             <div class="image-wrapper">
                 <img src="https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/5/0/7/9/4/7/5/PDFSpaces1-64652f164ae7a5c2.webp" class="article-image" alt="Vorschau" loading="lazy">
@@ -1170,7 +1660,7 @@ Regulatorische und rechtliche Herausforderungen prägen weitere Entwicklungen: D
             </a>
         </div>
         
-        <div class="article-card" onclick="this.classList.toggle('expanded')">
+        <div class="article-card" onclick="this.classList.toggle('expanded'); setTimeout(updateMobileStack, 50);">
             
             <div class="image-wrapper">
                 <img src="https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/5/0/7/9/3/2/7/07dd102ae49648ed9e12cc21c44ffad2-dac208fc913300d1.JPG" class="article-image" alt="Vorschau" loading="lazy">
@@ -1201,7 +1691,7 @@ Regulatorische und rechtliche Herausforderungen prägen weitere Entwicklungen: D
             </a>
         </div>
         
-        <div class="article-card" onclick="this.classList.toggle('expanded')">
+        <div class="article-card" onclick="this.classList.toggle('expanded'); setTimeout(updateMobileStack, 50);">
             
             <div class="image-wrapper">
                 <img src="https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/5/0/7/9/2/5/7/shutterstock_1626983506-979e57d8aa7eecb3.jpg" class="article-image" alt="Vorschau" loading="lazy">
@@ -1232,7 +1722,7 @@ Regulatorische und rechtliche Herausforderungen prägen weitere Entwicklungen: D
             </a>
         </div>
         
-        <div class="article-card" onclick="this.classList.toggle('expanded')">
+        <div class="article-card" onclick="this.classList.toggle('expanded'); setTimeout(updateMobileStack, 50);">
             
             <div class="image-wrapper">
                 <img src="https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/5/0/7/8/7/3/5/3003_Thumb_FOTOSHOSTEN_2-e4738c18044d2802.jpg" class="article-image" alt="Vorschau" loading="lazy">
@@ -1263,7 +1753,7 @@ Regulatorische und rechtliche Herausforderungen prägen weitere Entwicklungen: D
             </a>
         </div>
         
-        <div class="article-card" onclick="this.classList.toggle('expanded')">
+        <div class="article-card" onclick="this.classList.toggle('expanded'); setTimeout(updateMobileStack, 50);">
             
             <div class="image-wrapper">
                 <img src="https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/5/0/7/9/3/9/9/Opel_Mokka_Electric-f8c6cb1075cd508e.jpg" class="article-image" alt="Vorschau" loading="lazy">
@@ -1294,7 +1784,7 @@ Regulatorische und rechtliche Herausforderungen prägen weitere Entwicklungen: D
             </a>
         </div>
         
-        <div class="article-card" onclick="this.classList.toggle('expanded')">
+        <div class="article-card" onclick="this.classList.toggle('expanded'); setTimeout(updateMobileStack, 50);">
             
             <div class="image-wrapper">
                 <img src="https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/5/0/7/8/0/0/8/KIupdate_Titel_122023-4cd1ddee68e292c6.png" class="article-image" alt="Vorschau" loading="lazy">
@@ -1325,7 +1815,7 @@ Regulatorische und rechtliche Herausforderungen prägen weitere Entwicklungen: D
             </a>
         </div>
         
-        <div class="article-card" onclick="this.classList.toggle('expanded')">
+        <div class="article-card" onclick="this.classList.toggle('expanded'); setTimeout(updateMobileStack, 50);">
             
             <div class="image-wrapper">
                 <img src="https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/5/0/3/1/9/6/9/https___xp.heise.de_fileserver_images_2610_711244121217777_hob.agenticco_2031751187_jnac_online-28113b598fc8f02a.jpg" class="article-image" alt="Vorschau" loading="lazy">
@@ -1356,7 +1846,7 @@ Regulatorische und rechtliche Herausforderungen prägen weitere Entwicklungen: D
             </a>
         </div>
         
-        <div class="article-card" onclick="this.classList.toggle('expanded')">
+        <div class="article-card" onclick="this.classList.toggle('expanded'); setTimeout(updateMobileStack, 50);">
             
             <div class="image-wrapper">
                 <img src="https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/5/0/7/9/1/8/1/shutterstock_170954663-2d09c953d948f4b0.jpg" class="article-image" alt="Vorschau" loading="lazy">
@@ -1387,7 +1877,7 @@ Regulatorische und rechtliche Herausforderungen prägen weitere Entwicklungen: D
             </a>
         </div>
         
-        <div class="article-card" onclick="this.classList.toggle('expanded')">
+        <div class="article-card" onclick="this.classList.toggle('expanded'); setTimeout(updateMobileStack, 50);">
             
             <div class="image-wrapper">
                 <img src="https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/5/0/7/3/5/4/3/visionpro_w-839b37c338f60e1f.png" class="article-image" alt="Vorschau" loading="lazy">
@@ -1418,7 +1908,7 @@ Regulatorische und rechtliche Herausforderungen prägen weitere Entwicklungen: D
             </a>
         </div>
         
-        <div class="article-card" onclick="this.classList.toggle('expanded')">
+        <div class="article-card" onclick="this.classList.toggle('expanded'); setTimeout(updateMobileStack, 50);">
             
             <div class="image-wrapper">
                 <img src="https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/5/0/7/9/0/4/7/shutterstock_2258159717-a04fc35e24b96829.jpg" class="article-image" alt="Vorschau" loading="lazy">
@@ -1449,7 +1939,7 @@ Regulatorische und rechtliche Herausforderungen prägen weitere Entwicklungen: D
             </a>
         </div>
         
-        <div class="article-card" onclick="this.classList.toggle('expanded')">
+        <div class="article-card" onclick="this.classList.toggle('expanded'); setTimeout(updateMobileStack, 50);">
             
             <div class="image-wrapper">
                 <img src="https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/5/0/7/8/9/8/0/shutterstock_2305366297-bfd7d1da39557d18.jpg" class="article-image" alt="Vorschau" loading="lazy">
@@ -1480,7 +1970,7 @@ Regulatorische und rechtliche Herausforderungen prägen weitere Entwicklungen: D
             </a>
         </div>
         
-        <div class="article-card" onclick="this.classList.toggle('expanded')">
+        <div class="article-card" onclick="this.classList.toggle('expanded'); setTimeout(updateMobileStack, 50);">
             
             <div class="image-wrapper">
                 <img src="https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/5/0/7/8/4/4/3/ki_agenten-51744e251945f64a.png" class="article-image" alt="Vorschau" loading="lazy">
@@ -1511,7 +2001,7 @@ Regulatorische und rechtliche Herausforderungen prägen weitere Entwicklungen: D
             </a>
         </div>
         
-        <div class="article-card" onclick="this.classList.toggle('expanded')">
+        <div class="article-card" onclick="this.classList.toggle('expanded'); setTimeout(updateMobileStack, 50);">
             
             <div class="image-wrapper">
                 <img src="https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/5/0/7/8/8/2/4/Screenshot_2025-09-16_at_00.12.07-43567d63113af58a.png" class="article-image" alt="Vorschau" loading="lazy">
@@ -1542,474 +2032,106 @@ Regulatorische und rechtliche Herausforderungen prägen weitere Entwicklungen: D
             </a>
         </div>
         
-        <div class="article-card" onclick="this.classList.toggle('expanded')">
-            
-            <div class="image-wrapper">
-                <img src="https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/5/0/7/9/0/1/5/Samsung-Press-Release-Fainting-Prediction-Galaxy-Watch_Main2-ba66814c7a1809e1.jpg" class="article-image" alt="Vorschau" loading="lazy">
-            </div>
-            
-
-            <div class="meta">heise • news</div>
-
-            <div class="card-header">
-                <div class="title">Klinische Studie belegt Vorhersage von vasovagalen Synkopen durch Galaxy Watch 6</div>
-                <div class="relevance-container">
-                    <svg width="44" height="44">
-                        <circle stroke="rgba(255,255,255,0.08)" stroke-width="3" fill="transparent" r="19" cx="22" cy="22"/>
-                        <circle class="progress-ring__circle" stroke-width="3" stroke-dasharray="119.38" 
-                                stroke-dashoffset="6.7193396029190495" 
-                                stroke-linecap="round" fill="transparent" r="19" cx="22" cy="22" transform="rotate(-90 22 22)"/>
-                    </svg>
-                    <div style="position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); font-size:11px; font-weight:800;">
-                        94
-                    </div>
-                </div>
-            </div>
-
-            <div class="summary">In einer klinischen Studie mit dem Chung-Ang University Gwangmyeong Hospital konnte Samsung nachweisen, dass die Galaxy Watch 6 mittels eines KI-Algorithmus und PPG-Sensordaten vasovagale Synkopen bis zu fünf Minuten im Voraus mit 84,6 % Genauigkeit (Sensitivität 90 %, Spezifität 64 %) vorhersagen kann. Die im „European Heart Journal – Digital Health“ veröffentlichten Ergebnisse zielen auf die Prävention von Folgeverletzungen durch Stürze ab, wobei eine Implementierung der Funktion in kommerzielle Serienmodelle derzeit noch ungeklärt ist.</div>
-
-            <a href="https://www.heise.de/news/Samsung-Studie-Galaxy-Watch-koennte-Ohnmachtsanfaelle-vorhersagen-11287289.html?wt_mc=rss.red.ho.ho.atom.beitrag.beitrag" class="source-button" target="_blank" onclick="event.stopPropagation()">
-                Vollständigen Artikel lesen
-            </a>
-        </div>
-        
-        <div class="article-card" onclick="this.classList.toggle('expanded')">
-            
-            <div class="image-wrapper">
-                <img src="https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/5/0/7/8/9/9/3/shutterstock_2424222439-3e91d973e81c2e6f.jpg" class="article-image" alt="Vorschau" loading="lazy">
-            </div>
-            
-
-            <div class="meta">heise • news</div>
-
-            <div class="card-header">
-                <div class="title">OpenAI veröffentlicht neue Audio-Modelle über die Realtime API</div>
-                <div class="relevance-container">
-                    <svg width="44" height="44">
-                        <circle stroke="rgba(255,255,255,0.08)" stroke-width="3" fill="transparent" r="19" cx="22" cy="22"/>
-                        <circle class="progress-ring__circle" stroke-width="3" stroke-dasharray="119.38" 
-                                stroke-dashoffset="13.22128822444813" 
-                                stroke-linecap="round" fill="transparent" r="19" cx="22" cy="22" transform="rotate(-90 22 22)"/>
-                    </svg>
-                    <div style="position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); font-size:11px; font-weight:800;">
-                        88
-                    </div>
-                </div>
-            </div>
-
-            <div class="summary">OpenAI hat die Audio-Modelle GPT-Realtime-2, GPT-Realtime-Translate und GPT-Realtime-Whisper über die Realtime API veröffentlicht, wobei GPT-Realtime-2 mit GPT-5-Reasoning, einem 128.000-Token-Kontextfenster und verbesserten Benchmarks bei unveränderten Preisen (32 USD/1M Input, 64 USD/1M Output) besticht. Die Modelle ermöglichen zudem Übersetzungen von über 70 Sprachen in 13 Zielsprachen (GPT-Realtime-Translate, 0,034 USD/Min) sowie latenzarme Transkription (GPT-Realtime-Whisper, 0,017 USD/Min), wobei die API EU Data Residency mit Ausnahme des API-Tracings unterstützt.</div>
-
-            <a href="https://www.heise.de/news/OpenAI-Neue-Audio-Modelle-fuer-Echtzeit-KI-Support-11287248.html?wt_mc=rss.red.ho.ho.atom.beitrag.beitrag" class="source-button" target="_blank" onclick="event.stopPropagation()">
-                Vollständigen Artikel lesen
-            </a>
-        </div>
-        
-        <div class="article-card" onclick="this.classList.toggle('expanded')">
-            
-            <div class="image-wrapper">
-                <img src="https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/5/0/7/8/8/2/8/apps-f19841d7c09be088.jpeg" class="article-image" alt="Vorschau" loading="lazy">
-            </div>
-            
-
-            <div class="meta">heise • news</div>
-
-            <div class="card-header">
-                <div class="title">Britisches Tribunal lässt Klage gegen Apple wegen iCloud-Praktiken für alle Nutzer zu</div>
-                <div class="relevance-container">
-                    <svg width="44" height="44">
-                        <circle stroke="rgba(255,255,255,0.08)" stroke-width="3" fill="transparent" r="19" cx="22" cy="22"/>
-                        <circle class="progress-ring__circle" stroke-width="3" stroke-dasharray="119.38" 
-                                stroke-dashoffset="29.64147687447317" 
-                                stroke-linecap="round" fill="transparent" r="19" cx="22" cy="22" transform="rotate(-90 22 22)"/>
-                    </svg>
-                    <div style="position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); font-size:11px; font-weight:800;">
-                        73
-                    </div>
-                </div>
-            </div>
-
-            <div class="summary">Ein britisches Tribunal hat die Klage der Verbraucherschutzorganisation Which? gegen Apple für alle iCloud-Nutzer seit November 2018 zugelassen und damit Apples Versuch, das Verfahren auf zahlende Kunden zu beschränken, abgelehnt. Die Kläger fordern bis zu 3 Milliarden Pfund Schadensersatz für etwa 40 Millionen Betroffene aufgrund von Vorwürfen des Marktmissbrauchs durch die Bevorzugung von iCloud in iOS und die Begrenzung des kostenlosen Speichers auf 5 GB. Die Klage basiert auf der Theorie des entgangenen Konsumentennutzens („Forgone Consumer Surplus“), wonach Kunden durch die Preisgestaltung finanzielle Vorteile entgangen seien.</div>
-
-            <a href="https://www.heise.de/news/iCloud-Lock-in-Apple-droht-weiter-Milliardenstrafe-in-Grossbritannien-11286923.html?wt_mc=rss.red.ho.ho.atom.beitrag.beitrag" class="source-button" target="_blank" onclick="event.stopPropagation()">
-                Vollständigen Artikel lesen
-            </a>
-        </div>
-        
-        <div class="article-card" onclick="this.classList.toggle('expanded')">
-            
-            <div class="image-wrapper">
-                <img src="https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/5/0/7/8/8/8/4/Neo-5810161506f0ce19.jpg" class="article-image" alt="Vorschau" loading="lazy">
-            </div>
-            
-
-            <div class="meta">heise • news</div>
-
-            <div class="card-header">
-                <div class="title">1X Technologies startet Produktion humanoider Roboter Neo für Privatkunden</div>
-                <div class="relevance-container">
-                    <svg width="44" height="44">
-                        <circle stroke="rgba(255,255,255,0.08)" stroke-width="3" fill="transparent" r="19" cx="22" cy="22"/>
-                        <circle class="progress-ring__circle" stroke-width="3" stroke-dasharray="119.38" 
-                                stroke-dashoffset="4.853955538163163" 
-                                stroke-linecap="round" fill="transparent" r="19" cx="22" cy="22" transform="rotate(-90 22 22)"/>
-                    </svg>
-                    <div style="position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); font-size:11px; font-weight:800;">
-                        95
-                    </div>
-                </div>
-            </div>
-
-            <div class="summary">1X Technologies hat die Produktion der humanoiden Roboter „Neo“ in Hayward, Kalifornien, aufgenommen, mit einer Auslieferung an Privatkunden bis Ende 2026. Die 1,65 m großen, 30 kg schweren und auf Nvidia-Plattformen basierenden Roboter sind für geräuscharmen Haushaltseinsatz (ca. 22 dB) und Traglasten bis 70 kg ausgelegt. Nach dem Ausverkauf der ersten 10.000 Einheiten plant das Unternehmen, die Produktion bis 2027 durch ein weiteres Werk in San Carlos auf 100.000 Einheiten zu steigern; die Kosten belaufen sich auf 20.000 US-Dollar für den Kauf oder 500 US-Dollar monatlich zur Miete.</div>
-
-            <a href="https://www.heise.de/news/1X-will-humanoiden-Haushaltsroboter-Neo-noch-2026-an-US-Kunden-ausliefern-11287035.html?wt_mc=rss.red.ho.ho.atom.beitrag.beitrag" class="source-button" target="_blank" onclick="event.stopPropagation()">
-                Vollständigen Artikel lesen
-            </a>
-        </div>
-        
-        <div class="article-card" onclick="this.classList.toggle('expanded')">
-            
-            <div class="image-wrapper">
-                <img src="https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/5/0/7/8/8/7/9/security-bug-fixes-1-2048x1152-1ce36ac959a4d999.png" class="article-image" alt="Vorschau" loading="lazy">
-            </div>
-            
-
-            <div class="meta">heise • news</div>
-
-            <div class="card-header">
-                <div class="title">Mozilla identifiziert 423 Sicherheitslücken mithilfe von Anthropic-KI</div>
-                <div class="relevance-container">
-                    <svg width="44" height="44">
-                        <circle stroke="rgba(255,255,255,0.08)" stroke-width="3" fill="transparent" r="19" cx="22" cy="22"/>
-                        <circle class="progress-ring__circle" stroke-width="3" stroke-dasharray="119.38" 
-                                stroke-dashoffset="8.179809109088808" 
-                                stroke-linecap="round" fill="transparent" r="19" cx="22" cy="22" transform="rotate(-90 22 22)"/>
-                    </svg>
-                    <div style="position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); font-size:11px; font-weight:800;">
-                        92
-                    </div>
-                </div>
-            </div>
-
-            <div class="summary">Im April schloss Mozilla mithilfe des KI-Modells Claude Mythos Preview von Anthropic 423 Sicherheitslücken, was der Summe der letzten zwei Jahre entspricht. Mittels eines modularen Suchsystems zur Identifizierung von Fehlern und zur Erstellung von Testfällen wurden dabei auch komplexe Schwachstellen wie Sandbox-Escapes entdeckt, wobei eine künftige Integration des Prozesses in die Patch-Auslieferung angestrebt wird.</div>
-
-            <a href="https://www.heise.de/news/Dank-KI-Im-April-so-viele-Firefox-Luecken-geschlossen-wie-vorher-in-zwei-Jahren-11287023.html?wt_mc=rss.red.ho.ho.atom.beitrag.beitrag" class="source-button" target="_blank" onclick="event.stopPropagation()">
-                Vollständigen Artikel lesen
-            </a>
-        </div>
-        
-        <div class="article-card" onclick="this.classList.toggle('expanded')">
-            
-            <div class="image-wrapper">
-                <img src="https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/5/0/7/8/9/1/0/iPhone_tre-STZ_3258-c467c80d3337920a.JPG" class="article-image" alt="Vorschau" loading="lazy">
-            </div>
-            
-
-            <div class="meta">heise • news</div>
-
-            <div class="card-header">
-                <div class="title">Apple führt Smartphone-Markt im ersten Quartal 2026 trotz sinkender Absatzmengen an</div>
-                <div class="relevance-container">
-                    <svg width="44" height="44">
-                        <circle stroke="rgba(255,255,255,0.08)" stroke-width="3" fill="transparent" r="19" cx="22" cy="22"/>
-                        <circle class="progress-ring__circle" stroke-width="3" stroke-dasharray="119.38" 
-                                stroke-dashoffset="34.98238733931943" 
-                                stroke-linecap="round" fill="transparent" r="19" cx="22" cy="22" transform="rotate(-90 22 22)"/>
-                    </svg>
-                    <div style="position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); font-size:11px; font-weight:800;">
-                        69
-                    </div>
-                </div>
-            </div>
-
-            <div class="summary">Trotz sinkender weltweiter Smartphone-Absatzmengen im ersten Quartal 2026 stieg der Gesamtumsatz infolge von Komponenteninflation um 8 % auf durchschnittlich 399 US-Dollar. Apple übernahm mit einem Umsatzplus von 22 % und einem Marktanteil von 48 % (ASP 908 US-Dollar) die Marktführerschaft, gefolgt von Samsung (18 %), Oppo (6 %), Xiaomi (5 %) und Vivo (4 %). Das iPhone 17 ist mit einem Marktanteil von 6 % das weltweit beliebteste Modell, neben weiteren iPhone-Varianten sowie der Samsung Galaxy A-Serie.</div>
-
-            <a href="https://www.heise.de/news/Counterpoint-Zahlen-Apple-waechst-bei-Smartphones-am-schnellsten-iPhone-17-vorn-11287082.html?wt_mc=rss.red.ho.ho.atom.beitrag.beitrag" class="source-button" target="_blank" onclick="event.stopPropagation()">
-                Vollständigen Artikel lesen
-            </a>
-        </div>
-        
-        <div class="article-card" onclick="this.classList.toggle('expanded')">
-            
-            <div class="image-wrapper">
-                <img src="https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/5/0/7/4/0/3/1/visualint-197c1cbbb620c263.png" class="article-image" alt="Vorschau" loading="lazy">
-            </div>
-            
-
-            <div class="meta">heise • news</div>
-
-            <div class="card-header">
-                <div class="title">Apple plant KI-gestützte Erweiterungen für Kamera-App und Siri in iOS 27</div>
-                <div class="relevance-container">
-                    <svg width="44" height="44">
-                        <circle stroke="rgba(255,255,255,0.08)" stroke-width="3" fill="transparent" r="19" cx="22" cy="22"/>
-                        <circle class="progress-ring__circle" stroke-width="3" stroke-dasharray="119.38" 
-                                stroke-dashoffset="22.228073688638176" 
-                                stroke-linecap="round" fill="transparent" r="19" cx="22" cy="22" transform="rotate(-90 22 22)"/>
-                    </svg>
-                    <div style="position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); font-size:11px; font-weight:800;">
-                        80
-                    </div>
-                </div>
-            </div>
-
-            <div class="summary">Apple plant für iOS 27 die Einführung eines „Siri-Modus“ in der Kamera-App, um die „Visual Intelligence“-Funktion zur Identifikation von Objekten, Terminen und Pflanzen via lokaler KI, Google-Suche und ChatGPT prominenter zu platzieren. Zu den neuen Funktionen gehören die Analyse von Nährwerttabellen sowie das Erstellen von Apple Wallet-Einträgen und Kontakten aus Bilddaten. Das im September 2026 erscheinende Betriebssystem soll zudem KI-gestützte Fototools (Fill, Enhance), ein Reframing von Spatial-Fotos und eine eigenständige Siri-App enthalten.</div>
-
-            <a href="https://www.heise.de/news/Kamera-App-in-iOS-27-soll-Siri-Modus-bekommen-11277344.html?wt_mc=rss.red.ho.ho.atom.beitrag.beitrag" class="source-button" target="_blank" onclick="event.stopPropagation()">
-                Vollständigen Artikel lesen
-            </a>
-        </div>
-        
-        <div class="article-card" onclick="this.classList.toggle('expanded')">
-            
-            <div class="image-wrapper">
-                <img src="https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/5/0/7/8/7/6/9/shutterstock_1516105634-61e7b9706cb1c081.jpg" class="article-image" alt="Vorschau" loading="lazy">
-            </div>
-            
-
-            <div class="meta">heise • news</div>
-
-            <div class="card-header">
-                <div class="title">Geringe Abrufquote bei bayerischer Wasserstoff-Förderung für Tankstellen und Elektrolyseure</div>
-                <div class="relevance-container">
-                    <svg width="44" height="44">
-                        <circle stroke="rgba(255,255,255,0.08)" stroke-width="3" fill="transparent" r="19" cx="22" cy="22"/>
-                        <circle class="progress-ring__circle" stroke-width="3" stroke-dasharray="119.38" 
-                                stroke-dashoffset="21.97669157955339" 
-                                stroke-linecap="round" fill="transparent" r="19" cx="22" cy="22" transform="rotate(-90 22 22)"/>
-                    </svg>
-                    <div style="position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); font-size:11px; font-weight:800;">
-                        80
-                    </div>
-                </div>
-            </div>
-
-            <div class="summary">Die bayerische Wasserstoff-Förderung für Tankstellen und Elektrolyseure wurde weit unter den zugesagten Beträgen abgerufen: So wurden für Tankstellen lediglich 16,3 von 61 Millionen Euro genutzt, wobei nur 20 der 100 geplanten Stationen entstanden, während bei Elektrolyseuren bis 2025 nur 4,1 von 120 Millionen Euro ausgezahlt wurden; die Grünen kritisieren dies als Steuergeldverschwendung, während das Wirtschaftsministerium zeitversetzte Abrufe als Grund anführt und die Energieforschung eine höhere Abrufquote zeigt.</div>
-
-            <a href="https://www.heise.de/news/Wasserstoff-Tankstellen-Foerderung-in-Bayern-stoesst-auf-Desinteresse-11286807.html?wt_mc=rss.red.ho.ho.atom.beitrag.beitrag" class="source-button" target="_blank" onclick="event.stopPropagation()">
-                Vollständigen Artikel lesen
-            </a>
-        </div>
-        
-        <div class="article-card" onclick="this.classList.toggle('expanded')">
-            
-            <div class="image-wrapper">
-                <img src="https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/5/0/7/7/5/1/9/Screenshot_2026-05-06_at_13.57.15-727003e4831144d6.png" class="article-image" alt="Vorschau" loading="lazy">
-            </div>
-            
-
-            <div class="meta">heise • news</div>
-
-            <div class="card-header">
-                <div class="title">Homebridge 2.0 führt Matter-Bridge-Unterstützung ein</div>
-                <div class="relevance-container">
-                    <svg width="44" height="44">
-                        <circle stroke="rgba(255,255,255,0.08)" stroke-width="3" fill="transparent" r="19" cx="22" cy="22"/>
-                        <circle class="progress-ring__circle" stroke-width="3" stroke-dasharray="119.38" 
-                                stroke-dashoffset="27.794957826891107" 
-                                stroke-linecap="round" fill="transparent" r="19" cx="22" cy="22" transform="rotate(-90 22 22)"/>
-                    </svg>
-                    <div style="position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); font-size:11px; font-weight:800;">
-                        75
-                    </div>
-                </div>
-            </div>
-
-            <div class="summary">Mit dem Release von Homebridge 2.0 erweitert das Node.js-basierte Open-Source-Projekt seine Funktionen um eine Matter-Bridge-Funktionalität für Systeme wie Google Assistant, Samsung SmartThings und Amazon Alexa, wodurch auch neue Gerätekategorien wie Staubsauger integrierbar werden. Die Software, die auf Plattformen wie Mac, Linux, Windows, Raspberry Pi, Synology-NAS und Docker läuft, nutzt matter.js zur Kompatibilität, verfügt jedoch über keine offizielle Zertifizierung der Connectivity Standards Alliance (CSA), wobei der Funktionsumfang von den jeweiligen Plugins abhängt.</div>
-
-            <a href="https://www.heise.de/news/HomeKit-fuer-mehr-Geraete-Homebridge-2-0-bekommt-Matter-11284328.html?wt_mc=rss.red.ho.ho.atom.beitrag.beitrag" class="source-button" target="_blank" onclick="event.stopPropagation()">
-                Vollständigen Artikel lesen
-            </a>
-        </div>
-        
-        <div class="article-card" onclick="this.classList.toggle('expanded')">
-            
-            <div class="image-wrapper">
-                <img src="https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/5/0/7/8/7/5/7/shutterstock_1505640251-13872ce8c530c388.jpg" class="article-image" alt="Vorschau" loading="lazy">
-            </div>
-            
-
-            <div class="meta">heise • news</div>
-
-            <div class="card-header">
-                <div class="title">Cloudflare kündigt Entlassungen von über 1.100 Mitarbeitern im Zuge einer KI-Umstrukturierung an</div>
-                <div class="relevance-container">
-                    <svg width="44" height="44">
-                        <circle stroke="rgba(255,255,255,0.08)" stroke-width="3" fill="transparent" r="19" cx="22" cy="22"/>
-                        <circle class="progress-ring__circle" stroke-width="3" stroke-dasharray="119.38" 
-                                stroke-dashoffset="12.513461235123472" 
-                                stroke-linecap="round" fill="transparent" r="19" cx="22" cy="22" transform="rotate(-90 22 22)"/>
-                    </svg>
-                    <div style="position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); font-size:11px; font-weight:800;">
-                        88
-                    </div>
-                </div>
-            </div>
-
-            <div class="summary">Cloudflare entlässt im Zuge einer KI-orientierten Umstrukturierung über 1.100 Mitarbeiter (ca. 20 % der Belegschaft), um interne Prozesse an den verstärkten Einsatz von KI-Agenten anzupassen. Die bis Ende des dritten Quartals umzusetzenden Maßnahmen mit Kosten von 140 bis 150 Millionen US-Dollar erfolgen trotz eines Umsatzanstiegs von 34 % auf 640 Millionen US-Dollar im ersten Quartal, in dem das Unternehmen einen Nettoverlust von rund 23 Millionen US-Dollar auswies. Diese Entwicklung wird als Teil eines „Jobless Boom“ betrachtet, bei dem KI-gesteigerte Produktivität die Nachfrage nach Arbeitskräften dämpft.</div>
-
-            <a href="https://www.heise.de/news/Cloudflares-KI-Umbau-kostet-ein-Fuenftel-der-Arbeitsplaetze-11286783.html?wt_mc=rss.red.ho.ho.atom.beitrag.beitrag" class="source-button" target="_blank" onclick="event.stopPropagation()">
-                Vollständigen Artikel lesen
-            </a>
-        </div>
-        
-        <div class="article-card" onclick="this.classList.toggle('expanded')">
-            
-            <div class="image-wrapper">
-                <img src="https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/5/0/7/8/7/4/3/010-3671d5552b07cd21.jpg" class="article-image" alt="Vorschau" loading="lazy">
-            </div>
-            
-
-            <div class="meta">heise • news</div>
-
-            <div class="card-header">
-                <div class="title">Opel und Leapmotor entwickeln gemeinsam batterieelektrisches Kompakt-SUV</div>
-                <div class="relevance-container">
-                    <svg width="44" height="44">
-                        <circle stroke="rgba(255,255,255,0.08)" stroke-width="3" fill="transparent" r="19" cx="22" cy="22"/>
-                        <circle class="progress-ring__circle" stroke-width="3" stroke-dasharray="119.38" 
-                                stroke-dashoffset="23.420260401046292" 
-                                stroke-linecap="round" fill="transparent" r="19" cx="22" cy="22" transform="rotate(-90 22 22)"/>
-                    </svg>
-                    <div style="position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); font-size:11px; font-weight:800;">
-                        79
-                    </div>
-                </div>
-            </div>
-
-            <div class="summary">Opel und der chinesische Hersteller Leapmotor entwickeln gemeinsam ein rein batterieelektrisches Kompakt-SUV, dessen Produktion im Sommer 2028 im Stellantis-Werk in Zaragoza (Spanien) beginnen soll. Leapmotor übernimmt die Verantwortung für Antrieb, Batterie sowie die Elektro- und Digitalarchitektur, während Opel das Design und die fahrgastnahen Komponenten wie Fahrwerk, Sitze und Licht verantwortet. Stellantis hält eine Minderheitsbeteiligung von 21 Prozent an Leapmotor.</div>
-
-            <a href="https://www.heise.de/news/Opel-entwickelt-E-SUV-mit-chinesischem-Hersteller-Leapmotor-11286755.html?wt_mc=rss.red.ho.ho.atom.beitrag.beitrag" class="source-button" target="_blank" onclick="event.stopPropagation()">
-                Vollständigen Artikel lesen
-            </a>
-        </div>
-        
-        <div class="article-card" onclick="this.classList.toggle('expanded')">
-            
-            <div class="image-wrapper">
-                <img src="https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/5/0/7/8/7/1/6/shutterstock_2601785549-3e31096b27400a75.jpg" class="article-image" alt="Vorschau" loading="lazy">
-            </div>
-            
-
-            <div class="meta">heise • news</div>
-
-            <div class="card-header">
-                <div class="title">Corti AI stellt KI-System zur Automatisierung der medizinischen Kodierung für den deutschen Markt vor</div>
-                <div class="relevance-container">
-                    <svg width="44" height="44">
-                        <circle stroke="rgba(255,255,255,0.08)" stroke-width="3" fill="transparent" r="19" cx="22" cy="22"/>
-                        <circle class="progress-ring__circle" stroke-width="3" stroke-dasharray="119.38" 
-                                stroke-dashoffset="23.444931013610912" 
-                                stroke-linecap="round" fill="transparent" r="19" cx="22" cy="22" transform="rotate(-90 22 22)"/>
-                    </svg>
-                    <div style="position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); font-size:11px; font-weight:800;">
-                        79
-                    </div>
-                </div>
-            </div>
-
-            <div class="summary">Das Kopenhagener Unternehmen Corti AI hat mit „Symphony for Medical Coding“ ein KI-System zur Automatisierung der medizinischen Kodierung aus unstrukturierter Dokumentation veröffentlicht, das speziell auf den deutschen Markt (DRG, SNOMED-CT, ICD) zugeschnitten ist und etwa 90 Prozent der Anforderungen deutscher Kliniken abdeckt. Durch eine strategische Partnerschaft mit dem Anbieter Dedalus soll die Software zur Entlastung des Fachkräftemangels direkt in bestehende Krankenhaus-Informationssysteme integriert werden, wobei erste Einsatzdaten eine Fehlerquote von lediglich 0,2 Prozent belegen.</div>
-
-            <a href="https://www.heise.de/news/Corti-AI-bringt-Symphony-fuer-automatisierte-medizinische-Kodierung-11286701.html?wt_mc=rss.red.ho.ho.atom.beitrag.beitrag" class="source-button" target="_blank" onclick="event.stopPropagation()">
-                Vollständigen Artikel lesen
-            </a>
-        </div>
-        
-        <div class="article-card" onclick="this.classList.toggle('expanded')">
-            
-            <div class="image-wrapper">
-                <img src="https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/5/0/7/8/6/9/7/shutterstock_1907369071-19ac2bc616ac1475.jpg" class="article-image" alt="Vorschau" loading="lazy">
-            </div>
-            
-
-            <div class="meta">heise • news</div>
-
-            <div class="card-header">
-                <div class="title">Finanzierung der geplanten Übernahme von eBay durch GameStop gefährdet</div>
-                <div class="relevance-container">
-                    <svg width="44" height="44">
-                        <circle stroke="rgba(255,255,255,0.08)" stroke-width="3" fill="transparent" r="19" cx="22" cy="22"/>
-                        <circle class="progress-ring__circle" stroke-width="3" stroke-dasharray="119.38" 
-                                stroke-dashoffset="25.216402962625423" 
-                                stroke-linecap="round" fill="transparent" r="19" cx="22" cy="22" transform="rotate(-90 22 22)"/>
-                    </svg>
-                    <div style="position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); font-size:11px; font-weight:800;">
-                        77
-                    </div>
-                </div>
-            </div>
-
-            <div class="summary">Die geplante Übernahme von eBay durch GameStop für 56 Milliarden US-Dollar ist aufgrund unsicherer Finanzierungsbedingungen gefährdet. Da die von TD Securities zugesagten 20 Milliarden US-Dollar an unwahrscheinliche Kredit-Rating-Vorgaben geknüpft sind, könnte GameStop trotz vorhandener Barreserven von 9,4 Milliarden US-Dollar etwa die Hälfte der für den Kauf erforderlichen Summe fehlen.</div>
-
-            <a href="https://www.heise.de/news/eBay-Uebernahme-durch-GameStop-Neue-Zweifel-an-der-geplanten-Finanzierung-11286663.html?wt_mc=rss.red.ho.ho.atom.beitrag.beitrag" class="source-button" target="_blank" onclick="event.stopPropagation()">
-                Vollständigen Artikel lesen
-            </a>
-        </div>
-        
-        <div class="article-card" onclick="this.classList.toggle('expanded')">
-            
-            <div class="image-wrapper">
-                <img src="https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/5/0/7/8/7/0/0/demobat2-513cf04379635236.jpg" class="article-image" alt="Vorschau" loading="lazy">
-            </div>
-            
-
-            <div class="meta">heise • news</div>
-
-            <div class="card-header">
-                <div class="title">Entwicklung eines roboterbasierten Systems zur automatisierten Aufbereitung und zum Recycling von Batteriezellen</div>
-                <div class="relevance-container">
-                    <svg width="44" height="44">
-                        <circle stroke="rgba(255,255,255,0.08)" stroke-width="3" fill="transparent" r="19" cx="22" cy="22"/>
-                        <circle class="progress-ring__circle" stroke-width="3" stroke-dasharray="119.38" 
-                                stroke-dashoffset="6.148188897883898" 
-                                stroke-linecap="round" fill="transparent" r="19" cx="22" cy="22" transform="rotate(-90 22 22)"/>
-                    </svg>
-                    <div style="position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); font-size:11px; font-weight:800;">
-                        94
-                    </div>
-                </div>
-            </div>
-
-            <div class="summary">Das Projekt „Rob@t2Cell“ entwickelt am Fraunhofer-Institut für Produktionstechnik und Automatisierung (IPA) ein robotenbasiertes System zur automatisierten Entscheidung, Aufbereitung und zum Recycling von Batteriezellen. Die Technologie umfasst die Charakterisierung, das gezielte Laden oder Entladen sowie die Demontage der Zellen zur Rohstoffrückgewinnung mittels eines wasserbasierten Verfahrens. Das bis Ende 2028 laufende Vorhaben, an dem unter anderem Umicore, Siemens und die Universität Stuttgart beteiligt sind, wird mit 5,09 Millionen Euro vom Bundesministerium für Forschung, Technologie und Raumfahrt (BMFTR) gefördert.</div>
-
-            <a href="https://www.heise.de/news/Fraunhofer-entwickelt-Robotersystem-zum-automatisierten-Altbatterien-Recycling-11286669.html?wt_mc=rss.red.ho.ho.atom.beitrag.beitrag" class="source-button" target="_blank" onclick="event.stopPropagation()">
-                Vollständigen Artikel lesen
-            </a>
-        </div>
-        
-        <div class="article-card" onclick="this.classList.toggle('expanded')">
-            
-            <div class="image-wrapper">
-                <img src="https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/5/0/7/8/6/8/3/shutterstock_2662120999-5a9d2b1736fbc13b.jpg" class="article-image" alt="Vorschau" loading="lazy">
-            </div>
-            
-
-            <div class="meta">heise • news</div>
-
-            <div class="card-header">
-                <div class="title">Wero gewinnt an Bekanntheit, kann sich aber noch nicht gegenüber nationalen und US-amerikanischen Zahlungsdiensten durchsetzen</div>
-                <div class="relevance-container">
-                    <svg width="44" height="44">
-                        <circle stroke="rgba(255,255,255,0.08)" stroke-width="3" fill="transparent" r="19" cx="22" cy="22"/>
-                        <circle class="progress-ring__circle" stroke-width="3" stroke-dasharray="119.38" 
-                                stroke-dashoffset="43.89243677184491" 
-                                stroke-linecap="round" fill="transparent" r="19" cx="22" cy="22" transform="rotate(-90 22 22)"/>
-                    </svg>
-                    <div style="position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); font-size:11px; font-weight:800;">
-                        61
-                    </div>
-                </div>
-            </div>
-
-            <div class="summary">Laut einer BearingPoint-Umfrage gewinnt das europäische Bezahlsystem Wero zwar an Bekanntheit, kann sich jedoch gegenüber nationalen Anbietern wie Twint oder MobilePay sowie US-Diensten wie PayPal noch nicht durchsetzen. Die European Payments Initiative (EPI) entwickelt Wero als europäische Alternative für P2P- und Händlerzahlungen, um die digitale Souveränität zu stärken.</div>
-
-            <a href="https://www.heise.de/news/Einige-nutzen-Wero-doch-Paypal-bleibt-in-Deutschland-vorn-11286635.html?wt_mc=rss.red.ho.ho.atom.beitrag.beitrag" class="source-button" target="_blank" onclick="event.stopPropagation()">
-                Vollständigen Artikel lesen
-            </a>
-        </div>
-        
     </div>
 
     <script>
+        function updateMobileStack() {
+            if (window.innerWidth >= 700) {
+                document.querySelectorAll('.article-card').forEach(card => {
+                    card.style.transform = '';
+                    card.style.filter = '';
+                    card.style.pointerEvents = '';
+                    card.style.opacity = '1';
+                    card.style.visibility = 'visible';
+                    card.style.willChange = 'auto';
+                });
+                return;
+            }
+
+            const cards = document.querySelectorAll('.article-card');
+            const stickyTopOffset = 100;
+            const triggerDistance = 250;
+
+            // Phase 1: Read metrics and determine the top of the stack
+            const rects = Array.from(cards).map(card => card.getBoundingClientRect());
+            const cardStates = [];
+            let highestStackedIndex = -1;
+
+            cards.forEach((card, index) => {
+                let progress = 0;
+                let isActive = false;
+
+                const nextCard = cards[index + 1];
+                if (nextCard) {
+                    const nextRect = rects[index + 1];
+                    const distanceToSticky = nextRect.top - stickyTopOffset;
+
+                    if (distanceToSticky <= triggerDistance && distanceToSticky > -100) {
+                        progress = Math.max(0, Math.min(1, 1 - (distanceToSticky / triggerDistance)));
+                        isActive = true;
+                        if (progress >= 1) {
+                            highestStackedIndex = index;
+                        }
+                    } else if (distanceToSticky <= -100) {
+                        // Card has fully moved past the trigger point
+                        progress = 1;
+                        isActive = true;
+                        highestStackedIndex = index;
+                    }
+                }
+                cardStates.push({ progress, isActive });
+            });
+
+            // Phase 2: Apply styles and cull correctly
+            cards.forEach((card, index) => {
+                const rect = rects[index];
+                const state = cardStates[index];
+
+                // Culling: Ignore cards far off screen
+                if (rect.top > window.innerHeight + 800 || rect.bottom < -800) {
+                    card.style.willChange = 'auto';
+                    return;
+                }
+
+                if (state.isActive) {
+                    // Culling logic fix: 
+                    // highestStackedIndex is the newest card currently stacked.
+                    // We hide older cards (lower index) that are buried beneath it.
+                    // Keep the top 2 stacked cards visible, cull the rest.
+                    if (state.progress >= 1 && index < highestStackedIndex - 1) {
+                        card.style.opacity = '0';
+                        card.style.visibility = 'hidden';
+                        card.style.filter = 'none';
+                        card.style.transform = 'none';
+                        card.style.willChange = 'auto'; 
+                        return; 
+                    }
+
+                    card.style.opacity = '1';
+                    card.style.visibility = 'visible';
+                    card.style.willChange = 'transform, filter';
+
+                    const scale = 1 - (state.progress * 0.12);
+                    const yOffset = state.progress * -40;
+                    const brightness = 1 - (state.progress * 0.65);
+                    const blur = state.progress * 8;
+
+                    card.style.transform = `translate3d(0, ${yOffset}px, 0) scale(${scale})`;
+                    card.style.filter = `brightness(${brightness}) blur(${blur}px)`;
+                    card.style.pointerEvents = state.progress > 0.6 ? 'none' : 'auto';
+
+                } else {
+                    card.style.opacity = '1';
+                    card.style.visibility = 'visible';
+                    card.style.transform = 'none';
+                    card.style.filter = 'none';
+                    card.style.willChange = 'auto';
+                    card.style.pointerEvents = 'auto';
+                }
+            });
+        }
+
+        // Masonry Grid (Desktop) & Event Listeners
         (function() {
             let currentCols = 0;
             const feed = document.getElementById('news-feed');
@@ -2024,34 +2146,65 @@ Regulatorische und rechtliche Herausforderungen prägen weitere Entwicklungen: D
                 currentCols = cols;
 
                 feed.innerHTML = '';
-                feed.style.gridTemplateColumns = `repeat(${cols}, minmax(0, 1fr))`;
 
-                const columns = [];
-                for (let i = 0; i < cols; i++) {
-                    const col = document.createElement('div');
-                    col.style.display = 'flex';
-                    col.style.flexDirection = 'column';
-                    col.style.gap = '20px';
-                    col.style.minWidth = '0';
-                    columns.push(col);
-                    feed.appendChild(col);
+                if (cols === 1) {
+                    feed.style.display = 'flex';
+                    feed.style.flexDirection = 'column';
+                    feed.style.gridTemplateColumns = '';
+                    originalCards.forEach(card => feed.appendChild(card));
+
+                    setTimeout(updateMobileStack, 100);
+                } else {
+                    feed.style.display = 'grid'; 
+                    feed.style.gridTemplateColumns = `repeat(${cols}, minmax(0, 1fr))`;
+
+                    const columns = [];
+                    for (let i = 0; i < cols; i++) {
+                        const col = document.createElement('div');
+                        col.style.display = 'flex';
+                        col.style.flexDirection = 'column';
+                        col.style.gap = '20px';
+                        col.style.minWidth = '0';
+                        columns.push(col);
+                        feed.appendChild(col);
+                    }
+
+                    originalCards.forEach((card, index) => {
+                        columns[index % cols].appendChild(card);
+                    });
+
+                    updateMobileStack(); 
                 }
-
-                originalCards.forEach((card, index) => {
-                    columns[index % cols].appendChild(card);
-                });
             }
 
             layoutMasonry();
-            window.addEventListener('resize', layoutMasonry);
+            window.addEventListener('resize', () => {
+                layoutMasonry();
+                if (window.innerWidth < 700) updateMobileStack();
+            });
+
+            let isTicking = false;
+            window.addEventListener('scroll', () => {
+                if (window.innerWidth >= 700) return;
+
+                if (!isTicking) {
+                    window.requestAnimationFrame(() => {
+                        updateMobileStack();
+                        isTicking = false;
+                    });
+                    isTicking = true;
+                }
+            }, { passive: true });
         })();
 
+        // Chart.js Topic Distribution Logik
         document.addEventListener("DOMContentLoaded", function() {
-            const ctx = document.getElementById('topicChart').getContext('2d');
+            const ctx = document.getElementById('topicChart');
+            if(!ctx) return;
 
-            const labels = ["news", "hintergrund"];
-            const currentData = [46, 4];
-            const baselineData = [45.2, 2.0];
+            const labels = ["news", "hintergrund", "ratgeber"];
+            const currentData = [43, 6, 1];
+            const baselineData = [45.1, 2.0, 0.3];
 
             const baseData = currentData.map((val, i) => Math.min(val, baselineData[i]));
             const diffData = currentData.map((val, i) => Math.abs(val - baselineData[i]));
@@ -2064,7 +2217,7 @@ Regulatorische und rechtliche Herausforderungen prägen weitere Entwicklungen: D
                 val > baselineData[i] ? 'rgba(147, 51, 234, 1)' : 'rgba(0, 122, 255, 0.6)'
             );
 
-            const gradient = ctx.createLinearGradient(0, 0, 0, 220);
+            const gradient = ctx.getContext('2d').createLinearGradient(0, 0, 0, 220);
             gradient.addColorStop(0, '#00f5d4');
             gradient.addColorStop(1, 'rgba(0, 245, 212, 0.2)');
 
