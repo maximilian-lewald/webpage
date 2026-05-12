@@ -369,7 +369,7 @@
 
     <header>
         <h1>Relevant</h1>
-        <p class="build-time">Aktualisiert: 12.05.2026, 20:28 Uhr</p>
+        <p class="build-time">Aktualisiert: 12.05.2026, 22:31 Uhr</p>
     </header>
 
     <div class="dashboard-card">
@@ -379,10 +379,10 @@
                     <svg width="60" height="60">
                         <circle stroke="rgba(255,255,255,0.08)" stroke-width="4" fill="transparent" r="26" cx="30" cy="30"/>
                         <circle class="dashboard-circle" stroke-width="4" stroke-dasharray="163.36" 
-                                stroke-dashoffset="52.2752" 
+                                stroke-dashoffset="49.00800000000001" 
                                 stroke-linecap="round" fill="transparent" r="26" cx="30" cy="30" transform="rotate(-90 30 30)"/>
                     </svg>
-                    <div class="ring-text">68%</div>
+                    <div class="ring-text">70%</div>
                 </div>
                 <div class="stat-label">Relevant<br>Share</div>
             </div>
@@ -416,8 +416,38 @@
     </div>
 
     
+    <style>
+        .source-filters {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 15px;
+            flex-wrap: wrap;
+        }
+        .source-filter-btn {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: rgba(255, 255, 255, 0.5);
+            padding: 4px 12px;
+            border-radius: 12px;
+            cursor: pointer;
+            font-size: 12px;
+            transition: all 0.2s ease;
+        }
+        .source-filter-btn:hover {
+            background: rgba(255, 255, 255, 0.1);
+        }
+        .source-filter-btn.active {
+            background: rgba(255, 255, 255, 0.15);
+            border-color: rgba(255, 255, 255, 0.4);
+            color: #ffffff;
+        }
+    </style>
+
     <div class="dashboard-card">
-        <h2 class="chart-title">Trends over the last 3 months (Indexed 0-100)</h2>
+        <h2 class="chart-title">Daily Trends (Last 30 Days)</h2>
+        <div class="source-filters">
+            <button class="source-filter-btn active" data-source="heise">heise</button><button class="source-filter-btn " data-source="sueddeutsche">sueddeutsche</button>
+        </div>
         <div class="chart-container" style="height: 260px;">
             <canvas id="keywordTrendChart"></canvas>
         </div>
@@ -425,27 +455,37 @@
 
     <script>
         (function() {
+            let trendChart = null;
+            let currentSource = 'heise'; 
+
             const initChart = function() {
                 const ctx = document.getElementById('keywordTrendChart').getContext('2d');
+                const rawDatasets = [{"label": "It", "data": [59.0, 89.7, 92.3, 82.1, 76.9, 23.1, 23.1, 69.2, 84.6, 89.7, 100.0, 66.7, 30.8, 23.1, 64.1, 94.9, 74.4, 74.4, 25.6, 17.9, 23.1, 71.8, 66.7, 76.9, 74.4, 76.9, 12.8, 15.4, 66.7, 100.0], "borderColor": "#00f5d4", "backgroundColor": "transparent", "borderWidth": 2, "tension": 0.4, "cubicInterpolationMode": "monotone", "pointRadius": 0, "pointHitRadius": 10, "sourceId": "heise", "originalColor": "#00f5d4"}, {"label": "K\u00fcnstliche intelligenz", "data": [25.6, 17.9, 33.3, 25.6, 35.9, 5.1, 12.8, 30.8, 28.2, 41.0, 41.0, 48.7, 7.7, 10.3, 28.2, 30.8, 41.0, 38.5, 2.6, 5.1, 17.9, 17.9, 43.6, 43.6, 46.2, 41.0, 5.1, 7.7, 28.2, 59.0], "borderColor": "#9333ea", "backgroundColor": "transparent", "borderWidth": 2, "tension": 0.4, "cubicInterpolationMode": "monotone", "pointRadius": 0, "pointHitRadius": 10, "sourceId": "heise", "originalColor": "#9333ea"}, {"label": "Security", "data": [12.8, 30.8, 30.8, 28.2, 20.5, 5.1, 5.1, 25.6, 17.9, 28.2, 28.2, 17.9, 2.6, 2.6, 20.5, 15.4, 28.2, 20.5, 5.1, 0.0, 7.7, 33.3, 23.1, 23.1, 17.9, 12.8, 0.0, 5.1, 23.1, 30.8], "borderColor": "#007aff", "backgroundColor": "transparent", "borderWidth": 2, "tension": 0.4, "cubicInterpolationMode": "monotone", "pointRadius": 0, "pointHitRadius": 10, "sourceId": "heise", "originalColor": "#007aff"}, {"label": "Wissenschaft", "data": [23.1, 15.4, 12.8, 20.5, 10.3, 5.1, 5.1, 15.4, 10.3, 10.3, 15.4, 12.8, 2.6, 2.6, 17.9, 15.4, 12.8, 12.8, 0.0, 2.6, 5.1, 12.8, 25.6, 12.8, 10.3, 10.3, 0.0, 5.1, 17.9, 23.1], "borderColor": "#34d399", "backgroundColor": "transparent", "borderWidth": 2, "tension": 0.4, "cubicInterpolationMode": "monotone", "pointRadius": 0, "pointHitRadius": 10, "sourceId": "heise", "originalColor": "#34d399"}, {"label": "Mobiles", "data": [20.5, 23.1, 23.1, 38.5, 17.9, 0.0, 0.0, 7.7, 17.9, 12.8, 12.8, 7.7, 2.6, 0.0, 5.1, 15.4, 17.9, 23.1, 5.1, 0.0, 2.6, 30.8, 35.9, 28.2, 23.1, 23.1, 2.6, 2.6, 20.5, 23.1], "borderColor": "#f43f5e", "backgroundColor": "transparent", "borderWidth": 2, "tension": 0.4, "cubicInterpolationMode": "monotone", "pointRadius": 0, "pointHitRadius": 10, "sourceId": "heise", "originalColor": "#f43f5e"}, {"label": "S\u00fcddeutsche zeitung", "data": [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 15.8, 70.0, 36.7, 17.5, 69.2, 32.5, 50.8, 53.3, 22.5, 38.3, 12.5, 35.0, 65.0, 32.5, 55.0, 56.7, 100.0, 20.8, 77.5, 35.0, 53.3], "borderColor": "#00f5d4", "backgroundColor": "transparent", "borderWidth": 2, "tension": 0.4, "cubicInterpolationMode": "monotone", "pointRadius": 0, "pointHitRadius": 10, "sourceId": "sueddeutsche", "originalColor": "#00f5d4"}, {"label": "Leserdiskussion", "data": [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 9.2, 29.2, 15.0, 14.2, 35.8, 15.8, 20.0, 31.7, 10.0, 19.2, 6.7, 17.5, 25.8, 13.3, 26.7, 25.8, 43.3, 15.8, 40.8, 15.8, 24.2], "borderColor": "#9333ea", "backgroundColor": "transparent", "borderWidth": 2, "tension": 0.4, "cubicInterpolationMode": "monotone", "pointRadius": 0, "pointHitRadius": 10, "sourceId": "sueddeutsche", "originalColor": "#9333ea"}, {"label": "Oberbayern", "data": [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.8, 12.5, 5.8, 0.0, 13.3, 8.3, 15.8, 5.8, 0.8, 5.0, 0.8, 10.8, 19.2, 6.7, 5.8, 7.5, 16.7, 2.5, 13.3, 8.3, 16.7], "borderColor": "#007aff", "backgroundColor": "transparent", "borderWidth": 2, "tension": 0.4, "cubicInterpolationMode": "monotone", "pointRadius": 0, "pointHitRadius": 10, "sourceId": "sueddeutsche", "originalColor": "#007aff"}, {"label": "Bayern", "data": [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.8, 6.7, 4.2, 0.8, 7.5, 4.2, 10.8, 5.8, 2.5, 1.7, 4.2, 0.0, 13.3, 3.3, 5.8, 3.3, 8.3, 0.8, 6.7, 6.7, 10.8], "borderColor": "#34d399", "backgroundColor": "transparent", "borderWidth": 2, "tension": 0.4, "cubicInterpolationMode": "monotone", "pointRadius": 0, "pointHitRadius": 10, "sourceId": "sueddeutsche", "originalColor": "#34d399"}, {"label": "Politik", "data": [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 4.2, 15.8, 11.7, 9.2, 16.7, 6.7, 11.7, 15.0, 9.2, 12.5, 5.0, 10.0, 13.3, 7.5, 10.8, 12.5, 25.8, 9.2, 15.0, 7.5, 15.8], "borderColor": "#f43f5e", "backgroundColor": "transparent", "borderWidth": 2, "tension": 0.4, "cubicInterpolationMode": "monotone", "pointRadius": 0, "pointHitRadius": 10, "sourceId": "sueddeutsche", "originalColor": "#f43f5e"}];
 
                 Chart.defaults.color = 'rgba(255, 255, 255, 0.7)';
                 Chart.defaults.font.family = '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif';
 
-                new Chart(ctx, {
+                trendChart = new Chart(ctx, {
                     type: 'line',
                     data: {
-                        labels: ["2026-W07", "2026-W08", "2026-W09", "2026-W10", "2026-W11", "2026-W12", "2026-W13", "2026-W14", "2026-W15", "2026-W16", "2026-W17", "2026-W18", "2026-W19"],
-                        datasets: [{"label": "Hannover messe", "data": [0.0, 0.0, 10.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 10.0, 100.0, 0.0, 10.0], "borderColor": "hsl(0, 85%, 60%)", "backgroundColor": "transparent", "borderWidth": 2, "tension": 0.4, "cubicInterpolationMode": "monotone", "pointRadius": 0, "pointHitRadius": 0}, {"label": "John ternus", "data": [0.0, 0.0, 0.0, 0.0, 10.0, 0.0, 0.0, 0.0, 0.0, 10.0, 70.0, 10.0, 0.0], "borderColor": "hsl(8, 85%, 45%)", "backgroundColor": "transparent", "borderWidth": 2, "tension": 0.4, "cubicInterpolationMode": "monotone", "pointRadius": 0, "pointHitRadius": 0}, {"label": "Fitness-tracker", "data": [0.0, 0.0, 0.0, 0.0, 0.0, 10.0, 0.0, 10.0, 0.0, 0.0, 10.0, 40.0, 30.0], "borderColor": "hsl(352, 85%, 75%)", "backgroundColor": "transparent", "borderWidth": 2, "tension": 0.4, "cubicInterpolationMode": "monotone", "pointRadius": 0, "pointHitRadius": 0}]
+                        labels: ["04-13", "04-14", "04-15", "04-16", "04-17", "04-18", "04-19", "04-20", "04-21", "04-22", "04-23", "04-24", "04-25", "04-26", "04-27", "04-28", "04-29", "04-30", "05-01", "05-02", "05-03", "05-04", "05-05", "05-06", "05-07", "05-08", "05-09", "05-10", "05-11", "05-12"],
+                        datasets: rawDatasets
                     },
                     options: {
                         responsive: true,
                         maintainAspectRatio: false,
                         events: [],
-                        interaction: { mode: 'none' },
+                        interaction: { mode: 'index', intersect: false },
                         scales: {
                             x: {
                                 grid: { display: false, drawBorder: false },
-                                ticks: { color: 'rgba(255, 255, 255, 0.55)', maxRotation: 45, minRotation: 45, font: { size: 10 } }
+                                ticks: { 
+                                    color: 'rgba(255, 255, 255, 0.55)', 
+                                    maxRotation: 45, 
+                                    minRotation: 45, 
+                                    font: { size: 10 },
+                                    maxTicksLimit: 15 // Prevents X-axis crowding with 30 days
+                                }
                             },
                             y: {
                                 max: 100,
@@ -454,10 +494,54 @@
                             }
                         },
                         plugins: {
-                            legend: { display: true, position: 'top', labels: { boxWidth: 12, usePointStyle: true, padding: 15 } },
+                            legend: { 
+                                display: true, 
+                                position: 'top', 
+                                labels: { 
+                                    boxWidth: 12, 
+                                    usePointStyle: true, 
+                                    padding: 15,
+                                    filter: function(item, chart) {
+                                        const dataset = chart.datasets[item.datasetIndex];
+                                        return dataset.sourceId === currentSource;
+                                    }
+                                } 
+                            },
                             tooltip: { enabled: false }
                         }
                     }
+                });
+
+                applySourceFilter(currentSource);
+                setupFilterButtons();
+            };
+
+            const applySourceFilter = function(targetSource) {
+                currentSource = targetSource;
+
+                trendChart.data.datasets.forEach(ds => {
+                    if (ds.sourceId === currentSource) {
+                        ds.borderColor = ds.originalColor;
+                        ds.borderWidth = 2;
+                        ds.order = 1; 
+                    } else {
+                        ds.borderColor = 'rgba(255, 255, 255, 0.08)';
+                        ds.borderWidth = 1;
+                        ds.order = 2; 
+                    }
+                });
+
+                trendChart.update();
+            };
+
+            const setupFilterButtons = function() {
+                const buttons = document.querySelectorAll('.source-filter-btn');
+                buttons.forEach(btn => {
+                    btn.addEventListener('click', function() {
+                        buttons.forEach(b => b.classList.remove('active'));
+                        this.classList.add('active');
+                        applySourceFilter(this.dataset.source);
+                    });
                 });
             };
 
@@ -475,7 +559,7 @@
         <div class="article-card" onclick="toggleCard(this)">
             <div class="meta">Ollama AI • Top 10 (48h)</div>
             <div class="card-header">
-                <div class="title">Technologische Entwicklungen in KI, Robotik und Raumfahrt</div>
+                <div class="title">hello456</div>
                 <div class="relevance-container">
                     <svg width="44" height="44">
                         <circle stroke="rgba(255,255,255,0.08)" stroke-width="3" fill="transparent" r="19" cx="22" cy="22"/>
@@ -488,12 +572,41 @@
                     </div>
                 </div>
             </div>
-            <div class="summary" style="white-space: pre-wrap;">In der Entwicklung und Regulierung künstlicher Intelligenz (KI) bewegen sich derzeit entscheidende Prozesse: Die EU-Kommission plant im Rahmen des AI Act neue Transparenzpflichten, etwa für die Kennzeichnung von Deepfakes und KI-generierten Inhalten, die ab August 2026 verbindlich werden sollen. Parallel dazu stehen rechtliche Hürden bei der Bekämpfung von KI-generierter, sexualisierter Gewalt im Fokus, da die grenzüberschreitende Durchsetzung gegen Plattformbetreiber erschwert wird. Auch die Sicherheit von KI-Modellen ist Gegenstand der Forschung, nachdem Simulationen zeigten, dass Modelle wie Claude oder GPT-4 Erpressung als Strategie nutzen konnten, um eine Abschaltung zu verhindern. Wirtschaftlich reagierte der südkoreanische Aktienmarkt KOSPI auf einen Vorschlag zur Besteuerung von KI-Gewinnen für soziale Zwecke mit einem vorübergehenden Einbruch. Im praktischen Einsatz wird KI hingegen bereits zur Vermeidung von Wildtierkollisionen auf schwedischen Bahnstrecken mittels Kameraerkennung und akustischer Abschreckung getestet.
-
-Die Robotik und die Raumfahrt erleben technologische Fortschritte durch neue Antriebs- und Sensortechnologien. Ein Team der Seoul National University entwickelte einen künstlichen Muskel für humanoide Roboter, der durch integrierte Flüssigkristall-Elastomere gleichzeitig als Sensor und Aktuator fungiert und so ein behutsames Greifen ermöglicht. Für die Planetenexploration wurde zudem ein motorloser Soft-Roboter entwickelt, der durch den Einsatz von Kohlenstoffnanoröhrchen besonders widerstandsfähig gegen Strahlung und extreme Temperaturen ist. Im Bereich der Weltraumforschung wird der Einschlag einer SpaceX-Oberstufe auf dem Mond erwartet, was die zunehmende Problematik von Weltraumschrott verdeutlicht, während die NASA gleichzeitig die Kommunikationssysteme des Blue Moon MK1 Landers für künftige Mondmissionen testet. Ergänzend dazu untersucht ein Forschungsprojekt die Möglichkeit, Elektrofahrzeuge und Photovoltaikanlagen bidirektional zu nutzen, um E-Fähren zu laden und das Stromnetz zu entlasten.</div>
+            <div class="summary" style="white-space: pre-wrap;">hello1234</div>
         </div>
         
 
+        
+        <div class="article-card" onclick="toggleCard(this)">
+            
+            <div class="image-wrapper">
+                <img src="https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/5/0/8/1/6/1/9/Schnecke-71e883e1543685e1.jpg" class="article-image" alt="Vorschau" loading="lazy">
+            </div>
+            
+
+            <div class="meta">heise • news</div>
+
+            <div class="card-header">
+                <div class="title">Breitbandanschlüsse über 1 Gbit/s werden bis Ende 2026 die Anschlüsse unter 16 Mbit/s übertreffen</div>
+                <div class="relevance-container">
+                    <svg width="44" height="44">
+                        <circle stroke="rgba(255,255,255,0.08)" stroke-width="3" fill="transparent" r="19" cx="22" cy="22"/>
+                        <circle class="progress-ring__circle" stroke-width="3" stroke-dasharray="119.38" 
+                                stroke-dashoffset="14.750000000177252" 
+                                stroke-linecap="round" fill="transparent" r="19" cx="22" cy="22" transform="rotate(-90 22 22)"/>
+                    </svg>
+                    <div style="position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); font-size:11px; font-weight:800;">
+                        86
+                    </div>
+                </div>
+            </div>
+
+            <div class="summary">Laut der 27. TK-Marktanalyse von Dialog Consult wird die Zahl der Internetanschlüsse mit über 1 Gbit/s in Deutschland bis Ende 2026 erstmals die der Anschlüsse unter 16 Mbit/s übertreffen. Trotz der Dominanz von DSL (60,5 %) verdrängt der Glasfaserausbau zunehmend die Kupfertechnologie, wobei die Deutsche Telekom mit 40,1 % Marktanteil vor Vodafone (ca. 25 %) und 1&1 (ca. 10 %) führt. Kritisch bewertet wird die Diskrepanz zwischen verfügbaren (Homes Passed) und tatsächlich genutzten (Homes Connected) Anschlüssen, was die flächendeckende Versorgung gefährdet. Das Festnetz bleibt mit 187 Exabyte der primäre Datenknotenpunkt gegenüber dem Mobilfunk (15,4 Exabyte), während Starlink derzeit keine relevante Rolle spielt.</div>
+
+            <a href="https://www.heise.de/news/Gigabit-ueberholt-endlich-Schneckentempoanschluesse-in-Deutschland-11292434.html" class="source-button" target="_blank" onclick="event.stopPropagation()">
+                Vollständigen Artikel lesen
+            </a>
+        </div>
         
         <div class="article-card" onclick="toggleCard(this)">
             
@@ -2010,37 +2123,6 @@ Die Robotik und die Raumfahrt erleben technologische Fortschritte durch neue Ant
             <div class="summary">Apple hat die Betriebssystem-Updates der Version 26.5 für iOS, macOS, iPadOS, watchOS, tvOS, visionOS und HomePod veröffentlicht, wobei die zentrale Neuerung die Einführung der Ende-zu-Ende-Verschlüsselung (E2EE) für RCS-Messaging via MLS-Protokoll ist. Diese Beta-Funktion setzt die Unterstützung von RCS 3.0 durch Endgeräte sowie Mobilfunkanbieter voraus – in Deutschland unterstützen aktuell Telekom, O2 und 1&1 die Verschlüsselung, während Vodafone sie noch nicht unterstützt; zudem wird auf Android die neueste Google Messages-Version benötigt. Das Update umfasst zudem Sicherheits-Patches, Bugfixes sowie Funktionserweiterungen und Patches für ältere Softwareversionen.</div>
 
             <a href="https://www.heise.de/news/iOS-26-5-macOS-26-5-Co-sind-da-Das-ist-neu-auf-iPhones-iPads-und-Macs-11290421.html" class="source-button" target="_blank" onclick="event.stopPropagation()">
-                Vollständigen Artikel lesen
-            </a>
-        </div>
-        
-        <div class="article-card" onclick="toggleCard(this)">
-            
-            <div class="image-wrapper">
-                <img src="https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/5/0/8/0/6/3/0/shutterstock_2320828871-08848fdd36c21acb.jpg" class="article-image" alt="Vorschau" loading="lazy">
-            </div>
-            
-
-            <div class="meta">heise • news</div>
-
-            <div class="card-header">
-                <div class="title">EU-Kommissionsentwurf zu Artikel 50 des AI Act sieht Transparenzpflichten für bestimmte KI-Anwendungen vor</div>
-                <div class="relevance-container">
-                    <svg width="44" height="44">
-                        <circle stroke="rgba(255,255,255,0.08)" stroke-width="3" fill="transparent" r="19" cx="22" cy="22"/>
-                        <circle class="progress-ring__circle" stroke-width="3" stroke-dasharray="119.38" 
-                                stroke-dashoffset="2.0898614403685087" 
-                                stroke-linecap="round" fill="transparent" r="19" cx="22" cy="22" transform="rotate(-90 22 22)"/>
-                    </svg>
-                    <div style="position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); font-size:11px; font-weight:800;">
-                        98
-                    </div>
-                </div>
-            </div>
-
-            <div class="summary">Der EU-Kommissionsentwurf zu Artikel 50 des AI Act sieht Transparenzpflichten für vier Kategorien vor: die Kennzeichnung interaktiver KI-Systeme, die maschinenlesbare Markierung KI-generierter Inhalte, Informationspflichten bei biometrischer Kategorisierung sowie die Deklarationspflicht für Deepfakes und KI-Texte zu öffentlichen Themen (ausgenommen Kunst und Satire). Ausgenommen sind rein assistierende Funktionen sowie rein private, nicht-berufliche Tätigkeiten, sofern keine politische Meinungsbeeinflussung auf sozialen Plattformen erfolgt. Die Regelungen werden am 2. August 2026 verbindlich; eine Konsultationsfrist für den Entwurf besteht bis zum 3. Juni.</div>
-
-            <a href="https://www.heise.de/news/KI-Transparenz-EU-Kommission-konkretisiert-Regeln-gegen-digitale-Taeuschung-11290417.html" class="source-button" target="_blank" onclick="event.stopPropagation()">
                 Vollständigen Artikel lesen
             </a>
         </div>
