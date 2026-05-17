@@ -369,7 +369,7 @@
 
     <header>
         <h1>Relevant</h1>
-        <p class="build-time">Aktualisiert: 17.05.2026, 11:04 Uhr</p>
+        <p class="build-time">Aktualisiert: 17.05.2026, 22:32 Uhr</p>
     </header>
 
     <div class="dashboard-card">
@@ -379,10 +379,10 @@
                     <svg width="60" height="60">
                         <circle stroke="rgba(255,255,255,0.08)" stroke-width="4" fill="transparent" r="26" cx="30" cy="30"/>
                         <circle class="dashboard-circle" stroke-width="4" stroke-dasharray="163.36" 
-                                stroke-dashoffset="78.4128" 
+                                stroke-dashoffset="81.68" 
                                 stroke-linecap="round" fill="transparent" r="26" cx="30" cy="30" transform="rotate(-90 30 30)"/>
                     </svg>
-                    <div class="ring-text">52%</div>
+                    <div class="ring-text">50%</div>
                 </div>
                 <div class="stat-label">Relevant<br>Share</div>
             </div>
@@ -405,10 +405,10 @@
                     <svg width="60" height="60">
                         <circle stroke="rgba(255,255,255,0.08)" stroke-width="4" fill="transparent" r="26" cx="30" cy="30"/>
                         <circle class="dashboard-circle" stroke-width="4" stroke-dasharray="163.36" 
-                                stroke-dashoffset="137.22240000000002" 
+                                stroke-dashoffset="124.15360000000001" 
                                 stroke-linecap="round" fill="transparent" r="26" cx="30" cy="30" transform="rotate(-90 30 30)"/>
                     </svg>
-                    <div class="ring-text">16%</div>
+                    <div class="ring-text">24%</div>
                 </div>
                 <div class="stat-label">Last<br>24h</div>
             </div>
@@ -506,37 +506,37 @@
                                 <span class="toggle-icon">+</span>
                             </div>
                             <div class="insight-body">
-                                <p>Die Diskussion fokussiert sich auf die wirtschaftliche Instabilität und die damit verbundenen sozialen Spannungen durch geplante Rentenkürzungen. Verstärkt wird die Debatte durch die Auswirkungen des Iran-Kriegs auf die deutsche Konjunktur und die steigende Inflation.</p>
+                                <p>Die Leserdiskussion konzentriert sich auf hochgradig kontroverse Themen wie die geplanten Rentenreformen, die interne Ausrichtung der SPD und die geopolitischen Spannungen im Iran. Diese Themen lösen intensive Debatten aus, da sie die soziale Sicherheit, die wirtschaftliche Stabilität und die nationale Sicherheit unmittelbar beeinflussen.</p>
                             </div>
                         </div>
                         
                         <div class="insight-card" style="border-left: 3px solid #007aff;">
                             <div class="insight-header" onclick="this.parentElement.classList.toggle('expanded')">
-                                <h4>Eurovision song contest</h4>
+                                <h4>Pop</h4>
                                 <span class="toggle-icon">+</span>
                             </div>
                             <div class="insight-body">
-                                <p>Der 70. Eurovision Song Contest in Wien endete mit einem ersten Sieg für Bulgarien. Die Diskussionen konzentrieren sich jedoch auf die politische Kontroverse und Boykottaufrufe im Zusammenhang mit der Teilnahme Israels, die den eigentlich unpolitischen Wettbewerb überschatteten.</p>
+                                <p>Das Thema „pop“ umfasst derzeit ein Spektrum von musikalischen Genre-Crossovers und Albumrezensionen bis hin zu den rechtlichen und politischen Spannungsfeldern der Musikindustrie. Diskutiert werden vor allem die Auswirkungen künstlicher Intelligenz auf das Urheberrecht, die politische Debatte um den Eurovision Song Contest 2026 sowie die künstlerische Verschmelzung von Klassik und Pop.</p>
                             </div>
                         </div>
                         
                         <div class="insight-card" style="border-left: 3px solid #34d399;">
                             <div class="insight-header" onclick="this.parentElement.classList.toggle('expanded')">
-                                <h4>Pop</h4>
+                                <h4>Sport</h4>
                                 <span class="toggle-icon">+</span>
                             </div>
                             <div class="insight-body">
-                                <p>Das Schlagwort umfasst die aktuelle Musiklandschaft, von Crossover-Projekten und Albumrezensionen bis hin zu experimenteller Live-Kunst. Im Fokus stehen dabei die rechtlichen und politischen Spannungsfelder der Branche, insbesondere die Debatten um KI-Urheberrechte sowie die politische Aufladung des Eurovision Song Contest.</p>
+                                <p>Der Trend wird primär durch die sportlichen Erfolge des FC Bayern München getrieben, insbesondere den Gewinn der deutschen Frauenmeisterschaft und das Erreichen des DFB-Pokal-Finals der Männer. Parallel dazu prägen personelle Veränderungen im Volleyball sowie internationale Entwicklungen im Fußball die aktuelle Berichterstattung.</p>
                             </div>
                         </div>
                         
                         <div class="insight-card" style="border-left: 3px solid #f43f5e;">
                             <div class="insight-header" onclick="this.parentElement.classList.toggle('expanded')">
-                                <h4>Sport</h4>
+                                <h4>Eurovision song contest</h4>
                                 <span class="toggle-icon">+</span>
                             </div>
                             <div class="insight-body">
-                                <p>Im Zentrum stehen aktuelle Meisterschaftserfolge im Fußball und Volleyball sowie die Finalsetzung im DFB-Pokal. Die Berichterstattung wird durch personelle Umbrüche, Verletzungsnews von Top-Stars und Disziplinarstrafen im internationalen Profisport intensiviert.</p>
+                                <p>Der 70. Eurovision Song Contest in Wien endete mit einem historischen ersten Sieg Bulgariens gegen Israel. Die Diskussionen konzentrieren sich primär auf die politischen Spannungen und Boykottaufrufe im Zusammenhang mit der Teilnahme Israels sowie die dramatische Punkteverteilung im Finale.</p>
                             </div>
                         </div>
                         </div>
@@ -550,7 +550,7 @@
 
             const initChart = function() {
                 const ctx = document.getElementById('keywordTrendChart').getContext('2d');
-                const rawDatasets = [{"label": "S\u00fcddeutsche zeitung", "data": [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 15.8, 70.0, 36.7, 17.5, 69.2, 32.5, 50.8, 53.3, 22.5, 38.3, 12.5, 35.0, 65.0, 32.5, 55.0, 56.7, 100.0, 20.8, 77.5, 35.0, 55.8, 18.3, 30.8, 38.3, 25.8, 15.8], "borderColor": "#00f5d4", "backgroundColor": "transparent", "borderWidth": 2, "tension": 0.4, "cubicInterpolationMode": "monotone", "pointRadius": 0, "pointHitRadius": 10, "sourceId": "sueddeutsche", "originalColor": "#00f5d4"}, {"label": "Leserdiskussion", "data": [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 9.2, 29.2, 15.0, 14.2, 35.8, 15.8, 20.0, 31.7, 10.0, 19.2, 6.7, 17.5, 25.8, 13.3, 26.7, 25.8, 43.3, 15.8, 40.8, 15.8, 25.0, 6.7, 18.3, 18.3, 14.2, 5.8], "borderColor": "#9333ea", "backgroundColor": "transparent", "borderWidth": 2, "tension": 0.4, "cubicInterpolationMode": "monotone", "pointRadius": 0, "pointHitRadius": 10, "sourceId": "sueddeutsche", "originalColor": "#9333ea"}, {"label": "Eurovision song contest", "data": [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.8, 0.0, 0.0, 0.0, 0.0, 0.0, 1.7, 0.0, 0.8, 0.8, 5.8, 1.7], "borderColor": "#007aff", "backgroundColor": "transparent", "borderWidth": 2, "tension": 0.4, "cubicInterpolationMode": "monotone", "pointRadius": 0, "pointHitRadius": 10, "sourceId": "sueddeutsche", "originalColor": "#007aff"}, {"label": "Pop", "data": [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.8, 0.0, 0.0, 0.0, 0.8, 0.8, 0.0, 0.8, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.7, 0.0, 0.8, 0.0, 0.8, 0.0, 0.8, 0.8, 5.8, 1.7], "borderColor": "#34d399", "backgroundColor": "transparent", "borderWidth": 2, "tension": 0.4, "cubicInterpolationMode": "monotone", "pointRadius": 0, "pointHitRadius": 10, "sourceId": "sueddeutsche", "originalColor": "#34d399"}, {"label": "Sport", "data": [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 2.5, 6.7, 2.5, 3.3, 12.5, 6.7, 2.5, 5.0, 0.0, 3.3, 1.7, 5.8, 5.0, 4.2, 6.7, 6.7, 7.5, 5.0, 15.8, 5.0, 3.3, 0.0, 5.8, 5.0, 9.2, 0.0], "borderColor": "#f43f5e", "backgroundColor": "transparent", "borderWidth": 2, "tension": 0.4, "cubicInterpolationMode": "monotone", "pointRadius": 0, "pointHitRadius": 10, "sourceId": "sueddeutsche", "originalColor": "#f43f5e"}];
+                const rawDatasets = [{"label": "S\u00fcddeutsche zeitung", "data": [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 15.8, 70.0, 36.7, 17.5, 69.2, 32.5, 50.8, 53.3, 22.5, 38.3, 12.5, 35.0, 65.0, 32.5, 55.0, 56.7, 100.0, 20.8, 77.5, 35.0, 55.8, 18.3, 30.8, 38.3, 25.8, 40.0], "borderColor": "#00f5d4", "backgroundColor": "transparent", "borderWidth": 2, "tension": 0.4, "cubicInterpolationMode": "monotone", "pointRadius": 0, "pointHitRadius": 10, "sourceId": "sueddeutsche", "originalColor": "#00f5d4"}, {"label": "Leserdiskussion", "data": [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 9.2, 29.2, 15.0, 14.2, 35.8, 15.8, 20.0, 31.7, 10.0, 19.2, 6.7, 17.5, 25.8, 13.3, 26.7, 25.8, 43.3, 15.8, 40.8, 15.8, 25.0, 6.7, 18.3, 18.3, 14.2, 20.8], "borderColor": "#9333ea", "backgroundColor": "transparent", "borderWidth": 2, "tension": 0.4, "cubicInterpolationMode": "monotone", "pointRadius": 0, "pointHitRadius": 10, "sourceId": "sueddeutsche", "originalColor": "#9333ea"}, {"label": "Pop", "data": [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.8, 0.0, 0.0, 0.0, 0.8, 0.8, 0.0, 0.8, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.7, 0.0, 0.8, 0.0, 0.8, 0.0, 0.8, 0.8, 5.8, 2.5], "borderColor": "#007aff", "backgroundColor": "transparent", "borderWidth": 2, "tension": 0.4, "cubicInterpolationMode": "monotone", "pointRadius": 0, "pointHitRadius": 10, "sourceId": "sueddeutsche", "originalColor": "#007aff"}, {"label": "Sport", "data": [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 2.5, 6.7, 2.5, 3.3, 12.5, 6.7, 2.5, 5.0, 0.0, 3.3, 1.7, 5.8, 5.0, 4.2, 6.7, 6.7, 7.5, 5.0, 15.8, 5.0, 3.3, 0.0, 5.8, 5.0, 9.2, 4.2], "borderColor": "#34d399", "backgroundColor": "transparent", "borderWidth": 2, "tension": 0.4, "cubicInterpolationMode": "monotone", "pointRadius": 0, "pointHitRadius": 10, "sourceId": "sueddeutsche", "originalColor": "#34d399"}, {"label": "Eurovision song contest", "data": [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.8, 0.0, 0.0, 0.0, 0.0, 0.0, 1.7, 0.0, 0.8, 0.8, 5.8, 1.7], "borderColor": "#f43f5e", "backgroundColor": "transparent", "borderWidth": 2, "tension": 0.4, "cubicInterpolationMode": "monotone", "pointRadius": 0, "pointHitRadius": 10, "sourceId": "sueddeutsche", "originalColor": "#f43f5e"}];
 
                 Chart.defaults.color = 'rgba(255, 255, 255, 0.7)';
                 Chart.defaults.font.family = '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif';
@@ -637,7 +637,7 @@
         <div class="article-card" onclick="toggleCard(this)">
             <div class="meta">Ollama AI • Top 10 (48h)</div>
             <div class="card-header">
-                <div class="title">Technologische und gesellschaftspolitische Entwicklungen im Überblick</div>
+                <div class="title">Aktuelle Entwicklungen in Technologie, Recht und Geopolitik</div>
                 <div class="relevance-container">
                     <svg width="44" height="44">
                         <circle stroke="rgba(255,255,255,0.08)" stroke-width="3" fill="transparent" r="19" cx="22" cy="22"/>
@@ -650,12 +650,138 @@
                     </div>
                 </div>
             </div>
-            <div class="summary" style="white-space: pre-wrap;">In der Technologiewelt stehen bedeutende Umbrüche bevor: SpaceX plant einen Börsengang unter der neuen Marke „SpaceXAI“, um xAI und X zu vereinen und die Errichtung von KI-Rechenzentren im Weltraum voranzutreiben. Parallel dazu warnt die Forschung vor den ökologischen Folgen von Satelliten-Megakonstellationen, deren Rußemissionen die Klimabelastung der Raumfahrt massiv erhöhen und die Atmosphäre langfristig schädigen könnten. Im Bereich der Künstlichen Intelligenz testet ChatGPT in den USA neue Funktionen zur Finanzanalyse über Schnittstellen zu Banken, während OpenAI rechtliche Schritte gegen Apple erwägt, da ChatGPT in der neuen „Apple Intelligence“ angeblich unzureichend beworben wird. Technologische Fortschritte zeigen sich zudem in der Robotik durch das bioinspirierte „Bee-Nav“-Navigationssystem der TU Delft für Drohnen in GPS-freien Innenräumen sowie im Automobilsektor durch den geplanten Weltrekordversuch des wasserstoffgetriebenen JCB Hydromax.
+            <div class="summary" style="white-space: pre-wrap;">Im Bereich der künstlichen Intelligenz und Technologie zeichnen sich weitreichende Veränderungen ab: SpaceX plant unter der neuen Marke „SpaceXAI“ einen Börsengang, der xAI und X zusammenführt, um die Errichtung von KI-Rechenzentren im Weltraum voranzutreiben. Während OpenAI rechtliche Schritte gegen Apple wegen einer unzureichenden Bewerbung von ChatGPT im Rahmen der „Apple Intelligence“-Partnerschaft erwägt, testet die Plattform für US-Nutzer eine neue Funktion zur Analyse von Finanzdaten über Plaid und Intuit. Rechtliche Klarheit suchte das OLG Düsseldorf in der Frage des Urheberrechtsschutzes für KI-Bilder, das entschied, dass rein maschinell generierte Werke ohne nachweisbaren menschlichen Gestaltungsanteil nicht urheberrechtlich geschützt sind.
 
-Auf gesellschaftlicher und rechtlicher Ebene gibt es kritische Entwicklungen: Das Amtsgericht Reutlingen lehnte einen Haftbefehl ab, da die Identifizierung eines Verdächtigen primär auf intransparenter Gesichtserkennungssoftware des BKA basierte. Ähnlich wird die rechtliche Handhabung von Smart Glasses kritisiert, da eine Gesetzeslücke das heimliche Filmen im öffentlichen Raum erleichtert. Globalpolitisch mahnt eine TAB-Studie zur Reduzierung der europäischen Abhängigkeit von China bei Seltenen Erden und fordert Maßnahmen zur Sicherung der technologischen Souveränität. Im Gesundheitswesen setzt sich der Deutsche Ärztetag zwar für eine fundierte Digitalisierung ein, übt jedoch gleichzeitig deutliche Kritik an der Krankenhausfinanzierung sowie an der geplanten Notfallreform.</div>
+Die ökologischen Auswirkungen der Raumfahrt stehen zunehmend in der Kritik, da die Ruß-Emissionen von Satelliten-Megakonstellationen die Klimabelastung der Branche bis 2029 auf über 40 Prozent steigern könnten. Parallel dazu gibt es technologische Fortschritte in der Navigation und Antriebstechnik: Die TU Delft entwickelte mit „Bee-Nav“ ein bioinspiriertes System für die autonome Drohnensteuerung in GPS-freien Innenräumen, während der Hersteller JCB mit einem wasserstoffgetriebenen Fahrzeug einen neuen Weltrekord bei der Geschwindigkeit von Landfahrzeugen anstrebt.
+
+Auf gesellschaftlicher und geopolitischer Ebene warnt eine TAB-Studie vor der europäischen Abhängigkeit von China bei der Versorgung und Verarbeitung Seltener Erden und fordert strategische Gegenmaßnahmen wie die Förderung der Kreislaufwirtschaft. Im Bereich der Rechtsprechung lehnte das Amtsgericht Reutlingen einen Haftbefehl ab, da die Identifizierung eines Verdächtigen primär auf einer intransparenten Gesichtserkennungssoftware basierte. Zudem wird ein neuer deutscher Gesetzentwurf gegen digitale Gewalt kritisiert, da dieser keine ausreichenden Schutz gegen die heimliche Videoaufnahme durch Smart Glasses bietet.</div>
         </div>
         
 
+        
+        <div class="article-card" onclick="toggleCard(this)">
+            
+            <div class="image-wrapper">
+                <img src="https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/5/0/8/3/7/1/5/DB175848-1e6e21b8a61b9fb8.jpg" class="article-image" alt="Vorschau" loading="lazy">
+            </div>
+            
+
+            <div class="meta">heise • news</div>
+
+            <div class="card-header">
+                <div class="title">Deutsche Bahn strebt nach Nettoverlust von 2,3 Milliarden Euro Ertragswende an</div>
+                <div class="relevance-container">
+                    <svg width="44" height="44">
+                        <circle stroke="rgba(255,255,255,0.08)" stroke-width="3" fill="transparent" r="19" cx="22" cy="22"/>
+                        <circle class="progress-ring__circle" stroke-width="3" stroke-dasharray="119.38" 
+                                stroke-dashoffset="43.9952212321014" 
+                                stroke-linecap="round" fill="transparent" r="19" cx="22" cy="22" transform="rotate(-90 22 22)"/>
+                    </svg>
+                    <div style="position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); font-size:11px; font-weight:800;">
+                        61
+                    </div>
+                </div>
+            </div>
+
+            <div class="summary">Die Deutsche Bahn strebt nach Jahren der Verluste eine Ertragswende an, wobei Konzernchefin Evelyn Palla für das laufende Jahr eine „schwarze Null“ in Aussicht stellt. Trotz eines Nettoverlusts von rund 2,3 Milliarden Euro im Jahr 2025 – einem Anstieg um 0,5 Milliarden Euro gegenüber dem Vorjahr – verbesserte sich das bereinigte operative Ergebnis (Ebit) um 630 Millionen Euro auf 297 Millionen Euro. Für 2026 werden ein Ebit von etwa 600 Millionen Euro sowie ein Umsatz von rund 28 Milliarden Euro angestrebt.</div>
+
+            <a href="https://www.heise.de/news/Bahn-Chefin-Nach-Milliardenminus-schwarze-Null-moeglich-11296565.html" class="source-button" target="_blank" onclick="event.stopPropagation()">
+                Vollständigen Artikel lesen
+            </a>
+        </div>
+        
+        <div class="article-card" onclick="toggleCard(this)">
+            
+            <div class="image-wrapper">
+                <img src="https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/5/0/8/3/6/8/7/Urheberrecht-576ea559c003bfa3.jpeg" class="article-image" alt="Vorschau" loading="lazy">
+            </div>
+            
+
+            <div class="meta">heise • news</div>
+
+            <div class="card-header">
+                <div class="title">OLG Düsseldorf verneint Urheberrechtsschutz für rein maschinell generierte KI-Bilder</div>
+                <div class="relevance-container">
+                    <svg width="44" height="44">
+                        <circle stroke="rgba(255,255,255,0.08)" stroke-width="3" fill="transparent" r="19" cx="22" cy="22"/>
+                        <circle class="progress-ring__circle" stroke-width="3" stroke-dasharray="119.38" 
+                                stroke-dashoffset="3.03870615901387" 
+                                stroke-linecap="round" fill="transparent" r="19" cx="22" cy="22" transform="rotate(-90 22 22)"/>
+                    </svg>
+                    <div style="position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); font-size:11px; font-weight:800;">
+                        97
+                    </div>
+                </div>
+            </div>
+
+            <div class="summary">Das Oberlandelsgericht (OLG) Düsseldorf hat entschieden, dass rein maschinell generierte KI-Bilder ohne nachweisbaren menschlich-gestalterischen Einfluss keinen Urheberrechtsschutz genießen. Während bloßes Prompting nicht ausreicht, ist die KI-gestützte Nachahmung von Bildmotiven zulässig, sofern die spezifischen, geschützten Gestaltungselemente eines Originals – wie Lichtsetzung oder Bildausschnitt – unangetastet bleiben. Im vorliegenden Fall einer Unterwasserfotografin wies das Gericht einen Eilantrag ab, da die KI-Grafik zwar das Motiv übernahm, aber in ihren technischen Merkmalen vom Original abwich und der Ersteller keinen eigenen Schöpfungsanteil nachweisen konnte. Damit rückt das Gericht von der Prüfung des visuellen Gesamteindrucks ab und wendet ein elementorientiertes Verfahren nach europäischem Recht an.</div>
+
+            <a href="https://www.heise.de/news/KI-Bilder-im-Urheberrecht-Wann-Prompting-schuetzt-und-warum-Kopieren-erlaubt-ist-11296517.html" class="source-button" target="_blank" onclick="event.stopPropagation()">
+                Vollständigen Artikel lesen
+            </a>
+        </div>
+        
+        <div class="article-card" onclick="toggleCard(this)">
+            
+            <div class="image-wrapper">
+                <img src="https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/5/0/8/3/5/7/7/CapitolSacramento-67b711308ac2e451.jpg" class="article-image" alt="Vorschau" loading="lazy">
+            </div>
+            
+
+            <div class="meta">heise • news</div>
+
+            <div class="card-header">
+                <div class="title">Kaliforniens Haushaltsentwurf sieht neue Umsatzsteuer auf Cloud-basierte Software vor</div>
+                <div class="relevance-container">
+                    <svg width="44" height="44">
+                        <circle stroke="rgba(255,255,255,0.08)" stroke-width="3" fill="transparent" r="19" cx="22" cy="22"/>
+                        <circle class="progress-ring__circle" stroke-width="3" stroke-dasharray="119.38" 
+                                stroke-dashoffset="21.30346121283469" 
+                                stroke-linecap="round" fill="transparent" r="19" cx="22" cy="22" transform="rotate(-90 22 22)"/>
+                    </svg>
+                    <div style="position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); font-size:11px; font-weight:800;">
+                        81
+                    </div>
+                </div>
+            </div>
+
+            <div class="summary">Kaliforniens Gouverneur Gavin Newsom plant im Haushaltsentwurf für 2026/27 die Einführung einer Umsatzsteuer von 7,25 Prozent auf Cloud-basierte Software, um die Finanzierung von Sozial- und Klimaprogrammen abzusichern und die Abhängigkeit von volatilen Kapitalertragssteuern zu reduzieren. Die Neuregelung, die primär große Software- und KI-Anbieter betrifft, aber Streaming-Dienste ausnimmt, soll erste Einnahmen von etwa 1,1 Milliarden US-Dollar generieren, die sich langfristig auf jährlich rund zwei Milliarden US-Dollar stabilisieren sollen. Während die Administration zusätzlich die Begrenzung von Steuervergünstigungen vorsieht, warnt die kalifornische Handelskammer vor der Initiative; die Verhandlungen über den finalen Haushaltsplan müssen bis Juli abgeschlossen sein.</div>
+
+            <a href="https://www.heise.de/news/KI-Boom-reicht-nicht-Kalifornien-plant-Digitalsteuer-fuer-Cloud-Software-11296297.html" class="source-button" target="_blank" onclick="event.stopPropagation()">
+                Vollständigen Artikel lesen
+            </a>
+        </div>
+        
+        <div class="article-card" onclick="toggleCard(this)">
+            
+            <div class="image-wrapper">
+                <img src="https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/5/0/6/6/8/2/3/spa.Reportage-2032954618-uwei_ONLINE-e3e5282a3247ddff.jpg" class="article-image" alt="Vorschau" loading="lazy">
+            </div>
+            
+
+            <div class="meta">heise • hintergrund</div>
+
+            <div class="card-header">
+                <div class="title">Hannover 96 bietet LudoSport-Training an</div>
+                <div class="relevance-container">
+                    <svg width="44" height="44">
+                        <circle stroke="rgba(255,255,255,0.08)" stroke-width="3" fill="transparent" r="19" cx="22" cy="22"/>
+                        <circle class="progress-ring__circle" stroke-width="3" stroke-dasharray="119.38" 
+                                stroke-dashoffset="29.32215148676238" 
+                                stroke-linecap="round" fill="transparent" r="19" cx="22" cy="22" transform="rotate(-90 22 22)"/>
+                    </svg>
+                    <div style="position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); font-size:11px; font-weight:800;">
+                        74
+                    </div>
+                </div>
+            </div>
+
+            <div class="summary">Beim Sportverein Hannover 96 wird LudoSport trainiert, ein eigenständiger Sport mit festen Regeln, einem Verein und Meisterschaften, der auf dem Kampf mit Kunststoff-Lichtschwertern basiert.</div>
+
+            <a href="https://www.heise.de/hintergrund/Lichtschwertkampf-LudoSport-ausprobiert-Trainieren-wie-ein-Padawan-11263863.html" class="source-button" target="_blank" onclick="event.stopPropagation()">
+                Vollständigen Artikel lesen
+            </a>
+        </div>
         
         <div class="article-card" onclick="toggleCard(this)">
             
@@ -2083,130 +2209,6 @@ Auf gesellschaftlicher und rechtlicher Ebene gibt es kritische Entwicklungen: Da
             </a>
         </div>
         
-        <div class="article-card" onclick="toggleCard(this)">
-            
-            <div class="image-wrapper">
-                <img src="https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/5/0/8/1/9/8/9/CleanShot_2026-05-13_at_12.06.37_2x-a88e6b45b33c409f.png" class="article-image" alt="Vorschau" loading="lazy">
-            </div>
-            
-
-            <div class="meta">heise • news</div>
-
-            <div class="card-header">
-                <div class="title">SPAN plant dezentrale Rechenzentrumslösung in Privathaushalten</div>
-                <div class="relevance-container">
-                    <svg width="44" height="44">
-                        <circle stroke="rgba(255,255,255,0.08)" stroke-width="3" fill="transparent" r="19" cx="22" cy="22"/>
-                        <circle class="progress-ring__circle" stroke-width="3" stroke-dasharray="119.38" 
-                                stroke-dashoffset="12.708633950084717" 
-                                stroke-linecap="round" fill="transparent" r="19" cx="22" cy="22" transform="rotate(-90 22 22)"/>
-                    </svg>
-                    <div style="position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); font-size:11px; font-weight:800;">
-                        88
-                    </div>
-                </div>
-            </div>
-
-            <div class="summary">Das kalifornische Start-up SPAN plant die „Distributed Data Center Solution“, bei der dezentral an Privathäusern montierte, flüssiggekühlte Servereinheiten ungenutzte lokale Netzkapazitäten sowie Solarstrom zur Bereitstellung von KI-Rechenleistung nutzen, um die Engpässe beim Ausbau zentraler Rechenzentren zu umgehen. Im Gegenzug für die Bereitstellung der Infrastruktur erhalten Hausbesitzer vergünstigte oder kostenlose Strom- und Internetdienste. Die technisch mit Nvidia-GPUs und AMD-CPUs ausgestatteten Knoten werden in der zweiten Jahreshälfte 2026 in einem Pilotprojekt mit 100 Haushalten getestet, wobei ein großflächiger Ausbau ab 2027 angestrebt wird. Das Unternehmen verspricht einen sechsmal schnelleren Ausbau zu einem Fünftel der Kosten herkömmlicher 100-Megawatt-Rechenzentren.</div>
-
-            <a href="https://www.heise.de/news/KI-Rechenleistung-aus-dem-Vorgarten-Start-up-setzt-auf-dezentrale-Server-11293156.html" class="source-button" target="_blank" onclick="event.stopPropagation()">
-                Vollständigen Artikel lesen
-            </a>
-        </div>
-        
-        <div class="article-card" onclick="toggleCard(this)">
-            
-            <div class="image-wrapper">
-                <img src="https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/5/0/8/2/2/4/5/20170425_170353-28e628950a6193a1.jpg" class="article-image" alt="Vorschau" loading="lazy">
-            </div>
-            
-
-            <div class="meta">heise • news</div>
-
-            <div class="card-header">
-                <div class="title">Verfassungsschutz ersetzt US-Anbieter Palantir durch französische Software ArgonOS</div>
-                <div class="relevance-container">
-                    <svg width="44" height="44">
-                        <circle stroke="rgba(255,255,255,0.08)" stroke-width="3" fill="transparent" r="19" cx="22" cy="22"/>
-                        <circle class="progress-ring__circle" stroke-width="3" stroke-dasharray="119.38" 
-                                stroke-dashoffset="6.813633011627061" 
-                                stroke-linecap="round" fill="transparent" r="19" cx="22" cy="22" transform="rotate(-90 22 22)"/>
-                    </svg>
-                    <div style="position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); font-size:11px; font-weight:800;">
-                        93
-                    </div>
-                </div>
-            </div>
-
-            <div class="summary">Das Bundesamt für Verfassungsschutz hat zur Stärkung der digitalen Souveränität die KI-basierte Software „ArgonOS“ des französischen Unternehmens ChapsVision anstelle des US-Anbieters Palantir erworben. Die zur Terrorismusbekämpfung und Spionageabwehr vorgesehene Lösung zur Analyse großer Datenmengen und Open-Source-Intelligence ist nach erfolgreichem Machbarkeitsnachweis einsatzbereit, unterliegt jedoch aufgrund fehlender Rechtsgrundlagen aktuellen Beschränkungen und verdeutlicht den politischen Richtungsstreit über die technologische Abhängigkeit von US-Anbietern.</div>
-
-            <a href="https://www.heise.de/news/Digitale-Souveraenitaet-Verfassungsschutz-kauft-europaeische-Palantir-Alternative-11293663.html" class="source-button" target="_blank" onclick="event.stopPropagation()">
-                Vollständigen Artikel lesen
-            </a>
-        </div>
-        
-        <div class="article-card" onclick="toggleCard(this)">
-            
-            <div class="image-wrapper">
-                <img src="https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/5/0/8/2/1/4/7/DB17198-f457c7a176c7b026.jpg" class="article-image" alt="Vorschau" loading="lazy">
-            </div>
-            
-
-            <div class="meta">heise • news</div>
-
-            <div class="card-header">
-                <div class="title">EU-Kommission schlägt Vereinfachung internationaler Bahnreisen und Stärkung der Fahrgastrechte vor</div>
-                <div class="relevance-container">
-                    <svg width="44" height="44">
-                        <circle stroke="rgba(255,255,255,0.08)" stroke-width="3" fill="transparent" r="19" cx="22" cy="22"/>
-                        <circle class="progress-ring__circle" stroke-width="3" stroke-dasharray="119.38" 
-                                stroke-dashoffset="25.861729739330187" 
-                                stroke-linecap="round" fill="transparent" r="19" cx="22" cy="22" transform="rotate(-90 22 22)"/>
-                    </svg>
-                    <div style="position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); font-size:11px; font-weight:800;">
-                        77
-                    </div>
-                </div>
-            </div>
-
-            <div class="summary">Ein Vorschlag der EU-Kommission sieht vor, internationale Bahnreisen zu vereinfachen, indem Buchungen über verschiedene Anbieter als ein einziges Ticket behandelt werden und Plattformen verstärkt Tickets unterschiedlicher Betreiber anbieten sollen. Dies würde die Fahrgastrechte bei Verspätungen stärken: Bei verpassten Anschlüssen bestünde Anspruch auf kostenlose Alternativverbindungen, Rückerstattungen oder Verpflegung sowie Entschädigungen von 25 % (ab einer Stunde) bzw. 50 % (ab zwei Stunden) der Kosten, wobei das verursachende Unternehmen bei ausreichender Umstiegszeit haftet. Die Umsetzung erfordert die Zustimmung der EU-Mitgliedstaaten und des Europäischen Parlaments.</div>
-
-            <a href="https://www.heise.de/news/EU-Kommission-will-internationale-Zugreisen-erleichtern-11293469.html" class="source-button" target="_blank" onclick="event.stopPropagation()">
-                Vollständigen Artikel lesen
-            </a>
-        </div>
-        
-        <div class="article-card" onclick="toggleCard(this)">
-            
-            <div class="image-wrapper">
-                <img src="https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/5/0/8/2/0/7/2/android_blog_Hero_Android_AI_Pri.width-2200.format-webp-dfd7fb8083aa454f.webp" class="article-image" alt="Vorschau" loading="lazy">
-            </div>
-            
-
-            <div class="meta">heise • news</div>
-
-            <div class="card-header">
-                <div class="title">Google kündigt neue Sicherheitsfunktionen für Android an</div>
-                <div class="relevance-container">
-                    <svg width="44" height="44">
-                        <circle stroke="rgba(255,255,255,0.08)" stroke-width="3" fill="transparent" r="19" cx="22" cy="22"/>
-                        <circle class="progress-ring__circle" stroke-width="3" stroke-dasharray="119.38" 
-                                stroke-dashoffset="18.566336977125104" 
-                                stroke-linecap="round" fill="transparent" r="19" cx="22" cy="22" transform="rotate(-90 22 22)"/>
-                    </svg>
-                    <div style="position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); font-size:11px; font-weight:800;">
-                        83
-                    </div>
-                </div>
-            </div>
-
-            <div class="summary">Google hat neue Android-Sicherheitsmaßnahmen angekündigt, darunter „Verified Financial Calls“ zum Schutz vor Telefonbetrug, die KI-basierte „dynamische Signalüberwachung“ in Android 17 sowie die Malware-Prüfung von App-Downloads via „Chrome App Safety“. Weitere Funktionen umfassen einen selektiven Kontakt-Picker, eine zeitlich begrenzte Standortfreigabe, den Schutz von Einmalpasswörtern (OTPs) vor App-Zugriff sowie die Option zur Deaktivierung von 2G-Netzen. Zudem werden in Android 17 der Zugriff auf Barrierefreiheitsdienste eingeschränkt und eine Betriebssystem-Verifizierung zur Erkennung modifizierter Android-Versionen implementiert.</div>
-
-            <a href="https://www.heise.de/news/Android-Google-baut-KI-Schutz-gegen-Betrug-und-Schadsoftware-aus-11293322.html" class="source-button" target="_blank" onclick="event.stopPropagation()">
-                Vollständigen Artikel lesen
-            </a>
-        </div>
-        
     </div>
 
     <script>
@@ -2439,7 +2441,7 @@ Auf gesellschaftlicher und rechtlicher Ebene gibt es kritische Entwicklungen: Da
             if(!ctx) return;
 
             const labels = ["news", "hintergrund"];
-            const currentData = [45, 5];
+            const currentData = [44, 6];
             const baselineData = [45.3, 2.0];
 
             const baseData = currentData.map((val, i) => Math.min(val, baselineData[i]));
