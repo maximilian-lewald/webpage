@@ -369,7 +369,7 @@
 
     <header>
         <h1>Relevant</h1>
-        <p class="build-time">Aktualisiert: 12.06.2026, 01:53 Uhr</p>
+        <p class="build-time">Aktualisiert: 12.06.2026, 03:54 Uhr</p>
     </header>
 
     <div class="dashboard-card">
@@ -405,10 +405,10 @@
                     <svg width="60" height="60">
                         <circle stroke="rgba(255,255,255,0.08)" stroke-width="4" fill="transparent" r="26" cx="30" cy="30"/>
                         <circle class="dashboard-circle" stroke-width="4" stroke-dasharray="163.36" 
-                                stroke-dashoffset="156.8256" 
+                                stroke-dashoffset="163.36" 
                                 stroke-linecap="round" fill="transparent" r="26" cx="30" cy="30" transform="rotate(-90 30 30)"/>
                     </svg>
-                    <div class="ring-text">4%</div>
+                    <div class="ring-text">0%</div>
                 </div>
                 <div class="stat-label">Last<br>24h</div>
             </div>
@@ -492,7 +492,7 @@
             <div class="insights-container" data-insight-source="heise" style="display: block;">
                         <div class="insight-card" style="border-left: 3px solid #00f5d4;">
                             <div class="insight-header" onclick="this.parentElement.classList.toggle('expanded')">
-                                <h4>Wwdc</h4>
+                                <h4>Recht</h4>
                                 <span class="toggle-icon">+</span>
                             </div>
                             <div class="insight-body">
@@ -502,7 +502,7 @@
                         
                         <div class="insight-card" style="border-left: 3px solid #9333ea;">
                             <div class="insight-header" onclick="this.parentElement.classList.toggle('expanded')">
-                                <h4>Recht</h4>
+                                <h4>Alert</h4>
                                 <span class="toggle-icon">+</span>
                             </div>
                             <div class="insight-body">
@@ -512,7 +512,7 @@
                         
                         <div class="insight-card" style="border-left: 3px solid #007aff;">
                             <div class="insight-header" onclick="this.parentElement.classList.toggle('expanded')">
-                                <h4>Alert</h4>
+                                <h4>Glasfaser</h4>
                                 <span class="toggle-icon">+</span>
                             </div>
                             <div class="insight-body">
@@ -522,17 +522,7 @@
                         
                         <div class="insight-card" style="border-left: 3px solid #34d399;">
                             <div class="insight-header" onclick="this.parentElement.classList.toggle('expanded')">
-                                <h4>Glasfaser</h4>
-                                <span class="toggle-icon">+</span>
-                            </div>
-                            <div class="insight-body">
-                                <p>Lokaler LLM Fehler: Bitte Ollama prüfen.</p>
-                            </div>
-                        </div>
-                        
-                        <div class="insight-card" style="border-left: 3px solid #f43f5e;">
-                            <div class="insight-header" onclick="this.parentElement.classList.toggle('expanded')">
-                                <h4>Apple intelligence</h4>
+                                <h4>Macos</h4>
                                 <span class="toggle-icon">+</span>
                             </div>
                             <div class="insight-body">
@@ -549,16 +539,6 @@
                                 <p>Nicht genügend aktuelle Artikel für eine KI-Analyse gefunden.</p>
                             </div>
                         </div>
-                        
-                        <div class="insight-card" style="border-left: 3px solid #9333ea;">
-                            <div class="insight-header" onclick="this.parentElement.classList.toggle('expanded')">
-                                <h4>Mexiko</h4>
-                                <span class="toggle-icon">+</span>
-                            </div>
-                            <div class="insight-body">
-                                <p>Lokaler LLM Fehler: Bitte Ollama prüfen.</p>
-                            </div>
-                        </div>
                         </div>
         </div>
     </div>
@@ -570,14 +550,14 @@
 
             const initChart = function() {
                 const ctx = document.getElementById('keywordTrendChart').getContext('2d');
-                const rawDatasets = [{"label": "Wwdc", "data": [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 16.7, 0.0, 0.0, 0.0, 0.0, 0.0, 16.7, 0.0, 0.0, 0.0, 0.0, 0.0, 16.7, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 16.7, 0.0, 0.0, 0.0, 0.0, 0.0, 16.7, 16.7, 16.7, 0.0, 0.0, 100.0, 66.7, 16.7, 0.0], "borderColor": "#00f5d4", "backgroundColor": "transparent", "borderWidth": 2, "tension": 0.4, "cubicInterpolationMode": "monotone", "pointRadius": 0, "pointHitRadius": 10, "sourceId": "heise", "originalColor": "#00f5d4"}, {"label": "Recht", "data": [16.7, 16.7, 16.7, 50.0, 16.7, 0.0, 0.0, 0.0, 66.7, 16.7, 33.3, 16.7, 0.0, 0.0, 33.3, 16.7, 50.0, 0.0, 0.0, 0.0, 0.0, 33.3, 66.7, 16.7, 50.0, 33.3, 0.0, 16.7, 0.0, 33.3, 0.0, 0.0, 66.7, 0.0, 0.0, 16.7, 16.7, 33.3, 0.0, 50.0, 0.0, 0.0, 0.0, 16.7, 16.7, 33.3, 33.3, 0.0, 0.0, 16.7, 33.3, 50.0, 50.0, 0.0, 0.0, 0.0, 16.7, 33.3, 50.0, 66.7], "borderColor": "#9333ea", "backgroundColor": "transparent", "borderWidth": 2, "tension": 0.4, "cubicInterpolationMode": "monotone", "pointRadius": 0, "pointHitRadius": 10, "sourceId": "heise", "originalColor": "#9333ea"}, {"label": "Alert", "data": [33.3, 50.0, 33.3, 66.7, 50.0, 0.0, 0.0, 33.3, 16.7, 33.3, 50.0, 0.0, 0.0, 0.0, 66.7, 16.7, 83.3, 50.0, 0.0, 0.0, 0.0, 66.7, 16.7, 33.3, 50.0, 33.3, 0.0, 0.0, 33.3, 50.0, 33.3, 0.0, 100.0, 0.0, 0.0, 50.0, 33.3, 50.0, 50.0, 50.0, 0.0, 0.0, 0.0, 33.3, 83.3, 66.7, 50.0, 0.0, 0.0, 50.0, 16.7, 50.0, 16.7, 50.0, 0.0, 0.0, 50.0, 50.0, 50.0, 66.7], "borderColor": "#007aff", "backgroundColor": "transparent", "borderWidth": 2, "tension": 0.4, "cubicInterpolationMode": "monotone", "pointRadius": 0, "pointHitRadius": 10, "sourceId": "heise", "originalColor": "#007aff"}, {"label": "Glasfaser", "data": [16.7, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 33.3, 33.3, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 16.7, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 16.7, 0.0, 0.0, 0.0, 0.0, 0.0, 33.3, 16.7, 16.7, 16.7, 0.0, 0.0, 16.7, 33.3, 33.3, 33.3, 0.0, 0.0, 0.0, 0.0, 0.0, 16.7, 16.7, 0.0, 0.0, 0.0, 16.7, 16.7, 0.0, 16.7, 16.7, 16.7, 16.7, 33.3, 16.7, 50.0, 33.3], "borderColor": "#34d399", "backgroundColor": "transparent", "borderWidth": 2, "tension": 0.4, "cubicInterpolationMode": "monotone", "pointRadius": 0, "pointHitRadius": 10, "sourceId": "heise", "originalColor": "#34d399"}, {"label": "Apple intelligence", "data": [16.7, 0.0, 16.7, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 16.7, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 16.7, 16.7, 0.0, 16.7, 0.0, 0.0, 16.7, 16.7, 0.0, 0.0, 16.7, 0.0, 0.0, 0.0, 0.0, 0.0, 33.3, 16.7, 0.0, 0.0, 0.0, 0.0, 0.0, 16.7, 0.0, 0.0, 0.0, 66.7, 50.0, 16.7, 16.7], "borderColor": "#f43f5e", "backgroundColor": "transparent", "borderWidth": 2, "tension": 0.4, "cubicInterpolationMode": "monotone", "pointRadius": 0, "pointHitRadius": 10, "sourceId": "heise", "originalColor": "#f43f5e"}, {"label": "Fu\u00dfball-wm", "data": [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 50.0, 25.0, 0.0, 0.0, 25.0, 0.0, 25.0, 50.0, 0.0, 0.0, 0.0, 25.0, 0.0, 25.0, 0.0, 25.0, 25.0, 25.0, 0.0, 0.0, 0.0, 50.0, 0.0, 0.0, 0.0, 75.0, 0.0, 50.0, 25.0, 50.0, 25.0, 0.0, 0.0, 25.0, 25.0, 0.0, 100.0], "borderColor": "#00f5d4", "backgroundColor": "transparent", "borderWidth": 2, "tension": 0.4, "cubicInterpolationMode": "monotone", "pointRadius": 0, "pointHitRadius": 10, "sourceId": "sueddeutsche", "originalColor": "#00f5d4"}, {"label": "Mexiko", "data": [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 25.0, 25.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 25.0, 0.0, 0.0, 75.0], "borderColor": "#9333ea", "backgroundColor": "transparent", "borderWidth": 2, "tension": 0.4, "cubicInterpolationMode": "monotone", "pointRadius": 0, "pointHitRadius": 10, "sourceId": "sueddeutsche", "originalColor": "#9333ea"}];
+                const rawDatasets = [{"label": "Recht", "data": [16.7, 16.7, 50.0, 16.7, 0.0, 0.0, 0.0, 66.7, 16.7, 33.3, 16.7, 0.0, 0.0, 33.3, 16.7, 50.0, 0.0, 0.0, 0.0, 0.0, 33.3, 66.7, 16.7, 50.0, 33.3, 0.0, 16.7, 0.0, 33.3, 0.0, 0.0, 66.7, 0.0, 0.0, 16.7, 16.7, 33.3, 0.0, 50.0, 0.0, 0.0, 0.0, 16.7, 16.7, 33.3, 33.3, 0.0, 0.0, 16.7, 33.3, 50.0, 50.0, 0.0, 0.0, 0.0, 16.7, 33.3, 50.0, 66.7, 0.0], "borderColor": "#00f5d4", "backgroundColor": "transparent", "borderWidth": 2, "tension": 0.4, "cubicInterpolationMode": "monotone", "pointRadius": 0, "pointHitRadius": 10, "sourceId": "heise", "originalColor": "#00f5d4"}, {"label": "Alert", "data": [50.0, 33.3, 66.7, 50.0, 0.0, 0.0, 33.3, 16.7, 33.3, 50.0, 0.0, 0.0, 0.0, 66.7, 16.7, 83.3, 50.0, 0.0, 0.0, 0.0, 66.7, 16.7, 33.3, 50.0, 33.3, 0.0, 0.0, 33.3, 50.0, 33.3, 0.0, 100.0, 0.0, 0.0, 50.0, 33.3, 50.0, 50.0, 50.0, 0.0, 0.0, 0.0, 33.3, 83.3, 66.7, 50.0, 0.0, 0.0, 50.0, 16.7, 50.0, 16.7, 50.0, 0.0, 0.0, 50.0, 50.0, 50.0, 66.7, 0.0], "borderColor": "#9333ea", "backgroundColor": "transparent", "borderWidth": 2, "tension": 0.4, "cubicInterpolationMode": "monotone", "pointRadius": 0, "pointHitRadius": 10, "sourceId": "heise", "originalColor": "#9333ea"}, {"label": "Glasfaser", "data": [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 33.3, 33.3, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 16.7, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 16.7, 0.0, 0.0, 0.0, 0.0, 0.0, 33.3, 16.7, 16.7, 16.7, 0.0, 0.0, 16.7, 33.3, 33.3, 33.3, 0.0, 0.0, 0.0, 0.0, 0.0, 16.7, 16.7, 0.0, 0.0, 0.0, 16.7, 16.7, 0.0, 16.7, 16.7, 16.7, 16.7, 33.3, 16.7, 50.0, 33.3, 0.0], "borderColor": "#007aff", "backgroundColor": "transparent", "borderWidth": 2, "tension": 0.4, "cubicInterpolationMode": "monotone", "pointRadius": 0, "pointHitRadius": 10, "sourceId": "heise", "originalColor": "#007aff"}, {"label": "Macos", "data": [16.7, 50.0, 16.7, 50.0, 16.7, 33.3, 0.0, 0.0, 16.7, 33.3, 16.7, 0.0, 0.0, 0.0, 50.0, 16.7, 33.3, 0.0, 0.0, 0.0, 33.3, 33.3, 33.3, 16.7, 0.0, 0.0, 0.0, 66.7, 50.0, 33.3, 0.0, 33.3, 0.0, 0.0, 50.0, 66.7, 0.0, 16.7, 16.7, 0.0, 0.0, 0.0, 50.0, 16.7, 16.7, 50.0, 0.0, 16.7, 16.7, 50.0, 50.0, 33.3, 16.7, 0.0, 0.0, 16.7, 50.0, 33.3, 50.0, 0.0], "borderColor": "#34d399", "backgroundColor": "transparent", "borderWidth": 2, "tension": 0.4, "cubicInterpolationMode": "monotone", "pointRadius": 0, "pointHitRadius": 10, "sourceId": "heise", "originalColor": "#34d399"}, {"label": "Fu\u00dfball-wm", "data": [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 40.0, 20.0, 0.0, 0.0, 20.0, 0.0, 20.0, 40.0, 0.0, 0.0, 0.0, 20.0, 0.0, 20.0, 0.0, 20.0, 20.0, 20.0, 0.0, 0.0, 0.0, 40.0, 0.0, 0.0, 0.0, 60.0, 0.0, 40.0, 20.0, 40.0, 20.0, 0.0, 0.0, 20.0, 20.0, 0.0, 100.0, 0.0], "borderColor": "#00f5d4", "backgroundColor": "transparent", "borderWidth": 2, "tension": 0.4, "cubicInterpolationMode": "monotone", "pointRadius": 0, "pointHitRadius": 10, "sourceId": "sueddeutsche", "originalColor": "#00f5d4"}];
 
                 Chart.defaults.color = 'rgba(255, 255, 255, 0.7)';
                 Chart.defaults.font.family = '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif';
 
                 trendChart = new Chart(ctx, {
                     type: 'line',
-                    data: { labels: ["04-13", "04-14", "04-15", "04-16", "04-17", "04-18", "04-19", "04-20", "04-21", "04-22", "04-23", "04-24", "04-25", "04-26", "04-27", "04-28", "04-29", "04-30", "05-01", "05-02", "05-03", "05-04", "05-05", "05-06", "05-07", "05-08", "05-09", "05-10", "05-11", "05-12", "05-13", "05-14", "05-15", "05-16", "05-17", "05-18", "05-19", "05-20", "05-21", "05-22", "05-23", "05-24", "05-25", "05-26", "05-27", "05-28", "05-29", "05-30", "05-31", "06-01", "06-02", "06-03", "06-04", "06-05", "06-06", "06-07", "06-08", "06-09", "06-10", "06-11"], datasets: rawDatasets },
+                    data: { labels: ["04-14", "04-15", "04-16", "04-17", "04-18", "04-19", "04-20", "04-21", "04-22", "04-23", "04-24", "04-25", "04-26", "04-27", "04-28", "04-29", "04-30", "05-01", "05-02", "05-03", "05-04", "05-05", "05-06", "05-07", "05-08", "05-09", "05-10", "05-11", "05-12", "05-13", "05-14", "05-15", "05-16", "05-17", "05-18", "05-19", "05-20", "05-21", "05-22", "05-23", "05-24", "05-25", "05-26", "05-27", "05-28", "05-29", "05-30", "05-31", "06-01", "06-02", "06-03", "06-04", "06-05", "06-06", "06-07", "06-08", "06-09", "06-10", "06-11", "06-12"], datasets: rawDatasets },
                     options: {
                         responsive: true,
                         maintainAspectRatio: false,
