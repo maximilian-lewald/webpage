@@ -369,7 +369,7 @@
 
     <header>
         <h1>Relevant</h1>
-        <p class="build-time">Aktualisiert: 12.06.2026, 07:54 Uhr</p>
+        <p class="build-time">Aktualisiert: 12.06.2026, 09:55 Uhr</p>
     </header>
 
     <div class="dashboard-card">
@@ -379,10 +379,10 @@
                     <svg width="60" height="60">
                         <circle stroke="rgba(255,255,255,0.08)" stroke-width="4" fill="transparent" r="26" cx="30" cy="30"/>
                         <circle class="dashboard-circle" stroke-width="4" stroke-dasharray="163.36" 
-                                stroke-dashoffset="55.5424" 
+                                stroke-dashoffset="52.2752" 
                                 stroke-linecap="round" fill="transparent" r="26" cx="30" cy="30" transform="rotate(-90 30 30)"/>
                     </svg>
-                    <div class="ring-text">66%</div>
+                    <div class="ring-text">68%</div>
                 </div>
                 <div class="stat-label">Relevant<br>Share</div>
             </div>
@@ -512,7 +512,7 @@
                         
                         <div class="insight-card" style="border-left: 3px solid #007aff;">
                             <div class="insight-header" onclick="this.parentElement.classList.toggle('expanded')">
-                                <h4>Glasfaser</h4>
+                                <h4>Macos</h4>
                                 <span class="toggle-icon">+</span>
                             </div>
                             <div class="insight-body">
@@ -522,7 +522,7 @@
                         
                         <div class="insight-card" style="border-left: 3px solid #34d399;">
                             <div class="insight-header" onclick="this.parentElement.classList.toggle('expanded')">
-                                <h4>Macos</h4>
+                                <h4>Technik</h4>
                                 <span class="toggle-icon">+</span>
                             </div>
                             <div class="insight-body">
@@ -532,7 +532,7 @@
                         
                         <div class="insight-card" style="border-left: 3px solid #f43f5e;">
                             <div class="insight-header" onclick="this.parentElement.classList.toggle('expanded')">
-                                <h4>Dsgvo</h4>
+                                <h4>Glasfaser</h4>
                                 <span class="toggle-icon">+</span>
                             </div>
                             <div class="insight-body">
@@ -562,6 +562,26 @@
                         
                         <div class="insight-card" style="border-left: 3px solid #007aff;">
                             <div class="insight-header" onclick="this.parentElement.classList.toggle('expanded')">
+                                <h4>Medien</h4>
+                                <span class="toggle-icon">+</span>
+                            </div>
+                            <div class="insight-body">
+                                <p>Lokaler LLM Fehler: Bitte Ollama prüfen.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="insight-card" style="border-left: 3px solid #34d399;">
+                            <div class="insight-header" onclick="this.parentElement.classList.toggle('expanded')">
+                                <h4>Öffentlich-rechtlicher rundfunk</h4>
+                                <span class="toggle-icon">+</span>
+                            </div>
+                            <div class="insight-body">
+                                <p>Nicht genügend aktuelle Artikel für eine KI-Analyse gefunden.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="insight-card" style="border-left: 3px solid #f43f5e;">
+                            <div class="insight-header" onclick="this.parentElement.classList.toggle('expanded')">
                                 <h4>Spd</h4>
                                 <span class="toggle-icon">+</span>
                             </div>
@@ -580,7 +600,7 @@
 
             const initChart = function() {
                 const ctx = document.getElementById('keywordTrendChart').getContext('2d');
-                const rawDatasets = [{"label": "Recht", "data": [16.7, 16.7, 50.0, 16.7, 0.0, 0.0, 0.0, 66.7, 16.7, 33.3, 16.7, 0.0, 0.0, 33.3, 16.7, 50.0, 0.0, 0.0, 0.0, 0.0, 33.3, 66.7, 16.7, 50.0, 33.3, 0.0, 16.7, 0.0, 33.3, 0.0, 0.0, 66.7, 0.0, 0.0, 16.7, 16.7, 33.3, 0.0, 50.0, 0.0, 0.0, 0.0, 16.7, 16.7, 33.3, 33.3, 0.0, 0.0, 16.7, 33.3, 50.0, 50.0, 0.0, 0.0, 0.0, 16.7, 33.3, 50.0, 66.7, 33.3], "borderColor": "#00f5d4", "backgroundColor": "transparent", "borderWidth": 2, "tension": 0.4, "cubicInterpolationMode": "monotone", "pointRadius": 0, "pointHitRadius": 10, "sourceId": "heise", "originalColor": "#00f5d4"}, {"label": "Alert", "data": [50.0, 33.3, 66.7, 50.0, 0.0, 0.0, 33.3, 16.7, 33.3, 50.0, 0.0, 0.0, 0.0, 66.7, 16.7, 83.3, 50.0, 0.0, 0.0, 0.0, 66.7, 16.7, 33.3, 50.0, 33.3, 0.0, 0.0, 33.3, 50.0, 33.3, 0.0, 100.0, 0.0, 0.0, 50.0, 33.3, 50.0, 50.0, 50.0, 0.0, 0.0, 0.0, 33.3, 83.3, 66.7, 50.0, 0.0, 0.0, 50.0, 16.7, 50.0, 16.7, 50.0, 0.0, 0.0, 50.0, 50.0, 50.0, 66.7, 0.0], "borderColor": "#9333ea", "backgroundColor": "transparent", "borderWidth": 2, "tension": 0.4, "cubicInterpolationMode": "monotone", "pointRadius": 0, "pointHitRadius": 10, "sourceId": "heise", "originalColor": "#9333ea"}, {"label": "Glasfaser", "data": [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 33.3, 33.3, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 16.7, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 16.7, 0.0, 0.0, 0.0, 0.0, 0.0, 33.3, 16.7, 16.7, 16.7, 0.0, 0.0, 16.7, 33.3, 33.3, 33.3, 0.0, 0.0, 0.0, 0.0, 0.0, 16.7, 16.7, 0.0, 0.0, 0.0, 16.7, 16.7, 0.0, 16.7, 16.7, 16.7, 16.7, 33.3, 16.7, 50.0, 33.3, 0.0], "borderColor": "#007aff", "backgroundColor": "transparent", "borderWidth": 2, "tension": 0.4, "cubicInterpolationMode": "monotone", "pointRadius": 0, "pointHitRadius": 10, "sourceId": "heise", "originalColor": "#007aff"}, {"label": "Macos", "data": [16.7, 50.0, 16.7, 50.0, 16.7, 33.3, 0.0, 0.0, 16.7, 33.3, 16.7, 0.0, 0.0, 0.0, 50.0, 16.7, 33.3, 0.0, 0.0, 0.0, 33.3, 33.3, 33.3, 16.7, 0.0, 0.0, 0.0, 66.7, 50.0, 33.3, 0.0, 33.3, 0.0, 0.0, 50.0, 66.7, 0.0, 16.7, 16.7, 0.0, 0.0, 0.0, 50.0, 16.7, 16.7, 50.0, 0.0, 16.7, 16.7, 50.0, 50.0, 33.3, 16.7, 0.0, 0.0, 16.7, 50.0, 33.3, 50.0, 0.0], "borderColor": "#34d399", "backgroundColor": "transparent", "borderWidth": 2, "tension": 0.4, "cubicInterpolationMode": "monotone", "pointRadius": 0, "pointHitRadius": 10, "sourceId": "heise", "originalColor": "#34d399"}, {"label": "Dsgvo", "data": [0.0, 0.0, 0.0, 16.7, 0.0, 33.3, 0.0, 0.0, 16.7, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 16.7, 16.7, 0.0, 0.0, 0.0, 50.0, 16.7, 0.0, 16.7, 0.0, 0.0, 0.0, 0.0, 0.0, 16.7, 0.0, 0.0, 16.7, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 16.7, 0.0, 50.0, 16.7, 0.0, 0.0, 0.0, 0.0, 0.0, 50.0, 33.3, 0.0, 16.7, 0.0, 16.7, 33.3, 16.7, 16.7], "borderColor": "#f43f5e", "backgroundColor": "transparent", "borderWidth": 2, "tension": 0.4, "cubicInterpolationMode": "monotone", "pointRadius": 0, "pointHitRadius": 10, "sourceId": "heise", "originalColor": "#f43f5e"}, {"label": "Fu\u00dfball-wm", "data": [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 40.0, 20.0, 0.0, 0.0, 20.0, 0.0, 20.0, 40.0, 0.0, 0.0, 0.0, 20.0, 0.0, 20.0, 0.0, 20.0, 20.0, 20.0, 0.0, 0.0, 0.0, 40.0, 0.0, 0.0, 0.0, 60.0, 0.0, 40.0, 20.0, 40.0, 20.0, 0.0, 0.0, 20.0, 20.0, 0.0, 100.0, 60.0], "borderColor": "#00f5d4", "backgroundColor": "transparent", "borderWidth": 2, "tension": 0.4, "cubicInterpolationMode": "monotone", "pointRadius": 0, "pointHitRadius": 10, "sourceId": "sueddeutsche", "originalColor": "#00f5d4"}, {"label": "Mexiko", "data": [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 20.0, 20.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 20.0, 0.0, 0.0, 60.0, 20.0], "borderColor": "#9333ea", "backgroundColor": "transparent", "borderWidth": 2, "tension": 0.4, "cubicInterpolationMode": "monotone", "pointRadius": 0, "pointHitRadius": 10, "sourceId": "sueddeutsche", "originalColor": "#9333ea"}, {"label": "Spd", "data": [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 20.0, 80.0, 40.0, 60.0, 20.0, 40.0, 40.0, 80.0, 100.0, 40.0, 20.0, 80.0, 60.0, 40.0, 20.0, 20.0, 60.0, 100.0, 20.0, 60.0, 40.0, 20.0, 20.0, 0.0, 20.0, 0.0, 20.0, 60.0, 20.0, 20.0, 40.0, 20.0, 0.0, 40.0, 0.0, 80.0, 0.0, 0.0, 0.0, 40.0, 0.0, 20.0, 0.0, 40.0, 40.0, 0.0, 0.0, 0.0, 60.0, 20.0, 0.0, 40.0], "borderColor": "#007aff", "backgroundColor": "transparent", "borderWidth": 2, "tension": 0.4, "cubicInterpolationMode": "monotone", "pointRadius": 0, "pointHitRadius": 10, "sourceId": "sueddeutsche", "originalColor": "#007aff"}];
+                const rawDatasets = [{"label": "Recht", "data": [16.7, 16.7, 50.0, 16.7, 0.0, 0.0, 0.0, 66.7, 16.7, 33.3, 16.7, 0.0, 0.0, 33.3, 16.7, 50.0, 0.0, 0.0, 0.0, 0.0, 33.3, 66.7, 16.7, 50.0, 33.3, 0.0, 16.7, 0.0, 33.3, 0.0, 0.0, 66.7, 0.0, 0.0, 16.7, 16.7, 33.3, 0.0, 50.0, 0.0, 0.0, 0.0, 16.7, 16.7, 33.3, 33.3, 0.0, 0.0, 16.7, 33.3, 50.0, 50.0, 0.0, 0.0, 0.0, 16.7, 33.3, 50.0, 66.7, 33.3], "borderColor": "#00f5d4", "backgroundColor": "transparent", "borderWidth": 2, "tension": 0.4, "cubicInterpolationMode": "monotone", "pointRadius": 0, "pointHitRadius": 10, "sourceId": "heise", "originalColor": "#00f5d4"}, {"label": "Alert", "data": [50.0, 33.3, 66.7, 50.0, 0.0, 0.0, 33.3, 16.7, 33.3, 50.0, 0.0, 0.0, 0.0, 66.7, 16.7, 83.3, 50.0, 0.0, 0.0, 0.0, 66.7, 16.7, 33.3, 50.0, 33.3, 0.0, 0.0, 33.3, 50.0, 33.3, 0.0, 100.0, 0.0, 0.0, 50.0, 33.3, 50.0, 50.0, 50.0, 0.0, 0.0, 0.0, 33.3, 83.3, 66.7, 50.0, 0.0, 0.0, 50.0, 16.7, 50.0, 16.7, 50.0, 0.0, 0.0, 50.0, 50.0, 50.0, 66.7, 16.7], "borderColor": "#9333ea", "backgroundColor": "transparent", "borderWidth": 2, "tension": 0.4, "cubicInterpolationMode": "monotone", "pointRadius": 0, "pointHitRadius": 10, "sourceId": "heise", "originalColor": "#9333ea"}, {"label": "Macos", "data": [16.7, 50.0, 16.7, 50.0, 16.7, 33.3, 0.0, 0.0, 16.7, 33.3, 16.7, 0.0, 0.0, 0.0, 50.0, 16.7, 33.3, 0.0, 0.0, 0.0, 33.3, 33.3, 33.3, 16.7, 0.0, 0.0, 0.0, 66.7, 50.0, 33.3, 0.0, 33.3, 0.0, 0.0, 50.0, 66.7, 0.0, 16.7, 16.7, 0.0, 0.0, 0.0, 50.0, 16.7, 16.7, 50.0, 0.0, 16.7, 16.7, 50.0, 50.0, 33.3, 16.7, 0.0, 0.0, 16.7, 50.0, 33.3, 50.0, 16.7], "borderColor": "#007aff", "backgroundColor": "transparent", "borderWidth": 2, "tension": 0.4, "cubicInterpolationMode": "monotone", "pointRadius": 0, "pointHitRadius": 10, "sourceId": "heise", "originalColor": "#007aff"}, {"label": "Technik", "data": [0.0, 0.0, 0.0, 50.0, 0.0, 0.0, 16.7, 0.0, 0.0, 16.7, 16.7, 0.0, 0.0, 0.0, 16.7, 0.0, 0.0, 0.0, 0.0, 0.0, 16.7, 0.0, 0.0, 16.7, 0.0, 0.0, 16.7, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 16.7, 0.0, 33.3, 0.0, 0.0, 16.7, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 16.7, 0.0, 0.0, 0.0, 0.0, 16.7, 0.0, 0.0, 33.3, 33.3, 16.7], "borderColor": "#34d399", "backgroundColor": "transparent", "borderWidth": 2, "tension": 0.4, "cubicInterpolationMode": "monotone", "pointRadius": 0, "pointHitRadius": 10, "sourceId": "heise", "originalColor": "#34d399"}, {"label": "Glasfaser", "data": [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 33.3, 33.3, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 16.7, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 16.7, 0.0, 0.0, 0.0, 0.0, 0.0, 33.3, 16.7, 16.7, 16.7, 0.0, 0.0, 16.7, 33.3, 33.3, 33.3, 0.0, 0.0, 0.0, 0.0, 0.0, 16.7, 16.7, 0.0, 0.0, 0.0, 16.7, 16.7, 0.0, 16.7, 16.7, 16.7, 16.7, 33.3, 16.7, 50.0, 33.3, 0.0], "borderColor": "#f43f5e", "backgroundColor": "transparent", "borderWidth": 2, "tension": 0.4, "cubicInterpolationMode": "monotone", "pointRadius": 0, "pointHitRadius": 10, "sourceId": "heise", "originalColor": "#f43f5e"}, {"label": "Fu\u00dfball-wm", "data": [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 25.0, 12.5, 0.0, 0.0, 12.5, 0.0, 12.5, 25.0, 0.0, 0.0, 0.0, 12.5, 0.0, 12.5, 0.0, 12.5, 12.5, 12.5, 0.0, 0.0, 0.0, 25.0, 0.0, 0.0, 0.0, 37.5, 0.0, 25.0, 12.5, 25.0, 12.5, 0.0, 0.0, 12.5, 12.5, 0.0, 62.5, 37.5], "borderColor": "#00f5d4", "backgroundColor": "transparent", "borderWidth": 2, "tension": 0.4, "cubicInterpolationMode": "monotone", "pointRadius": 0, "pointHitRadius": 10, "sourceId": "sueddeutsche", "originalColor": "#00f5d4"}, {"label": "Mexiko", "data": [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 12.5, 12.5, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 12.5, 0.0, 0.0, 37.5, 12.5], "borderColor": "#9333ea", "backgroundColor": "transparent", "borderWidth": 2, "tension": 0.4, "cubicInterpolationMode": "monotone", "pointRadius": 0, "pointHitRadius": 10, "sourceId": "sueddeutsche", "originalColor": "#9333ea"}, {"label": "Medien", "data": [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 12.5, 62.5, 37.5, 0.0, 0.0, 12.5, 25.0, 0.0, 25.0, 37.5, 0.0, 25.0, 12.5, 0.0, 37.5, 25.0, 100.0, 0.0, 0.0, 25.0, 25.0, 12.5, 12.5, 12.5, 75.0, 37.5, 0.0, 0.0, 12.5, 0.0, 0.0, 0.0, 12.5, 25.0, 0.0, 50.0, 0.0, 0.0, 12.5, 0.0, 0.0, 12.5, 25.0, 12.5, 12.5, 0.0, 0.0, 0.0, 25.0, 12.5, 12.5, 37.5], "borderColor": "#007aff", "backgroundColor": "transparent", "borderWidth": 2, "tension": 0.4, "cubicInterpolationMode": "monotone", "pointRadius": 0, "pointHitRadius": 10, "sourceId": "sueddeutsche", "originalColor": "#007aff"}, {"label": "\u00d6ffentlich-rechtlicher rundfunk", "data": [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 12.5, 0.0, 0.0, 12.5, 0.0, 0.0, 0.0, 0.0, 0.0, 12.5, 0.0, 25.0, 0.0, 0.0, 12.5, 12.5, 0.0, 12.5, 12.5, 12.5, 25.0, 0.0, 0.0, 12.5, 0.0, 0.0, 0.0, 0.0, 25.0, 0.0, 0.0, 0.0, 0.0, 0.0, 12.5, 0.0, 12.5, 25.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 12.5, 12.5, 25.0], "borderColor": "#34d399", "backgroundColor": "transparent", "borderWidth": 2, "tension": 0.4, "cubicInterpolationMode": "monotone", "pointRadius": 0, "pointHitRadius": 10, "sourceId": "sueddeutsche", "originalColor": "#34d399"}, {"label": "Spd", "data": [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 12.5, 50.0, 25.0, 37.5, 12.5, 25.0, 25.0, 50.0, 62.5, 25.0, 12.5, 50.0, 37.5, 25.0, 12.5, 12.5, 37.5, 62.5, 12.5, 37.5, 25.0, 12.5, 12.5, 0.0, 12.5, 0.0, 12.5, 37.5, 12.5, 12.5, 25.0, 12.5, 0.0, 25.0, 0.0, 50.0, 0.0, 0.0, 0.0, 25.0, 0.0, 12.5, 0.0, 25.0, 25.0, 0.0, 0.0, 0.0, 37.5, 12.5, 0.0, 25.0], "borderColor": "#f43f5e", "backgroundColor": "transparent", "borderWidth": 2, "tension": 0.4, "cubicInterpolationMode": "monotone", "pointRadius": 0, "pointHitRadius": 10, "sourceId": "sueddeutsche", "originalColor": "#f43f5e"}];
 
                 Chart.defaults.color = 'rgba(255, 255, 255, 0.7)';
                 Chart.defaults.font.family = '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif';
