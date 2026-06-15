@@ -369,7 +369,7 @@
 
     <header>
         <h1>Relevant</h1>
-        <p class="build-time">Aktualisiert: 15.06.2026, 05:10 Uhr</p>
+        <p class="build-time">Aktualisiert: 15.06.2026, 07:14 Uhr</p>
     </header>
 
     <div class="dashboard-card">
@@ -405,10 +405,10 @@
                     <svg width="60" height="60">
                         <circle stroke="rgba(255,255,255,0.08)" stroke-width="4" fill="transparent" r="26" cx="30" cy="30"/>
                         <circle class="dashboard-circle" stroke-width="4" stroke-dasharray="163.36" 
-                                stroke-dashoffset="140.4896" 
+                                stroke-dashoffset="133.95520000000002" 
                                 stroke-linecap="round" fill="transparent" r="26" cx="30" cy="30" transform="rotate(-90 30 30)"/>
                     </svg>
-                    <div class="ring-text">14%</div>
+                    <div class="ring-text">18%</div>
                 </div>
                 <div class="stat-label">Last<br>24h</div>
             </div>
@@ -489,7 +489,17 @@
         </div>
 
         <div class="insights-wrapper">
-            <div class="insights-container" data-insight-source="heise" style="display: block;"></div><div class="insights-container" data-insight-source="sueddeutsche" style="display: none;">
+            <div class="insights-container" data-insight-source="heise" style="display: block;">
+                        <div class="insight-card" style="border-left: 3px solid #00f5d4;">
+                            <div class="insight-header" onclick="this.parentElement.classList.toggle('expanded')">
+                                <h4>Anthropic</h4>
+                                <span class="toggle-icon">+</span>
+                            </div>
+                            <div class="insight-body">
+                                <p>Anthropic plant nach einer massiven Wertsteigerung auf fast eine Billion Dollar einen Börsengang in den USA. Gleichzeitig sorgt die Expansion des Sicherheitsmodells „Mythos“ für Diskussionen, da dessen Einsatz von der Zusammenarbeit mit der EU-Agentur ENISA bis hin zu mutmaßlichen Cyber-Operationen für die NSA reicht.</p>
+                            </div>
+                        </div>
+                        </div><div class="insights-container" data-insight-source="sueddeutsche" style="display: none;">
                         <div class="insight-card" style="border-left: 3px solid #00f5d4;">
                             <div class="insight-header" onclick="this.parentElement.classList.toggle('expanded')">
                                 <h4>Fußball-wm</h4>
@@ -506,7 +516,7 @@
                                 <span class="toggle-icon">+</span>
                             </div>
                             <div class="insight-body">
-                                <p>Im Fokus stehen die personellen Entscheidungen von Bundestrainer Julian Nagelsmann, insbesondere die ungewisse Rückkehr von Manuel Neuer in den Kader. Die Debatte wird durch massive Kritik von Uli Hoeneß an der mangelnden personellen Konstanz sowie der Kommunikationsweise des Trainers angeheizt.</p>
+                                <p>Die aktuelle Debatte dreht sich um die öffentliche Kritik von Uli Hoeneß an der Kommunikation und Kaderplanung von Bundestrainer Julian Nagelsmann. Im Zentrum stehen dabei insbesondere die mögliche Rückkehr von Manuel Neuer sowie die taktische Ausrichtung der Nationalmannschaft im Hinblick auf kommende Turniere.</p>
                             </div>
                         </div>
                         </div>
@@ -520,7 +530,7 @@
 
             const initChart = function() {
                 const ctx = document.getElementById('keywordTrendChart').getContext('2d');
-                const rawDatasets = [{"label": "Fu\u00dfball-wm", "data": [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 25.0, 12.5, 0.0, 0.0, 12.5, 0.0, 12.5, 25.0, 0.0, 0.0, 0.0, 12.5, 0.0, 12.5, 0.0, 12.5, 12.5, 12.5, 0.0, 0.0, 0.0, 25.0, 0.0, 0.0, 0.0, 37.5, 0.0, 25.0, 12.5, 25.0, 12.5, 0.0, 0.0, 12.5, 12.5, 0.0, 62.5, 100.0, 0.0, 100.0, 0.0], "borderColor": "#00f5d4", "backgroundColor": "transparent", "borderWidth": 2, "tension": 0.4, "cubicInterpolationMode": "monotone", "pointRadius": 0, "pointHitRadius": 10, "sourceId": "sueddeutsche", "originalColor": "#00f5d4"}, {"label": "Deutsche nationalmannschaft", "data": [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 12.5, 12.5, 0.0, 12.5, 0.0, 0.0, 0.0, 12.5, 12.5, 0.0, 0.0, 0.0, 12.5, 12.5, 25.0, 0.0, 0.0, 12.5, 25.0, 0.0, 0.0, 0.0, 25.0, 0.0, 25.0, 12.5, 25.0, 0.0, 0.0, 0.0, 12.5, 25.0, 0.0, 12.5, 37.5, 0.0, 87.5, 0.0], "borderColor": "#9333ea", "backgroundColor": "transparent", "borderWidth": 2, "tension": 0.4, "cubicInterpolationMode": "monotone", "pointRadius": 0, "pointHitRadius": 10, "sourceId": "sueddeutsche", "originalColor": "#9333ea"}];
+                const rawDatasets = [{"label": "Anthropic", "data": [66.7, 0.0, 33.3, 33.3, 66.7, 100.0, 66.7, 66.7, 0.0, 0.0, 33.3, 0.0, 0.0, 33.3, 33.3, 0.0, 33.3, 33.3, 66.7, 33.3, 66.7, 66.7, 0.0, 0.0, 0.0, 0.0, 0.0, 33.3, 33.3, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 33.3, 0.0, 66.7, 0.0, 66.7, 0.0, 33.3, 66.7, 0.0, 0.0, 100.0, 33.3, 33.3, 0.0, 100.0, 33.3, 33.3, 66.7, 100.0, 33.3, 33.3, 100.0, 66.7, 33.3, 66.7], "borderColor": "#00f5d4", "backgroundColor": "transparent", "borderWidth": 2, "tension": 0.4, "cubicInterpolationMode": "monotone", "pointRadius": 0, "pointHitRadius": 10, "sourceId": "heise", "originalColor": "#00f5d4"}, {"label": "Fu\u00dfball-wm", "data": [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 25.0, 12.5, 0.0, 0.0, 12.5, 0.0, 12.5, 25.0, 0.0, 0.0, 0.0, 12.5, 0.0, 12.5, 0.0, 12.5, 12.5, 12.5, 0.0, 0.0, 0.0, 25.0, 0.0, 0.0, 0.0, 37.5, 0.0, 25.0, 12.5, 25.0, 12.5, 0.0, 0.0, 12.5, 12.5, 0.0, 62.5, 100.0, 0.0, 100.0, 0.0], "borderColor": "#00f5d4", "backgroundColor": "transparent", "borderWidth": 2, "tension": 0.4, "cubicInterpolationMode": "monotone", "pointRadius": 0, "pointHitRadius": 10, "sourceId": "sueddeutsche", "originalColor": "#00f5d4"}, {"label": "Deutsche nationalmannschaft", "data": [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 12.5, 12.5, 0.0, 12.5, 0.0, 0.0, 0.0, 12.5, 12.5, 0.0, 0.0, 0.0, 12.5, 12.5, 25.0, 0.0, 0.0, 12.5, 25.0, 0.0, 0.0, 0.0, 25.0, 0.0, 25.0, 12.5, 25.0, 0.0, 0.0, 0.0, 12.5, 25.0, 0.0, 12.5, 37.5, 0.0, 87.5, 0.0], "borderColor": "#9333ea", "backgroundColor": "transparent", "borderWidth": 2, "tension": 0.4, "cubicInterpolationMode": "monotone", "pointRadius": 0, "pointHitRadius": 10, "sourceId": "sueddeutsche", "originalColor": "#9333ea"}];
 
                 Chart.defaults.color = 'rgba(255, 255, 255, 0.7)';
                 Chart.defaults.font.family = '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif';
@@ -607,7 +617,7 @@
         <div class="article-card" onclick="toggleCard(this)">
             <div class="meta">Ollama AI • Top 10 (48h)</div>
             <div class="card-header">
-                <div class="title">Trends und Herausforderungen in KI und Digitalisierung</div>
+                <div class="title">Globale Entwicklungen in Technologie, Sicherheit und Digitalisierung</div>
                 <div class="relevance-container">
                     <svg width="44" height="44">
                         <circle stroke="rgba(255,255,255,0.08)" stroke-width="3" fill="transparent" r="19" cx="22" cy="22"/>
@@ -620,16 +630,76 @@
                     </div>
                 </div>
             </div>
-            <div class="summary" style="white-space: pre-wrap;">Die technologische Landschaft der Künstlichen Intelligenz erlebt derzeit eine Phase intensiver Weiterentwicklung durch neue Architekturen und optimierte Modelle. Während Anbieter wie StepFun, MiniMax und liquid.ai auf gesteigerte Effizienz, schnellere Verarbeitungsraten und die Nutzbarkeit auf CPUs setzen, erweitert Nvidia sein Portfolio um Modelle mit extrem großen Kontextlängen von bis zu einer Million Token. Auch Apple integriert neue KI-gestützte Bearbeitungswerkzeuge in seine Fotos-App, wobei der Fokus auf der datenschutzfreundlichen Verarbeitung direkt auf dem Endgerät liegt. Parallel dazu beschließen die Patentämter der IP5-Gruppe eine verstärkte Nutzung von KI in ihren Prüfprozessen zur Effizienzsteigerung, halten jedoch an der rechtlichen Anerkennung natürlicher Personen als Erfinder fest.
+            <div class="summary" style="white-space: pre-wrap;">Die US-Regierung hat aufgrund von Sicherheitsrisiken und Exportkontrollen die weltweite Sperrung der Anthropic-KI-Modelle Fable 5 und Mythos 5 für Nicht-US-Bürger angeordnet. Auslöser sind Befürchtungen über mögliche „Jailbreaks“ sowie das Risiko eines Zugriffs durch China-nahe Akteure, was im Zusammenhang mit einer Einstufung des Unternehmens als Lieferkettenrisiko steht. Parallel dazu treiben technologische Fortschritte die Entwicklung von KI-Architekturen voran: Neue Modelle von StepFun, MiniMax und liquid.ai sowie neue Inferenzmodelle von Nvidia ermöglichen effizientere Workflows und höhere Verarbeitungsgeschwindigkeiten. Auch die Patentämter der IP5-Gruppe planen eine verstärkte Integration von KI in ihre Prüfprozesse zur Steigerung der Effizienz, wobei die rechtliche Anerkennung von Erfindern weiterhin auf natürliche Personen beschränkt bleibt.
 
-Im Bereich der globalen Sicherheit und Regulierung stehen geopolitische Spannungen und Exportkontrollen im Vordergrund. Die US-Regierung hat den Zugriff ausländischer Staatsangehöriger auf die Anthropic-Modelle Fable 5 und Mythos 5 untersagt, woraufhin das Unternehmen den weltweiten Zugang zu diesen Modellen einschränkte. Hintergrund sind Bedenken des Weißen Hauses vor Sicherheitslücken, die durch sogenannte „Jailbreaks“ in sensiblen Bereichen wie der Cybersicherheit oder Biologie ausgenutzt werden könnten. Ähnliche Diskussionen zur Privatsphäre führen sich bei der Regulierung von Smart Glasses fort, etwa durch den US-Gesetzentwurf „Smart Glasses Recording Act“, nachdem Meta wegen kritischer Code-Entdeckungen in seinen Brillen unter Druck geraten ist.
+In Deutschland stehen die Digitalisierung der Verwaltung und neue gesetzliche Befugnisse im Fokus. Der Bundesrat drängt auf erweiterte digitale Ermittlungsbefugnisse sowie eine zentralisierte Rolle von BKA und Verfassungsschutz bei der Datensicherung, um Kompetenzlücken zwischen Bund und Ländern zu schließen. Gleichzeitig erschweren strukturelle Mängel, fehlende technische Standards, Budgetkürzungen beim Onlinezugangsgesetz (OZG) und ein massiver drohender Fachkräftemangel die Digitalisierung der deutschen Verwaltung. Zudem sorgte die Bestätigung von Digitalminister Wildberger über den Einsatz von KI bei der Erstellung öffentlicher Texte für Debatten über die inhaltliche Qualität politischer Kommunikation. 
 
-In Deutschland prägen strukturelle Herausforderungen und politische Forderungen die digitale Debatte. Der Bundesrat drängt auf eine Erweiterung digitaler Ermittlungsbefugnisse sowie eine zentralere Rolle von BKA und Verfassungsschutz bei der Sicherstellung von Telekommunikationsdaten. Gleichzeitig kämpft die deutsche Verwaltungsdigitalisierung mit einem „digitalen Flickenteppich“ aus inkompatiblen Systemen, Budgetkürzungen und einem massiven drohenden Fachkräftemangel. Die Transparenz im Umgang mit KI wird ebenfalls zum Thema, nachdem der Einsatz von KI-Unterstützung für öffentliche Texte durch Digitalminister Karsten Wildberger öffentlich wurde und Fragen zur inhaltlichen Qualität sowie zur Informationspflicht gegenüber Redaktionen aufwarf.
-
-Auf unternehmerischer Ebene verfolgt Volkswagen mit der Beauftragung von T-Systems den Aufbau einer „Group Private Cloud 2.0“. Ziel dieses Projekts ist es, die digitale Resilienz und europäische Datensouveränität zu stärken sowie die Abhängigkeit von US-Hyperscalern zu verringern.</div>
+Im Bereich der Unternehmensinfrastruktur beauftragt Volkswagen T-Systems mit dem Aufbau einer eigenen „Group Private Cloud 2.0“, um die europäische Datensouveränität zu stärken und die Abhängigkeit von US-Hyperscalern zu reduzieren. Ergänzend dazu plant Intel neue Prozessoren mit DDR4-Unterstützung aufgrund hoher DDR5-Preise, während das Handelsgericht Zürich eine Forderung der Firma Palantir gegen journalistische Recherchen des Magazins „Republik“ abwies.</div>
         </div>
         
 
+        
+        <div class="article-card" onclick="toggleCard(this)">
+            
+            <div class="image-wrapper">
+                <img src="https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/5/1/0/0/1/8/3/shutterstock_1338154397-412b279b54314482.jpg" class="article-image" alt="Vorschau" loading="lazy">
+            </div>
+            
+
+            <div class="meta">heise • news</div>
+
+            <div class="card-header">
+                <div class="title">US-Regierung ordnet Abschaltung der Anthropic-Modelle Fable 5 und Mythos 5 an</div>
+                <div class="relevance-container">
+                    <svg width="44" height="44">
+                        <circle stroke="rgba(255,255,255,0.08)" stroke-width="3" fill="transparent" r="19" cx="22" cy="22"/>
+                        <circle class="progress-ring__circle" stroke-width="3" stroke-dasharray="119.38" 
+                                stroke-dashoffset="5.54802571994243" 
+                                stroke-linecap="round" fill="transparent" r="19" cx="22" cy="22" transform="rotate(-90 22 22)"/>
+                    </svg>
+                    <div style="position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); font-size:11px; font-weight:800;">
+                        95
+                    </div>
+                </div>
+            </div>
+
+            <div class="summary">Die US-Regierung hat die Abschaltung der Anthropic-Modelle Fable 5 und Mythos 5 angeordnet, da ein möglicher Zugriff einer mit China verbundenen Gruppe auf Mythos 5 sowie Sicherheitsmängel bei Fable 5 als Risiko für die nationale Sicherheit gelten. Die weltweite Sperrung erfolgte aufgrund einer Exportkontrolldirektive gegen den Zugriff ausländischer Staatsangehöriger sowie nach Berichten über einen mutmaßlichen Jailbreak des Systems an den US-Finanzminister.</div>
+
+            <a href="https://www.heise.de/news/Sperre-von-Anthropics-KI-Modellen-China-soll-Zugriff-auf-Mythos-gehabt-haben-11331767.html" class="source-button" target="_blank" onclick="event.stopPropagation()">
+                Vollständigen Artikel lesen
+            </a>
+        </div>
+        
+        <div class="article-card" onclick="toggleCard(this)">
+            
+            <div class="image-wrapper">
+                <img src="https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/5/1/0/0/1/8/1/monday-d24762bce74c440c.webp" class="article-image" alt="Vorschau" loading="lazy">
+            </div>
+            
+
+            <div class="meta">heise • news</div>
+
+            <div class="card-header">
+                <div class="title">Aktuelle Entwicklungen in der Technologiebranche</div>
+                <div class="relevance-container">
+                    <svg width="44" height="44">
+                        <circle stroke="rgba(255,255,255,0.08)" stroke-width="3" fill="transparent" r="19" cx="22" cy="22"/>
+                        <circle class="progress-ring__circle" stroke-width="3" stroke-dasharray="119.38" 
+                                stroke-dashoffset="23.999636840959994" 
+                                stroke-linecap="round" fill="transparent" r="19" cx="22" cy="22" transform="rotate(-90 22 22)"/>
+                    </svg>
+                    <div style="position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); font-size:11px; font-weight:800;">
+                        78
+                    </div>
+                </div>
+            </div>
+
+            <div class="summary">Intel plant „Raptor Lake Next“-Prozessoren mit DDR4-Unterstützung aufgrund hoher DDR5-Preise. Das Firefox-VPN ist bis zum 31. August ohne Datenlimit und in 26 Ländern verfügbar. Die US-Regierung ordnete die Abschaltung der Anthropic-KI-Modelle Fable 5 und Mythos 5 an, da deren Sicherheitsmechanismen umgangen werden könnten; Amazon-CEO Andrew Jassy soll entsprechende Schwachstellen gemeldet haben. Das Handelsgericht Zürich wies Palantirs Forderung nach Gegendarstellungen zu Recherchen des Magazins „Republik“ ab.</div>
+
+            <a href="https://www.heise.de/news/Montag-Intel-vor-erneuter-CPU-Neuauflage-Firefox-mit-unbegrenztem-Browser-VPN-11331763.html" class="source-button" target="_blank" onclick="event.stopPropagation()">
+                Vollständigen Artikel lesen
+            </a>
+        </div>
         
         <div class="article-card" onclick="toggleCard(this)">
             
@@ -2115,68 +2185,6 @@ Auf unternehmerischer Ebene verfolgt Volkswagen mit der Beauftragung von T-Syste
             <div class="summary">Google plant für die TPU-Generation 2028 eine teilweise Fertigung durch TSMC und Samsung. In den USA läuft die Rechtsgrundlage für digitale Überwachung (Section 702 FISA) aus, wobei US-Behörden die Praxis per Exekutivorderordnung fortsetzen könnten. Waymo führt das Treueprogramm „Waymo Premier“ mit Vorteilen wie Cashback ein. Bei Samsung Galaxy-Geräten werden nach Software-Updates massive Akkuverluste und Überhitzung gemeldet. Zudem besteht im Datenschutz ein Konflikt zwischen dem DSGVO-Löschrecht und gesetzlichen Aufbewahrungspflichten.</div>
 
             <a href="https://www.heise.de/news/Freitag-Google-TPUs-von-TSMC-und-Samsung-US-Spionage-ohne-US-Spionagegesetz-11329604.html" class="source-button" target="_blank" onclick="event.stopPropagation()">
-                Vollständigen Artikel lesen
-            </a>
-        </div>
-        
-        <div class="article-card" onclick="toggleCard(this)">
-            
-            <div class="image-wrapper">
-                <img src="https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/5/0/9/9/0/8/6/shutterstock_2022970481-9f19ed251de5a180.jpg" class="article-image" alt="Vorschau" loading="lazy">
-            </div>
-            
-
-            <div class="meta">heise • news</div>
-
-            <div class="card-header">
-                <div class="title">Rechtsgrundlage für US-Auslandsüberwachung nach Abschnitt 702 des FISA-Gesetzes ist ausgelaufen</div>
-                <div class="relevance-container">
-                    <svg width="44" height="44">
-                        <circle stroke="rgba(255,255,255,0.08)" stroke-width="3" fill="transparent" r="19" cx="22" cy="22"/>
-                        <circle class="progress-ring__circle" stroke-width="3" stroke-dasharray="119.38" 
-                                stroke-dashoffset="22.632745181178848" 
-                                stroke-linecap="round" fill="transparent" r="19" cx="22" cy="22" transform="rotate(-90 22 22)"/>
-                    </svg>
-                    <div style="position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); font-size:11px; font-weight:800;">
-                        79
-                    </div>
-                </div>
-            </div>
-
-            <div class="summary">Die Rechtsgrundlage für die US-Auslandsüberwachung nach Abschnitt 702 des FISA-Gesetzes ist ausgelaufen, da eine Verlängerung im Senat aufgrund von politischem Widerstand gegen Trumps Nominierung von Bill Pulte zum Geheimdienstchef (DNI) scheiterte. Trotz des Wegfalls der Rechtsgrundlage wird mit einer Fortsetzung der Spionagemethoden gerechnet; neue Verhandlungen über die gesetzliche Grundlage werden nach Trumps erneuter Nominierung von Jay Clayton nach dem 22. Juni stattfinden.</div>
-
-            <a href="https://www.heise.de/news/US-Spionage-Rechtsgrundlage-laeuft-aus-Spionage-laeuft-weiter-11329582.html" class="source-button" target="_blank" onclick="event.stopPropagation()">
-                Vollständigen Artikel lesen
-            </a>
-        </div>
-        
-        <div class="article-card" onclick="toggleCard(this)">
-            
-            <div class="image-wrapper">
-                <img src="https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/5/0/9/9/0/9/2/shutterstock_1788917456-507e73d6ce6f94d8.jpg" class="article-image" alt="Vorschau" loading="lazy">
-            </div>
-            
-
-            <div class="meta">heise • news</div>
-
-            <div class="card-header">
-                <div class="title">Alphabet verhandelt mit Samsung über Teilfertigung der 10. TPU-Generation</div>
-                <div class="relevance-container">
-                    <svg width="44" height="44">
-                        <circle stroke="rgba(255,255,255,0.08)" stroke-width="3" fill="transparent" r="19" cx="22" cy="22"/>
-                        <circle class="progress-ring__circle" stroke-width="3" stroke-dasharray="119.38" 
-                                stroke-dashoffset="3.6758903103408613" 
-                                stroke-linecap="round" fill="transparent" r="19" cx="22" cy="22" transform="rotate(-90 22 22)"/>
-                    </svg>
-                    <div style="position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); font-size:11px; font-weight:800;">
-                        96
-                    </div>
-                </div>
-            </div>
-
-            <div class="summary">Alphabet verhandelt mit Samsung über die Teilfertigung der 10. TPU-Generation, um die Abhängigkeit vom nahezu ausgelasteten TSMC zu reduzieren. Während TSMC voraussichtlich die „Icefish“-Generation im 1,4-Nanometer-Verfahren produzieren soll, könnte Samsung eine Speicherschnittstellenkomponente in 2-Nanometer-Technik übernehmen. Die Massenproduktion der mit MediaTek entwickelten Chips ist für 2028 geplant.</div>
-
-            <a href="https://www.heise.de/news/Google-koennte-zur-Fertigung-neuer-TPU-Generation-neben-TSMC-auch-Samsung-nutzen-11329594.html" class="source-button" target="_blank" onclick="event.stopPropagation()">
                 Vollständigen Artikel lesen
             </a>
         </div>
