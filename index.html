@@ -369,7 +369,7 @@
 
     <header>
         <h1>Relevant</h1>
-        <p class="build-time">Aktualisiert: 24.06.2026, 20:35 Uhr</p>
+        <p class="build-time">Aktualisiert: 25.06.2026, 00:25 Uhr</p>
     </header>
 
     <div class="dashboard-card">
@@ -379,10 +379,10 @@
                     <svg width="60" height="60">
                         <circle stroke="rgba(255,255,255,0.08)" stroke-width="4" fill="transparent" r="26" cx="30" cy="30"/>
                         <circle class="dashboard-circle" stroke-width="4" stroke-dasharray="163.36" 
-                                stroke-dashoffset="55.5424" 
+                                stroke-dashoffset="49.00800000000001" 
                                 stroke-linecap="round" fill="transparent" r="26" cx="30" cy="30" transform="rotate(-90 30 30)"/>
                     </svg>
-                    <div class="ring-text">66%</div>
+                    <div class="ring-text">70%</div>
                 </div>
                 <div class="stat-label">Relevant<br>Share</div>
             </div>
@@ -392,10 +392,10 @@
                     <svg width="60" height="60">
                         <circle stroke="rgba(255,255,255,0.08)" stroke-width="4" fill="transparent" r="26" cx="30" cy="30"/>
                         <circle class="dashboard-circle" stroke-width="4" stroke-dasharray="163.36" 
-                                stroke-dashoffset="31.038399999999996" 
+                                stroke-dashoffset="29.404800000000023" 
                                 stroke-linecap="round" fill="transparent" r="26" cx="30" cy="30" transform="rotate(-90 30 30)"/>
                     </svg>
-                    <div class="ring-text">81%</div>
+                    <div class="ring-text">82%</div>
                 </div>
                 <div class="stat-label">Avg.<br>Score</div>
             </div>
@@ -482,71 +482,21 @@
     <div class="dashboard-card">
         <h2 class="chart-title">Emerging Trends (Last 60 Days)</h2>
         <div class="source-filters">
-            <button class="source-filter-btn " data-source="sueddeutsche">sueddeutsche</button><button class="source-filter-btn active" data-source="heise">heise</button>
+            <button class="source-filter-btn active" data-source="heise">heise</button><button class="source-filter-btn " data-source="sueddeutsche">sueddeutsche</button>
         </div>
         <div class="chart-container" style="height: 260px;">
             <canvas id="keywordTrendChart"></canvas>
         </div>
 
         <div class="insights-wrapper">
-            <div class="insights-container" data-insight-source="sueddeutsche" style="display: none;">
-                        <div class="insight-card" style="border-left: 3px solid #00f5d4;">
-                            <div class="insight-header" onclick="this.parentElement.classList.toggle('expanded')">
-                                <h4>Deutsche bahn</h4>
-                                <span class="toggle-icon">+</span>
-                            </div>
-                            <div class="insight-body">
-                                <p>Das Thema umfasst personelle Wechsel sowie die zunehmende Instabilität des Schienennetzes durch Baustellen, Unfälle und Kapazitätsengpässe. Die Diskussion wird durch die gleichzeitige Belastung wichtiger Verkehrsknotenpunkte – etwa in München – durch teure Interimsbaustandorte und infrastrukturelle Flaschenhälse befeuert.</p>
-                            </div>
-                        </div>
-                        
-                        <div class="insight-card" style="border-left: 3px solid #9333ea;">
-                            <div class="insight-header" onclick="this.parentElement.classList.toggle('expanded')">
-                                <h4>Leben und gesellschaft in bayern</h4>
-                                <span class="toggle-icon">+</span>
-                            </div>
-                            <div class="insight-body">
-                                <p>Das Thema umfasst aktuelle soziale Spannungsfelder in Bayern, von der Aufarbeitung der NS-Vergangenheit und Integrationsdebatten bis hin zum Anstieg digitaler Hassrede. Diskutiert werden vor allem zunehmende gesellschaftliche Reibungspunkte sowie die rechtlichen Herausforderungen durch wachsende Internet-Hetze.</p>
-                            </div>
-                        </div>
-                        
-                        <div class="insight-card" style="border-left: 3px solid #007aff;">
-                            <div class="insight-header" onclick="this.parentElement.classList.toggle('expanded')">
-                                <h4>Verkehr</h4>
-                                <span class="toggle-icon">+</span>
-                            </div>
-                            <div class="insight-body">
-                                <p>Die Berichterstattung konzentriert sich auf infrastrukturelle Instabilitäten im Schienenverkehr, etwa durch Baustellen oder Engpässe in europäischen Güterkorridoren. Zudem werden regulatorische Eingriffe bei urbanen Fahrdiensten sowie die technische und ökologische Transformation des Nahverkehrs thematisiert.</p>
-                            </div>
-                        </div>
-                        
-                        <div class="insight-card" style="border-left: 3px solid #34d399;">
-                            <div class="insight-header" onclick="this.parentElement.classList.toggle('expanded')">
-                                <h4>Leben und gesellschaft in münchen</h4>
-                                <span class="toggle-icon">+</span>
-                            </div>
-                            <div class="insight-body">
-                                <p>Nicht genügend aktuelle Artikel für eine KI-Analyse gefunden.</p>
-                            </div>
-                        </div>
-                        
-                        <div class="insight-card" style="border-left: 3px solid #f43f5e;">
-                            <div class="insight-header" onclick="this.parentElement.classList.toggle('expanded')">
-                                <h4>Landkreis münchen</h4>
-                                <span class="toggle-icon">+</span>
-                            </div>
-                            <div class="insight-body">
-                                <p>Nicht genügend aktuelle Artikel für eine KI-Analyse gefunden.</p>
-                            </div>
-                        </div>
-                        </div><div class="insights-container" data-insight-source="heise" style="display: block;">
+            <div class="insights-container" data-insight-source="heise" style="display: block;">
                         <div class="insight-card" style="border-left: 3px solid #00f5d4;">
                             <div class="insight-header" onclick="this.parentElement.classList.toggle('expanded')">
                                 <h4>Forschung</h4>
                                 <span class="toggle-icon">+</span>
                             </div>
                             <div class="insight-body">
-                                <p>Die aktuelle Forschung thematisiert die Doppelnatur von KI als Werkzeug für historische Entschlüsselungen und Cybersicherheit sowie als Bedrohung durch autonome Malware. Gleichzeitig prägen neue Erkenntnisse in der Astrophysik und Quantenphysik die Debatte über den realen Stand wissenschaftlichen Fortschritts versus technologischem PR-Hype.</p>
+                                <p>Die aktuelle Forschung bewegt sich im Spannungsfeld zwischen der Untersuchung technologischer Grenzwerte – etwa bei den Defiziten von KI-Modellen oder der Zuverlässigkeit neuer Quantenchips – und dem Nachweis neuer biologischer sowie kosmischer Phänomene. Die Diskussion wird durch die gleichzeitig steigenden Sicherheitsrisiken durch autonome Systeme sowie die Skepsis gegenüber rein PR-getriebenen Innovationsankündigungen befeuert.</p>
                             </div>
                         </div>
                         
@@ -556,7 +506,7 @@
                                 <span class="toggle-icon">+</span>
                             </div>
                             <div class="insight-body">
-                                <p>Die Energiewende umfasst aktuell den technologischen Ausbau von Solar-, Wind- und Wärmepumpentechnik sowie die wachsende Bedeutung der Batterieproduktion. Die Debatte wird durch das Spannungsfeld zwischen wirtschaftlichem Fortschritt und strukturellen Hürden – insbesondere einer unzureichenden Stromnetzinfrastruktur und dem Verlust europäischer industrieller Wertschöpfungsketten – befeuert.</p>
+                                <p>Die Debatte konzentriert sich auf den rasanten Ausbau von Solar-, Wind- und Wärmepumpentechnik sowie die steigende Batterieproduktion. Im Zentrum steht dabei das Spannungsfeld zwischen technologischem Fortschritt und einer unzureichend vorbereiteten Strominfrastruktur, die den Netzausbau aktuell ausbremst.</p>
                             </div>
                         </div>
                         
@@ -566,7 +516,7 @@
                                 <span class="toggle-icon">+</span>
                             </div>
                             <div class="insight-body">
-                                <p>Die Diskussion dreht sich um die Förderung der Kreislaufwirtschaft durch EU-Regelungen zur Reparierbarkeit sowie nachhaltige Fahrzeugkonstruktionen und Hardware-Recycling. Parallel dazu prägen politische Auseinandersetzungen um Tempolimits und die Beschleunigung von Infrastrukturprojekten den Diskurs über ökologische Standards im Verkehrssektor.</p>
+                                <p>Die Diskussion konzentriert sich auf die Etablierung einer Kreislaufwirtschaft durch neue EU-Vorgaben zur Reparierbarkeit und zum Recycling von Hardware sowie Fahrzeugen. Gleichzeitig bestimmen regulatorische Spannungsfelder zwischen Klimaschutzmaßnahmen – etwa Tempolimits – und der Beschleunigung von Infrastrukturprojekten das öffentliche Interesse.</p>
                             </div>
                         </div>
                         
@@ -576,7 +526,7 @@
                                 <span class="toggle-icon">+</span>
                             </div>
                             <div class="insight-body">
-                                <p>Die aktuelle Debatte fokussiert auf einen tiefgreifenden Strukturwandel, der durch den massiven Einsatz von KI sowohl massive Kompetenzlücken als auch das Risiko von Jobverlusten befeuert. Parallel dazu werden traditionelle Arbeitsmodelle wie Homeoffice und die Wochenarbeitszeit aufgrund zunehmenden wirtschaftlichen Wettbewerbsdrucks und veränderter Beschäftigungsformen neu bewertet.</p>
+                                <p>Der Einsatz Künstlicher Intelligenz löst derzeit massive Ängste vor Jobverlust sowie erhebliche Defizite bei der digitalen Qualifizierung aus. Ergänzt wird diese Debatte durch Diskussionen über die Rückkehr zur 40-Stunden-Woche, den wirtschaftlichen Druck auf Freelancer und die Auswirkungen von Homeoffice auf den Arbeitsmarkteinstieg.</p>
                             </div>
                         </div>
                         
@@ -586,7 +536,57 @@
                                 <span class="toggle-icon">+</span>
                             </div>
                             <div class="insight-body">
-                                <p>Im Zentrum stehen neue Hardware-Pläne von Valve (Steam Machine/Frame) sowie massive Lieferverzögerungen beim Steam Controller bis 2027. Die Diskussionen werden zudem durch die Abschaffung physischer Geschenkkarten zur Betrugsprävention und behördliche Ermittlungen der Bundesnetzagentur gegen den Plattformbetreiber befeuert.</p>
+                                <p>Im Fokus stehen neue Hardware-Ankündigungen von Valve (Steam Machine, Steam Frame) sowie massive Lieferverzögerungen beim Steam Controller bis 2027. Parallel dazu sorgen rechtliche Ermittlungen der Bundesnetzagentur und die Einstellung physischer Geschenkkarten im Einzelhandel für Diskussionen.</p>
+                            </div>
+                        </div>
+                        </div><div class="insights-container" data-insight-source="sueddeutsche" style="display: none;">
+                        <div class="insight-card" style="border-left: 3px solid #00f5d4;">
+                            <div class="insight-header" onclick="this.parentElement.classList.toggle('expanded')">
+                                <h4>Deutsche bahn</h4>
+                                <span class="toggle-icon">+</span>
+                            </div>
+                            <div class="insight-body">
+                                <p>Die Berichterstattung konzentriert sich auf infrastrukturelle Engpässe und wiederkehrende Betriebsstörungen, insbesondere durch Baumaßnahmen im Raum München. Die Debatte wird durch mangelnde Zuverlässigkeit bei Zugverbindungen sowie die Herausforderungen an überfüllten Verkehrsknotenpunkten befeuert.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="insight-card" style="border-left: 3px solid #9333ea;">
+                            <div class="insight-header" onclick="this.parentElement.classList.toggle('expanded')">
+                                <h4>Leben und gesellschaft in bayern</h4>
+                                <span class="toggle-icon">+</span>
+                            </div>
+                            <div class="insight-body">
+                                <p>Das Thema umfasst die gesamte Bandbreite bayerischen Alltags, von der Aufarbeitung der NS-Vergangenheit bis hin zu aktuellen Debatten über Migration und zunehmende Hassrede im Netz. Es wird aufgrund der sichtbaren Spannungsfelder zwischen regionaler Tradition und drängenden gesellschaftspolitischen Konflikten intensiv diskutiert.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="insight-card" style="border-left: 3px solid #007aff;">
+                            <div class="insight-header" onclick="this.parentElement.classList.toggle('expanded')">
+                                <h4>Fußball-wm</h4>
+                                <span class="toggle-icon">+</span>
+                            </div>
+                            <div class="insight-body">
+                                <p>Nicht genügend aktuelle Artikel für eine KI-Analyse gefunden.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="insight-card" style="border-left: 3px solid #34d399;">
+                            <div class="insight-header" onclick="this.parentElement.classList.toggle('expanded')">
+                                <h4>Verkehr</h4>
+                                <span class="toggle-icon">+</span>
+                            </div>
+                            <div class="insight-body">
+                                <p>Die aktuelle Berichterstattung konzentriert sich auf infrastrukturelle Defizite und Betriebsstörungen im Schienennetz, etwa durch Engpässe in München oder Baustellen im Regionalverkehr. Ergänzend stehen regulatorische Eingriffe bei Fahrdiensten wie Uber sowie die ökologische Transformation des Nahverkehrs im Fokus der Diskussion.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="insight-card" style="border-left: 3px solid #f43f5e;">
+                            <div class="insight-header" onclick="this.parentElement.classList.toggle('expanded')">
+                                <h4>Leben und gesellschaft in münchen</h4>
+                                <span class="toggle-icon">+</span>
+                            </div>
+                            <div class="insight-body">
+                                <p>Nicht genügend aktuelle Artikel für eine KI-Analyse gefunden.</p>
                             </div>
                         </div>
                         </div>
@@ -600,7 +600,7 @@
 
             const initChart = function() {
                 const ctx = document.getElementById('keywordTrendChart').getContext('2d');
-                const rawDatasets = [{"label": "Deutsche bahn", "data": [0.0, 0.0, 0.0, 14.3, 0.0, 0.0, 0.0, 14.3, 14.3, 0.0, 0.0, 14.3, 0.0, 0.0, 0.0, 28.6, 0.0, 0.0, 0.0, 0.0, 0.0, 14.3, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 14.3, 14.3, 0.0, 0.0, 14.3, 0.0, 0.0, 14.3, 0.0, 0.0, 0.0, 0.0, 14.3, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 14.3, 0.0, 42.9, 0.0, 14.3, 0.0, 42.9], "borderColor": "#00f5d4", "backgroundColor": "transparent", "borderWidth": 2, "tension": 0.4, "cubicInterpolationMode": "monotone", "pointRadius": 0, "pointHitRadius": 10, "sourceId": "sueddeutsche", "originalColor": "#00f5d4"}, {"label": "Leben und gesellschaft in bayern", "data": [42.9, 14.3, 14.3, 28.6, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 28.6, 0.0, 28.6, 0.0, 14.3, 0.0, 0.0, 0.0, 14.3, 0.0, 0.0, 0.0, 0.0, 14.3, 14.3, 14.3, 14.3, 0.0, 14.3, 14.3, 42.9, 0.0, 14.3, 0.0, 0.0, 14.3, 0.0, 14.3, 14.3, 28.6, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 14.3, 0.0, 14.3, 14.3, 0.0, 0.0, 0.0, 0.0, 57.1], "borderColor": "#9333ea", "backgroundColor": "transparent", "borderWidth": 2, "tension": 0.4, "cubicInterpolationMode": "monotone", "pointRadius": 0, "pointHitRadius": 10, "sourceId": "sueddeutsche", "originalColor": "#9333ea"}, {"label": "Verkehr", "data": [0.0, 0.0, 14.3, 14.3, 0.0, 0.0, 0.0, 14.3, 0.0, 0.0, 0.0, 14.3, 0.0, 0.0, 14.3, 28.6, 0.0, 0.0, 0.0, 0.0, 0.0, 28.6, 0.0, 0.0, 0.0, 14.3, 0.0, 0.0, 0.0, 0.0, 0.0, 14.3, 14.3, 14.3, 0.0, 14.3, 0.0, 14.3, 14.3, 0.0, 0.0, 0.0, 0.0, 14.3, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 42.9, 0.0, 14.3, 0.0, 42.9], "borderColor": "#007aff", "backgroundColor": "transparent", "borderWidth": 2, "tension": 0.4, "cubicInterpolationMode": "monotone", "pointRadius": 0, "pointHitRadius": 10, "sourceId": "sueddeutsche", "originalColor": "#007aff"}, {"label": "Leben und gesellschaft in m\u00fcnchen", "data": [28.6, 0.0, 28.6, 14.3, 0.0, 0.0, 14.3, 28.6, 0.0, 14.3, 28.6, 0.0, 71.4, 28.6, 42.9, 0.0, 14.3, 14.3, 0.0, 0.0, 14.3, 0.0, 0.0, 14.3, 0.0, 28.6, 28.6, 0.0, 14.3, 0.0, 28.6, 0.0, 0.0, 0.0, 0.0, 42.9, 0.0, 0.0, 0.0, 14.3, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 14.3, 0.0, 0.0, 0.0, 0.0, 0.0, 14.3, 0.0, 42.9], "borderColor": "#34d399", "backgroundColor": "transparent", "borderWidth": 2, "tension": 0.4, "cubicInterpolationMode": "monotone", "pointRadius": 0, "pointHitRadius": 10, "sourceId": "sueddeutsche", "originalColor": "#34d399"}, {"label": "Landkreis m\u00fcnchen", "data": [28.6, 14.3, 100.0, 14.3, 0.0, 14.3, 0.0, 71.4, 42.9, 14.3, 42.9, 28.6, 100.0, 14.3, 14.3, 28.6, 42.9, 0.0, 0.0, 0.0, 0.0, 71.4, 42.9, 28.6, 57.1, 0.0, 14.3, 0.0, 0.0, 28.6, 57.1, 0.0, 0.0, 14.3, 0.0, 0.0, 0.0, 28.6, 14.3, 14.3, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 14.3, 0.0, 0.0, 14.3, 14.3, 0.0, 0.0, 28.6, 0.0, 71.4, 14.3, 0.0, 14.3], "borderColor": "#f43f5e", "backgroundColor": "transparent", "borderWidth": 2, "tension": 0.4, "cubicInterpolationMode": "monotone", "pointRadius": 0, "pointHitRadius": 10, "sourceId": "sueddeutsche", "originalColor": "#f43f5e"}, {"label": "Forschung", "data": [25.0, 50.0, 25.0, 50.0, 25.0, 0.0, 0.0, 50.0, 0.0, 50.0, 25.0, 25.0, 0.0, 0.0, 25.0, 50.0, 50.0, 25.0, 0.0, 25.0, 0.0, 0.0, 50.0, 75.0, 25.0, 50.0, 0.0, 25.0, 0.0, 25.0, 25.0, 25.0, 25.0, 50.0, 0.0, 0.0, 100.0, 25.0, 75.0, 75.0, 75.0, 0.0, 0.0, 25.0, 0.0, 0.0, 75.0, 75.0, 0.0, 0.0, 75.0, 25.0, 0.0, 25.0, 25.0, 0.0, 0.0, 75.0, 75.0, 100.0], "borderColor": "#00f5d4", "backgroundColor": "transparent", "borderWidth": 2, "tension": 0.4, "cubicInterpolationMode": "monotone", "pointRadius": 0, "pointHitRadius": 10, "sourceId": "heise", "originalColor": "#00f5d4"}, {"label": "Energiewende", "data": [0.0, 25.0, 25.0, 50.0, 25.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 25.0, 0.0, 0.0, 0.0, 0.0, 25.0, 0.0, 25.0, 25.0, 0.0, 25.0, 25.0, 25.0, 0.0, 25.0, 0.0, 0.0, 25.0, 25.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 25.0, 25.0, 0.0, 25.0, 0.0, 0.0, 0.0, 0.0, 0.0, 50.0, 0.0, 0.0, 0.0, 0.0, 25.0, 0.0, 50.0, 25.0, 25.0, 25.0, 25.0, 75.0, 50.0], "borderColor": "#9333ea", "backgroundColor": "transparent", "borderWidth": 2, "tension": 0.4, "cubicInterpolationMode": "monotone", "pointRadius": 0, "pointHitRadius": 10, "sourceId": "heise", "originalColor": "#9333ea"}, {"label": "Umweltschutz", "data": [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 25.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 25.0, 0.0, 0.0, 0.0, 0.0, 25.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 25.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 25.0, 0.0, 0.0, 25.0, 0.0, 0.0, 0.0, 0.0, 25.0, 75.0], "borderColor": "#007aff", "backgroundColor": "transparent", "borderWidth": 2, "tension": 0.4, "cubicInterpolationMode": "monotone", "pointRadius": 0, "pointHitRadius": 10, "sourceId": "heise", "originalColor": "#007aff"}, {"label": "Arbeitswelt", "data": [0.0, 0.0, 50.0, 25.0, 0.0, 0.0, 0.0, 0.0, 25.0, 0.0, 0.0, 0.0, 25.0, 0.0, 0.0, 25.0, 0.0, 50.0, 0.0, 50.0, 0.0, 0.0, 0.0, 25.0, 25.0, 25.0, 0.0, 0.0, 0.0, 25.0, 0.0, 25.0, 0.0, 25.0, 0.0, 0.0, 0.0, 0.0, 25.0, 0.0, 0.0, 0.0, 25.0, 0.0, 25.0, 25.0, 0.0, 0.0, 0.0, 0.0, 0.0, 25.0, 0.0, 0.0, 0.0, 0.0, 0.0, 25.0, 25.0, 75.0], "borderColor": "#34d399", "backgroundColor": "transparent", "borderWidth": 2, "tension": 0.4, "cubicInterpolationMode": "monotone", "pointRadius": 0, "pointHitRadius": 10, "sourceId": "heise", "originalColor": "#34d399"}, {"label": "Steam", "data": [0.0, 0.0, 50.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 25.0, 25.0, 0.0, 25.0, 0.0, 0.0, 25.0, 25.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 50.0, 0.0, 0.0, 0.0, 0.0, 25.0, 0.0, 25.0, 0.0, 0.0, 25.0, 0.0, 0.0, 0.0, 25.0, 0.0, 0.0, 0.0, 0.0, 25.0, 0.0, 25.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 75.0, 50.0, 25.0], "borderColor": "#f43f5e", "backgroundColor": "transparent", "borderWidth": 2, "tension": 0.4, "cubicInterpolationMode": "monotone", "pointRadius": 0, "pointHitRadius": 10, "sourceId": "heise", "originalColor": "#f43f5e"}];
+                const rawDatasets = [{"label": "Forschung", "data": [25.0, 50.0, 25.0, 50.0, 25.0, 0.0, 0.0, 50.0, 0.0, 50.0, 25.0, 25.0, 0.0, 0.0, 25.0, 50.0, 50.0, 25.0, 0.0, 25.0, 0.0, 0.0, 50.0, 75.0, 25.0, 50.0, 0.0, 25.0, 0.0, 25.0, 25.0, 25.0, 25.0, 50.0, 0.0, 0.0, 100.0, 25.0, 75.0, 75.0, 75.0, 0.0, 0.0, 25.0, 0.0, 0.0, 75.0, 75.0, 0.0, 0.0, 75.0, 25.0, 0.0, 25.0, 25.0, 0.0, 0.0, 75.0, 75.0, 100.0], "borderColor": "#00f5d4", "backgroundColor": "transparent", "borderWidth": 2, "tension": 0.4, "cubicInterpolationMode": "monotone", "pointRadius": 0, "pointHitRadius": 10, "sourceId": "heise", "originalColor": "#00f5d4"}, {"label": "Energiewende", "data": [0.0, 25.0, 25.0, 50.0, 25.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 25.0, 0.0, 0.0, 0.0, 0.0, 25.0, 0.0, 25.0, 25.0, 0.0, 25.0, 25.0, 25.0, 0.0, 25.0, 0.0, 0.0, 25.0, 25.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 25.0, 25.0, 0.0, 25.0, 0.0, 0.0, 0.0, 0.0, 0.0, 50.0, 0.0, 0.0, 0.0, 0.0, 25.0, 0.0, 50.0, 25.0, 25.0, 25.0, 25.0, 75.0, 50.0], "borderColor": "#9333ea", "backgroundColor": "transparent", "borderWidth": 2, "tension": 0.4, "cubicInterpolationMode": "monotone", "pointRadius": 0, "pointHitRadius": 10, "sourceId": "heise", "originalColor": "#9333ea"}, {"label": "Umweltschutz", "data": [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 25.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 25.0, 0.0, 0.0, 0.0, 0.0, 25.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 25.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 25.0, 0.0, 0.0, 25.0, 0.0, 0.0, 0.0, 0.0, 25.0, 75.0], "borderColor": "#007aff", "backgroundColor": "transparent", "borderWidth": 2, "tension": 0.4, "cubicInterpolationMode": "monotone", "pointRadius": 0, "pointHitRadius": 10, "sourceId": "heise", "originalColor": "#007aff"}, {"label": "Arbeitswelt", "data": [0.0, 0.0, 50.0, 25.0, 0.0, 0.0, 0.0, 0.0, 25.0, 0.0, 0.0, 0.0, 25.0, 0.0, 0.0, 25.0, 0.0, 50.0, 0.0, 50.0, 0.0, 0.0, 0.0, 25.0, 25.0, 25.0, 0.0, 0.0, 0.0, 25.0, 0.0, 25.0, 0.0, 25.0, 0.0, 0.0, 0.0, 0.0, 25.0, 0.0, 0.0, 0.0, 25.0, 0.0, 25.0, 25.0, 0.0, 0.0, 0.0, 0.0, 0.0, 25.0, 0.0, 0.0, 0.0, 0.0, 0.0, 25.0, 25.0, 75.0], "borderColor": "#34d399", "backgroundColor": "transparent", "borderWidth": 2, "tension": 0.4, "cubicInterpolationMode": "monotone", "pointRadius": 0, "pointHitRadius": 10, "sourceId": "heise", "originalColor": "#34d399"}, {"label": "Steam", "data": [0.0, 0.0, 50.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 25.0, 25.0, 0.0, 25.0, 0.0, 0.0, 25.0, 25.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 50.0, 0.0, 0.0, 0.0, 0.0, 25.0, 0.0, 25.0, 0.0, 0.0, 25.0, 0.0, 0.0, 0.0, 25.0, 0.0, 0.0, 0.0, 0.0, 25.0, 0.0, 25.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 75.0, 50.0, 25.0], "borderColor": "#f43f5e", "backgroundColor": "transparent", "borderWidth": 2, "tension": 0.4, "cubicInterpolationMode": "monotone", "pointRadius": 0, "pointHitRadius": 10, "sourceId": "heise", "originalColor": "#f43f5e"}, {"label": "Deutsche bahn", "data": [0.0, 0.0, 0.0, 9.1, 0.0, 0.0, 0.0, 9.1, 9.1, 0.0, 0.0, 9.1, 0.0, 0.0, 0.0, 18.2, 0.0, 0.0, 0.0, 0.0, 0.0, 9.1, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 9.1, 9.1, 0.0, 0.0, 9.1, 0.0, 0.0, 9.1, 0.0, 0.0, 0.0, 0.0, 9.1, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 9.1, 0.0, 27.3, 0.0, 9.1, 0.0, 27.3], "borderColor": "#00f5d4", "backgroundColor": "transparent", "borderWidth": 2, "tension": 0.4, "cubicInterpolationMode": "monotone", "pointRadius": 0, "pointHitRadius": 10, "sourceId": "sueddeutsche", "originalColor": "#00f5d4"}, {"label": "Leben und gesellschaft in bayern", "data": [27.3, 9.1, 9.1, 18.2, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 18.2, 0.0, 18.2, 0.0, 9.1, 0.0, 0.0, 0.0, 9.1, 0.0, 0.0, 0.0, 0.0, 9.1, 9.1, 9.1, 9.1, 0.0, 9.1, 9.1, 27.3, 0.0, 9.1, 0.0, 0.0, 9.1, 0.0, 9.1, 9.1, 18.2, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 9.1, 0.0, 9.1, 9.1, 0.0, 0.0, 0.0, 0.0, 36.4], "borderColor": "#9333ea", "backgroundColor": "transparent", "borderWidth": 2, "tension": 0.4, "cubicInterpolationMode": "monotone", "pointRadius": 0, "pointHitRadius": 10, "sourceId": "sueddeutsche", "originalColor": "#9333ea"}, {"label": "Fu\u00dfball-wm", "data": [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 18.2, 9.1, 0.0, 0.0, 9.1, 0.0, 9.1, 18.2, 0.0, 0.0, 0.0, 9.1, 0.0, 9.1, 0.0, 9.1, 9.1, 9.1, 0.0, 0.0, 0.0, 18.2, 0.0, 0.0, 0.0, 27.3, 0.0, 18.2, 9.1, 18.2, 9.1, 0.0, 0.0, 9.1, 9.1, 0.0, 45.5, 72.7, 0.0, 72.7, 72.7, 18.2, 45.5, 100.0, 63.6, 27.3, 9.1, 36.4, 0.0, 27.3], "borderColor": "#007aff", "backgroundColor": "transparent", "borderWidth": 2, "tension": 0.4, "cubicInterpolationMode": "monotone", "pointRadius": 0, "pointHitRadius": 10, "sourceId": "sueddeutsche", "originalColor": "#007aff"}, {"label": "Verkehr", "data": [0.0, 0.0, 9.1, 9.1, 0.0, 0.0, 0.0, 9.1, 0.0, 0.0, 0.0, 9.1, 0.0, 0.0, 9.1, 18.2, 0.0, 0.0, 0.0, 0.0, 0.0, 18.2, 0.0, 0.0, 0.0, 9.1, 0.0, 0.0, 0.0, 0.0, 0.0, 9.1, 9.1, 9.1, 0.0, 9.1, 0.0, 9.1, 9.1, 0.0, 0.0, 0.0, 0.0, 9.1, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 27.3, 0.0, 9.1, 0.0, 27.3], "borderColor": "#34d399", "backgroundColor": "transparent", "borderWidth": 2, "tension": 0.4, "cubicInterpolationMode": "monotone", "pointRadius": 0, "pointHitRadius": 10, "sourceId": "sueddeutsche", "originalColor": "#34d399"}, {"label": "Leben und gesellschaft in m\u00fcnchen", "data": [18.2, 0.0, 18.2, 9.1, 0.0, 0.0, 9.1, 18.2, 0.0, 9.1, 18.2, 0.0, 45.5, 18.2, 27.3, 0.0, 9.1, 9.1, 0.0, 0.0, 9.1, 0.0, 0.0, 9.1, 0.0, 18.2, 18.2, 0.0, 9.1, 0.0, 18.2, 0.0, 0.0, 0.0, 0.0, 27.3, 0.0, 0.0, 0.0, 9.1, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 9.1, 0.0, 0.0, 0.0, 0.0, 0.0, 9.1, 0.0, 27.3], "borderColor": "#f43f5e", "backgroundColor": "transparent", "borderWidth": 2, "tension": 0.4, "cubicInterpolationMode": "monotone", "pointRadius": 0, "pointHitRadius": 10, "sourceId": "sueddeutsche", "originalColor": "#f43f5e"}];
 
                 Chart.defaults.color = 'rgba(255, 255, 255, 0.7)';
                 Chart.defaults.font.family = '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif';
@@ -687,7 +687,7 @@
         <div class="article-card" onclick="toggleCard(this)">
             <div class="meta">Ollama AI • Top 10 (48h)</div>
             <div class="card-header">
-                <div class="title">Aktuelle Entwicklungen in Technik, Recht und Wissenschaft</div>
+                <div class="title">Aktuelle Entwicklungen in Technologie, Wissenschaft und Medizin</div>
                 <div class="relevance-container">
                     <svg width="44" height="44">
                         <circle stroke="rgba(255,255,255,0.08)" stroke-width="3" fill="transparent" r="19" cx="22" cy="22"/>
@@ -700,12 +700,76 @@
                     </div>
                 </div>
             </div>
-            <div class="summary" style="white-space: pre-wrap;">Die EU-Institutionen haben eine Reform zur Bekämpfung von sexuellem Kindesmissbrauch vereinbart, die unter anderem die Nutzung von KI für Deepfakes und Sextortion kriminalisiert sowie die Verjährungsfristen verlängert. Parallel dazu verschärft sich der regulatorische Druck auf die digitale Wirtschaft: Während Cybersicherheitsbehörden wie das BSI vor den Risiken durch KI-gestützte Angriffe warnen, fordern Verbraucherschützer EU-weite Grenzen für KI-Agenten in der Preisgestaltung, und Norwegen hat generative KI in Grundschulen bereits untersagt. Im Bereich der Infrastruktur sichert sich das Startup Reflection AI ab Juli Zugang zum SpaceX-Rechenzentrum Colossus-2, während technologische Entwicklungen wie die neuen Modelle von OpenAI und ByteDance sowie Investitionen von Google in KI-Werkzeuge die Branche prägen.
+            <div class="summary" style="white-space: pre-wrap;">Die technologische Entwicklung wird aktuell maßgeblich durch den Ausbau der KI-Infrastruktur geprägt, wobei das Startup Reflection AI einen milliardenschweren Vertrag für die Nutzung des Colossus-2-Rechenzentrums von SpaceX in Memphis abgeschlossen hat, das neben Anthropic und Google als zentraler Knotenpunkt für massive Rechenleistung dient. Parallel dazu halten technologische Fortschritte wie neue Videomodelle von ByteDance sowie Sicherheitsupdates von OpenAI Einzug in die Digitalwirtschaft, während Cybersicherheitsbehörden weltweit vor den steigenden Risiken durch KI-gestützte Cyberangriffe warnen. In der regulatorischen Landschaft haben EU-Institutionen eine Reform zur Bekämpfung des sexuellen Kindesmissbrauchs vereinbart, die unter anderem die Nutzung von Deepfakes und Sextortion kriminalisiert sowie die Verjährungsfristen verlängert. Gleichzeitig sorgt die Novelle des Energieeffizienzgesetzes für Debatten zwischen der IT-Wirtschaft, die um ihre Wettbewerbsfähigkeit fürchtet, und Umweltverbänden, die einen Rückschritt bei den Transparenzpflichten zur Abwärmenutzung befürchten. Ergänzend dazu gibt es Bestrebungen nach EU-weiten Grenzen für KI-Agenten sowie unterschiedliche Ansätze im Umgang mit generativer KI im Bildungssektor, wie das Verbot in norwegischen Grundschulen zeigt.
 
-Im Energiebereich sorgt die Novelle des deutschen Energieeffizienzgesetzes für Diskussionen, da die IT-Wirtschaft eine Gefährdung der Wettbewerbsfähigkeit durch übermäßige Regulierung befürchtet, während Umweltverbände einen Rückschritt beim Klimaschutz durch geringere Transparenzpflichten kritisieren. In der Astronomie liefern Daten des James Webb Weltraumteleskops neue Erkenntnisse über den sehr alten Ursprung des Kometen 3I/ATLAS sowie potenzielle Revisionen der Dunkle-Materie-Theorie am Beispiel des Bullet-Clusters. Die medizinische Entwicklung zeigt Fortschritte durch einen miniaturisierten intraoralen Roboter der Universität Basel zur präzisen Zahnbehandlung. Gleichzeitig steht die Digitalisierung des Gesundheitswesens in Deutschland vor einem Umbruch: Die elektronische Patientenakte (ePA) soll zu einer cloudbasierten Plattformarchitektur ausgebaut werden, wobei Fachverbände gleichzeitig vor mangelnder Barrierefreiheit und einer zu stark technische Fokussierung der Gesetzgebung warnen.</div>
+In der Wissenschaft liefern Daten des James-Webb-Weltraumteleskops neue Erkenntnisse über die kosmische Geschichte: So deutet die Analyse des Kometen 3I/ATLAS auf einen sehr frühen Ursprung vor etwa 10 bis 12 Milliarden Jahren hin, während eine Untersuchung des Bullet-Clusters die gängige Theorie der Dunklen Materie zugunsten der Modifizierten Newton’schen Dynamik (MOND) infrage stellt.
+
+Der medizinische Sektor erlebt ebenfalls technologische Umbrüche und kritische Diskussionen. Während die Universität Basel mit einem miniaturisierten Roboter für die präzise Zahnmedizin Fortschritte erzielt, steht die Weiterentwicklung der elektronischen Patientenakte (ePA) in Deutschland im Fokus. Der geplante Übergang zu einer cloudbasierten Plattformarchitektur (TI 2.0) wird zwar als Chance für strukturierte Gesundheitsdaten und KI-Kompatibilität gesehen, stößt jedoch auf Kritik hinsichtlich der Barrierefreiheit und der Gefahr eines rein technisch fokussierten, unzureichenden Zugangs zum Gesundheitssystem.</div>
         </div>
         
 
+        
+        <div class="article-card" onclick="toggleCard(this)">
+            
+            <div class="image-wrapper">
+                <img src="https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/5/1/0/6/2/5/4/openai-broadcom-jalapeno-inference-chip-image-fb017a9a39f36fd1.webp" class="article-image" alt="Vorschau" loading="lazy">
+            </div>
+            
+
+            <div class="meta">heise • news</div>
+
+            <div class="card-header">
+                <div class="title">Broadcom und OpenAI entwickeln spezialisierten KI-Inferenz-Prozessor Jalapeño</div>
+                <div class="relevance-container">
+                    <svg width="44" height="44">
+                        <circle stroke="rgba(255,255,255,0.08)" stroke-width="3" fill="transparent" r="19" cx="22" cy="22"/>
+                        <circle class="progress-ring__circle" stroke-width="3" stroke-dasharray="119.38" 
+                                stroke-dashoffset="21.003064191233364" 
+                                stroke-linecap="round" fill="transparent" r="19" cx="22" cy="22" transform="rotate(-90 22 22)"/>
+                    </svg>
+                    <div style="position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); font-size:11px; font-weight:800;">
+                        81
+                    </div>
+                </div>
+            </div>
+
+            <div class="summary">Broadcom entwickelt mit OpenAI den auf KI-Inferenz spezialisierten ASIC-Prozessor „Jalapeño“, der durch geringere Latenz und niedrigeren Energieverbrauch eine höhere Effizienz als bisherige Hardware anstrebt. Die Auslieferung der ersten Generation ist für Ende des Jahres geplant, wobei die langfristige Kooperation ab 2026 auch den Bau von Gigawatt-Rechenzentren mit Partnern wie Microsoft vorsieht.</div>
+
+            <a href="https://www.heise.de/news/OpenAI-und-Broadcom-kuendigen-neuen-KI-Chip-Jalapeno-an-11343794.html" class="source-button" target="_blank" onclick="event.stopPropagation()">
+                Vollständigen Artikel lesen
+            </a>
+        </div>
+        
+        <div class="article-card" onclick="toggleCard(this)">
+            
+            <div class="image-wrapper">
+                <img src="https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/5/1/0/6/2/3/2/shutterstock_1575687946-f7998fc2eee06748.jpg" class="article-image" alt="Vorschau" loading="lazy">
+            </div>
+            
+
+            <div class="meta">heise • news</div>
+
+            <div class="card-header">
+                <div class="title">Bundesweite Mobilfunkmesswoche zur Erfassung der Netzqualität läuft bis zum 1. Juli</div>
+                <div class="relevance-container">
+                    <svg width="44" height="44">
+                        <circle stroke="rgba(255,255,255,0.08)" stroke-width="3" fill="transparent" r="19" cx="22" cy="22"/>
+                        <circle class="progress-ring__circle" stroke-width="3" stroke-dasharray="119.38" 
+                                stroke-dashoffset="9.621967794114525" 
+                                stroke-linecap="round" fill="transparent" r="19" cx="22" cy="22" transform="rotate(-90 22 22)"/>
+                    </svg>
+                    <div style="position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); font-size:11px; font-weight:800;">
+                        91
+                    </div>
+                </div>
+            </div>
+
+            <div class="summary">Bis zum 1. Juli findet die zweite bundesweite Mobilfunkmesswoche „Check Dein Netz“ statt, bei der Bürger mittels der App „Mobilfunk-Check“ Daten zur Netzqualität erfassen sollen, um Funklöcher zu lokalisieren. Die Crowdsourcing-Aktion dient dazu, ein realistisches Abbild der Versorgung zu gewinnen, um Betreiber sowie Kommunen bei der Planung und Priorisierung von Netzausbaumaßnahmen – insbesondere in ländlichen Regionen – zu unterstützen.</div>
+
+            <a href="https://www.heise.de/news/Funkloechern-auf-der-Spur-Zweite-bundesweite-Mobilfunkmesswoche-laeuft-11343750.html" class="source-button" target="_blank" onclick="event.stopPropagation()">
+                Vollständigen Artikel lesen
+            </a>
+        </div>
         
         <div class="article-card" onclick="toggleCard(this)">
             
@@ -2191,68 +2255,6 @@ Im Energiebereich sorgt die Novelle des deutschen Energieeffizienzgesetzes für 
             <div class="summary">Die Organisation Chayn fordert eine Erweiterung des Begriffs „Missbrauch durch Bildmaterial“ auf die unbefugte Verbreitung auch nicht-expliziter Bilder, da deren Weitergabe schwerwiegende Folgen wie Gewalt oder soziale Ausgrenzung nach sich ziehen kann. Zur Bekämpfung sollen Tech-Konzerne die Einwilligung identifizierbarer Personen prüfen, Gesichter unkenntlich machen und Meldungen kulturell sensibel bearbeiten; zudem werden eine gesetzliche Verankerung der Einwilligungspflicht sowie eine Bewertung des entstandenen Schadens statt der bloßen Absicht gefordert.</div>
 
             <a href="https://www.heise.de/news/Missbrauch-durch-Bilder-Fokus-auf-Nacktheit-laut-Bericht-viel-zu-eng-11341510.html" class="source-button" target="_blank" onclick="event.stopPropagation()">
-                Vollständigen Artikel lesen
-            </a>
-        </div>
-        
-        <div class="article-card" onclick="toggleCard(this)">
-            
-            <div class="image-wrapper">
-                <img src="https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/5/1/0/5/1/5/0/13-15173cab9c08fda9.jpg" class="article-image" alt="Vorschau" loading="lazy">
-            </div>
-            
-
-            <div class="meta">heise • news</div>
-
-            <div class="card-header">
-                <div class="title">Einigung der Bundesregierung auf Infrastruktur-Zukunftsgesetz zur Beschleunigung zentraler Verkehrsprojekte</div>
-                <div class="relevance-container">
-                    <svg width="44" height="44">
-                        <circle stroke="rgba(255,255,255,0.08)" stroke-width="3" fill="transparent" r="19" cx="22" cy="22"/>
-                        <circle class="progress-ring__circle" stroke-width="3" stroke-dasharray="119.38" 
-                                stroke-dashoffset="26.140784593343298" 
-                                stroke-linecap="round" fill="transparent" r="19" cx="22" cy="22" transform="rotate(-90 22 22)"/>
-                    </svg>
-                    <div style="position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); font-size:11px; font-weight:800;">
-                        76
-                    </div>
-                </div>
-            </div>
-
-            <div class="summary">Die Bundesregierung hat sich auf das Infrastruktur-Zukunftsgesetz geeinigt, welches zentrale Verkehrsprojekte durch die Einstufung als Vorhaben von überragendem öffentlichen Interesse beschleunigen soll. Trotz Bestrebungen des Umweltministeriums, auch grüne Infrastruktur rechtlich abzusichern, kritisieren Wirtschaftsministerin Katherina Reiche (CDU) und der NABU eine mögliche Schwächung von Naturschutzstandards sowie die Gefahr neuer Verzögerungen. Der Bundestag stimmt am 25. Juni über den Entwurf ab, der zudem Maßnahmen zum Bürokratieabbau vorsieht.</div>
-
-            <a href="https://www.heise.de/news/Gesetz-fuer-schnellere-Verkehrsprojekte-beschlossen-11341608.html" class="source-button" target="_blank" onclick="event.stopPropagation()">
-                Vollständigen Artikel lesen
-            </a>
-        </div>
-        
-        <div class="article-card" onclick="toggleCard(this)">
-            
-            <div class="image-wrapper">
-                <img src="https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/5/1/0/5/1/1/7/_Press_Photo_2_The_BenQ_Creative_Pro_PV3250U_delivers_professional-grade_color_accuracy_and_workflow_consistency_through_AQCOLOR_technology__supporting_demanding_creative_production_environments-6b5d88d8c3cbd50c.jpg" class="article-image" alt="Vorschau" loading="lazy">
-            </div>
-            
-
-            <div class="meta">heise • news</div>
-
-            <div class="card-header">
-                <div class="title">BenQ kündigt Auslieferung des 4K-Monitors Creative Pro PV3250U für September an</div>
-                <div class="relevance-container">
-                    <svg width="44" height="44">
-                        <circle stroke="rgba(255,255,255,0.08)" stroke-width="3" fill="transparent" r="19" cx="22" cy="22"/>
-                        <circle class="progress-ring__circle" stroke-width="3" stroke-dasharray="119.38" 
-                                stroke-dashoffset="43.016764416879354" 
-                                stroke-linecap="round" fill="transparent" r="19" cx="22" cy="22" transform="rotate(-90 22 22)"/>
-                    </svg>
-                    <div style="position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); font-size:11px; font-weight:800;">
-                        61
-                    </div>
-                </div>
-            </div>
-
-            <div class="summary">Ab September liefert BenQ voraussichtlich den Creative Pro PV3250U aus, einen 31,5-Zoll-Monitor mit 4K-Auflösung, 120 Hz und einem kontraststarken IPS-Panel (3000:1). Das vorkalibrierte Display bietet eine Farbgenauigkeit von Delta E < 1 (100 % sRGB, 99 % DCI-P3) bei bis zu 600 cd/m². Die Ausstattung umfasst DisplayPort 1.4, HDMI 2.1 und Thunderbolt 4 mit 96W Power Delivery sowie Daisy Chaining und einen USB-Hub (10 Gbit/s). Zusätzliche Funktionen sind Rahmen-Overlays, „Shadow Check“ sowie ein externer Controller; der Preis ist noch nicht offiziell bekannt, wird aber im Bereich von 1000 Euro erwartet.</div>
-
-            <a href="https://www.heise.de/news/BenQ-Creative-Pro-PV3250U-Kontraststarker-Profi-Monitor-mit-hoher-Farbtreue-11341542.html" class="source-button" target="_blank" onclick="event.stopPropagation()">
                 Vollständigen Artikel lesen
             </a>
         </div>
