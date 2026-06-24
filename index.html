@@ -369,7 +369,7 @@
 
     <header>
         <h1>Relevant</h1>
-        <p class="build-time">Aktualisiert: 24.06.2026, 15:38 Uhr</p>
+        <p class="build-time">Aktualisiert: 24.06.2026, 20:35 Uhr</p>
     </header>
 
     <div class="dashboard-card">
@@ -379,10 +379,10 @@
                     <svg width="60" height="60">
                         <circle stroke="rgba(255,255,255,0.08)" stroke-width="4" fill="transparent" r="26" cx="30" cy="30"/>
                         <circle class="dashboard-circle" stroke-width="4" stroke-dasharray="163.36" 
-                                stroke-dashoffset="65.34400000000001" 
+                                stroke-dashoffset="55.5424" 
                                 stroke-linecap="round" fill="transparent" r="26" cx="30" cy="30" transform="rotate(-90 30 30)"/>
                     </svg>
-                    <div class="ring-text">60%</div>
+                    <div class="ring-text">66%</div>
                 </div>
                 <div class="stat-label">Relevant<br>Share</div>
             </div>
@@ -392,10 +392,10 @@
                     <svg width="60" height="60">
                         <circle stroke="rgba(255,255,255,0.08)" stroke-width="4" fill="transparent" r="26" cx="30" cy="30"/>
                         <circle class="dashboard-circle" stroke-width="4" stroke-dasharray="163.36" 
-                                stroke-dashoffset="32.672" 
+                                stroke-dashoffset="31.038399999999996" 
                                 stroke-linecap="round" fill="transparent" r="26" cx="30" cy="30" transform="rotate(-90 30 30)"/>
                     </svg>
-                    <div class="ring-text">80%</div>
+                    <div class="ring-text">81%</div>
                 </div>
                 <div class="stat-label">Avg.<br>Score</div>
             </div>
@@ -482,85 +482,45 @@
     <div class="dashboard-card">
         <h2 class="chart-title">Emerging Trends (Last 60 Days)</h2>
         <div class="source-filters">
-            <button class="source-filter-btn active" data-source="heise">heise</button><button class="source-filter-btn " data-source="sueddeutsche">sueddeutsche</button>
+            <button class="source-filter-btn " data-source="sueddeutsche">sueddeutsche</button><button class="source-filter-btn active" data-source="heise">heise</button>
         </div>
         <div class="chart-container" style="height: 260px;">
             <canvas id="keywordTrendChart"></canvas>
         </div>
 
         <div class="insights-wrapper">
-            <div class="insights-container" data-insight-source="heise" style="display: block;">
+            <div class="insights-container" data-insight-source="sueddeutsche" style="display: none;">
                         <div class="insight-card" style="border-left: 3px solid #00f5d4;">
                             <div class="insight-header" onclick="this.parentElement.classList.toggle('expanded')">
-                                <h4>Forschung</h4>
+                                <h4>Deutsche bahn</h4>
                                 <span class="toggle-icon">+</span>
                             </div>
                             <div class="insight-body">
-                                <p>Die aktuelle Forschung konzentriert sich auf die Identifizierung kognitiver Grenzen sowie Sicherheitsrisiken von KI-Modellen und neue Erkenntnisse in der Quantenphysik sowie Astronomie. Die intensive Diskussion wird dabei vor allem durch Zweifel an der Verlässlichkeit neuer technologischer Durchbrüche und Forderungen nach einer stärkeren Regulierung der KI-Entwicklung befeuert.</p>
+                                <p>Das Thema umfasst personelle Wechsel sowie die zunehmende Instabilität des Schienennetzes durch Baustellen, Unfälle und Kapazitätsengpässe. Die Diskussion wird durch die gleichzeitige Belastung wichtiger Verkehrsknotenpunkte – etwa in München – durch teure Interimsbaustandorte und infrastrukturelle Flaschenhälse befeuert.</p>
                             </div>
                         </div>
                         
                         <div class="insight-card" style="border-left: 3px solid #9333ea;">
                             <div class="insight-header" onclick="this.parentElement.classList.toggle('expanded')">
-                                <h4>Energiewende</h4>
+                                <h4>Leben und gesellschaft in bayern</h4>
                                 <span class="toggle-icon">+</span>
                             </div>
                             <div class="insight-body">
-                                <p>Die Energiewende umfasst den massiven Ausbau erneuerbarer Technologien – von Solar- und Windkraft über Wärmepumpen bis hin zur steigenden Batterieproduktion für E-Mobilität. Die aktuelle Debatte dreht sich primär um die Diskrepanz zwischen ambitionierten Klimazielen und realen Hindernissen wie einer unzureichenden Stromnetzinfrastruktur, dem Verlust europäischer industrieller Wertschöpfungsketten in der Photovoltaik sowie politischem Widerstand gegen fossile Energien.</p>
+                                <p>Das Thema umfasst aktuelle soziale Spannungsfelder in Bayern, von der Aufarbeitung der NS-Vergangenheit und Integrationsdebatten bis hin zum Anstieg digitaler Hassrede. Diskutiert werden vor allem zunehmende gesellschaftliche Reibungspunkte sowie die rechtlichen Herausforderungen durch wachsende Internet-Hetze.</p>
                             </div>
                         </div>
                         
                         <div class="insight-card" style="border-left: 3px solid #007aff;">
-                            <div class="insight-header" onclick="this.parentElement.classList.toggle('expanded')">
-                                <h4>Arbeitswelt</h4>
-                                <span class="toggle-icon">+</span>
-                            </div>
-                            <div class="insight-body">
-                                <p>Die Debatte konzentriert sich auf die disruptiven Auswirkungen Künstlicher Intelligenz auf Jobprofile und Kompetenzanforderungen sowie auf strukturelle Umbrüche bei Arbeitszeitmodellen und Homeoffice-Regelungen. Verstärkt wird die Diskussion durch wirtschaftliche Instabilität, erkennbar an massiven Stellenstreichungen in der Tech-Branche und zunehmendem Druck auf Freelancer.</p>
-                            </div>
-                        </div>
-                        
-                        <div class="insight-card" style="border-left: 3px solid #34d399;">
-                            <div class="insight-header" onclick="this.parentElement.classList.toggle('expanded')">
-                                <h4>Steam</h4>
-                                <span class="toggle-icon">+</span>
-                            </div>
-                            <div class="insight-body">
-                                <p>Im Zentrum stehen Valves Hardware-Roadmap mit den für 2026 angekündigten Steam Machine und Steam Frame sowie massive Lieferverzögerungen beim Steam Controller bis 2027. Parallel dazu sorgen rechtliche Ermittlungen der Bundesnetzagentur gegen Valve und das Ende des physischen Steam-Geschenkkarten-Handels zur Betrugsbekämpfung für Aufmerksamkeit.</p>
-                            </div>
-                        </div>
-                        
-                        <div class="insight-card" style="border-left: 3px solid #f43f5e;">
-                            <div class="insight-header" onclick="this.parentElement.classList.toggle('expanded')">
-                                <h4>Deutsche bahn</h4>
-                                <span class="toggle-icon">+</span>
-                            </div>
-                            <div class="insight-body">
-                                <p>Im Mittelpunkt steht ein bundesweiter Stillstand des Zugverkehrs, der durch einen fehlerhaften Techniktausch im digitalen Bahnfunk ausgelöst wurde. Die Diskussion wird zudem durch anhaltende Infrastrukturprobleme sowie neue Entwicklungen bei der Sicherheit und dem Wettbewerb im Schienennetz befeuert.</p>
-                            </div>
-                        </div>
-                        </div><div class="insights-container" data-insight-source="sueddeutsche" style="display: none;">
-                        <div class="insight-card" style="border-left: 3px solid #00f5d4;">
-                            <div class="insight-header" onclick="this.parentElement.classList.toggle('expanded')">
-                                <h4>Deutsche bahn</h4>
-                                <span class="toggle-icon">+</span>
-                            </div>
-                            <div class="insight-body">
-                                <p>Die aktuelle Berichterstattung konzentriert sich auf massive Betriebsstörungen und infrastrukturelle Engpässe, insbesondere durch Baustellen und Unfallfolgen im Raum München. Im Fokus stehen dabei die zunehmende Unzuverlässigkeit des Schienenverkehrs sowie die Herausforderungen bei der Modernisierung wichtiger Knotenpunkte.</p>
-                            </div>
-                        </div>
-                        
-                        <div class="insight-card" style="border-left: 3px solid #9333ea;">
                             <div class="insight-header" onclick="this.parentElement.classList.toggle('expanded')">
                                 <h4>Verkehr</h4>
                                 <span class="toggle-icon">+</span>
                             </div>
                             <div class="insight-body">
-                                <p>Im Zentrum stehen infrastrukturelle Engpässe und baubedingte Einschränkungen im Schienenverkehr, insbesondere am Münchner Knotenpunkt sowie im S-Bahn-Netz. Parallel dazu sorgen neue Preisregulierungen für Fahrdienste und anhaltende Betriebsstörungen der Deutschen Bahn für die aktuelle Debatte.</p>
+                                <p>Die Berichterstattung konzentriert sich auf infrastrukturelle Instabilitäten im Schienenverkehr, etwa durch Baustellen oder Engpässe in europäischen Güterkorridoren. Zudem werden regulatorische Eingriffe bei urbanen Fahrdiensten sowie die technische und ökologische Transformation des Nahverkehrs thematisiert.</p>
                             </div>
                         </div>
                         
-                        <div class="insight-card" style="border-left: 3px solid #007aff;">
+                        <div class="insight-card" style="border-left: 3px solid #34d399;">
                             <div class="insight-header" onclick="this.parentElement.classList.toggle('expanded')">
                                 <h4>Leben und gesellschaft in münchen</h4>
                                 <span class="toggle-icon">+</span>
@@ -570,13 +530,63 @@
                             </div>
                         </div>
                         
-                        <div class="insight-card" style="border-left: 3px solid #34d399;">
+                        <div class="insight-card" style="border-left: 3px solid #f43f5e;">
                             <div class="insight-header" onclick="this.parentElement.classList.toggle('expanded')">
-                                <h4>Leben und gesellschaft in bayern</h4>
+                                <h4>Landkreis münchen</h4>
                                 <span class="toggle-icon">+</span>
                             </div>
                             <div class="insight-body">
-                                <p>Das Thema umfasst die gesamte Bandbreite bayerischer Lebensrealitäten, von kultureller Identität und historischer Aufarbeitung bis hin zu regionalen Alltagsthemen. Die aktuelle Diskussion wird durch zunehmende gesellschaftliche Spannungsfelder wie die Debatten um Zuwanderung, die Zunahme von Hassrede im Netz sowie lokale politische Konflikte getrieben.</p>
+                                <p>Nicht genügend aktuelle Artikel für eine KI-Analyse gefunden.</p>
+                            </div>
+                        </div>
+                        </div><div class="insights-container" data-insight-source="heise" style="display: block;">
+                        <div class="insight-card" style="border-left: 3px solid #00f5d4;">
+                            <div class="insight-header" onclick="this.parentElement.classList.toggle('expanded')">
+                                <h4>Forschung</h4>
+                                <span class="toggle-icon">+</span>
+                            </div>
+                            <div class="insight-body">
+                                <p>Die aktuelle Forschung thematisiert die Doppelnatur von KI als Werkzeug für historische Entschlüsselungen und Cybersicherheit sowie als Bedrohung durch autonome Malware. Gleichzeitig prägen neue Erkenntnisse in der Astrophysik und Quantenphysik die Debatte über den realen Stand wissenschaftlichen Fortschritts versus technologischem PR-Hype.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="insight-card" style="border-left: 3px solid #9333ea;">
+                            <div class="insight-header" onclick="this.parentElement.classList.toggle('expanded')">
+                                <h4>Energiewende</h4>
+                                <span class="toggle-icon">+</span>
+                            </div>
+                            <div class="insight-body">
+                                <p>Die Energiewende umfasst aktuell den technologischen Ausbau von Solar-, Wind- und Wärmepumpentechnik sowie die wachsende Bedeutung der Batterieproduktion. Die Debatte wird durch das Spannungsfeld zwischen wirtschaftlichem Fortschritt und strukturellen Hürden – insbesondere einer unzureichenden Stromnetzinfrastruktur und dem Verlust europäischer industrieller Wertschöpfungsketten – befeuert.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="insight-card" style="border-left: 3px solid #007aff;">
+                            <div class="insight-header" onclick="this.parentElement.classList.toggle('expanded')">
+                                <h4>Umweltschutz</h4>
+                                <span class="toggle-icon">+</span>
+                            </div>
+                            <div class="insight-body">
+                                <p>Die Diskussion dreht sich um die Förderung der Kreislaufwirtschaft durch EU-Regelungen zur Reparierbarkeit sowie nachhaltige Fahrzeugkonstruktionen und Hardware-Recycling. Parallel dazu prägen politische Auseinandersetzungen um Tempolimits und die Beschleunigung von Infrastrukturprojekten den Diskurs über ökologische Standards im Verkehrssektor.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="insight-card" style="border-left: 3px solid #34d399;">
+                            <div class="insight-header" onclick="this.parentElement.classList.toggle('expanded')">
+                                <h4>Arbeitswelt</h4>
+                                <span class="toggle-icon">+</span>
+                            </div>
+                            <div class="insight-body">
+                                <p>Die aktuelle Debatte fokussiert auf einen tiefgreifenden Strukturwandel, der durch den massiven Einsatz von KI sowohl massive Kompetenzlücken als auch das Risiko von Jobverlusten befeuert. Parallel dazu werden traditionelle Arbeitsmodelle wie Homeoffice und die Wochenarbeitszeit aufgrund zunehmenden wirtschaftlichen Wettbewerbsdrucks und veränderter Beschäftigungsformen neu bewertet.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="insight-card" style="border-left: 3px solid #f43f5e;">
+                            <div class="insight-header" onclick="this.parentElement.classList.toggle('expanded')">
+                                <h4>Steam</h4>
+                                <span class="toggle-icon">+</span>
+                            </div>
+                            <div class="insight-body">
+                                <p>Im Zentrum stehen neue Hardware-Pläne von Valve (Steam Machine/Frame) sowie massive Lieferverzögerungen beim Steam Controller bis 2027. Die Diskussionen werden zudem durch die Abschaffung physischer Geschenkkarten zur Betrugsprävention und behördliche Ermittlungen der Bundesnetzagentur gegen den Plattformbetreiber befeuert.</p>
                             </div>
                         </div>
                         </div>
@@ -590,7 +600,7 @@
 
             const initChart = function() {
                 const ctx = document.getElementById('keywordTrendChart').getContext('2d');
-                const rawDatasets = [{"label": "Forschung", "data": [25.0, 50.0, 25.0, 50.0, 25.0, 0.0, 0.0, 50.0, 0.0, 50.0, 25.0, 25.0, 0.0, 0.0, 25.0, 50.0, 50.0, 25.0, 0.0, 25.0, 0.0, 0.0, 50.0, 75.0, 25.0, 50.0, 0.0, 25.0, 0.0, 25.0, 25.0, 25.0, 25.0, 50.0, 0.0, 0.0, 100.0, 25.0, 75.0, 75.0, 75.0, 0.0, 0.0, 25.0, 0.0, 0.0, 75.0, 75.0, 0.0, 0.0, 75.0, 25.0, 0.0, 25.0, 25.0, 0.0, 0.0, 75.0, 75.0, 75.0], "borderColor": "#00f5d4", "backgroundColor": "transparent", "borderWidth": 2, "tension": 0.4, "cubicInterpolationMode": "monotone", "pointRadius": 0, "pointHitRadius": 10, "sourceId": "heise", "originalColor": "#00f5d4"}, {"label": "Energiewende", "data": [0.0, 25.0, 25.0, 50.0, 25.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 25.0, 0.0, 0.0, 0.0, 0.0, 25.0, 0.0, 25.0, 25.0, 0.0, 25.0, 25.0, 25.0, 0.0, 25.0, 0.0, 0.0, 25.0, 25.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 25.0, 25.0, 0.0, 25.0, 0.0, 0.0, 0.0, 0.0, 0.0, 50.0, 0.0, 0.0, 0.0, 0.0, 25.0, 0.0, 50.0, 25.0, 25.0, 25.0, 25.0, 75.0, 50.0], "borderColor": "#9333ea", "backgroundColor": "transparent", "borderWidth": 2, "tension": 0.4, "cubicInterpolationMode": "monotone", "pointRadius": 0, "pointHitRadius": 10, "sourceId": "heise", "originalColor": "#9333ea"}, {"label": "Arbeitswelt", "data": [0.0, 0.0, 50.0, 25.0, 0.0, 0.0, 0.0, 0.0, 25.0, 0.0, 0.0, 0.0, 25.0, 0.0, 0.0, 25.0, 0.0, 50.0, 0.0, 50.0, 0.0, 0.0, 0.0, 25.0, 25.0, 25.0, 0.0, 0.0, 0.0, 25.0, 0.0, 25.0, 0.0, 25.0, 0.0, 0.0, 0.0, 0.0, 25.0, 0.0, 0.0, 0.0, 25.0, 0.0, 25.0, 25.0, 0.0, 0.0, 0.0, 0.0, 0.0, 25.0, 0.0, 0.0, 0.0, 0.0, 0.0, 25.0, 25.0, 75.0], "borderColor": "#007aff", "backgroundColor": "transparent", "borderWidth": 2, "tension": 0.4, "cubicInterpolationMode": "monotone", "pointRadius": 0, "pointHitRadius": 10, "sourceId": "heise", "originalColor": "#007aff"}, {"label": "Steam", "data": [0.0, 0.0, 50.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 25.0, 25.0, 0.0, 25.0, 0.0, 0.0, 25.0, 25.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 50.0, 0.0, 0.0, 0.0, 0.0, 25.0, 0.0, 25.0, 0.0, 0.0, 25.0, 0.0, 0.0, 0.0, 25.0, 0.0, 0.0, 0.0, 0.0, 25.0, 0.0, 25.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 75.0, 50.0, 25.0], "borderColor": "#34d399", "backgroundColor": "transparent", "borderWidth": 2, "tension": 0.4, "cubicInterpolationMode": "monotone", "pointRadius": 0, "pointHitRadius": 10, "sourceId": "heise", "originalColor": "#34d399"}, {"label": "Deutsche bahn", "data": [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 25.0, 25.0, 0.0, 0.0, 25.0, 0.0, 0.0, 0.0, 0.0, 50.0, 0.0, 0.0, 0.0, 25.0, 0.0, 0.0, 25.0, 25.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 25.0, 0.0, 25.0, 0.0, 0.0, 0.0, 50.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 25.0, 75.0], "borderColor": "#f43f5e", "backgroundColor": "transparent", "borderWidth": 2, "tension": 0.4, "cubicInterpolationMode": "monotone", "pointRadius": 0, "pointHitRadius": 10, "sourceId": "heise", "originalColor": "#f43f5e"}, {"label": "Deutsche bahn", "data": [0.0, 0.0, 0.0, 20.0, 0.0, 0.0, 0.0, 20.0, 20.0, 0.0, 0.0, 20.0, 0.0, 0.0, 0.0, 40.0, 0.0, 0.0, 0.0, 0.0, 0.0, 20.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 20.0, 20.0, 0.0, 0.0, 20.0, 0.0, 0.0, 20.0, 0.0, 0.0, 0.0, 0.0, 20.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 20.0, 0.0, 60.0, 0.0, 20.0, 0.0, 60.0], "borderColor": "#00f5d4", "backgroundColor": "transparent", "borderWidth": 2, "tension": 0.4, "cubicInterpolationMode": "monotone", "pointRadius": 0, "pointHitRadius": 10, "sourceId": "sueddeutsche", "originalColor": "#00f5d4"}, {"label": "Verkehr", "data": [0.0, 0.0, 20.0, 20.0, 0.0, 0.0, 0.0, 20.0, 0.0, 0.0, 0.0, 20.0, 0.0, 0.0, 20.0, 40.0, 0.0, 0.0, 0.0, 0.0, 0.0, 40.0, 0.0, 0.0, 0.0, 20.0, 0.0, 0.0, 0.0, 0.0, 0.0, 20.0, 20.0, 20.0, 0.0, 20.0, 0.0, 20.0, 20.0, 0.0, 0.0, 0.0, 0.0, 20.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 60.0, 0.0, 20.0, 0.0, 60.0], "borderColor": "#9333ea", "backgroundColor": "transparent", "borderWidth": 2, "tension": 0.4, "cubicInterpolationMode": "monotone", "pointRadius": 0, "pointHitRadius": 10, "sourceId": "sueddeutsche", "originalColor": "#9333ea"}, {"label": "Leben und gesellschaft in m\u00fcnchen", "data": [40.0, 0.0, 40.0, 20.0, 0.0, 0.0, 20.0, 40.0, 0.0, 20.0, 40.0, 0.0, 100.0, 40.0, 60.0, 0.0, 20.0, 20.0, 0.0, 0.0, 20.0, 0.0, 0.0, 20.0, 0.0, 40.0, 40.0, 0.0, 20.0, 0.0, 40.0, 0.0, 0.0, 0.0, 0.0, 60.0, 0.0, 0.0, 0.0, 20.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 20.0, 0.0, 0.0, 0.0, 0.0, 0.0, 20.0, 0.0, 60.0], "borderColor": "#007aff", "backgroundColor": "transparent", "borderWidth": 2, "tension": 0.4, "cubicInterpolationMode": "monotone", "pointRadius": 0, "pointHitRadius": 10, "sourceId": "sueddeutsche", "originalColor": "#007aff"}, {"label": "Leben und gesellschaft in bayern", "data": [60.0, 20.0, 20.0, 40.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 40.0, 0.0, 40.0, 0.0, 20.0, 0.0, 0.0, 0.0, 20.0, 0.0, 0.0, 0.0, 0.0, 20.0, 20.0, 20.0, 20.0, 0.0, 20.0, 20.0, 60.0, 0.0, 20.0, 0.0, 0.0, 20.0, 0.0, 20.0, 20.0, 40.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 20.0, 0.0, 20.0, 20.0, 0.0, 0.0, 0.0, 0.0, 60.0], "borderColor": "#34d399", "backgroundColor": "transparent", "borderWidth": 2, "tension": 0.4, "cubicInterpolationMode": "monotone", "pointRadius": 0, "pointHitRadius": 10, "sourceId": "sueddeutsche", "originalColor": "#34d399"}];
+                const rawDatasets = [{"label": "Deutsche bahn", "data": [0.0, 0.0, 0.0, 14.3, 0.0, 0.0, 0.0, 14.3, 14.3, 0.0, 0.0, 14.3, 0.0, 0.0, 0.0, 28.6, 0.0, 0.0, 0.0, 0.0, 0.0, 14.3, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 14.3, 14.3, 0.0, 0.0, 14.3, 0.0, 0.0, 14.3, 0.0, 0.0, 0.0, 0.0, 14.3, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 14.3, 0.0, 42.9, 0.0, 14.3, 0.0, 42.9], "borderColor": "#00f5d4", "backgroundColor": "transparent", "borderWidth": 2, "tension": 0.4, "cubicInterpolationMode": "monotone", "pointRadius": 0, "pointHitRadius": 10, "sourceId": "sueddeutsche", "originalColor": "#00f5d4"}, {"label": "Leben und gesellschaft in bayern", "data": [42.9, 14.3, 14.3, 28.6, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 28.6, 0.0, 28.6, 0.0, 14.3, 0.0, 0.0, 0.0, 14.3, 0.0, 0.0, 0.0, 0.0, 14.3, 14.3, 14.3, 14.3, 0.0, 14.3, 14.3, 42.9, 0.0, 14.3, 0.0, 0.0, 14.3, 0.0, 14.3, 14.3, 28.6, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 14.3, 0.0, 14.3, 14.3, 0.0, 0.0, 0.0, 0.0, 57.1], "borderColor": "#9333ea", "backgroundColor": "transparent", "borderWidth": 2, "tension": 0.4, "cubicInterpolationMode": "monotone", "pointRadius": 0, "pointHitRadius": 10, "sourceId": "sueddeutsche", "originalColor": "#9333ea"}, {"label": "Verkehr", "data": [0.0, 0.0, 14.3, 14.3, 0.0, 0.0, 0.0, 14.3, 0.0, 0.0, 0.0, 14.3, 0.0, 0.0, 14.3, 28.6, 0.0, 0.0, 0.0, 0.0, 0.0, 28.6, 0.0, 0.0, 0.0, 14.3, 0.0, 0.0, 0.0, 0.0, 0.0, 14.3, 14.3, 14.3, 0.0, 14.3, 0.0, 14.3, 14.3, 0.0, 0.0, 0.0, 0.0, 14.3, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 42.9, 0.0, 14.3, 0.0, 42.9], "borderColor": "#007aff", "backgroundColor": "transparent", "borderWidth": 2, "tension": 0.4, "cubicInterpolationMode": "monotone", "pointRadius": 0, "pointHitRadius": 10, "sourceId": "sueddeutsche", "originalColor": "#007aff"}, {"label": "Leben und gesellschaft in m\u00fcnchen", "data": [28.6, 0.0, 28.6, 14.3, 0.0, 0.0, 14.3, 28.6, 0.0, 14.3, 28.6, 0.0, 71.4, 28.6, 42.9, 0.0, 14.3, 14.3, 0.0, 0.0, 14.3, 0.0, 0.0, 14.3, 0.0, 28.6, 28.6, 0.0, 14.3, 0.0, 28.6, 0.0, 0.0, 0.0, 0.0, 42.9, 0.0, 0.0, 0.0, 14.3, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 14.3, 0.0, 0.0, 0.0, 0.0, 0.0, 14.3, 0.0, 42.9], "borderColor": "#34d399", "backgroundColor": "transparent", "borderWidth": 2, "tension": 0.4, "cubicInterpolationMode": "monotone", "pointRadius": 0, "pointHitRadius": 10, "sourceId": "sueddeutsche", "originalColor": "#34d399"}, {"label": "Landkreis m\u00fcnchen", "data": [28.6, 14.3, 100.0, 14.3, 0.0, 14.3, 0.0, 71.4, 42.9, 14.3, 42.9, 28.6, 100.0, 14.3, 14.3, 28.6, 42.9, 0.0, 0.0, 0.0, 0.0, 71.4, 42.9, 28.6, 57.1, 0.0, 14.3, 0.0, 0.0, 28.6, 57.1, 0.0, 0.0, 14.3, 0.0, 0.0, 0.0, 28.6, 14.3, 14.3, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 14.3, 0.0, 0.0, 14.3, 14.3, 0.0, 0.0, 28.6, 0.0, 71.4, 14.3, 0.0, 14.3], "borderColor": "#f43f5e", "backgroundColor": "transparent", "borderWidth": 2, "tension": 0.4, "cubicInterpolationMode": "monotone", "pointRadius": 0, "pointHitRadius": 10, "sourceId": "sueddeutsche", "originalColor": "#f43f5e"}, {"label": "Forschung", "data": [25.0, 50.0, 25.0, 50.0, 25.0, 0.0, 0.0, 50.0, 0.0, 50.0, 25.0, 25.0, 0.0, 0.0, 25.0, 50.0, 50.0, 25.0, 0.0, 25.0, 0.0, 0.0, 50.0, 75.0, 25.0, 50.0, 0.0, 25.0, 0.0, 25.0, 25.0, 25.0, 25.0, 50.0, 0.0, 0.0, 100.0, 25.0, 75.0, 75.0, 75.0, 0.0, 0.0, 25.0, 0.0, 0.0, 75.0, 75.0, 0.0, 0.0, 75.0, 25.0, 0.0, 25.0, 25.0, 0.0, 0.0, 75.0, 75.0, 100.0], "borderColor": "#00f5d4", "backgroundColor": "transparent", "borderWidth": 2, "tension": 0.4, "cubicInterpolationMode": "monotone", "pointRadius": 0, "pointHitRadius": 10, "sourceId": "heise", "originalColor": "#00f5d4"}, {"label": "Energiewende", "data": [0.0, 25.0, 25.0, 50.0, 25.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 25.0, 0.0, 0.0, 0.0, 0.0, 25.0, 0.0, 25.0, 25.0, 0.0, 25.0, 25.0, 25.0, 0.0, 25.0, 0.0, 0.0, 25.0, 25.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 25.0, 25.0, 0.0, 25.0, 0.0, 0.0, 0.0, 0.0, 0.0, 50.0, 0.0, 0.0, 0.0, 0.0, 25.0, 0.0, 50.0, 25.0, 25.0, 25.0, 25.0, 75.0, 50.0], "borderColor": "#9333ea", "backgroundColor": "transparent", "borderWidth": 2, "tension": 0.4, "cubicInterpolationMode": "monotone", "pointRadius": 0, "pointHitRadius": 10, "sourceId": "heise", "originalColor": "#9333ea"}, {"label": "Umweltschutz", "data": [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 25.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 25.0, 0.0, 0.0, 0.0, 0.0, 25.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 25.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 25.0, 0.0, 0.0, 25.0, 0.0, 0.0, 0.0, 0.0, 25.0, 75.0], "borderColor": "#007aff", "backgroundColor": "transparent", "borderWidth": 2, "tension": 0.4, "cubicInterpolationMode": "monotone", "pointRadius": 0, "pointHitRadius": 10, "sourceId": "heise", "originalColor": "#007aff"}, {"label": "Arbeitswelt", "data": [0.0, 0.0, 50.0, 25.0, 0.0, 0.0, 0.0, 0.0, 25.0, 0.0, 0.0, 0.0, 25.0, 0.0, 0.0, 25.0, 0.0, 50.0, 0.0, 50.0, 0.0, 0.0, 0.0, 25.0, 25.0, 25.0, 0.0, 0.0, 0.0, 25.0, 0.0, 25.0, 0.0, 25.0, 0.0, 0.0, 0.0, 0.0, 25.0, 0.0, 0.0, 0.0, 25.0, 0.0, 25.0, 25.0, 0.0, 0.0, 0.0, 0.0, 0.0, 25.0, 0.0, 0.0, 0.0, 0.0, 0.0, 25.0, 25.0, 75.0], "borderColor": "#34d399", "backgroundColor": "transparent", "borderWidth": 2, "tension": 0.4, "cubicInterpolationMode": "monotone", "pointRadius": 0, "pointHitRadius": 10, "sourceId": "heise", "originalColor": "#34d399"}, {"label": "Steam", "data": [0.0, 0.0, 50.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 25.0, 25.0, 0.0, 25.0, 0.0, 0.0, 25.0, 25.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 50.0, 0.0, 0.0, 0.0, 0.0, 25.0, 0.0, 25.0, 0.0, 0.0, 25.0, 0.0, 0.0, 0.0, 25.0, 0.0, 0.0, 0.0, 0.0, 25.0, 0.0, 25.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 75.0, 50.0, 25.0], "borderColor": "#f43f5e", "backgroundColor": "transparent", "borderWidth": 2, "tension": 0.4, "cubicInterpolationMode": "monotone", "pointRadius": 0, "pointHitRadius": 10, "sourceId": "heise", "originalColor": "#f43f5e"}];
 
                 Chart.defaults.color = 'rgba(255, 255, 255, 0.7)';
                 Chart.defaults.font.family = '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif';
@@ -677,7 +687,7 @@
         <div class="article-card" onclick="toggleCard(this)">
             <div class="meta">Ollama AI • Top 10 (48h)</div>
             <div class="card-header">
-                <div class="title">Globale Entwicklungen in Technologie, Wirtschaft und Wissenschaft</div>
+                <div class="title">Aktuelle Entwicklungen in Technik, Recht und Wissenschaft</div>
                 <div class="relevance-container">
                     <svg width="44" height="44">
                         <circle stroke="rgba(255,255,255,0.08)" stroke-width="3" fill="transparent" r="19" cx="22" cy="22"/>
@@ -690,14 +700,384 @@
                     </div>
                 </div>
             </div>
-            <div class="summary" style="white-space: pre-wrap;">Die jüngsten Entwicklungen in der Technologiebranche sind von massiven Infrastrukturinvestitionen und gleichzeitig wachsendem Regulierungsdruck geprägt. Während das KI-Startup Reflection AI durch einen Milliardenvertrag die Nutzung des SpaceX-Rechenzentrums Colossus-2 sicherte, ersetzt Google den Assistant auf Smart-Displays durch Gemini, und AWS führt neue Sicherheitsdienste für KI-Agenten ein. Parallel dazu verstärkt sich der regulatorische Fokus: Verbraucherschutzminister fordern EU-weite Grenzen für die Handlungsfähigkeit von KI-Agenten bei Verträgen und Preisen, Norwegen hat generative KI in Grundschulen verbannt, und die EU-Institutionen haben eine Reform zur Bekämpfung des sexuellen Kindesmissbrauchs beschlossen, die insbesondere den Einsatz von Deepfakes und die Bezahlung von Live-Streams kriminalisiert. Im wirtschaftlichen Bereich führten Berichte über einen reduzierten Kapazitätsausbau bei SK Hynix zu deutlichen Kursverlusten im globalen Halbleitermarkt.
+            <div class="summary" style="white-space: pre-wrap;">Die EU-Institutionen haben eine Reform zur Bekämpfung von sexuellem Kindesmissbrauch vereinbart, die unter anderem die Nutzung von KI für Deepfakes und Sextortion kriminalisiert sowie die Verjährungsfristen verlängert. Parallel dazu verschärft sich der regulatorische Druck auf die digitale Wirtschaft: Während Cybersicherheitsbehörden wie das BSI vor den Risiken durch KI-gestützte Angriffe warnen, fordern Verbraucherschützer EU-weite Grenzen für KI-Agenten in der Preisgestaltung, und Norwegen hat generative KI in Grundschulen bereits untersagt. Im Bereich der Infrastruktur sichert sich das Startup Reflection AI ab Juli Zugang zum SpaceX-Rechenzentrum Colossus-2, während technologische Entwicklungen wie die neuen Modelle von OpenAI und ByteDance sowie Investitionen von Google in KI-Werkzeuge die Branche prägen.
 
-Auch der Energiesektor steht unter Beobachtung: Eine Novelle des deutschen Energieeffizienzgesetzes sorgt für Kontroversen, da die IT-Wirtschaft um die Wettbewerbsfähigkeit fürchtet, während Umweltverbände einen Rückschlag beim Klimaschutz aufgrund sinkender Transparenzpflichten befürchten. Im Gesundheitswesen setzen Unternehmen wie das australische Heidi auf KI zur automatisierten medizinischen Dokumentation und expandieren nach Deutschland, wobei der Fokus auf strengem Datenschutz liegt. In der Zahnmedizin ermöglicht ein neuer Miniatur-Robot der Universität Basel präzisere Behandlungen bei der Kronenpräparation, während Medizinrechtler gleichzeitig die zu technische Fokussierung des GeDIG-Gesetzes sowie den mangelnden barrierefreien Zugang zur elektronischen Patientenakte kritisieren.
-
-Die Weltraumforschung liefert zudem neue Erkenntnisse über die kosmische Geschichte: Das James Webb Teleskop deutet auf einen sehr alten Ursprung des Kometen 3I/ATLAS hin, der vor etwa 10 bis 12 Milliarden Jahren entstand. Zudem identifizierte eine US-Forschungsgruppe mit NGC 1052-DF9 eine dritte Galaxie ohne Dunkle Materie, was neue Fragen zur möglichen Trennung von sichtbarer und dunkler Materie bei galaktischen Kollisionen aufwirft.</div>
+Im Energiebereich sorgt die Novelle des deutschen Energieeffizienzgesetzes für Diskussionen, da die IT-Wirtschaft eine Gefährdung der Wettbewerbsfähigkeit durch übermäßige Regulierung befürchtet, während Umweltverbände einen Rückschritt beim Klimaschutz durch geringere Transparenzpflichten kritisieren. In der Astronomie liefern Daten des James Webb Weltraumteleskops neue Erkenntnisse über den sehr alten Ursprung des Kometen 3I/ATLAS sowie potenzielle Revisionen der Dunkle-Materie-Theorie am Beispiel des Bullet-Clusters. Die medizinische Entwicklung zeigt Fortschritte durch einen miniaturisierten intraoralen Roboter der Universität Basel zur präzisen Zahnbehandlung. Gleichzeitig steht die Digitalisierung des Gesundheitswesens in Deutschland vor einem Umbruch: Die elektronische Patientenakte (ePA) soll zu einer cloudbasierten Plattformarchitektur ausgebaut werden, wobei Fachverbände gleichzeitig vor mangelnder Barrierefreiheit und einer zu stark technische Fokussierung der Gesetzgebung warnen.</div>
         </div>
         
 
+        
+        <div class="article-card" onclick="toggleCard(this)">
+            
+            <div class="image-wrapper">
+                <img src="https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/5/1/0/5/7/3/0/Kroupa-Bullet-Cluster-72b9b074bc043fb8.jpg" class="article-image" alt="Vorschau" loading="lazy">
+            </div>
+            
+
+            <div class="meta">heise • news</div>
+
+            <div class="card-header">
+                <div class="title">Neue Analyse des Bullet-Clusters mittels JWST-Daten stellt Beweis für Dunkle Materie infrage</div>
+                <div class="relevance-container">
+                    <svg width="44" height="44">
+                        <circle stroke="rgba(255,255,255,0.08)" stroke-width="3" fill="transparent" r="19" cx="22" cy="22"/>
+                        <circle class="progress-ring__circle" stroke-width="3" stroke-dasharray="119.38" 
+                                stroke-dashoffset="5.383036104394151" 
+                                stroke-linecap="round" fill="transparent" r="19" cx="22" cy="22" transform="rotate(-90 22 22)"/>
+                    </svg>
+                    <div style="position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); font-size:11px; font-weight:800;">
+                        95
+                    </div>
+                </div>
+            </div>
+
+            <div class="summary">Eine internationale Forschungsgruppe um Pavel Kroupa hat auf Basis von Daten des James-Webb-Weltraumteleskops neue Erkenntnisse zum „Bullet-Cluster“ vorgelegt, die dessen Status als Beweis für Dunkle Materie infrage stellen. Durch eine präzisere Berechnung der Sternenmassen sowie die Berücksichtigung schwerer Elemente und kompakter Objekte wie Neutronensterne oder Schwarze Löcher könne der beobachtete Gravitationslinseneffekt im Rahmen der Modifizierten Newton'schen Dynamik (MOND) ohne Dunkle Materie erklärt werden, was zudem eine erhebliche Reduktion der angenommenen Menge an Dunkler Materie in diesem Cluster zur Folge hätte.</div>
+
+            <a href="https://www.heise.de/news/Astronomie-Galaxien-im-Bullet-Cluster-doch-kein-Beweis-fuer-Dunkle-Materie-11342754.html" class="source-button" target="_blank" onclick="event.stopPropagation()">
+                Vollständigen Artikel lesen
+            </a>
+        </div>
+        
+        <div class="article-card" onclick="toggleCard(this)">
+            
+            <div class="image-wrapper">
+                <img src="https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/5/1/0/5/6/4/0/erezeptenthu-29bb1c6f3e97b1e7.jpeg" class="article-image" alt="Vorschau" loading="lazy">
+            </div>
+            
+
+            <div class="meta">heise • news</div>
+
+            <div class="card-header">
+                <div class="title">Weiterentwicklung der elektronischen Patientenakte hin zu einer cloudbasierten Plattformarchitektur</div>
+                <div class="relevance-container">
+                    <svg width="44" height="44">
+                        <circle stroke="rgba(255,255,255,0.08)" stroke-width="3" fill="transparent" r="19" cx="22" cy="22"/>
+                        <circle class="progress-ring__circle" stroke-width="3" stroke-dasharray="119.38" 
+                                stroke-dashoffset="6.157896805708546" 
+                                stroke-linecap="round" fill="transparent" r="19" cx="22" cy="22" transform="rotate(-90 22 22)"/>
+                    </svg>
+                    <div style="position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); font-size:11px; font-weight:800;">
+                        94
+                    </div>
+                </div>
+            </div>
+
+            <div class="summary">Die Weiterentwicklung der elektronischen Patientenakte (ePA) in Deutschland zielt darauf ab, diese von einem Dokumentenspeicher zu einem digitalen Versorgungseinstiegspunkt mit strukturierten Gesundheitsdaten und Volltextsuche auszubauen; mit bereits 130 Millionen hochgeladenen Dokumenten wird bis 2030 ein Ziel von 20 Millionen aktiven Nutzern angestrebt. Technologisch ist ein Übergang der Telematikinfrastruktur von Konnektoren hin zu einer cloudbasierten Plattformarchitektur (TI 2.0) vorgesehen. Während Befürworter den Nutzen für Leistungserbringer sowie die KI-Kompatibilität betonen, warnen Kritiker vor dem Wettbewerb durch proprietäre Systeme, mangelndem Zugriff in der Notfallmedizin und fordern effizientere Identifizierungsverfahren.</div>
+
+            <a href="https://www.heise.de/news/Elektronische-Patientenakte-Zwischen-KI-Ambitionen-und-Kritik-am-Ausbautempo-11342575.html" class="source-button" target="_blank" onclick="event.stopPropagation()">
+                Vollständigen Artikel lesen
+            </a>
+        </div>
+        
+        <div class="article-card" onclick="toggleCard(this)">
+            
+            <div class="image-wrapper">
+                <img src="https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/5/1/0/5/8/7/2/Code-layers_overview-868f980d6fea8946.png" class="article-image" alt="Vorschau" loading="lazy">
+            </div>
+            
+
+            <div class="meta">heise • news</div>
+
+            <div class="card-header">
+                <div class="title">Figma präsentiert neue Funktionen zur Integration von Design, Programmierung und KI auf der Konferenz Config 2026</div>
+                <div class="relevance-container">
+                    <svg width="44" height="44">
+                        <circle stroke="rgba(255,255,255,0.08)" stroke-width="3" fill="transparent" r="19" cx="22" cy="22"/>
+                        <circle class="progress-ring__circle" stroke-width="3" stroke-dasharray="119.38" 
+                                stroke-dashoffset="24.51348259530019" 
+                                stroke-linecap="round" fill="transparent" r="19" cx="22" cy="22" transform="rotate(-90 22 22)"/>
+                    </svg>
+                    <div style="position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); font-size:11px; font-weight:800;">
+                        78
+                    </div>
+                </div>
+            </div>
+
+            <div class="summary">Auf der Konferenz Config 2026 stellte Figma neue Funktionen zur Integration von Design, Programmierung, Animation und KI in einer einheitlichen Arbeitsumgebung („Figma Canvas“) vor. Zu den Neuerungen gehören die direkte Bearbeitung von Programmcode auf der Designfläche sowie das Werkzeug „Figma Motion“ für KI- oder timelinebasierte Animationen und 3D-Szenen. Ergänzend werden der „Figma Agent“ zur Aufgabenautomatisierung in verschiedenen Figma-Produkten (u. a. FigJam und Slides) sowie die „Figma Weave Workflows“, eine Sammlung von über 20 KI-Werkzeugen für Prozesse wie Bildbearbeitung und 3D-Modellierung, schrittweise in den kommenden Wochen veröffentlicht.</div>
+
+            <a href="https://www.heise.de/news/Figma-KI-Werkzeuge-fuer-Design-Code-und-Zusammenarbeit-11343035.html" class="source-button" target="_blank" onclick="event.stopPropagation()">
+                Vollständigen Artikel lesen
+            </a>
+        </div>
+        
+        <div class="article-card" onclick="toggleCard(this)">
+            
+            <div class="image-wrapper">
+                <img src="https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/5/1/0/6/1/3/8/shutterstock_2602216357-c51411f7dcf1f356.jpg" class="article-image" alt="Vorschau" loading="lazy">
+            </div>
+            
+
+            <div class="meta">heise • news</div>
+
+            <div class="card-header">
+                <div class="title">Studie empfiehlt Begrenzung der Fahrzeugabmessungen zur Sicherung von Parkraum und Verkehrssicherheit</div>
+                <div class="relevance-container">
+                    <svg width="44" height="44">
+                        <circle stroke="rgba(255,255,255,0.08)" stroke-width="3" fill="transparent" r="19" cx="22" cy="22"/>
+                        <circle class="progress-ring__circle" stroke-width="3" stroke-dasharray="119.38" 
+                                stroke-dashoffset="15.885003322425817" 
+                                stroke-linecap="round" fill="transparent" r="19" cx="22" cy="22" transform="rotate(-90 22 22)"/>
+                    </svg>
+                    <div style="position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); font-size:11px; font-weight:800;">
+                        85
+                    </div>
+                </div>
+            </div>
+
+            <div class="summary">Eine Studie von Transport & Environment belegt die kontinuierliche Zunahme von Fahrzeugabmessungen, was bis 2040 zu einem erheblichen Verlust an urbanen Parkflächen sowie erhöhten Unfallrisiken für schwächere Verkehrsteilnehmer durch eingeschränkte Sicht führen könnte. Zur Vermeidung dieses Trends empfehlen die Autoren ein „Right-Sizing“ auf das Niveau der Jahre 2010–2015 mittels politischer Anreize zur Förderung kleinerer Fahrzeugsegmente (A und B). Erste regulatorische Ansätze gegen größere oder schwerere Fahrzeuge werden bereits in Paris und Zürich umgesetzt.</div>
+
+            <a href="https://www.heise.de/news/Autos-werden-laut-einer-aktuellen-Studie-im-Jahr-mehr-als-1-Zentimeter-laenger-11343562.html" class="source-button" target="_blank" onclick="event.stopPropagation()">
+                Vollständigen Artikel lesen
+            </a>
+        </div>
+        
+        <div class="article-card" onclick="toggleCard(this)">
+            
+            <div class="image-wrapper">
+                <img src="https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/5/1/0/6/0/5/1/shutterstock_1785708704-94fb9ef34ff92b0c.jpg" class="article-image" alt="Vorschau" loading="lazy">
+            </div>
+            
+
+            <div class="meta">heise • news</div>
+
+            <div class="card-header">
+                <div class="title">Alibaba verklagt US-Pentagon wegen Einstufung als militärnahes Unternehmen</div>
+                <div class="relevance-container">
+                    <svg width="44" height="44">
+                        <circle stroke="rgba(255,255,255,0.08)" stroke-width="3" fill="transparent" r="19" cx="22" cy="22"/>
+                        <circle class="progress-ring__circle" stroke-width="3" stroke-dasharray="119.38" 
+                                stroke-dashoffset="26.076187978811248" 
+                                stroke-linecap="round" fill="transparent" r="19" cx="22" cy="22" transform="rotate(-90 22 22)"/>
+                    </svg>
+                    <div style="position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); font-size:11px; font-weight:800;">
+                        76
+                    </div>
+                </div>
+            </div>
+
+            <div class="summary">Alibaba hat vor einem Bundesgericht in San José gegen seine Einstufung als militärnahes Unternehmen durch das US-Pentagon geklagt. Das Pentagon wirft Alibaba und weiteren 187 chinesischen Firmen eine Unterstützung der zivil-militärischen Integration vor, was das Unternehmen unter Verweis auf die Unabhängigkeit des Vorstands und rein kommerzielle Dienstleistungen zurückweist. Während unmittelbare Sanktionen ausbleiben, sieht Alibaba bereits irreversiblen Schaden; zudem wird dem Pentagon ab 2027 die Zusammenarbeit sowie der Erwerb von Produkten gelisteter Firmen untersagt sein.</div>
+
+            <a href="https://www.heise.de/news/Alibaba-verklagt-US-Regierung-11343388.html" class="source-button" target="_blank" onclick="event.stopPropagation()">
+                Vollständigen Artikel lesen
+            </a>
+        </div>
+        
+        <div class="article-card" onclick="toggleCard(this)">
+            
+            <div class="image-wrapper">
+                <img src="https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/5/1/0/6/0/5/6/shutterstock_2395422665-5cdeac3f7607fd4f.jpg" class="article-image" alt="Vorschau" loading="lazy">
+            </div>
+            
+
+            <div class="meta">heise • news</div>
+
+            <div class="card-header">
+                <div class="title">Microsoft-Ausgaben der Bundesverwaltung zwischen 2017 und 2025 auf über 1,9 Milliarden Euro beziffert</div>
+                <div class="relevance-container">
+                    <svg width="44" height="44">
+                        <circle stroke="rgba(255,255,255,0.08)" stroke-width="3" fill="transparent" r="19" cx="22" cy="22"/>
+                        <circle class="progress-ring__circle" stroke-width="3" stroke-dasharray="119.38" 
+                                stroke-dashoffset="22.27323212802162" 
+                                stroke-linecap="round" fill="transparent" r="19" cx="22" cy="22" transform="rotate(-90 22 22)"/>
+                    </svg>
+                    <div style="position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); font-size:11px; font-weight:800;">
+                        80
+                    </div>
+                </div>
+            </div>
+
+            <div class="summary">Eine neue Berechnung der Microsoft-Ausgaben der Bundesverwaltung beläuft sich unter Einbeziehung der mittelbaren Verwaltung und Zuwendungsempfänger zwischen 2017 und 2025 auf über 1,9 Milliarden Euro, statt der bisher bekannten 1,3 Milliarden Euro (für den Zeitraum 2017–2024). Für das Jahr 2025 werden Kosten von über 481 Millionen Euro prognostiziert, nachdem im Jahr 2022 netto rund 211 Millionen Euro angefallen waren. Angesichts der wachsenden Abhängigkeit und möglicher Sicherheitsrisiken fordern politische Akteure sowie die Open Source Business Alliance verstärkt europäische Lösungen, wenngleich die Nutzung bundeseigener Alternativen wie OpenDesk bislang weitgehend auf Nischen beschränkt bleibt. Zur Kontrolle von IT-Großprojekten hat das Bundesministerium für Digitales und Staatsmodernisierung einen Zustimmungsvorbehalt für wesentliche Beschaffungen etabliert.</div>
+
+            <a href="https://www.heise.de/news/Bund-in-der-Abhaengigkeitsfalle-Kostenexplosion-bei-Microsoft-Lizenzen-11343398.html" class="source-button" target="_blank" onclick="event.stopPropagation()">
+                Vollständigen Artikel lesen
+            </a>
+        </div>
+        
+        <div class="article-card" onclick="toggleCard(this)">
+            
+            <div class="image-wrapper">
+                <img src="https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/5/1/0/5/8/6/8/shutterstock_2450169659-cccf5475dd86e851.jpg" class="article-image" alt="Vorschau" loading="lazy">
+            </div>
+            
+
+            <div class="meta">heise • news</div>
+
+            <div class="card-header">
+                <div class="title">Mistral AI stellt Modell OCR 4 zur strukturierten Dokumentenerkennung vor</div>
+                <div class="relevance-container">
+                    <svg width="44" height="44">
+                        <circle stroke="rgba(255,255,255,0.08)" stroke-width="3" fill="transparent" r="19" cx="22" cy="22"/>
+                        <circle class="progress-ring__circle" stroke-width="3" stroke-dasharray="119.38" 
+                                stroke-dashoffset="26.378827306368734" 
+                                stroke-linecap="round" fill="transparent" r="19" cx="22" cy="22" transform="rotate(-90 22 22)"/>
+                    </svg>
+                    <div style="position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); font-size:11px; font-weight:800;">
+                        76
+                    </div>
+                </div>
+            </div>
+
+            <div class="summary">Mistral AI hat mit OCR 4 ein Dokumentenerkennungsmodell vorgestellt, das neben der Textextraktion auch Inhalte strukturiert (Bounding Boxes, Klassifizierung von Elementen wie Tabellen oder Überschriften sowie Confidence Scores). Das Modell ermöglicht semantisches Chunking für Enterprise Search, RAG-Pipelines und agentische Workflows. OCR 4 unterstützt 170 Sprachen, bietet Self-Hosting zur Datensouveränität an und verarbeitet Formate wie PDF, DOC, PPT sowie OpenDocument. Nach Angaben von Mistral erreichte das System Spitzenwerte in Benchmarks wie OlmOCRBench (85,20) und OmniDocBench (93,07). Die API-Nutzung ist für reine Extraktion ($4/1000 Seiten; Batch $2) sowie mit Document-AI-Funktionen zur strukturierten Ausgabe ($5/1000 Seiten) über Mistral Studio, Amazon SageMaker und Microsoft Foundry verfügbar.</div>
+
+            <a href="https://www.heise.de/news/Dokumente-verstehen-statt-nur-lesen-Mistral-OCR-4-ist-da-11343027.html" class="source-button" target="_blank" onclick="event.stopPropagation()">
+                Vollständigen Artikel lesen
+            </a>
+        </div>
+        
+        <div class="article-card" onclick="toggleCard(this)">
+            
+            <div class="image-wrapper">
+                <img src="https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/5/1/0/6/0/0/9/STmicroelectronics-ST54M-16-9-a6a04b5ccdc5a4de.jpg" class="article-image" alt="Vorschau" loading="lazy">
+            </div>
+            
+
+            <div class="meta">heise • news</div>
+
+            <div class="card-header">
+                <div class="title">STMicroelectronics stellt NFC-Controller mit Post-Quanten-Kryptografie vor</div>
+                <div class="relevance-container">
+                    <svg width="44" height="44">
+                        <circle stroke="rgba(255,255,255,0.08)" stroke-width="3" fill="transparent" r="19" cx="22" cy="22"/>
+                        <circle class="progress-ring__circle" stroke-width="3" stroke-dasharray="119.38" 
+                                stroke-dashoffset="40.04443089959349" 
+                                stroke-linecap="round" fill="transparent" r="19" cx="22" cy="22" transform="rotate(-90 22 22)"/>
+                    </svg>
+                    <div style="position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); font-size:11px; font-weight:800;">
+                        64
+                    </div>
+                </div>
+            </div>
+
+            <div class="summary">STMicroelectronics hat den ST54M angekündigt, einen NFC-Controller mit integriertem Secure Element für Mobilgeräte, der quantensichere Kryptografie (PQC) mittels der NIST-standardisierten Algorithmen ML-KEM (FIPS-203) und ML-DSA (FIPS-204) ermöglicht. Der Chip mit ARM Cortex-M35P-Kern sowie SHA-3-Rechenwerken ist für Anwendungen wie eSIMs und die sichere UWB-Kommunikation (z. B. digitale Schlüssel) vorgesehen und liegt in einem Gehäuse von weniger als 4 mm Kantenlänge vor.</div>
+
+            <a href="https://www.heise.de/news/Quantensicherer-NFC-und-eSIM-Chip-fuer-Smartphones-und-Smartwatches-11343305.html" class="source-button" target="_blank" onclick="event.stopPropagation()">
+                Vollständigen Artikel lesen
+            </a>
+        </div>
+        
+        <div class="article-card" onclick="toggleCard(this)">
+            
+            <div class="image-wrapper">
+                <img src="https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/5/1/0/5/9/2/5/hp-92ff903254d9d710.jpg" class="article-image" alt="Vorschau" loading="lazy">
+            </div>
+            
+
+            <div class="meta">heise • news</div>
+
+            <div class="card-header">
+                <div class="title">DHL setzt ab nächstem Jahr windbetriebene Trimarane für Frachttransporte zwischen Caen-Ouistreham und New Haven ein</div>
+                <div class="relevance-container">
+                    <svg width="44" height="44">
+                        <circle stroke="rgba(255,255,255,0.08)" stroke-width="3" fill="transparent" r="19" cx="22" cy="22"/>
+                        <circle class="progress-ring__circle" stroke-width="3" stroke-dasharray="119.38" 
+                                stroke-dashoffset="17.3718401559709" 
+                                stroke-linecap="round" fill="transparent" r="19" cx="22" cy="22" transform="rotate(-90 22 22)"/>
+                    </svg>
+                    <div style="position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); font-size:11px; font-weight:800;">
+                        84
+                    </div>
+                </div>
+            </div>
+
+            <div class="summary">Ab dem kommenden Jahr nutzt DHL für den Frachttransport zwischen Caen-Ouistreham und New Haven windbetriebene Trimarane der Reederei Vela, um durch eine etwa 15-tägige Überfahrt mit einer Kapazität von 415 Tonnen bzw. 600 Europaletten die Kohlendioxidemissionen zu senken.</div>
+
+            <a href="https://www.heise.de/news/DHL-laesst-Fracht-ueber-den-Atlantik-segeln-11343137.html" class="source-button" target="_blank" onclick="event.stopPropagation()">
+                Vollständigen Artikel lesen
+            </a>
+        </div>
+        
+        <div class="article-card" onclick="toggleCard(this)">
+            
+            <div class="image-wrapper">
+                <img src="https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/5/1/0/5/8/8/1/shutterstock_1862056645-e0d310c1a6546d60.jpg" class="article-image" alt="Vorschau" loading="lazy">
+            </div>
+            
+
+            <div class="meta">heise • news</div>
+
+            <div class="card-header">
+                <div class="title">Expertenkommission legt Handlungsempfehlungen zum digitalen Kinder- und Jugendschutz vor</div>
+                <div class="relevance-container">
+                    <svg width="44" height="44">
+                        <circle stroke="rgba(255,255,255,0.08)" stroke-width="3" fill="transparent" r="19" cx="22" cy="22"/>
+                        <circle class="progress-ring__circle" stroke-width="3" stroke-dasharray="119.38" 
+                                stroke-dashoffset="7.038626459593573" 
+                                stroke-linecap="round" fill="transparent" r="19" cx="22" cy="22" transform="rotate(-90 22 22)"/>
+                    </svg>
+                    <div style="position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); font-size:11px; font-weight:800;">
+                        93
+                    </div>
+                </div>
+            </div>
+
+            <div class="summary">Die Expertenkommission „Kinder- und Jugendschutz in der digitalen Welt“ hat der Bundesregierung 56 Handlungsempfehlungen vorgelegt, die unter anderem eine altersgerechte Gestaltung digitaler Dienste („Safety by Design“), eine Altersgrenze von 13 Jahren für KI-Begleiter sowie die Ablehnung biometrischer Altersverifikationsverfahren aus Datenschutzgründen fordern. Des Weiteren werden die Integration der ICD-11-Diagnosestandards zur Mediensucht und die rechtliche Verankerung von „digitaler Vernachlässigung“ im BGB empfohlen. Die zuständige Bundespolitik unterstützt das Vorhaben, verstärkt auf nationaler und europäischer Ebene zu regulieren.</div>
+
+            <a href="https://www.heise.de/news/Mehr-als-Mindestalter-Was-die-Prien-Kommission-empfiehlt-11343053.html" class="source-button" target="_blank" onclick="event.stopPropagation()">
+                Vollständigen Artikel lesen
+            </a>
+        </div>
+        
+        <div class="article-card" onclick="toggleCard(this)">
+            
+            <div class="image-wrapper">
+                <img src="https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/5/1/0/5/5/3/4/heise_Podcasts_KIUpdate_ho_16_9-794748bc52f173fd.jpg" class="article-image" alt="Vorschau" loading="lazy">
+            </div>
+            
+
+            <div class="meta">heise • news</div>
+
+            <div class="card-header">
+                <div class="title">Entwicklungen in der KI-Technologie, Cybersicherheit und Digitalwirtschaft</div>
+                <div class="relevance-container">
+                    <svg width="44" height="44">
+                        <circle stroke="rgba(255,255,255,0.08)" stroke-width="3" fill="transparent" r="19" cx="22" cy="22"/>
+                        <circle class="progress-ring__circle" stroke-width="3" stroke-dasharray="119.38" 
+                                stroke-dashoffset="4.785493479613834" 
+                                stroke-linecap="round" fill="transparent" r="19" cx="22" cy="22" transform="rotate(-90 22 22)"/>
+                    </svg>
+                    <div style="position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); font-size:11px; font-weight:800;">
+                        95
+                    </div>
+                </div>
+            </div>
+
+            <div class="summary">Die Cybersicherheitsbehörden der „Five Eyes“ und des BSI warnen vor steigenden Risiken durch KI-gestützte Cyberangriffe, während das deutsche Bundeskabinett die Effizienznachweise für Rechenzentren lockern will. Im Bereich der Modellentwicklung führen OpenAI mit GPT-5.5-Cyber Sicherheitsupdates und ByteDance mit Seedance 2.5 ein neues Videomodell ein. Politisch fordert die Grüne Landespartei in NRW das Ende von Verträgen mit Palantir, während Meta das Tracking von Mitarbeiterdaten für KI-Training nach Datenschutzbedenken einstellte. Wirtschaftlich nutzt Bain & Company „Vibecoding“ zur Softwareprüfung bei Firmenübernahmen, Getty Images lizenzierte Bildanzeigen für ChatGPT und Google investierte 75 Millionen US-Dollar in das Studio A24 für KI-Werkzeuge. Meta stellte zudem eine neue, preisgünstigere Serie von KI-Brillen vor.</div>
+
+            <a href="https://www.heise.de/news/KI-Update-kompakt-Five-Eyes-Warnung-GPT-5-5-Cyber-Vibecoding-Filmbranche-11342366.html" class="source-button" target="_blank" onclick="event.stopPropagation()">
+                Vollständigen Artikel lesen
+            </a>
+        </div>
+        
+        <div class="article-card" onclick="toggleCard(this)">
+            
+            <div class="image-wrapper">
+                <img src="https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/5/1/0/5/8/0/0/generated-image-1__4_-caf9ed29e8b7290f.png" class="article-image" alt="Vorschau" loading="lazy">
+            </div>
+            
+
+            <div class="meta">heise • news</div>
+
+            <div class="card-header">
+                <div class="title">GitLab-Bericht: KI steigert individuelle Produktivität in der Softwareentwicklung bei gleichzeitigem Anstieg technischer Risiken</div>
+                <div class="relevance-container">
+                    <svg width="44" height="44">
+                        <circle stroke="rgba(255,255,255,0.08)" stroke-width="3" fill="transparent" r="19" cx="22" cy="22"/>
+                        <circle class="progress-ring__circle" stroke-width="3" stroke-dasharray="119.38" 
+                                stroke-dashoffset="20.707167223897514" 
+                                stroke-linecap="round" fill="transparent" r="19" cx="22" cy="22" transform="rotate(-90 22 22)"/>
+                    </svg>
+                    <div style="position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); font-size:11px; font-weight:800;">
+                        81
+                    </div>
+                </div>
+            </div>
+
+            <div class="summary">Der GitLab AI Accountability Report zeigt, dass KI-gestützte Softwareentwicklung zwar die individuelle Produktivität, den Output und die Codequalität steigert, die Geschwindigkeit des gesamten Lieferprozesses jedoch kaum erhöht. Mit der Verschiebung des Fokus von der Programmierung hin zur Validierung von KI-Output steigen die Risiken durch technische Schulden, mangelnde Wartbarkeit und unklare Verantwortlichkeiten bei der Herkunft von Code. Infolgedessen planen 91 Prozent der befragten Unternehmen die Einführung von Tools für die KI-Code-Governance.</div>
+
+            <a href="https://www.heise.de/news/GitLab-Umfrage-KI-beschleunigtes-Coding-erzeugt-Sicherheitsprobleme-11342894.html" class="source-button" target="_blank" onclick="event.stopPropagation()">
+                Vollständigen Artikel lesen
+            </a>
+        </div>
         
         <div class="article-card" onclick="toggleCard(this)">
             
@@ -1873,378 +2253,6 @@ Die Weltraumforschung liefert zudem neue Erkenntnisse über die kosmische Geschi
             <div class="summary">Ab September liefert BenQ voraussichtlich den Creative Pro PV3250U aus, einen 31,5-Zoll-Monitor mit 4K-Auflösung, 120 Hz und einem kontraststarken IPS-Panel (3000:1). Das vorkalibrierte Display bietet eine Farbgenauigkeit von Delta E < 1 (100 % sRGB, 99 % DCI-P3) bei bis zu 600 cd/m². Die Ausstattung umfasst DisplayPort 1.4, HDMI 2.1 und Thunderbolt 4 mit 96W Power Delivery sowie Daisy Chaining und einen USB-Hub (10 Gbit/s). Zusätzliche Funktionen sind Rahmen-Overlays, „Shadow Check“ sowie ein externer Controller; der Preis ist noch nicht offiziell bekannt, wird aber im Bereich von 1000 Euro erwartet.</div>
 
             <a href="https://www.heise.de/news/BenQ-Creative-Pro-PV3250U-Kontraststarker-Profi-Monitor-mit-hoher-Farbtreue-11341542.html" class="source-button" target="_blank" onclick="event.stopPropagation()">
-                Vollständigen Artikel lesen
-            </a>
-        </div>
-        
-        <div class="article-card" onclick="toggleCard(this)">
-            
-            <div class="image-wrapper">
-                <img src="https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/5/1/0/5/0/9/3/hp-c7d86eb1d6e44109.jpg" class="article-image" alt="Vorschau" loading="lazy">
-            </div>
-            
-
-            <div class="meta">heise • news</div>
-
-            <div class="card-header">
-                <div class="title">Bau der Fehmarnbelt-Querung verzögert sich voraussichtlich um zwei Jahre</div>
-                <div class="relevance-container">
-                    <svg width="44" height="44">
-                        <circle stroke="rgba(255,255,255,0.08)" stroke-width="3" fill="transparent" r="19" cx="22" cy="22"/>
-                        <circle class="progress-ring__circle" stroke-width="3" stroke-dasharray="119.38" 
-                                stroke-dashoffset="30.266246465896472" 
-                                stroke-linecap="round" fill="transparent" r="19" cx="22" cy="22" transform="rotate(-90 22 22)"/>
-                    </svg>
-                    <div style="position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); font-size:11px; font-weight:800;">
-                        73
-                    </div>
-                </div>
-            </div>
-
-            <div class="summary">Der Bau der Fehmarnbelt-Querung verzögert sich auf deutscher und dänischer Seite, wodurch die ursprüngliche Fertigstellung für 2029 voraussichtlich um zwei Jahre nach hinten rückt. Die Inbetriebnahme erfolgt in Etappen: Zuerst wird der Straßenteil eröffnet, während die Schienenverbindung erst mit der Fertigstellung des deutschen Fehmarnsund-Tunnels gegen Ende 2032 einsatzbereit sein wird. Das Projekt zur Fahrtzeitverkürzung zwischen Hamburg und Kopenhagen um zwei Stunden ist Teil eines transeuropäischen Korridors; das erste Tunnelelement wurde bereits versenkt, für das zweite Segment ist ein passendes Wetterfenster erforderlich.</div>
-
-            <a href="https://www.heise.de/news/Der-Fehmarnbelt-Tunnel-ist-hinter-dem-Plan-Klarheit-im-Herbst-11341494.html" class="source-button" target="_blank" onclick="event.stopPropagation()">
-                Vollständigen Artikel lesen
-            </a>
-        </div>
-        
-        <div class="article-card" onclick="toggleCard(this)">
-            
-            <div class="image-wrapper">
-                <img src="https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/5/1/0/5/0/4/3/generated-image-1_3_-2499c0a00db78d6d.png" class="article-image" alt="Vorschau" loading="lazy">
-            </div>
-            
-
-            <div class="meta">heise • news</div>
-
-            <div class="card-header">
-                <div class="title">OpenAI stellt Sicherheitsinitiative Daybreak und Modell-Update GPT-5.5-Cyber vor</div>
-                <div class="relevance-container">
-                    <svg width="44" height="44">
-                        <circle stroke="rgba(255,255,255,0.08)" stroke-width="3" fill="transparent" r="19" cx="22" cy="22"/>
-                        <circle class="progress-ring__circle" stroke-width="3" stroke-dasharray="119.38" 
-                                stroke-dashoffset="23.628732964260593" 
-                                stroke-linecap="round" fill="transparent" r="19" cx="22" cy="22" transform="rotate(-90 22 22)"/>
-                    </svg>
-                    <div style="position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); font-size:11px; font-weight:800;">
-                        79
-                    </div>
-                </div>
-            </div>
-
-            <div class="summary">OpenAI hat die Sicherheitsinitiative „Daybreak“ gestartet, die ein Update für das auf das Finden und Beheben von Sicherheitslücken spezialisierte Modell GPT-5.5-Cyber sowie ein Security-Plugin für Codex Desktop/CLI umfasst. Im Rahmen des Programms „Patch the Planet“, in Kooperation mit Trail of Bits, können sich Open-Source-Projekte um Code-Audits und Patches bewerben, während der Zugriff auf das neue Modell vorerst registrierten Partnern vorbehalten bleibt.</div>
-
-            <a href="https://www.heise.de/news/GPT-5-5-Cyber-schlaegt-Mythos-Update-fuer-Sicherheitsmodell-von-OpenAI-11341394.html" class="source-button" target="_blank" onclick="event.stopPropagation()">
-                Vollständigen Artikel lesen
-            </a>
-        </div>
-        
-        <div class="article-card" onclick="toggleCard(this)">
-            
-            <div class="image-wrapper">
-                <img src="https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/5/1/0/5/0/5/9/shutterstock_1739408351-55b8a1fbeec9a790.jpg" class="article-image" alt="Vorschau" loading="lazy">
-            </div>
-            
-
-            <div class="meta">heise • news</div>
-
-            <div class="card-header">
-                <div class="title">iOS 27 und iPadOS 27 führen manuellen Wiederherstellungsmodus ein</div>
-                <div class="relevance-container">
-                    <svg width="44" height="44">
-                        <circle stroke="rgba(255,255,255,0.08)" stroke-width="3" fill="transparent" r="19" cx="22" cy="22"/>
-                        <circle class="progress-ring__circle" stroke-width="3" stroke-dasharray="119.38" 
-                                stroke-dashoffset="39.0666583458042" 
-                                stroke-linecap="round" fill="transparent" r="19" cx="22" cy="22" transform="rotate(-90 22 22)"/>
-                    </svg>
-                    <div style="position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); font-size:11px; font-weight:800;">
-                        65
-                    </div>
-                </div>
-            </div>
-
-            <div class="summary">Mit iOS 27 und iPadOS 27 wird ein manuell über die Einschalttaste aktivierbarer Wiederherstellungsmodus eingeführt, der fünf Optionen umfasst: manuelle Aktivierung des Wiederherstellungsassistenten, Softwareupdates ohne vollständigen Bootvorgang, Diagnosemodus, Löschfunktion sowie das Zurücksetzen über einen angeschlossenen Computer. Trotz fehlender Mac-spezifischer Werkzeuge wie Terminal oder Festplattendienstprogramm dient der Modus der Fehlerbehebung und Systemaktualisierung; die Veröffentlichung ist für September vorgesehen.</div>
-
-            <a href="https://www.heise.de/news/Gegen-iPhone-Bricking-Verbesserter-iOS-27-Recovery-Modus-soll-helfen-11341426.html" class="source-button" target="_blank" onclick="event.stopPropagation()">
-                Vollständigen Artikel lesen
-            </a>
-        </div>
-        
-        <div class="article-card" onclick="toggleCard(this)">
-            
-            <div class="image-wrapper">
-                <img src="https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/5/1/0/5/0/6/5/the-smarter-e-europe-2026-3-2de9a22f395a5fe5.jpg" class="article-image" alt="Vorschau" loading="lazy">
-            </div>
-            
-
-            <div class="meta">heise • news</div>
-
-            <div class="card-header">
-                <div class="title">BSW meldet steigenden Anteil der Photovoltaik am deutschen Strommix bei rückläufigem Aufdach-Ausbau</div>
-                <div class="relevance-container">
-                    <svg width="44" height="44">
-                        <circle stroke="rgba(255,255,255,0.08)" stroke-width="3" fill="transparent" r="19" cx="22" cy="22"/>
-                        <circle class="progress-ring__circle" stroke-width="3" stroke-dasharray="119.38" 
-                                stroke-dashoffset="10.77096902246555" 
-                                stroke-linecap="round" fill="transparent" r="19" cx="22" cy="22" transform="rotate(-90 22 22)"/>
-                    </svg>
-                    <div style="position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); font-size:11px; font-weight:800;">
-                        90
-                    </div>
-                </div>
-            </div>
-
-            <div class="summary">Der Bundesverband Solarwirtschaft (BSW) meldet zur Intersolar eine gemischte Entwicklung: Während die deutsche Photovoltaik 2025 mit etwa 19 % am Strommix zum zweitwichtigsten Erzeuger wurde und Deutschland global auf Rang vier vorrückte, verlangsamt sich der Zubau in den ersten fünf Monaten 2026. Trotz Zuwächsen bei Freiflächenanlagen (36 %) und Batteriespeichern (70 %), primär durch Großspeicher, sanken die Kapazitäten im Aufdach-Segment beim Gewerbe (-30 %) und Privatbereich (-12 %). Der BSW warnt zudem, dass regulatorische Unsicherheiten durch EEG-Novellen, langsame Netzanschlüsse sowie das „Netzpaket“ die Realisierung geplanter Ausbauziele gefährden könnten.</div>
-
-            <a href="https://www.heise.de/news/Intersolar-Start-mit-gemischten-Signalen-PV-Branche-zwischen-Boom-und-Bremse-11341438.html" class="source-button" target="_blank" onclick="event.stopPropagation()">
-                Vollständigen Artikel lesen
-            </a>
-        </div>
-        
-        <div class="article-card" onclick="toggleCard(this)">
-            
-            <div class="image-wrapper">
-                <img src="https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/5/1/0/4/9/7/2/noirlab2532a-e5e326fe1e2b0918.jpg" class="article-image" alt="Vorschau" loading="lazy">
-            </div>
-            
-
-            <div class="meta">heise • news</div>
-
-            <div class="card-header">
-                <div class="title">Webb-Teleskop deutet auf Entstehung des Kometen 3I/ATLAS vor etwa 10 bis 12 Milliarden Jahren hin</div>
-                <div class="relevance-container">
-                    <svg width="44" height="44">
-                        <circle stroke="rgba(255,255,255,0.08)" stroke-width="3" fill="transparent" r="19" cx="22" cy="22"/>
-                        <circle class="progress-ring__circle" stroke-width="3" stroke-dasharray="119.38" 
-                                stroke-dashoffset="4.796916639275636" 
-                                stroke-linecap="round" fill="transparent" r="19" cx="22" cy="22" transform="rotate(-90 22 22)"/>
-                    </svg>
-                    <div style="position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); font-size:11px; font-weight:800;">
-                        95
-                    </div>
-                </div>
-            </div>
-
-            <div class="summary">Untersuchungen des James Webb Weltraumteleskops deuten darauf hin, dass der interstellare Komet 3I/ATLAS vor etwa 10 bis 12 Milliarden Jahren in einem sehr kalten Sternsystem während der „kosmischen Mittagsstunde“ entstand. Ein im Vergleich zu Kometen unseres Sonnensystems 30-mal höherer Deuteriumgehalt sowie die Kohlenstoff-Isotopenverhältnisse belegen einen deutlich älteren Ursprung als bisher angenommen, vermutlich in den Randbereichen der Milchstraße.</div>
-
-            <a href="https://www.heise.de/news/3I-ATLAS-Interstellarer-Komet-ist-wohl-sogar-10-bis-12-Milliarden-Jahre-alt-11341252.html" class="source-button" target="_blank" onclick="event.stopPropagation()">
-                Vollständigen Artikel lesen
-            </a>
-        </div>
-        
-        <div class="article-card" onclick="toggleCard(this)">
-            
-            <div class="image-wrapper">
-                <img src="https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/5/1/0/4/4/5/5/series11-39bca238a36e32b8.jpg" class="article-image" alt="Vorschau" loading="lazy">
-            </div>
-            
-
-            <div class="meta">heise • news</div>
-
-            <div class="card-header">
-                <div class="title">Globaler Smartwatch-Markt wächst im ersten Quartal um 4 Prozent; Apple führt, Samsung verzeichnet Rückgang</div>
-                <div class="relevance-container">
-                    <svg width="44" height="44">
-                        <circle stroke="rgba(255,255,255,0.08)" stroke-width="3" fill="transparent" r="19" cx="22" cy="22"/>
-                        <circle class="progress-ring__circle" stroke-width="3" stroke-dasharray="119.38" 
-                                stroke-dashoffset="21.670494897248588" 
-                                stroke-linecap="round" fill="transparent" r="19" cx="22" cy="22" transform="rotate(-90 22 22)"/>
-                    </svg>
-                    <div style="position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); font-size:11px; font-weight:800;">
-                        80
-                    </div>
-                </div>
-            </div>
-
-            <div class="summary">Laut Counterpoint wuchs der globale Smartwatch-Markt im ersten Quartal um 4 %, wobei Apple mit einem Absatzplus von 21 % und einem Marktanteil von 23 % führend bleibt, getrieben durch Modelle wie die SE 3 sowie verbesserte Gesundheitsfunktionen. Während Huawei (17 % Marktanteil, +12 %) und Xiaomi (10 % Marktanteil, +9 %) von chinesischen Elektroniksubventionen profitierten, verzeichnete Samsung einen Rückgang der Auslieferungen um 28 % auf einen Marktanteil von 5 %.</div>
-
-            <a href="https://www.heise.de/news/Counterpoint-Apple-dominiert-weiterhin-des-Smart-Watch-Markt-11340225.html" class="source-button" target="_blank" onclick="event.stopPropagation()">
-                Vollständigen Artikel lesen
-            </a>
-        </div>
-        
-        <div class="article-card" onclick="toggleCard(this)">
-            
-            <div class="image-wrapper">
-                <img src="https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/5/1/0/5/0/0/0/Hitze-4598d0628b6eb9ee.jpg" class="article-image" alt="Vorschau" loading="lazy">
-            </div>
-            
-
-            <div class="meta">heise • news</div>
-
-            <div class="card-header">
-                <div class="title">Lieferengpässe bei Midea Portasplit und Zunahme von Betrugsmaschen durch vermeintliche Mini-Klimaanlagen</div>
-                <div class="relevance-container">
-                    <svg width="44" height="44">
-                        <circle stroke="rgba(255,255,255,0.08)" stroke-width="3" fill="transparent" r="19" cx="22" cy="22"/>
-                        <circle class="progress-ring__circle" stroke-width="3" stroke-dasharray="119.38" 
-                                stroke-dashoffset="40.73975330639671" 
-                                stroke-linecap="round" fill="transparent" r="19" cx="22" cy="22" transform="rotate(-90 22 22)"/>
-                    </svg>
-                    <div style="position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); font-size:11px; font-weight:800;">
-                        63
-                    </div>
-                </div>
-            </div>
-
-            <div class="summary">Aufgrund einer Hitzewelle im Juni 2026 ist das Klimagerät Midea Portasplit in Deutschland nahezu überall ausverkauft, was zu leeren Beständen bei Online-Händlern und Baumärkten sowie zu überteuerten Reseller-Angeboten führt. Parallel dazu verbreiten sich Betrugsmaschen mit als „Mini-Klimaanlagen“ getarnten Akku-Ventilatoren.</div>
-
-            <a href="https://www.heise.de/news/Hitzewelle-in-Deutschland-Wo-bekommt-man-noch-eine-Midea-Portasplit-11341308.html" class="source-button" target="_blank" onclick="event.stopPropagation()">
-                Vollständigen Artikel lesen
-            </a>
-        </div>
-        
-        <div class="article-card" onclick="toggleCard(this)">
-            
-            <div class="image-wrapper">
-                <img src="https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/5/1/0/4/4/9/8/shutterstock_2210496609-3b9dcac568d67b88.jpg" class="article-image" alt="Vorschau" loading="lazy">
-            </div>
-            
-
-            <div class="meta">heise • news</div>
-
-            <div class="card-header">
-                <div class="title">macOS führt Warnung vor verdächtiger Einfügeaktivität im Terminal ein</div>
-                <div class="relevance-container">
-                    <svg width="44" height="44">
-                        <circle stroke="rgba(255,255,255,0.08)" stroke-width="3" fill="transparent" r="19" cx="22" cy="22"/>
-                        <circle class="progress-ring__circle" stroke-width="3" stroke-dasharray="119.38" 
-                                stroke-dashoffset="33.658042492986624" 
-                                stroke-linecap="round" fill="transparent" r="19" cx="22" cy="22" transform="rotate(-90 22 22)"/>
-                    </svg>
-                    <div style="position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); font-size:11px; font-weight:800;">
-                        70
-                    </div>
-                </div>
-            </div>
-
-            <div class="summary">macOS warnt nun vor verdächtiger Einfügeaktivität im Terminal, um ClickFix-Angriffe durch das Kopieren schädlicher Befehle aus externen Quellen zu verhindern. Während die Warnung bei unbekannten Inhalten manuell übersteuerbar bleibt, werden bereits als Malware identifizierte Skripte und Befehlsketten systemseitig blockiert.</div>
-
-            <a href="https://www.heise.de/news/Neuer-Terminalschutz-So-will-Apple-ClickFix-Angriffen-abwehren-11340313.html" class="source-button" target="_blank" onclick="event.stopPropagation()">
-                Vollständigen Artikel lesen
-            </a>
-        </div>
-        
-        <div class="article-card" onclick="toggleCard(this)">
-            
-            <div class="image-wrapper">
-                <img src="https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/5/1/0/4/9/6/0/honor-x80-pro-max-60a15bcf344b7810.jpg" class="article-image" alt="Vorschau" loading="lazy">
-            </div>
-            
-
-            <div class="meta">heise • news</div>
-
-            <div class="card-header">
-                <div class="title">Honor stellt X80 Pro Max mit 11.000-mAh-Akku in China vor</div>
-                <div class="relevance-container">
-                    <svg width="44" height="44">
-                        <circle stroke="rgba(255,255,255,0.08)" stroke-width="3" fill="transparent" r="19" cx="22" cy="22"/>
-                        <circle class="progress-ring__circle" stroke-width="3" stroke-dasharray="119.38" 
-                                stroke-dashoffset="30.302463978301844" 
-                                stroke-linecap="round" fill="transparent" r="19" cx="22" cy="22" transform="rotate(-90 22 22)"/>
-                    </svg>
-                    <div style="position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); font-size:11px; font-weight:800;">
-                        73
-                    </div>
-                </div>
-            </div>
-
-            <div class="summary">Das in China vorgestellte Honor X80 Pro Max verfügt über einen 11.000-mAh-Akku mit 90-Watt-Laden und Powerbank-Funktion (27 W), wiegt bei 8,08 mm Dicke jedoch nur 203 Gramm. Das 6,8 Zoll große AMOLED-Display bietet eine 1,5K-Auflösung, 120 Hz und bis zu 10.000 Nits Spitzenhelligkeit. Mit einem Qualcomm Snapdragon 6 Gen 5, 8 bis 12 GB RAM, bis zu 512 GB Speicher sowie den Schutzarten IP66, IP68, IP69 und IP69K ist das Gerät zudem hochgradig robust. Die Kameraausstattung umfasst eine 50-Megapixel-Hauptkamera (OIS) und eine 8-Megapixel-Frontkamera; als Betriebssystem dient MagicOS 10 auf Android 16-Basis. In China ist das Modell ab 1999 Yuan erhältlich, während eine europäische Markteinführung aufgrund regulatorischer Hürden ungewiss bleibt.</div>
-
-            <a href="https://www.heise.de/news/Honor-X80-Pro-Max-Mittelklasse-Smartphone-mit-11-000-mAh-Akku-11341228.html" class="source-button" target="_blank" onclick="event.stopPropagation()">
-                Vollständigen Artikel lesen
-            </a>
-        </div>
-        
-        <div class="article-card" onclick="toggleCard(this)">
-            
-            <div class="image-wrapper">
-                <img src="https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/5/1/0/4/8/8/4/csm_GF_Wifo_2024_Zoom2_105aafc931-171dd73028358182.jpg" class="article-image" alt="Vorschau" loading="lazy">
-            </div>
-            
-
-            <div class="meta">heise • news</div>
-
-            <div class="card-header">
-                <div class="title">Gabriel Felbermayr sieht deutsche Industrie gefährdet und fordert Nutzung von CO2-Einnahmen zur Stromkostensenkung</div>
-                <div class="relevance-container">
-                    <svg width="44" height="44">
-                        <circle stroke="rgba(255,255,255,0.08)" stroke-width="3" fill="transparent" r="19" cx="22" cy="22"/>
-                        <circle class="progress-ring__circle" stroke-width="3" stroke-dasharray="119.38" 
-                                stroke-dashoffset="12.21482549181927" 
-                                stroke-linecap="round" fill="transparent" r="19" cx="22" cy="22" transform="rotate(-90 22 22)"/>
-                    </svg>
-                    <div style="position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); font-size:11px; font-weight:800;">
-                        89
-                    </div>
-                </div>
-            </div>
-
-            <div class="summary">Der Ökonom Gabriel Felbermayr sieht die deutsche Industrie aufgrund fossiler Abhängigkeiten und Preisschocks infolge der Blockade der Straße von Hormus gefährdet. Er kritisiert staatliche Interventionen wie den Tankrabatt als preissteigernd und plädiert für CO2-Preise als zentrales Klimasteuerungsinstrument, deren Einnahmen zur Senkung der Stromkosten statt zur „Klimageld“-Auszahlung genutzt werden sollten. Damit soll die Elektromobilität gestärkt werden, wofür er auch den Wettbewerb durch chinesische Hersteller als entscheidend ansieht.</div>
-
-            <a href="https://www.heise.de/news/Wirtschaftsweiser-Felbermayr-Hohe-Energiepreise-helfen-der-Elektromobilitaet-11341077.html" class="source-button" target="_blank" onclick="event.stopPropagation()">
-                Vollständigen Artikel lesen
-            </a>
-        </div>
-        
-        <div class="article-card" onclick="toggleCard(this)">
-            
-            <div class="image-wrapper">
-                <img src="https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/5/1/0/4/6/2/3/LineShine-1-NSCCSZ-16-9-f450abc024a99076.jpg" class="article-image" alt="Vorschau" loading="lazy">
-            </div>
-            
-
-            <div class="meta">heise • news</div>
-
-            <div class="card-header">
-                <div class="title">Chinesischer Supercomputer Lineshine führt 67. Top500-Liste an</div>
-                <div class="relevance-container">
-                    <svg width="44" height="44">
-                        <circle stroke="rgba(255,255,255,0.08)" stroke-width="3" fill="transparent" r="19" cx="22" cy="22"/>
-                        <circle class="progress-ring__circle" stroke-width="3" stroke-dasharray="119.38" 
-                                stroke-dashoffset="28.412407715300716" 
-                                stroke-linecap="round" fill="transparent" r="19" cx="22" cy="22" transform="rotate(-90 22 22)"/>
-                    </svg>
-                    <div style="position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); font-size:11px; font-weight:800;">
-                        74
-                    </div>
-                </div>
-            </div>
-
-            <div class="summary">Der chinesische Supercomputer „Lineshine“ führt die 67. Top500-Liste mit über 2 EFlops im HPL-Benchmark an und nutzt auf der LingKun-Plattform ausschließlich heimische Hardware (LX2-Prozessoren, ARM-v9) ohne externe Beschleuniger. Während in den Top 10 das System des italienischen Konzerns Eni neu hinzukommt, scheiden LUMI und Leonardo aus. Die Green500-Spitzenliste blieb unverändert; Lineshine weist eine Effizienz von 52,07 GFlops/W bei einem Leistungsbedarf von 42,22 MW auf.</div>
-
-            <a href="https://www.heise.de/news/China-ueberholt-die-USA-mit-schnellstem-Top500-Supercomputer-2-2-Exaflops-11340555.html" class="source-button" target="_blank" onclick="event.stopPropagation()">
-                Vollständigen Artikel lesen
-            </a>
-        </div>
-        
-        <div class="article-card" onclick="toggleCard(this)">
-            
-            <div class="image-wrapper">
-                <img src="https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/5/1/0/4/9/2/6/shutterstock_2594574801-646795c62f87bee8.jpg" class="article-image" alt="Vorschau" loading="lazy">
-            </div>
-            
-
-            <div class="meta">heise • news</div>
-
-            <div class="card-header">
-                <div class="title">SpaceX testet Wiedereintrittsvehikel mit Falcon 9</div>
-                <div class="relevance-container">
-                    <svg width="44" height="44">
-                        <circle stroke="rgba(255,255,255,0.08)" stroke-width="3" fill="transparent" r="19" cx="22" cy="22"/>
-                        <circle class="progress-ring__circle" stroke-width="3" stroke-dasharray="119.38" 
-                                stroke-dashoffset="10.182611723943367" 
-                                stroke-linecap="round" fill="transparent" r="19" cx="22" cy="22" transform="rotate(-90 22 22)"/>
-                    </svg>
-                    <div style="position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); font-size:11px; font-weight:800;">
-                        90
-                    </div>
-                </div>
-            </div>
-
-            <div class="summary">SpaceX testet am Dienstag im Rahmen der „Starfall Demo Mission“ mit einer Falcon 9 die Entwicklung eines Wiedereintrittsvehikels, das bis zu 1000 kg Nutzlast präzise an globale Standorte sowie in den Orbit transportieren soll. Die Mission sieht nach Erreichen einer niedrigen Erdumlaufbahn einen gezielten Wiedereintritt über dem östlichen Pazifik vor.</div>
-
-            <a href="https://www.heise.de/news/SpaceX-Testmission-Starfall-soll-einmal-Nutzlast-ueberall-auf-die-Erde-bringen-11341160.html" class="source-button" target="_blank" onclick="event.stopPropagation()">
                 Vollständigen Artikel lesen
             </a>
         </div>
