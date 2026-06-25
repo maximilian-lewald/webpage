@@ -369,7 +369,7 @@
 
     <header>
         <h1>Relevant</h1>
-        <p class="build-time">Aktualisiert: 25.06.2026, 15:58 Uhr</p>
+        <p class="build-time">Aktualisiert: 25.06.2026, 19:21 Uhr</p>
     </header>
 
     <div class="dashboard-card">
@@ -379,10 +379,10 @@
                     <svg width="60" height="60">
                         <circle stroke="rgba(255,255,255,0.08)" stroke-width="4" fill="transparent" r="26" cx="30" cy="30"/>
                         <circle class="dashboard-circle" stroke-width="4" stroke-dasharray="163.36" 
-                                stroke-dashoffset="65.34400000000001" 
+                                stroke-dashoffset="84.94720000000001" 
                                 stroke-linecap="round" fill="transparent" r="26" cx="30" cy="30" transform="rotate(-90 30 30)"/>
                     </svg>
-                    <div class="ring-text">60%</div>
+                    <div class="ring-text">48%</div>
                 </div>
                 <div class="stat-label">Relevant<br>Share</div>
             </div>
@@ -482,75 +482,35 @@
     <div class="dashboard-card">
         <h2 class="chart-title">Emerging Trends (Last 60 Days)</h2>
         <div class="source-filters">
-            <button class="source-filter-btn active" data-source="heise">heise</button><button class="source-filter-btn " data-source="sueddeutsche">sueddeutsche</button>
+            <button class="source-filter-btn " data-source="sueddeutsche">sueddeutsche</button><button class="source-filter-btn active" data-source="heise">heise</button>
         </div>
         <div class="chart-container" style="height: 260px;">
             <canvas id="keywordTrendChart"></canvas>
         </div>
 
         <div class="insights-wrapper">
-            <div class="insights-container" data-insight-source="heise" style="display: block;">
-                        <div class="insight-card" style="border-left: 3px solid #00f5d4;">
-                            <div class="insight-header" onclick="this.parentElement.classList.toggle('expanded')">
-                                <h4>Deutsche bahn</h4>
-                                <span class="toggle-icon">+</span>
-                            </div>
-                            <div class="insight-body">
-                                <p>Ein bundesweiter Stillstand des Zugverkehrs nach einer Störung im digitalen Bahnfunksystem (GSM-R) sorgt aktuell für Schlagzeilen. Die Diskussion wird zudem durch infrastrukturelle Verzögerungen bei Großprojekten wie Stuttgart 21 sowie den verstärkten Einsatz von Bodycams zur Sicherheit an Bahnhöfen befeuert.</p>
-                            </div>
-                        </div>
-                        
-                        <div class="insight-card" style="border-left: 3px solid #9333ea;">
-                            <div class="insight-header" onclick="this.parentElement.classList.toggle('expanded')">
-                                <h4>Forschung</h4>
-                                <span class="toggle-icon">+</span>
-                            </div>
-                            <div class="insight-body">
-                                <p>Die aktuellen Forschungsschwerpunkte reichen von fundamentalen Erkenntnissen in der Kosmologie und Biologie bis hin zur Anwendung Künstlicher Intelligenz in der Archäologie. Die Debatte konzentriert sich dabei vor allem auf die Ambivalenz der KI: Sie dient als mächtiges Werkzeug zur Entschlüsselung komplexer Rätsel, wird jedoch gleichzeitig als wachsende Bedrohung für die Cybersicherheit und die gesellschaftliche Struktur thematisiert.</p>
-                            </div>
-                        </div>
-                        
-                        <div class="insight-card" style="border-left: 3px solid #007aff;">
-                            <div class="insight-header" onclick="this.parentElement.classList.toggle('expanded')">
-                                <h4>Anthropic</h4>
-                                <span class="toggle-icon">+</span>
-                            </div>
-                            <div class="insight-body">
-                                <p>Anthropic steht aufgrund der Veröffentlichung des Modells „Claude Fable 5“ und der Vorbereitungen für einen Börsengang im Fokus. Die Debatte wird durch Berichte über eine mutmaßliche Unterstützung der NSA bei Cyberoperationen sowie die Kritik an zu restriktiven Sicherheitsfiltern des neuen Modells angeheizt.</p>
-                            </div>
-                        </div>
-                        
-                        <div class="insight-card" style="border-left: 3px solid #34d399;">
-                            <div class="insight-header" onclick="this.parentElement.classList.toggle('expanded')">
-                                <h4>Hardware</h4>
-                                <span class="toggle-icon">+</span>
-                            </div>
-                            <div class="insight-body">
-                                <p>Im Zentrum stehen die Innovationen der Computex-Messe, insbesondere neue Prozessor-Generationen (Intel, Qualcomm, ARM) und modernste Speicherstandards wie PCIe 6.0 SSDs. Die Relevanz des Themas wird durch strategische Verschiebungen in der Chip-Produktion sowie neue Hardware-Ankündigungen von Valve verstärkt.</p>
-                            </div>
-                        </div>
-                        
-                        <div class="insight-card" style="border-left: 3px solid #f43f5e;">
-                            <div class="insight-header" onclick="this.parentElement.classList.toggle('expanded')">
-                                <h4>Nachhaltigkeit</h4>
-                                <span class="toggle-icon">+</span>
-                            </div>
-                            <div class="insight-body">
-                                <p>Im Fokus stehen die technische Umsetzung der Energiewende durch Photovoltaik sowie die Stärkung der Kreislaufwirtschaft durch neue EU-Regulierungen zur Reparierbarkeit und Ressourceneffizienz. Die Debatte wird durch das Spannungsfeld zwischen technologischer Machbarkeit, politischem Handlungsbedarf bei der Infrastruktur und den wirtschaftlichen Folgen von CO2-Preisen getrieben.</p>
-                            </div>
-                        </div>
-                        </div><div class="insights-container" data-insight-source="sueddeutsche" style="display: none;">
+            <div class="insights-container" data-insight-source="sueddeutsche" style="display: none;">
                         <div class="insight-card" style="border-left: 3px solid #00f5d4;">
                             <div class="insight-header" onclick="this.parentElement.classList.toggle('expanded')">
                                 <h4>Hitze</h4>
                                 <span class="toggle-icon">+</span>
                             </div>
                             <div class="insight-body">
-                                <p>Eine bundesweite Hitzewelle mit Extremtemperaturen von bis zu 39 Grad löst flächendeckende Warnungen des Deutschen Wetterdienstes und die Gefahr schwerer Unwetter aus. Die Diskussion konzentriert sich auf die gesundheitliche Gefährdung vulnerabler Gruppen sowie die notwendigen gesellschaftlichen Anpassungsmaßnahmen an die zunehmenden Wetterextreme infolge des Klimawandels.</p>
+                                <p>Deutschland steht vor einer extremen Hitzewelle mit Temperaturen von bis zu 39 Grad, die bundesweite Warnungen vor extremer Hitze und schweren Unwettern auslöst. Die Diskussion konzentriert sich auf die unmittelbaren Risiken für Gesundheit und Infrastruktur sowie die wachsende Notwendigkeit gesellschaftlicher Anpassungsprozesse an den Klimawandel.</p>
                             </div>
                         </div>
                         
                         <div class="insight-card" style="border-left: 3px solid #9333ea;">
+                            <div class="insight-header" onclick="this.parentElement.classList.toggle('expanded')">
+                                <h4>Extremwetter</h4>
+                                <span class="toggle-icon">+</span>
+                            </div>
+                            <div class="insight-body">
+                                <p>Das Thema fokussiert eine deutschlandweite Hitzewelle mit Temperaturen von bis zu 38 Grad und drohenden neuen Rekordwerten in Bayern. Die intensive Berichterstattung resultiert aus flächendeckenden DWD-Hitzewarnungen, gesundheitlichen Risiken für vulnerable Gruppen sowie den Auswirkungen auf die Infrastruktur und Flussökosysteme.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="insight-card" style="border-left: 3px solid #007aff;">
                             <div class="insight-header" onclick="this.parentElement.classList.toggle('expanded')">
                                 <h4>Fußball-wm</h4>
                                 <span class="toggle-icon">+</span>
@@ -560,17 +520,17 @@
                             </div>
                         </div>
                         
-                        <div class="insight-card" style="border-left: 3px solid #007aff;">
+                        <div class="insight-card" style="border-left: 3px solid #34d399;">
                             <div class="insight-header" onclick="this.parentElement.classList.toggle('expanded')">
-                                <h4>Extremwetter</h4>
+                                <h4>Gesellschaft</h4>
                                 <span class="toggle-icon">+</span>
                             </div>
                             <div class="insight-body">
-                                <p>Eine bundesweite Hitzewelle mit Temperaturen von bis zu 39 Grad und drohenden neuen Rekorden löst flächendeckende DWD-Warnungen aus. Die Diskussion fokussiert sich auf die unmittelbaren Gesundheitsrisiken, Auswirkungen auf die Infrastruktur sowie steigende Wassertemperaturen in wichtigen Flusssystemen wie Main und Donau.</p>
+                                <p>Im Zentrum steht die Auseinandersetzung mit der Erosion sozialer Normen und demokratischer Stabilität, etwa durch zunehmende Aggression im privaten Raum oder politische Verunsicherung. Die Diskussion beleuchtet zudem, wie individuelle Belastungen und emotionale Reaktionen auf ökologische Ereignisse das soziale Gefüge beeinflussen.</p>
                             </div>
                         </div>
                         
-                        <div class="insight-card" style="border-left: 3px solid #34d399;">
+                        <div class="insight-card" style="border-left: 3px solid #f43f5e;">
                             <div class="insight-header" onclick="this.parentElement.classList.toggle('expanded')">
                                 <h4>Leben und gesellschaft in münchen</h4>
                                 <span class="toggle-icon">+</span>
@@ -579,14 +539,54 @@
                                 <p>Nicht genügend aktuelle Artikel für eine KI-Analyse gefunden.</p>
                             </div>
                         </div>
-                        
-                        <div class="insight-card" style="border-left: 3px solid #f43f5e;">
+                        </div><div class="insights-container" data-insight-source="heise" style="display: block;">
+                        <div class="insight-card" style="border-left: 3px solid #00f5d4;">
                             <div class="insight-header" onclick="this.parentElement.classList.toggle('expanded')">
-                                <h4>Gesellschaft</h4>
+                                <h4>Deutsche bahn</h4>
                                 <span class="toggle-icon">+</span>
                             </div>
                             <div class="insight-body">
-                                <p>Die aktuelle Berichterstattung unter dem Schlagwort „Gesellschaft“ spiegelt vielfältige Spannungsfelder wider, die von der Fragilität demokratischer Normen bis hin zu moralischen Dilemmata in privaten Beziehungen reichen. Im Fokus stehen dabei zunehmende soziale Reibungspunkte, wie etwa Aggression im öffentlichen Raum sowie die psychologische Wirkung medial inszenierter Krisen auf das Kollektiv.</p>
+                                <p>Ein technischer Komponententausch im digitalen Bahnfunk verursachte jüngst einen bundesweiten Stillstand des Schienenverkehrs. Die aktuelle Debatte wird zudem durch die Einführung von Bodycams beim Personal sowie infrastrukturelle Probleme und Wettbewerbsdruck befeuert.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="insight-card" style="border-left: 3px solid #9333ea;">
+                            <div class="insight-header" onclick="this.parentElement.classList.toggle('expanded')">
+                                <h4>Forschung</h4>
+                                <span class="toggle-icon">+</span>
+                            </div>
+                            <div class="insight-body">
+                                <p>Die aktuelle Forschung umfasst wissenschaftliche Erkenntnisse aus der Kosmologie und Biologie sowie die Untersuchung technologischer Entwicklungen. Die Diskussion fokussiert sich dabei auf die ambivalente Rolle der Künstlichen Intelligenz, die als Werkzeug zur Entschlüsselung komplexer Rätsel ebenso betrachtet wird wie als potenzielle Bedrohung für die Cybersicherheit.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="insight-card" style="border-left: 3px solid #007aff;">
+                            <div class="insight-header" onclick="this.parentElement.classList.toggle('expanded')">
+                                <h4>Anthropic</h4>
+                                <span class="toggle-icon">+</span>
+                            </div>
+                            <div class="insight-body">
+                                <p>Anthropic steht aufgrund der mutmaßlichen Unterstützung der NSA bei offensiven Cyberoperationen sowie der zu restriktiven Sicherheitsmechanismen des neuen Modells „Fable 5“ im Fokus. Die Debatte wird zudem durch Pläne für einen Börsengang, mögliche staatliche Beteiligungen unter der US-Regierung und die Forderung des Unternehmens nach einer Verlangsamung der KI-Entwicklung angeheizt.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="insight-card" style="border-left: 3px solid #34d399;">
+                            <div class="insight-header" onclick="this.parentElement.classList.toggle('expanded')">
+                                <h4>Hardware</h4>
+                                <span class="toggle-icon">+</span>
+                            </div>
+                            <div class="insight-body">
+                                <p>Im Zentrum steht die Computex-Messe, die neue Hardware-Generationen wie PCIe 6.0 SSDs, ARM-basierte EU-Prozessoren und effiziente Mini-PCs präsentiert. Die Diskussion wird durch technologische Fortschritte in der Rechenleistung sowie das Bestreben nach strategischer Unabhängigkeit in der Halbleiterindustrie getrieben.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="insight-card" style="border-left: 3px solid #f43f5e;">
+                            <div class="insight-header" onclick="this.parentElement.classList.toggle('expanded')">
+                                <h4>Nachhaltigkeit</h4>
+                                <span class="toggle-icon">+</span>
+                            </div>
+                            <div class="insight-body">
+                                <p>Das Thema umfasst die regulatorische Umsetzung der Energiewende und einer Kreislaufwirtschaft, etwa durch EU-Vorgaben zum Reparaturrecht und zur Ressourcenverwertung bei Fahrzeugen. Diskutiert wird primär das Spannungsfeld zwischen technologischer Machbarkeit (z. B. Solartechnik, Feststoffbatterien) und wirtschaftlichen Risiken wie Preisvolatilität beim CO2-Handel oder der industriellen Abhängigkeit von Asien.</p>
                             </div>
                         </div>
                         </div>
@@ -600,7 +600,7 @@
 
             const initChart = function() {
                 const ctx = document.getElementById('keywordTrendChart').getContext('2d');
-                const rawDatasets = [{"label": "Deutsche bahn", "data": [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 14.3, 14.3, 0.0, 0.0, 14.3, 0.0, 0.0, 0.0, 0.0, 28.6, 0.0, 0.0, 0.0, 14.3, 0.0, 0.0, 14.3, 14.3, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 14.3, 0.0, 14.3, 0.0, 0.0, 0.0, 28.6, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 14.3, 42.9, 28.6], "borderColor": "#00f5d4", "backgroundColor": "transparent", "borderWidth": 2, "tension": 0.4, "cubicInterpolationMode": "monotone", "pointRadius": 0, "pointHitRadius": 10, "sourceId": "heise", "originalColor": "#00f5d4"}, {"label": "Forschung", "data": [28.6, 14.3, 28.6, 14.3, 0.0, 0.0, 28.6, 0.0, 28.6, 14.3, 14.3, 0.0, 0.0, 14.3, 28.6, 28.6, 14.3, 0.0, 14.3, 0.0, 0.0, 28.6, 42.9, 14.3, 28.6, 0.0, 14.3, 0.0, 14.3, 14.3, 14.3, 14.3, 28.6, 0.0, 0.0, 57.1, 14.3, 42.9, 42.9, 42.9, 0.0, 0.0, 14.3, 0.0, 0.0, 42.9, 42.9, 0.0, 0.0, 42.9, 14.3, 0.0, 14.3, 14.3, 0.0, 0.0, 42.9, 42.9, 57.1, 14.3], "borderColor": "#9333ea", "backgroundColor": "transparent", "borderWidth": 2, "tension": 0.4, "cubicInterpolationMode": "monotone", "pointRadius": 0, "pointHitRadius": 10, "sourceId": "heise", "originalColor": "#9333ea"}, {"label": "Anthropic", "data": [14.3, 0.0, 0.0, 14.3, 14.3, 0.0, 14.3, 14.3, 28.6, 14.3, 28.6, 28.6, 0.0, 0.0, 0.0, 0.0, 0.0, 14.3, 14.3, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 14.3, 0.0, 28.6, 0.0, 28.6, 0.0, 14.3, 28.6, 0.0, 0.0, 42.9, 14.3, 14.3, 0.0, 42.9, 14.3, 14.3, 28.6, 42.9, 14.3, 14.3, 42.9, 28.6, 14.3, 28.6, 28.6, 14.3, 0.0, 14.3, 0.0, 14.3, 14.3, 28.6, 28.6, 42.9], "borderColor": "#007aff", "backgroundColor": "transparent", "borderWidth": 2, "tension": 0.4, "cubicInterpolationMode": "monotone", "pointRadius": 0, "pointHitRadius": 10, "sourceId": "heise", "originalColor": "#007aff"}, {"label": "Hardware", "data": [14.3, 28.6, 14.3, 42.9, 0.0, 0.0, 0.0, 42.9, 0.0, 28.6, 28.6, 14.3, 14.3, 0.0, 0.0, 28.6, 0.0, 0.0, 28.6, 0.0, 14.3, 42.9, 14.3, 57.1, 42.9, 85.7, 0.0, 0.0, 0.0, 0.0, 57.1, 14.3, 0.0, 0.0, 0.0, 42.9, 100.0, 14.3, 57.1, 42.9, 0.0, 0.0, 28.6, 28.6, 14.3, 28.6, 28.6, 14.3, 0.0, 28.6, 28.6, 14.3, 14.3, 0.0, 0.0, 14.3, 0.0, 28.6, 57.1, 28.6], "borderColor": "#34d399", "backgroundColor": "transparent", "borderWidth": 2, "tension": 0.4, "cubicInterpolationMode": "monotone", "pointRadius": 0, "pointHitRadius": 10, "sourceId": "heise", "originalColor": "#34d399"}, {"label": "Nachhaltigkeit", "data": [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 14.3, 0.0, 0.0, 14.3, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 14.3, 14.3, 0.0, 28.6, 0.0, 0.0, 0.0, 14.3, 14.3, 28.6, 0.0, 0.0, 0.0, 14.3, 14.3, 0.0, 14.3, 14.3, 0.0, 0.0, 0.0, 0.0, 0.0, 14.3, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 14.3, 0.0, 14.3, 0.0, 0.0, 14.3, 42.9, 14.3], "borderColor": "#f43f5e", "backgroundColor": "transparent", "borderWidth": 2, "tension": 0.4, "cubicInterpolationMode": "monotone", "pointRadius": 0, "pointHitRadius": 10, "sourceId": "heise", "originalColor": "#f43f5e"}, {"label": "Hitze", "data": [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 9.1, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 9.1, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 9.1, 27.3, 9.1, 9.1, 0.0, 0.0, 0.0, 54.5], "borderColor": "#00f5d4", "backgroundColor": "transparent", "borderWidth": 2, "tension": 0.4, "cubicInterpolationMode": "monotone", "pointRadius": 0, "pointHitRadius": 10, "sourceId": "sueddeutsche", "originalColor": "#00f5d4"}, {"label": "Fu\u00dfball-wm", "data": [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 18.2, 9.1, 0.0, 0.0, 9.1, 0.0, 9.1, 18.2, 0.0, 0.0, 0.0, 9.1, 0.0, 9.1, 0.0, 9.1, 9.1, 9.1, 0.0, 0.0, 0.0, 18.2, 0.0, 0.0, 0.0, 27.3, 0.0, 18.2, 9.1, 18.2, 9.1, 0.0, 0.0, 9.1, 9.1, 0.0, 45.5, 72.7, 0.0, 72.7, 72.7, 18.2, 45.5, 100.0, 63.6, 27.3, 9.1, 36.4, 0.0, 27.3, 63.6], "borderColor": "#9333ea", "backgroundColor": "transparent", "borderWidth": 2, "tension": 0.4, "cubicInterpolationMode": "monotone", "pointRadius": 0, "pointHitRadius": 10, "sourceId": "sueddeutsche", "originalColor": "#9333ea"}, {"label": "Extremwetter", "data": [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 9.1, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 9.1, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 9.1, 27.3, 0.0, 9.1, 0.0, 0.0, 0.0, 45.5], "borderColor": "#007aff", "backgroundColor": "transparent", "borderWidth": 2, "tension": 0.4, "cubicInterpolationMode": "monotone", "pointRadius": 0, "pointHitRadius": 10, "sourceId": "sueddeutsche", "originalColor": "#007aff"}, {"label": "Leben und gesellschaft in m\u00fcnchen", "data": [0.0, 18.2, 9.1, 0.0, 0.0, 9.1, 18.2, 0.0, 9.1, 18.2, 0.0, 45.5, 18.2, 27.3, 0.0, 9.1, 9.1, 0.0, 0.0, 9.1, 0.0, 0.0, 9.1, 0.0, 18.2, 18.2, 0.0, 9.1, 0.0, 18.2, 0.0, 0.0, 0.0, 0.0, 27.3, 0.0, 0.0, 0.0, 9.1, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 9.1, 0.0, 0.0, 0.0, 0.0, 0.0, 9.1, 0.0, 27.3, 36.4], "borderColor": "#34d399", "backgroundColor": "transparent", "borderWidth": 2, "tension": 0.4, "cubicInterpolationMode": "monotone", "pointRadius": 0, "pointHitRadius": 10, "sourceId": "sueddeutsche", "originalColor": "#34d399"}, {"label": "Gesellschaft", "data": [18.2, 0.0, 9.1, 36.4, 18.2, 0.0, 0.0, 9.1, 18.2, 18.2, 45.5, 9.1, 0.0, 9.1, 9.1, 0.0, 45.5, 9.1, 0.0, 0.0, 0.0, 9.1, 9.1, 0.0, 0.0, 18.2, 0.0, 0.0, 0.0, 9.1, 0.0, 18.2, 0.0, 0.0, 9.1, 9.1, 9.1, 63.6, 0.0, 0.0, 0.0, 0.0, 0.0, 9.1, 0.0, 0.0, 18.2, 0.0, 0.0, 9.1, 9.1, 0.0, 18.2, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 63.6], "borderColor": "#f43f5e", "backgroundColor": "transparent", "borderWidth": 2, "tension": 0.4, "cubicInterpolationMode": "monotone", "pointRadius": 0, "pointHitRadius": 10, "sourceId": "sueddeutsche", "originalColor": "#f43f5e"}];
+                const rawDatasets = [{"label": "Hitze", "data": [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 9.1, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 9.1, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 9.1, 27.3, 9.1, 9.1, 0.0, 0.0, 0.0, 72.7], "borderColor": "#00f5d4", "backgroundColor": "transparent", "borderWidth": 2, "tension": 0.4, "cubicInterpolationMode": "monotone", "pointRadius": 0, "pointHitRadius": 10, "sourceId": "sueddeutsche", "originalColor": "#00f5d4"}, {"label": "Extremwetter", "data": [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 9.1, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 9.1, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 9.1, 27.3, 0.0, 9.1, 0.0, 0.0, 0.0, 54.5], "borderColor": "#9333ea", "backgroundColor": "transparent", "borderWidth": 2, "tension": 0.4, "cubicInterpolationMode": "monotone", "pointRadius": 0, "pointHitRadius": 10, "sourceId": "sueddeutsche", "originalColor": "#9333ea"}, {"label": "Fu\u00dfball-wm", "data": [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 18.2, 9.1, 0.0, 0.0, 9.1, 0.0, 9.1, 18.2, 0.0, 0.0, 0.0, 9.1, 0.0, 9.1, 0.0, 9.1, 9.1, 9.1, 0.0, 0.0, 0.0, 18.2, 0.0, 0.0, 0.0, 27.3, 0.0, 18.2, 9.1, 18.2, 9.1, 0.0, 0.0, 9.1, 9.1, 0.0, 45.5, 72.7, 0.0, 72.7, 72.7, 18.2, 45.5, 100.0, 63.6, 27.3, 9.1, 36.4, 0.0, 27.3, 63.6], "borderColor": "#007aff", "backgroundColor": "transparent", "borderWidth": 2, "tension": 0.4, "cubicInterpolationMode": "monotone", "pointRadius": 0, "pointHitRadius": 10, "sourceId": "sueddeutsche", "originalColor": "#007aff"}, {"label": "Gesellschaft", "data": [18.2, 0.0, 9.1, 36.4, 18.2, 0.0, 0.0, 9.1, 18.2, 18.2, 45.5, 9.1, 0.0, 9.1, 9.1, 0.0, 45.5, 9.1, 0.0, 0.0, 0.0, 9.1, 9.1, 0.0, 0.0, 18.2, 0.0, 0.0, 0.0, 9.1, 0.0, 18.2, 0.0, 0.0, 9.1, 9.1, 9.1, 63.6, 0.0, 0.0, 0.0, 0.0, 0.0, 9.1, 0.0, 0.0, 18.2, 0.0, 0.0, 9.1, 9.1, 0.0, 18.2, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 72.7], "borderColor": "#34d399", "backgroundColor": "transparent", "borderWidth": 2, "tension": 0.4, "cubicInterpolationMode": "monotone", "pointRadius": 0, "pointHitRadius": 10, "sourceId": "sueddeutsche", "originalColor": "#34d399"}, {"label": "Leben und gesellschaft in m\u00fcnchen", "data": [0.0, 18.2, 9.1, 0.0, 0.0, 9.1, 18.2, 0.0, 9.1, 18.2, 0.0, 45.5, 18.2, 27.3, 0.0, 9.1, 9.1, 0.0, 0.0, 9.1, 0.0, 0.0, 9.1, 0.0, 18.2, 18.2, 0.0, 9.1, 0.0, 18.2, 0.0, 0.0, 0.0, 0.0, 27.3, 0.0, 0.0, 0.0, 9.1, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 9.1, 0.0, 0.0, 0.0, 0.0, 0.0, 9.1, 0.0, 27.3, 36.4], "borderColor": "#f43f5e", "backgroundColor": "transparent", "borderWidth": 2, "tension": 0.4, "cubicInterpolationMode": "monotone", "pointRadius": 0, "pointHitRadius": 10, "sourceId": "sueddeutsche", "originalColor": "#f43f5e"}, {"label": "Deutsche bahn", "data": [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 14.3, 14.3, 0.0, 0.0, 14.3, 0.0, 0.0, 0.0, 0.0, 28.6, 0.0, 0.0, 0.0, 14.3, 0.0, 0.0, 14.3, 14.3, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 14.3, 0.0, 14.3, 0.0, 0.0, 0.0, 28.6, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 14.3, 42.9, 28.6], "borderColor": "#00f5d4", "backgroundColor": "transparent", "borderWidth": 2, "tension": 0.4, "cubicInterpolationMode": "monotone", "pointRadius": 0, "pointHitRadius": 10, "sourceId": "heise", "originalColor": "#00f5d4"}, {"label": "Forschung", "data": [28.6, 14.3, 28.6, 14.3, 0.0, 0.0, 28.6, 0.0, 28.6, 14.3, 14.3, 0.0, 0.0, 14.3, 28.6, 28.6, 14.3, 0.0, 14.3, 0.0, 0.0, 28.6, 42.9, 14.3, 28.6, 0.0, 14.3, 0.0, 14.3, 14.3, 14.3, 14.3, 28.6, 0.0, 0.0, 57.1, 14.3, 42.9, 42.9, 42.9, 0.0, 0.0, 14.3, 0.0, 0.0, 42.9, 42.9, 0.0, 0.0, 42.9, 14.3, 0.0, 14.3, 14.3, 0.0, 0.0, 42.9, 42.9, 57.1, 14.3], "borderColor": "#9333ea", "backgroundColor": "transparent", "borderWidth": 2, "tension": 0.4, "cubicInterpolationMode": "monotone", "pointRadius": 0, "pointHitRadius": 10, "sourceId": "heise", "originalColor": "#9333ea"}, {"label": "Anthropic", "data": [14.3, 0.0, 0.0, 14.3, 14.3, 0.0, 14.3, 14.3, 28.6, 14.3, 28.6, 28.6, 0.0, 0.0, 0.0, 0.0, 0.0, 14.3, 14.3, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 14.3, 0.0, 28.6, 0.0, 28.6, 0.0, 14.3, 28.6, 0.0, 0.0, 42.9, 14.3, 14.3, 0.0, 42.9, 14.3, 14.3, 28.6, 42.9, 14.3, 14.3, 42.9, 28.6, 14.3, 28.6, 28.6, 14.3, 0.0, 14.3, 0.0, 14.3, 14.3, 28.6, 28.6, 42.9], "borderColor": "#007aff", "backgroundColor": "transparent", "borderWidth": 2, "tension": 0.4, "cubicInterpolationMode": "monotone", "pointRadius": 0, "pointHitRadius": 10, "sourceId": "heise", "originalColor": "#007aff"}, {"label": "Hardware", "data": [14.3, 28.6, 14.3, 42.9, 0.0, 0.0, 0.0, 42.9, 0.0, 28.6, 28.6, 14.3, 14.3, 0.0, 0.0, 28.6, 0.0, 0.0, 28.6, 0.0, 14.3, 42.9, 14.3, 57.1, 42.9, 85.7, 0.0, 0.0, 0.0, 0.0, 57.1, 14.3, 0.0, 0.0, 0.0, 42.9, 100.0, 14.3, 57.1, 42.9, 0.0, 0.0, 28.6, 28.6, 14.3, 28.6, 28.6, 14.3, 0.0, 28.6, 28.6, 14.3, 14.3, 0.0, 0.0, 14.3, 0.0, 28.6, 57.1, 28.6], "borderColor": "#34d399", "backgroundColor": "transparent", "borderWidth": 2, "tension": 0.4, "cubicInterpolationMode": "monotone", "pointRadius": 0, "pointHitRadius": 10, "sourceId": "heise", "originalColor": "#34d399"}, {"label": "Nachhaltigkeit", "data": [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 14.3, 0.0, 0.0, 14.3, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 14.3, 14.3, 0.0, 28.6, 0.0, 0.0, 0.0, 14.3, 14.3, 28.6, 0.0, 0.0, 0.0, 14.3, 14.3, 0.0, 14.3, 14.3, 0.0, 0.0, 0.0, 0.0, 0.0, 14.3, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 14.3, 0.0, 14.3, 0.0, 0.0, 14.3, 42.9, 14.3], "borderColor": "#f43f5e", "backgroundColor": "transparent", "borderWidth": 2, "tension": 0.4, "cubicInterpolationMode": "monotone", "pointRadius": 0, "pointHitRadius": 10, "sourceId": "heise", "originalColor": "#f43f5e"}];
 
                 Chart.defaults.color = 'rgba(255, 255, 255, 0.7)';
                 Chart.defaults.font.family = '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif';
@@ -687,7 +687,7 @@
         <div class="article-card" onclick="toggleCard(this)">
             <div class="meta">Ollama AI • Top 10 (48h)</div>
             <div class="card-header">
-                <div class="title">Aktuelle Entwicklungen in Recht, Technologie und Wissenschaft</div>
+                <div class="title">Aktuelle Entwicklungen in Technik, Recht und Wissenschaft</div>
                 <div class="relevance-container">
                     <svg width="44" height="44">
                         <circle stroke="rgba(255,255,255,0.08)" stroke-width="3" fill="transparent" r="19" cx="22" cy="22"/>
@@ -700,14 +700,231 @@
                     </div>
                 </div>
             </div>
-            <div class="summary" style="white-space: pre-wrap;">In den Bereichen Recht und Regulierung haben EU-Institutionen eine weitreichende Reform zur Bekämpfung von sexuellem Kindesmissbrauch beschlossen, die unter anderem die Nutzung von KI für Deepfakes sowie die Bezahlung von Live-Streams kriminalisiert und die Verjährungsfristen für schwere Straftaten verlängert. Parallel dazu gibt es Debatten um neue gesetzliche Vorgaben: Die Novelle des Energieeffizienzgesetzes wird von der IT-Wirtschaft aufgrund drohender Wettbewerbsnachteile sowie von Umweltverbänden wegen potenziell geringerer Transparenz beim Klimaschutz kritisiert. Ähnliche Diskussionen werden im deutschen Gesundheitswesen geführt, wo die Weiterentwicklung der elektronischen Patientenakte (ePA) hin zu einer cloudbasierten Plattformarchitektur sowie das GeDIG-Gesetz hinsichtlich Barrierefreiheit und Patientenzentrierung kritisch hinterfragt werden.
+            <div class="summary" style="white-space: pre-wrap;">In der technologischen Entwicklung rückt die Infrastruktur für Künstliche Intelligenz verstärkt in den Fokus, wobei das Startup Reflection AI einen langfristigen Vertrag über bis zu 6,3 Milliarden US-Dollar zur Nutzung des SpaceX-Rechenzentrums Colossus-2 abgeschlossen hat. Parallel dazu warnen internationale Cybersicherheitsbehörden wie das BSI vor steigenden Risiken durch KI-gestützte Cyberangriffe. Während Unternehmen wie Meta neue KI-Brillen vorstellen und Google in KI-Werkzeuge investiert, treiben die Erwartungen an einen Massenmarkt für humanoide Roboter die Aktien von Halbleiterherstellern wie Infineon an, wenngleich die technische Umsetzung komplexer Sensoren und Prozessoren eine Herausforderung bleibt.
 
-Technologisch prägen massive Investitionen in die KI-Infrastruktur die aktuelle Wirtschaftslage. Das Startup Reflection AI hat einen milliardenschweren Vertrag für die Nutzung des SpaceX-Rechenzentrums Colossus-2 abgeschlossen, das neben Anthropic auch von Google genutzt wird. Diese Entwicklung im Bereich der Modellentwicklung – etwa durch neue Updates von OpenAI oder ByteDance – geht einher mit wachsenden Sicherheitsbedenken, da Cybersicherheitsbehörden vor den Risiken KI-gestützter Cyberangriffe warnen. Gleichzeitig treibt die Erwartung eines Massenmarktes für humanoide Roboter die Aktienkurse großer Halbleiterhersteller wie Infineon an, wenngleich die technische Umsetzung komplexer Hardware und Sensoren noch große Herausforderungen mit sich bringt.
+Auf regulatorischer Ebene haben EU-Institutionen eine Reform zur Bekämpfung von sexuellem Kindesmissbrauch vereinbart, die künftig auch den Einsatz von KI für Deepfakes sowie die Bezahlung von Live-Streams unter Strafe stellt und verlängerte Verjährungsfristen vorsieht. In Deutschland sorgt die Novelle des Energieeffizienzgesetzes für Kontroversen: Die IT-Wirtschaft warnt vor Gefährdungen der Wettbewerbsfähigkeit, während Umweltverbände einen Rückschritt beim Klimaschutz durch geringere Transparenzpflichten befürchten. Auch die Neuregelung der digitalen Überwachungsbefugnisse im Sächsischen Polizeigesetz löste Debatten über massive Grundrechtseingriffe aus. Im Gesundheitswesen fordern Experten zudem eine barrierefreie und patientenzentrierte Digitalisierung der elektronischen Patientenakte (ePA), statt sie als alleinigen Zugang zum System zu etablieren.
 
-In der Wissenschaft liefert das James-Webb-Weltraumteleskop (JWST) neue Erkenntnisse über die Geschichte des Kosmos: Analysen deuten darauf hin, dass der interstellare Komet 3I/ATLAS vor etwa 10 bis 12 Milliarden Jahren entstand. Zudem könnten neue Daten zum Bullet-Cluster die gängige Theorie der Dunklen Materie infrage stellen und alternative Erklärungsmodelle wie die Modifizierte Newton'sche Dynamik (MOND) unterstützen. Medizinische Innovationen zeigen sich zudem in der Robotik, etwa durch den von der Universität Basel entwickelten intraoralen Mikroroboter, der die Präzision bei Zahnbehandlungen erhöhen und Behandlungszeiten verkürzen soll.</div>
+Die Weltraumforschung liefert neue Erkenntnisse über die Geschichte des Universums: Analysen des James-Webb-Weltraumteleskops deuten darauf hin, dass der interstellare Komet 3I/ATLAS vor etwa 10 bis 12 Milliarden Jahren entstand. Gleichzeitig stellt eine neue Untersuchung des Bullet-Clusters die gängige Theorie der Dunklen Materie infrage, da die Beobachtungen durch alternative physikalische Modelle erklärbar sein könnten. Im Bereich medizinischer Innovation wurde zudem ein hochpräziser, miniaturisierter Roboter zur Unterstützung bei Zahnbehandlungen entwickelt.</div>
         </div>
         
 
+        
+        <div class="article-card" onclick="toggleCard(this)">
+            
+            <div class="image-wrapper">
+                <img src="https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/5/1/0/6/8/9/7/shutterstock_102675134-92ef11a33ba8c254.jpg" class="article-image" alt="Vorschau" loading="lazy">
+            </div>
+            
+
+            <div class="meta">heise • news</div>
+
+            <div class="card-header">
+                <div class="title">EU-Kommission beabsichtigt Einstufung von AWS und Microsoft Azure als Gatekeeper</div>
+                <div class="relevance-container">
+                    <svg width="44" height="44">
+                        <circle stroke="rgba(255,255,255,0.08)" stroke-width="3" fill="transparent" r="19" cx="22" cy="22"/>
+                        <circle class="progress-ring__circle" stroke-width="3" stroke-dasharray="119.38" 
+                                stroke-dashoffset="17.384081056179895" 
+                                stroke-linecap="round" fill="transparent" r="19" cx="22" cy="22" transform="rotate(-90 22 22)"/>
+                    </svg>
+                    <div style="position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); font-size:11px; font-weight:800;">
+                        84
+                    </div>
+                </div>
+            </div>
+
+            <div class="summary">Die EU-Kommission beabsichtigt, Amazon Web Services (AWS) und Microsoft Azure trotz verfehlter quantitativer Schwellenwerte als Gatekeeper nach dem Digital Markets Act (DMA) einzustufen, da deren Rolle im KI-Sektor sowie hohe Wechselkosten den Wettbewerb in der Cloud-Infrastruktur gefährden könnten. Im Rahmen laufender Untersuchungen mit Unterstützung der niederländischen ACM prüft die Kommission zudem die Angemessenheit bestehender DMA-Regelungen; bei einer Bestätigung der Vorwürfe müssten beide Unternehmen ihre Dienste innerhalb von sechs Monaten an Vorgaben wie Interoperabilität und das Verbot der Eigenbevorzugung anpassen.</div>
+
+            <a href="https://www.heise.de/news/AWS-und-Azure-EU-Kommission-knoepft-sich-Cloud-Riesen-wettbewerbsrechtlich-vor-11345063.html" class="source-button" target="_blank" onclick="event.stopPropagation()">
+                Vollständigen Artikel lesen
+            </a>
+        </div>
+        
+        <div class="article-card" onclick="toggleCard(this)">
+            
+            <div class="image-wrapper">
+                <img src="https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/5/1/0/6/8/8/8/shutterstock_2436082865-ada19c0663b15409.jpg" class="article-image" alt="Vorschau" loading="lazy">
+            </div>
+            
+
+            <div class="meta">heise • news</div>
+
+            <div class="card-header">
+                <div class="title">Sächsischer Landtag beschließt Reform des Polizeigesetzes mit erweiterten digitalen Überwachungsbefugnissen</div>
+                <div class="relevance-container">
+                    <svg width="44" height="44">
+                        <circle stroke="rgba(255,255,255,0.08)" stroke-width="3" fill="transparent" r="19" cx="22" cy="22"/>
+                        <circle class="progress-ring__circle" stroke-width="3" stroke-dasharray="119.38" 
+                                stroke-dashoffset="4.301011560861966" 
+                                stroke-linecap="round" fill="transparent" r="19" cx="22" cy="22" transform="rotate(-90 22 22)"/>
+                    </svg>
+                    <div style="position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); font-size:11px; font-weight:800;">
+                        96
+                    </div>
+                </div>
+            </div>
+
+            <div class="summary">Der Sächsische Landtag hat mit einer knappen Mehrheit von 60 zu 53 Stimmen eine Reform des Polizeigesetzes verabschiedet, die weitreichende digitale Überwachungsbefugnisse wie KI-gestützte Videoüberwachung zur Gesichtserkennung, biometrische Internetdatenabgleiche sowie den Einsatz von Staatstrojanern und Drohnenabwehr ermöglicht. Die unter gerichtlichem Zeitdruck erfolgte Neuregelung wird von der Regierung als notwendiger Sicherheitskompromiss verteidigt, während die Opposition vor massiven Grundrechtseingriffen warnt; zur Sicherung der BSW-Unterstützung wurden jedoch der Einsatz der Palantir-Software untersagt und die Taser-Nutzung begrenzt.</div>
+
+            <a href="https://www.heise.de/news/Sachsens-neues-Polizeigesetz-KI-Fahndung-und-Gesichtserkennung-beschlossen-11345047.html" class="source-button" target="_blank" onclick="event.stopPropagation()">
+                Vollständigen Artikel lesen
+            </a>
+        </div>
+        
+        <div class="article-card" onclick="toggleCard(this)">
+            
+            <div class="image-wrapper">
+                <img src="https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/5/1/0/6/7/4/2/PIA26726_figA-eed10ed2faee1143.png" class="article-image" alt="Vorschau" loading="lazy">
+            </div>
+            
+
+            <div class="meta">heise • news</div>
+
+            <div class="card-header">
+                <div class="title">NASA-Rover Perseverance legt 42,195 Kilometer auf dem Mars zurück</div>
+                <div class="relevance-container">
+                    <svg width="44" height="44">
+                        <circle stroke="rgba(255,255,255,0.08)" stroke-width="3" fill="transparent" r="19" cx="22" cy="22"/>
+                        <circle class="progress-ring__circle" stroke-width="3" stroke-dasharray="119.38" 
+                                stroke-dashoffset="10.328121916530648" 
+                                stroke-linecap="round" fill="transparent" r="19" cx="22" cy="22" transform="rotate(-90 22 22)"/>
+                    </svg>
+                    <div style="position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); font-size:11px; font-weight:800;">
+                        90
+                    </div>
+                </div>
+            </div>
+
+            <div class="summary">Der NASA-Rover Perseverance hat nach fünf Jahren und vier Monaten die Marathondistanz von 42,195 km auf dem Mars zurückgelegt, was durch eine Satellitenaufnahme des Mars Reconnaissance Orbiters dokumentiert wurde. Im Rahmen der Suche nach Spuren von Leben im Jezero-Krater wurden bereits mögliche Hinweise auf mikrobiologische Prozesse gefunden, deren Ursprung jedoch noch nicht abschließend geklärt ist.</div>
+
+            <a href="https://www.heise.de/news/Mars-Rover-Perseverance-Anlaesslich-der-Marathondistanz-aus-dem-All-fotografiert-11344757.html" class="source-button" target="_blank" onclick="event.stopPropagation()">
+                Vollständigen Artikel lesen
+            </a>
+        </div>
+        
+        <div class="article-card" onclick="toggleCard(this)">
+            
+            <div class="image-wrapper">
+                <img src="https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/5/1/0/6/7/6/9/shutterstock_745110976-f7fbcdf49cc6494f.jpg" class="article-image" alt="Vorschau" loading="lazy">
+            </div>
+            
+
+            <div class="meta">heise • news</div>
+
+            <div class="card-header">
+                <div class="title">KBV und AG KRITIS kritisieren Befugnisse im Entwurf zum Gesetz zur Stärkung der Cybersicherheit</div>
+                <div class="relevance-container">
+                    <svg width="44" height="44">
+                        <circle stroke="rgba(255,255,255,0.08)" stroke-width="3" fill="transparent" r="19" cx="22" cy="22"/>
+                        <circle class="progress-ring__circle" stroke-width="3" stroke-dasharray="119.38" 
+                                stroke-dashoffset="15.462136594123052" 
+                                stroke-linecap="round" fill="transparent" r="19" cx="22" cy="22" transform="rotate(-90 22 22)"/>
+                    </svg>
+                    <div style="position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); font-size:11px; font-weight:800;">
+                        86
+                    </div>
+                </div>
+            </div>
+
+            <div class="summary">Die Kassenärztliche Bundesvereinigung (KBV) warnt vor dem Regierungsentwurf zum „Gesetz zur Stärkung der Cybersicherheit“, da die geplanten Befugnisse zur Cyberabwehr – etwa das Auslesen, Löschen oder Verändern von Daten auf kompromittierten Systemen – den Schutz der ärztlichen Schweigepflicht und sensibler Gesundheitsdaten gefährden könnten. Während die Bundesregierung betont, dass diese Maßnahmen ausschließlich der Gefahrenabwehr dienen sollen, fordert die KBV eine rechtliche Ausweitung des Schutzes für Berufsgeheimnisträger auf diese neuen Abwehrmaßnahmen. Parallel dazu kritisiert die Arbeitsgruppe Kritische Infrastrukturen (AG KRITIS) die weitreichenden staatlichen Eingriffsbefugnisse und fordert stärkere rechtsstaatliche Kontrollmechanismen.</div>
+
+            <a href="https://www.heise.de/news/Gesetz-zur-Staerkung-der-Cybersicherheit-Aerzte-sehen-Schweigepflicht-gefaehrdet-11344811.html" class="source-button" target="_blank" onclick="event.stopPropagation()">
+                Vollständigen Artikel lesen
+            </a>
+        </div>
+        
+        <div class="article-card" onclick="toggleCard(this)">
+            
+            <div class="image-wrapper">
+                <img src="https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/5/1/0/6/6/1/5/MH-3-1297x1536-9c35b760811379eb.jpg" class="article-image" alt="Vorschau" loading="lazy">
+            </div>
+            
+
+            <div class="meta">heise • news</div>
+
+            <div class="card-header">
+                <div class="title">Bundestag wählt Moritz Hennemann zum Bundesbeauftragten für Datenschutz und Informationsfreiheit</div>
+                <div class="relevance-container">
+                    <svg width="44" height="44">
+                        <circle stroke="rgba(255,255,255,0.08)" stroke-width="3" fill="transparent" r="19" cx="22" cy="22"/>
+                        <circle class="progress-ring__circle" stroke-width="3" stroke-dasharray="119.38" 
+                                stroke-dashoffset="15.58940694227762" 
+                                stroke-linecap="round" fill="transparent" r="19" cx="22" cy="22" transform="rotate(-90 22 22)"/>
+                    </svg>
+                    <div style="position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); font-size:11px; font-weight:800;">
+                        86
+                    </div>
+                </div>
+            </div>
+
+            <div class="summary">Der Bundestag hat den Rechtswissenschaftler Moritz Hennemann mit 391 Stimmen zum neunten Bundesbeauftragten für den Datenschutz und die Informationsfreiheit auf eine fünfjährige Amtszeit gewählt. Der von der Bundesregierung vorgeschlagene Experte für Informations- und Medienrecht übernimmt die Überwachung des Bundesdatenschutzgesetzes sowie die Beratung politischer Gremien als Nachfolger von Louisa Specht-Riemenschneider, die ihr Amt aus gesundheitlichen Gründen niederlegte.</div>
+
+            <a href="https://www.heise.de/news/Bundestag-waehlt-Juraprofessor-Moritz-Hennemann-neuen-Datenschutzbeauftragten-11344508.html" class="source-button" target="_blank" onclick="event.stopPropagation()">
+                Vollständigen Artikel lesen
+            </a>
+        </div>
+        
+        <div class="article-card" onclick="toggleCard(this)">
+            
+            <div class="image-wrapper">
+                <img src="https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/5/1/0/6/7/4/9/Tesla_Y_im_Wald-0e09ea817f6f5cbd.jpg" class="article-image" alt="Vorschau" loading="lazy">
+            </div>
+            
+
+            <div class="meta">heise • news</div>
+
+            <div class="card-header">
+                <div class="title">Tesla plant Produktionserhöhung und Ausbau der Belegschaft in Grünheide</div>
+                <div class="relevance-container">
+                    <svg width="44" height="44">
+                        <circle stroke="rgba(255,255,255,0.08)" stroke-width="3" fill="transparent" r="19" cx="22" cy="22"/>
+                        <circle class="progress-ring__circle" stroke-width="3" stroke-dasharray="119.38" 
+                                stroke-dashoffset="18.820574987640356" 
+                                stroke-linecap="round" fill="transparent" r="19" cx="22" cy="22" transform="rotate(-90 22 22)"/>
+                    </svg>
+                    <div style="position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); font-size:11px; font-weight:800;">
+                        83
+                    </div>
+                </div>
+            </div>
+
+            <div class="summary">Tesla plant, die wöchentliche Produktion in Grünheide ab Oktober von 6.200 auf 7.500 Fahrzeuge zu steigern und hierfür 1.000 zusätzliche Mitarbeiter einzustellen. Parallel dazu sollen für den Ausbau der Batteriezellfertigung bei einer geplanten Investition von rund 220 Millionen Euro über 1.500 neue Stellen geschaffen werden, was kurz- bis mittelfristig etwa 3.500 zusätzliche Arbeitsplätze in der Fahrzeug- und Batteriefertigung zur Folge haben soll.</div>
+
+            <a href="https://www.heise.de/news/Produktionsausbau-in-Gruenheide-Tesla-stellt-1000-neue-Mitarbeitende-ein-11344771.html" class="source-button" target="_blank" onclick="event.stopPropagation()">
+                Vollständigen Artikel lesen
+            </a>
+        </div>
+        
+        <div class="article-card" onclick="toggleCard(this)">
+            
+            <div class="image-wrapper">
+                <img src="https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/5/1/0/6/7/2/6/product-ddr5-macro-generic-hero-02_3-2-all-others-e512830b21330dc3-8d621ba4a53b824c-76c86c5243988626.jpeg" class="article-image" alt="Vorschau" loading="lazy">
+            </div>
+            
+
+            <div class="meta">heise • news</div>
+
+            <div class="card-header">
+                <div class="title">Micron schließt strategische Kundenvereinbarungen über mindestens 100 Milliarden US-Dollar ab</div>
+                <div class="relevance-container">
+                    <svg width="44" height="44">
+                        <circle stroke="rgba(255,255,255,0.08)" stroke-width="3" fill="transparent" r="19" cx="22" cy="22"/>
+                        <circle class="progress-ring__circle" stroke-width="3" stroke-dasharray="119.38" 
+                                stroke-dashoffset="37.71780578846983" 
+                                stroke-linecap="round" fill="transparent" r="19" cx="22" cy="22" transform="rotate(-90 22 22)"/>
+                    </svg>
+                    <div style="position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); font-size:11px; font-weight:800;">
+                        66
+                    </div>
+                </div>
+            </div>
+
+            <div class="summary">Micron hat 16 strategische Kundenvereinbarungen (SCAs) mit Cloud-Hyperscalern sowie Herstellern von Servern, Consumer-Geräten und Automobilen abgeschlossen, deren Gesamtwert mindestens 100 Milliarden US-Dollar beträgt. Die Abkommen legen Preisspannen für DRAM und NAND-Flash bis teilweise Ende 2030 fest, wobei die Preise für aktuelle Technologien (DDR5, LPDDR5X, HBM3e, HBM4) auf bisherigem Niveau gedeckelt sind, während für neue Generationen höhere Preiskalkulationen vorgesehen werden. Die Verträge beinhalten zudem Mindestliefermengen mit Strafzahlungen bei Unterschreitung und zielen auf die Sicherung hoher Bruttomargen sowie ein stabiles Preisniveau ab.</div>
+
+            <a href="https://www.heise.de/news/Micron-setzt-hohe-Speicherpreise-auf-5-Jahre-fest-11344727.html" class="source-button" target="_blank" onclick="event.stopPropagation()">
+                Vollständigen Artikel lesen
+            </a>
+        </div>
         
         <div class="article-card" onclick="toggleCard(this)">
             
@@ -2042,223 +2259,6 @@ In der Wissenschaft liefert das James-Webb-Weltraumteleskop (JWST) neue Erkenntn
             </a>
         </div>
         
-        <div class="article-card" onclick="toggleCard(this)">
-            
-            <div class="image-wrapper">
-                <img src="https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/5/1/0/5/5/1/6/shutterstock_1132158479-d16766a774bb4d61.jpg" class="article-image" alt="Vorschau" loading="lazy">
-            </div>
-            
-
-            <div class="meta">heise • news</div>
-
-            <div class="card-header">
-                <div class="title">Nach GSM-R-Störung durch Software-Update wieder Normalbetrieb im Bahnverkehr</div>
-                <div class="relevance-container">
-                    <svg width="44" height="44">
-                        <circle stroke="rgba(255,255,255,0.08)" stroke-width="3" fill="transparent" r="19" cx="22" cy="22"/>
-                        <circle class="progress-ring__circle" stroke-width="3" stroke-dasharray="119.38" 
-                                stroke-dashoffset="26.39964335234616" 
-                                stroke-linecap="round" fill="transparent" r="19" cx="22" cy="22" transform="rotate(-90 22 22)"/>
-                    </svg>
-                    <div style="position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); font-size:11px; font-weight:800;">
-                        76
-                    </div>
-                </div>
-            </div>
-
-            <div class="summary">Nach einer etwa zweistündigen bundesweiten Störung des digitalen Bahnfunksystems GSM-R am Dienstagabend, die vermutlich durch ein fehlerhaftes Software-Update verursacht wurde (Sabotage wurde ausgeschlossen), lief der Fern-, Regional-, S-Bahn- und Güterverkehr am Morgen weitgehend planmäßig wieder an. Der Vorfall löste Kritik von Politik und Privatbahnen an der Betriebsqualität, dem Notfallmanagement sowie der mangelnden Information der betroffenen Fahrgäste aus.</div>
-
-            <a href="https://www.heise.de/news/Bahn-Nach-Stoerung-teils-noch-Folgeverspaetungen-11342330.html" class="source-button" target="_blank" onclick="event.stopPropagation()">
-                Vollständigen Artikel lesen
-            </a>
-        </div>
-        
-        <div class="article-card" onclick="toggleCard(this)">
-            
-            <div class="image-wrapper">
-                <img src="https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/5/1/0/5/4/6/1/shutterstock_2010249140-1210f34a9cf4ea5e.jpg" class="article-image" alt="Vorschau" loading="lazy">
-            </div>
-            
-
-            <div class="meta">heise • news</div>
-
-            <div class="card-header">
-                <div class="title">Deutschland verzeichnet hohe Zunahme von Ransomware-Angriffen auf öffentliche Verwaltung und Gesundheitswesen</div>
-                <div class="relevance-container">
-                    <svg width="44" height="44">
-                        <circle stroke="rgba(255,255,255,0.08)" stroke-width="3" fill="transparent" r="19" cx="22" cy="22"/>
-                        <circle class="progress-ring__circle" stroke-width="3" stroke-dasharray="119.38" 
-                                stroke-dashoffset="41.28440320215536" 
-                                stroke-linecap="round" fill="transparent" r="19" cx="22" cy="22" transform="rotate(-90 22 22)"/>
-                    </svg>
-                    <div style="position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); font-size:11px; font-weight:800;">
-                        63
-                    </div>
-                </div>
-            </div>
-
-            <div class="summary">Deutschland gilt als europäischer Hotspot für Ransomware-Angriffe, wobei die Zunahme fast doppelt so hoch ist wie in Frankreich. Ursächlich sind wertvolle Unternehmensdaten sowie mangelndes Sicherheitsbewusstsein, was besonders die öffentliche Verwaltung und den Gesundheitssektor aufgrund sensibler Patientendaten gefährdet. Die Spuren der Kriminellen führen häufig nach Russland, wo ein geringes Risiko für Strafverfolgung besteht und eine zunehmende Verflechtung mit staatlichen Akteuren beobachtet wird.</div>
-
-            <a href="https://www.heise.de/news/Spuren-von-Cyberangriffen-fuehren-oft-nach-Russland-11342220.html" class="source-button" target="_blank" onclick="event.stopPropagation()">
-                Vollständigen Artikel lesen
-            </a>
-        </div>
-        
-        <div class="article-card" onclick="toggleCard(this)">
-            
-            <div class="image-wrapper">
-                <img src="https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/5/1/0/5/3/3/4/shutterstock_1282770079-4b4bfc82f7cfb29c.jpg" class="article-image" alt="Vorschau" loading="lazy">
-            </div>
-            
-
-            <div class="meta">heise • news</div>
-
-            <div class="card-header">
-                <div class="title">Studien dokumentieren zunehmenden wirtschaftlichen Druck und sinkende IT-Projektanteile bei Freelancern</div>
-                <div class="relevance-container">
-                    <svg width="44" height="44">
-                        <circle stroke="rgba(255,255,255,0.08)" stroke-width="3" fill="transparent" r="19" cx="22" cy="22"/>
-                        <circle class="progress-ring__circle" stroke-width="3" stroke-dasharray="119.38" 
-                                stroke-dashoffset="26.709094793983297" 
-                                stroke-linecap="round" fill="transparent" r="19" cx="22" cy="22" transform="rotate(-90 22 22)"/>
-                    </svg>
-                    <div style="position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); font-size:11px; font-weight:800;">
-                        76
-                    </div>
-                </div>
-            </div>
-
-            <div class="summary">Eine Studie von Freelance.de zeigt, dass Freelancer zunehmend unter Budgetkürzungen (85 %), Inflation (71 %) und einer negativen Projektlage (79 %) leiden. Bei der Zusammenarbeit mit Personaldienstleistern werden vor allem Ghosting (52 %), unverbindliche Anfragen (38 %) sowie mangelnde Transparenz und Preisdruck (je 37 %) als Hürden genannt, während in der direkten Unternehmenszusammenarbeit lange Entscheidungswege (36 %), rechtliche Unsicherheiten wie Scheinselbstständigkeit (34 %) und Preisdruck (30 %) dominieren. Parallel sank der Anteil von IT-Projekten auf Freelance.de von 29 % (2024) auf 20 % (2025), während die Studie von Freelancermap einen Rückgang der durchschnittlichen Stundensätze von 104 Euro auf 103 Euro bei gleichzeitig steigender Arbeitsbelastung belegt.</div>
-
-            <a href="https://www.heise.de/news/Freelancer-kaempfen-mit-Projektakquise-und-Preisdruck-11341968.html" class="source-button" target="_blank" onclick="event.stopPropagation()">
-                Vollständigen Artikel lesen
-            </a>
-        </div>
-        
-        <div class="article-card" onclick="toggleCard(this)">
-            
-            <div class="image-wrapper">
-                <img src="https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/5/1/0/5/4/5/5/shutterstock_2789903851-0842cf6472107b35.jpg" class="article-image" alt="Vorschau" loading="lazy">
-            </div>
-            
-
-            <div class="meta">heise • news</div>
-
-            <div class="card-header">
-                <div class="title">ClimaMeter-Analyse: Menschengemachter Klimawandel verstärkt aktuelle Hitzewelle in Westeuropa um 2 bis 4 Grad Celsius</div>
-                <div class="relevance-container">
-                    <svg width="44" height="44">
-                        <circle stroke="rgba(255,255,255,0.08)" stroke-width="3" fill="transparent" r="19" cx="22" cy="22"/>
-                        <circle class="progress-ring__circle" stroke-width="3" stroke-dasharray="119.38" 
-                                stroke-dashoffset="8.953932982686851" 
-                                stroke-linecap="round" fill="transparent" r="19" cx="22" cy="22" transform="rotate(-90 22 22)"/>
-                    </svg>
-                    <div style="position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); font-size:11px; font-weight:800;">
-                        92
-                    </div>
-                </div>
-            </div>
-
-            <div class="summary">Eine Analyse des Forschungsprojekts ClimaMeter belegt, dass der menschengemachte Klimawandel die aktuelle Hitzewelle in Westeuropa um 2 bis 4 Grad Celsius verstärkt hat, wobei extreme Wetterlagen häufiger auftreten als in Modellen vorhergesagt. Während Städte wie Saragossa (+4 °C), Paris (+2,4 °C) und München (+2,3 °C) signifikante Temperaturabweichungen zum 20. Jahrhundert zeigen, warnt das Team vor dem Erreichen der Anpassungsgrenzen von Gesellschaften und Ökosystemen, sofern Treibhausgasemissionen nicht schnell reduziert werden.</div>
-
-            <a href="https://www.heise.de/news/Aktuelle-Hitzewelle-in-Westeuropa-wegen-Klimawandel-um-bis-zu-4-Grad-heisser-11342208.html" class="source-button" target="_blank" onclick="event.stopPropagation()">
-                Vollständigen Artikel lesen
-            </a>
-        </div>
-        
-        <div class="article-card" onclick="toggleCard(this)">
-            
-            <div class="image-wrapper">
-                <img src="https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/5/1/0/5/4/4/3/shutterstock_2155610545-9d452f3bf09f3c9a.jpg" class="article-image" alt="Vorschau" loading="lazy">
-            </div>
-            
-
-            <div class="meta">heise • news</div>
-
-            <div class="card-header">
-                <div class="title">Halbleiterwerte sinken nach Berichten über reduzierten Kapazitätsausbau bei SK Hynix</div>
-                <div class="relevance-container">
-                    <svg width="44" height="44">
-                        <circle stroke="rgba(255,255,255,0.08)" stroke-width="3" fill="transparent" r="19" cx="22" cy="22"/>
-                        <circle class="progress-ring__circle" stroke-width="3" stroke-dasharray="119.38" 
-                                stroke-dashoffset="6.807120632059721" 
-                                stroke-linecap="round" fill="transparent" r="19" cx="22" cy="22" transform="rotate(-90 22 22)"/>
-                    </svg>
-                    <div style="position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); font-size:11px; font-weight:800;">
-                        93
-                    </div>
-                </div>
-            </div>
-
-            <div class="summary">Aufgrund eines Berichts über geringere Kapazitätsausbaupläne für KI-Speicherchips bei SK Hynix verzeichneten globale Halbleiterwerte deutliche Kursverluste: Der südkoreanische Kospi sank um 10 Prozent (SK Hynix und Samsung jeweils über 12 %), während Unternehmen wie Micron (>12 %), Intel/AMD (~6 %) und ASML (~6 %) Rückgänge verzeichneten. Trotz Diskussionen über eine mögliche KI-Blase bleibt die Marktstimmung aufgrund hoher Liquidität und anhaltend hoher Erwartungen an den KI-Sektor stabil, da viele Branchenwerte weiterhin im Plus stehen.</div>
-
-            <a href="https://www.heise.de/news/Ausgehend-von-Suedkorea-Tech-und-IT-Aktien-teils-deutlich-gefallen-11342186.html" class="source-button" target="_blank" onclick="event.stopPropagation()">
-                Vollständigen Artikel lesen
-            </a>
-        </div>
-        
-        <div class="article-card" onclick="toggleCard(this)">
-            
-            <div class="image-wrapper">
-                <img src="https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/5/1/0/4/6/6/3/BAT12-959830b5b04d9f1c.jpg" class="article-image" alt="Vorschau" loading="lazy">
-            </div>
-            
-
-            <div class="meta">heise • hintergrund</div>
-
-            <div class="card-header">
-                <div class="title">Technische Herausforderungen bei der Verwendung von Lithium-Metall-Anoden in Festkörperbatterien</div>
-                <div class="relevance-container">
-                    <svg width="44" height="44">
-                        <circle stroke="rgba(255,255,255,0.08)" stroke-width="3" fill="transparent" r="19" cx="22" cy="22"/>
-                        <circle class="progress-ring__circle" stroke-width="3" stroke-dasharray="119.38" 
-                                stroke-dashoffset="15.960496352444949" 
-                                stroke-linecap="round" fill="transparent" r="19" cx="22" cy="22" transform="rotate(-90 22 22)"/>
-                    </svg>
-                    <div style="position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); font-size:11px; font-weight:800;">
-                        85
-                    </div>
-                </div>
-            </div>
-
-            <div class="summary">Durch den Ersatz des flüssigen Elektrolyten durch einen festen Stoff zielen Festkörperbatterien (SSB) darauf ab, die Energiedichte zu erhöhen, wobei der Einsatz metallischer Lithium-Anoden anstelle von Graphit aufgrund hoher Reaktivität und mechanischer Instabilitäten bei Volumenänderungen eine zentrale technische Herausforderung darstellt.</div>
-
-            <a href="https://www.heise.de/hintergrund/Batterie-fuer-das-Elektroautos-Welchen-Vorteil-Feststoffbatterien-haben-11340635.html" class="source-button" target="_blank" onclick="event.stopPropagation()">
-                Vollständigen Artikel lesen
-            </a>
-        </div>
-        
-        <div class="article-card" onclick="toggleCard(this)">
-            
-            <div class="image-wrapper">
-                <img src="https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/5/1/0/5/4/3/9/mittwoch-929ff79f4c984d08.webp" class="article-image" alt="Vorschau" loading="lazy">
-            </div>
-            
-
-            <div class="meta">heise • news</div>
-
-            <div class="card-header">
-                <div class="title">Aktuelle Nachrichten aus den Bereichen Verkehr, Technologie und Wirtschaft</div>
-                <div class="relevance-container">
-                    <svg width="44" height="44">
-                        <circle stroke="rgba(255,255,255,0.08)" stroke-width="3" fill="transparent" r="19" cx="22" cy="22"/>
-                        <circle class="progress-ring__circle" stroke-width="3" stroke-dasharray="119.38" 
-                                stroke-dashoffset="22.17305785515056" 
-                                stroke-linecap="round" fill="transparent" r="19" cx="22" cy="22" transform="rotate(-90 22 22)"/>
-                    </svg>
-                    <div style="position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); font-size:11px; font-weight:800;">
-                        80
-                    </div>
-                </div>
-            </div>
-
-            <div class="summary">Nach einem bundesweiten Ausfall des Bahnverkehrs durch eine GSM-R-Funkstörung am Dienstagabend wurde der Betrieb nach Mitternacht wieder aufgenommen. Meta Platforms hat das Tracking von Mitarbeiterdaten für KI-Trainingszwecke aus Datenschutzbedenken vorerst eingestellt. Die geplante Novelle des Energieeffizienzgesetzes sieht weniger strenge Anforderungen an die Effizienz von Rechenzentren vor, was zu Kritik zwischen Wirtschaft und Umweltschutz führt. Während Oracle massiv in KI-Infrastruktur investiert, reduzierte das Unternehmen seine Belegschaft um etwa 21.000 Stellen. Im Bereich Virtual Reality wurden Neuankündigungen wie „Transformers: Beyond Reality“ für die Meta Quest sowie der Titel „Drifters: Blackout Crew“ präsentiert.</div>
-
-            <a href="https://www.heise.de/news/Mittwoch-Funkstoerung-legte-Bahnverkehr-lahm-Meta-pausiert-Mitarbeiter-Tracking-11342178.html" class="source-button" target="_blank" onclick="event.stopPropagation()">
-                Vollständigen Artikel lesen
-            </a>
-        </div>
-        
     </div>
 
     <script>
@@ -2491,7 +2491,7 @@ In der Wissenschaft liefert das James-Webb-Weltraumteleskop (JWST) neue Erkenntn
             if(!ctx) return;
 
             const labels = ["news", "hintergrund"];
-            const currentData = [44, 6];
+            const currentData = [45, 5];
             const baselineData = [44.3, 2.2];
 
             const baseData = currentData.map((val, i) => Math.min(val, baselineData[i]));
