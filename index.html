@@ -369,7 +369,7 @@
 
     <header>
         <h1>Relevant</h1>
-        <p class="build-time">Aktualisiert: 27.06.2026, 16:15 Uhr</p>
+        <p class="build-time">Aktualisiert: 27.06.2026, 18:24 Uhr</p>
     </header>
 
     <div class="dashboard-card">
@@ -405,10 +405,10 @@
                     <svg width="60" height="60">
                         <circle stroke="rgba(255,255,255,0.08)" stroke-width="4" fill="transparent" r="26" cx="30" cy="30"/>
                         <circle class="dashboard-circle" stroke-width="4" stroke-dasharray="163.36" 
-                                stroke-dashoffset="52.2752" 
+                                stroke-dashoffset="45.74080000000001" 
                                 stroke-linecap="round" fill="transparent" r="26" cx="30" cy="30" transform="rotate(-90 30 30)"/>
                     </svg>
-                    <div class="ring-text">68%</div>
+                    <div class="ring-text">72%</div>
                 </div>
                 <div class="stat-label">Last<br>24h</div>
             </div>
@@ -482,14 +482,64 @@
     <div class="dashboard-card">
         <h2 class="chart-title">Emerging Trends (Last 60 Days)</h2>
         <div class="source-filters">
-            <button class="source-filter-btn " data-source="sueddeutsche">sueddeutsche</button><button class="source-filter-btn active" data-source="heise">heise</button>
+            <button class="source-filter-btn active" data-source="heise">heise</button><button class="source-filter-btn " data-source="sueddeutsche">sueddeutsche</button>
         </div>
         <div class="chart-container" style="height: 260px;">
             <canvas id="keywordTrendChart"></canvas>
         </div>
 
         <div class="insights-wrapper">
-            <div class="insights-container" data-insight-source="sueddeutsche" style="display: none;">
+            <div class="insights-container" data-insight-source="heise" style="display: block;">
+                        <div class="insight-card" style="border-left: 3px solid #00f5d4;">
+                            <div class="insight-header" onclick="this.parentElement.classList.toggle('expanded')">
+                                <h4>Us-regierung</h4>
+                                <span class="toggle-icon">+</span>
+                            </div>
+                            <div class="insight-body">
+                                <p>Die US-Regierung setzt verstärkt auf regulatorische Eingriffe im Tech-Sektor, indem sie den Zugang zu neuen KI-Modellen kontrolliert und chinesische Unternehmen sanktioniert. Diese Maßnahmen lösen globale Spannungen aus, manifestiert in Klagen von Firmen wie Alibaba sowie massiven Zollandrohungen gegen europäische Digitalsteuern.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="insight-card" style="border-left: 3px solid #9333ea;">
+                            <div class="insight-header" onclick="this.parentElement.classList.toggle('expanded')">
+                                <h4>Microsoft 365</h4>
+                                <span class="toggle-icon">+</span>
+                            </div>
+                            <div class="insight-body">
+                                <p>Die Diskussion fokussiert sich auf die technische Herausforderung, KI-Integrationen wie Copilot sicher in IT-Umgebungen zu implementieren und die Cloud-Infrastruktur gegen Identitätsdiebstahl sowie Cyberangriffe zu schützen. Gleichzeitig verschärft sich die Debatte über steigende Kosten, erzwungene Abonnement-Modelle sowie regulatorische Untersuchungen wegen intransparenter Preiserhöhungen.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="insight-card" style="border-left: 3px solid #007aff;">
+                            <div class="insight-header" onclick="this.parentElement.classList.toggle('expanded')">
+                                <h4>Deutsche bahn</h4>
+                                <span class="toggle-icon">+</span>
+                            </div>
+                            <div class="insight-body">
+                                <p>Der Fokus liegt auf dem bundesweiten Zugausfall infolge einer Störung des digitalen Bahnfunks (GSM-R) während geplanter Wartungsarbeiten. Die Diskussion dreht sich dabei um die technische Verwundbarkeit der Infrastruktur, mögliche Abhängigkeiten von chinesischen Komponenten sowie neue Regelungen für nächtliche Instandhaltungsfenster.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="insight-card" style="border-left: 3px solid #34d399;">
+                            <div class="insight-header" onclick="this.parentElement.classList.toggle('expanded')">
+                                <h4>Openai</h4>
+                                <span class="toggle-icon">+</span>
+                            </div>
+                            <div class="insight-body">
+                                <p>OpenAI bereitet einen Börsengang sowie die Transformation von ChatGPT zu einer „Superapp“ vor, steht jedoch gleichzeitig vor massiven finanziellen Verlusten und rechtlichen Auseinandersetzungen. Die Debatte wird durch mögliche staatliche Beteiligungen unter der Trump-Regierung und die strategische Bedeutung des Unternehmens für globale Aktienindizes intensiviert.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="insight-card" style="border-left: 3px solid #f43f5e;">
+                            <div class="insight-header" onclick="this.parentElement.classList.toggle('expanded')">
+                                <h4>Verbraucherschutz</h4>
+                                <span class="toggle-icon">+</span>
+                            </div>
+                            <div class="insight-body">
+                                <p>Im Zentrum steht die verstärkte rechtliche und regulatorische Kontrolle von Marktteilnehmern in den Bereichen Elektronik, E-Commerce und Digitaldienste. Die Debatte wird durch konkrete Sanktionen wegen Produktmängeln (Nintendo), Abmahnungen wegen irreführender Werbung (1&1) sowie Verbandsklagen gegen Datenmissbrauch (Meta) angefeuert.</p>
+                            </div>
+                        </div>
+                        </div><div class="insights-container" data-insight-source="sueddeutsche" style="display: none;">
                         <div class="insight-card" style="border-left: 3px solid #00f5d4;">
                             <div class="insight-header" onclick="this.parentElement.classList.toggle('expanded')">
                                 <h4>Fußball-wm</h4>
@@ -506,7 +556,7 @@
                                 <span class="toggle-icon">+</span>
                             </div>
                             <div class="insight-body">
-                                <p>Deutschland erlebt derzeit eine flächendeckende Hitzewelle mit Extremtemperaturen von bis zu 39 Grad, die bundesweit zu offiziellen Hitzewarnungen führt. Die Diskussion konzentriert sich auf die gesundheitlichen Risiken für vulnerable Gruppen, infrastrukturelle Belastungen sowie die zunehmende Kopplung extremer Wetterereignisse an den Klimawandel.</p>
+                                <p>Deutschland steht vor einer flächendeckenden Hitzewelle mit extremen Temperaturen von bis zu 39 Grad, die bundesweit offizielle Wetterwarnungen auslöst. Die Diskussion konzentriert sich auf die unmittelbaren Folgen für Gesundheit und Infrastruktur sowie die zunehmende Notwendigkeit klimabedingter Anpassungsmaßnahmen.</p>
                             </div>
                         </div>
                         
@@ -516,7 +566,7 @@
                                 <span class="toggle-icon">+</span>
                             </div>
                             <div class="insight-body">
-                                <p>Eine bundesweite Hitzewelle mit Temperaturen von bis zu 39 Grad sorgt für extreme Wetterbedingungen, die insbesondere Bayern und die Flussläufe von Main und Donau massiv belasten. Die Diskussion konzentriert sich auf akute Gesundheitsrisiken für vulnerable Gruppen, infrastrukturelle Beeinträchtigungen im Bahnverkehr sowie die ökologischen Folgen stark erwärmter Gewässer.</p>
+                                <p>Die aktuelle Hitzewelle mit Temperaturen von bis zu 38 Grad löst bundesweite Warnungen und drohende Rekordwerte aus. Die Debatte konzentriert sich auf die unmittelbare Gesundheitsgefahr, infrastrukturelle Belastungen sowie die ökologischen Folgen für Fließgewässer im Kontext der Klimakrise.</p>
                             </div>
                         </div>
                         
@@ -526,7 +576,7 @@
                                 <span class="toggle-icon">+</span>
                             </div>
                             <div class="insight-body">
-                                <p>Im Fokus stehen Trainer Julian Nagelsmanns Personalentscheidungen, insbesondere die ungewisse Rückkehr von Manuel Neuer in den Kader. Die Debatte wird durch die massiven Vorwürfe von Uli Hoeneß befeuert, der Nagelsmann mangelnde Kaderstabilität und einen unfairen Kommunikationsstil vorwirft.</p>
+                                <p>Uli Hoeneß kritisiert Julian Nagelsmanns Führungsstil sowie dessen unklare Kommunikation zur möglichen Rückkehr von Manuel Neuer scharf. Die Debatte befasst sich zudem mit der mangelnden personellen Konstanz des Kaders vor dem Hintergrund kommender sportlicher Herausforderungen.</p>
                             </div>
                         </div>
                         
@@ -536,57 +586,7 @@
                                 <span class="toggle-icon">+</span>
                             </div>
                             <div class="insight-body">
-                                <p>Das Thema umfasst eine unmittelbar bevorstehende Hitzewelle mit möglichen neuen Temperaturrekorden von bis zu 38 Grad in der Region München. Die Diskussion entzündet sich an den daraus resultierenden Gesundheitsrisiken für vulnerable Bevölkerungsgruppen sowie an den logistischen Konsequenzen, wie Reiseeinschränkungen der Deutschen Bahn und Anpassungen bei Großveranstaltungen.</p>
-                            </div>
-                        </div>
-                        </div><div class="insights-container" data-insight-source="heise" style="display: block;">
-                        <div class="insight-card" style="border-left: 3px solid #00f5d4;">
-                            <div class="insight-header" onclick="this.parentElement.classList.toggle('expanded')">
-                                <h4>Microsoft 365</h4>
-                                <span class="toggle-icon">+</span>
-                            </div>
-                            <div class="insight-body">
-                                <p>Im Fokus stehen die technische Implementierung neuer KI-Funktionen wie Copilot sowie die Herausforderung, Identitäten und Cloud-Umgebungen gegen gezielte Cyberangriffe abzusichern. Gleichzeitig entbrennt eine Debatte über steigende Lizenzkosten, mangelnde Preistransparenz und die zunehmende strategische Abhängigkeit vom Anbieter, was den Druck nach Alternativen erhöht.</p>
-                            </div>
-                        </div>
-                        
-                        <div class="insight-card" style="border-left: 3px solid #9333ea;">
-                            <div class="insight-header" onclick="this.parentElement.classList.toggle('expanded')">
-                                <h4>Deutsche bahn</h4>
-                                <span class="toggle-icon">+</span>
-                            </div>
-                            <div class="insight-body">
-                                <p>Ein technischer Fehler bei Wartungsarbeiten am digitalen Bahnfunk hat zu einem bundesweiten Stillstand des Zugverkehrs geführt. Der Vorfall befeuert die Debatte über die mangelnde Ausfallsicherheit der Infrastruktur sowie Sicherheitsrisiken durch den Einsatz chinesischer Komponenten in kritischen Netzen.</p>
-                            </div>
-                        </div>
-                        
-                        <div class="insight-card" style="border-left: 3px solid #007aff;">
-                            <div class="insight-header" onclick="this.parentElement.classList.toggle('expanded')">
-                                <h4>Verbraucherschutz</h4>
-                                <span class="toggle-icon">+</span>
-                            </div>
-                            <div class="insight-body">
-                                <p>Aktuell stehen verstärkte rechtliche Sanktionen gegen Unternehmensverstöße – von Hardware-Mängeln über irreführende Werbung bis hin zu Datenschutzverletzungen – im Fokus. Die Debatte wird zudem durch neue EU-Regularien zum Online-Handel sowie politische Weichenstellungen bei Importzöllen und staatlichen Entlastungen angeheizt.</p>
-                            </div>
-                        </div>
-                        
-                        <div class="insight-card" style="border-left: 3px solid #34d399;">
-                            <div class="insight-header" onclick="this.parentElement.classList.toggle('expanded')">
-                                <h4>Hardware</h4>
-                                <span class="toggle-icon">+</span>
-                            </div>
-                            <div class="insight-body">
-                                <p>Die aktuelle Hardware-Berichterstattung konzentriert sich auf technologische Neuerungen der Computex, wie PCIe 6.0 SSDs und AMD-Erweiterungskarten, sowie auf Hardware-Probleme bei Google Pixel und Nintendo. Im Fokus stehen dabei sowohl neue Industriestandards als auch die Folgen von Hardware-Defekten und veränderten Geschäftsmodellen für Endnutzer.</p>
-                            </div>
-                        </div>
-                        
-                        <div class="insight-card" style="border-left: 3px solid #f43f5e;">
-                            <div class="insight-header" onclick="this.parentElement.classList.toggle('expanded')">
-                                <h4>Social media</h4>
-                                <span class="toggle-icon">+</span>
-                            </div>
-                            <div class="insight-body">
-                                <p>Im Zentrum steht die kontroverse Debatte um gesetzliche Altersgrenzen für Minderjährige im Gegensatz zu Ansätzen zur Förderung der Medienkompetenz. Parallel dazu sorgen zunehmende Sicherheitsrisiken durch KI-gestützte Account-Übernahmen sowie technische Instabilitäten bei großen Plattformen für Schlagzeilen.</p>
+                                <p>Das Thema umfasst eine extreme Hitzewelle mit drohenden Temperaturrekorden von bis zu 41,5 Grad. Die Diskussion wird durch die gesundheitlichen Risiken für vulnerable Bevölkerungsschichten sowie die Auswirkungen der Hitze auf den Reiseverkehr und geplante Großveranstaltungen getrieben.</p>
                             </div>
                         </div>
                         </div>
@@ -600,7 +600,7 @@
 
             const initChart = function() {
                 const ctx = document.getElementById('keywordTrendChart').getContext('2d');
-                const rawDatasets = [{"label": "Fu\u00dfball-wm", "data": [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 14.3, 7.1, 0.0, 0.0, 7.1, 0.0, 7.1, 14.3, 0.0, 0.0, 0.0, 7.1, 0.0, 7.1, 0.0, 7.1, 7.1, 7.1, 0.0, 0.0, 0.0, 14.3, 0.0, 0.0, 0.0, 21.4, 0.0, 14.3, 7.1, 14.3, 7.1, 0.0, 0.0, 7.1, 7.1, 0.0, 35.7, 57.1, 0.0, 57.1, 57.1, 14.3, 35.7, 78.6, 50.0, 21.4, 7.1, 28.6, 0.0, 21.4, 100.0, 35.7, 35.7], "borderColor": "#00f5d4", "backgroundColor": "transparent", "borderWidth": 2, "tension": 0.4, "cubicInterpolationMode": "monotone", "pointRadius": 0, "pointHitRadius": 10, "sourceId": "sueddeutsche", "originalColor": "#00f5d4"}, {"label": "Hitze", "data": [0.0, 0.0, 0.0, 0.0, 0.0, 7.1, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 7.1, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 7.1, 21.4, 7.1, 7.1, 0.0, 0.0, 0.0, 57.1, 14.3, 21.4], "borderColor": "#9333ea", "backgroundColor": "transparent", "borderWidth": 2, "tension": 0.4, "cubicInterpolationMode": "monotone", "pointRadius": 0, "pointHitRadius": 10, "sourceId": "sueddeutsche", "originalColor": "#9333ea"}, {"label": "Extremwetter", "data": [0.0, 0.0, 0.0, 0.0, 0.0, 7.1, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 7.1, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 7.1, 21.4, 0.0, 7.1, 0.0, 0.0, 0.0, 42.9, 7.1, 21.4], "borderColor": "#007aff", "backgroundColor": "transparent", "borderWidth": 2, "tension": 0.4, "cubicInterpolationMode": "monotone", "pointRadius": 0, "pointHitRadius": 10, "sourceId": "sueddeutsche", "originalColor": "#007aff"}, {"label": "Deutsche nationalmannschaft", "data": [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 7.1, 7.1, 0.0, 7.1, 0.0, 0.0, 0.0, 7.1, 7.1, 0.0, 0.0, 0.0, 7.1, 7.1, 14.3, 0.0, 0.0, 7.1, 14.3, 0.0, 0.0, 0.0, 14.3, 0.0, 14.3, 7.1, 14.3, 0.0, 0.0, 0.0, 7.1, 14.3, 0.0, 7.1, 21.4, 0.0, 50.0, 28.6, 7.1, 14.3, 28.6, 0.0, 14.3, 7.1, 14.3, 0.0, 7.1, 64.3, 28.6, 14.3], "borderColor": "#34d399", "backgroundColor": "transparent", "borderWidth": 2, "tension": 0.4, "cubicInterpolationMode": "monotone", "pointRadius": 0, "pointHitRadius": 10, "sourceId": "sueddeutsche", "originalColor": "#34d399"}, {"label": "Sommer", "data": [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 7.1, 0.0, 0.0, 0.0, 0.0, 0.0, 21.4, 7.1, 14.3], "borderColor": "#f43f5e", "backgroundColor": "transparent", "borderWidth": 2, "tension": 0.4, "cubicInterpolationMode": "monotone", "pointRadius": 0, "pointHitRadius": 10, "sourceId": "sueddeutsche", "originalColor": "#f43f5e"}, {"label": "Microsoft 365", "data": [14.3, 14.3, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 14.3, 0.0, 0.0, 0.0, 14.3, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 14.3, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 42.9, 0.0, 0.0, 0.0, 14.3, 28.6, 14.3, 0.0, 0.0, 0.0, 0.0, 14.3, 14.3, 0.0, 0.0, 14.3, 0.0, 14.3, 0.0, 14.3, 0.0, 0.0, 14.3, 0.0, 14.3, 0.0, 0.0, 14.3, 71.4, 0.0], "borderColor": "#00f5d4", "backgroundColor": "transparent", "borderWidth": 2, "tension": 0.4, "cubicInterpolationMode": "monotone", "pointRadius": 0, "pointHitRadius": 10, "sourceId": "heise", "originalColor": "#00f5d4"}, {"label": "Deutsche bahn", "data": [0.0, 0.0, 0.0, 0.0, 0.0, 14.3, 14.3, 0.0, 0.0, 14.3, 0.0, 0.0, 0.0, 0.0, 28.6, 0.0, 0.0, 0.0, 14.3, 0.0, 0.0, 14.3, 14.3, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 14.3, 0.0, 14.3, 0.0, 0.0, 0.0, 28.6, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 14.3, 42.9, 28.6, 14.3, 14.3], "borderColor": "#9333ea", "backgroundColor": "transparent", "borderWidth": 2, "tension": 0.4, "cubicInterpolationMode": "monotone", "pointRadius": 0, "pointHitRadius": 10, "sourceId": "heise", "originalColor": "#9333ea"}, {"label": "Verbraucherschutz", "data": [14.3, 14.3, 0.0, 0.0, 14.3, 28.6, 14.3, 0.0, 28.6, 57.1, 0.0, 0.0, 14.3, 0.0, 0.0, 0.0, 14.3, 0.0, 0.0, 0.0, 0.0, 14.3, 14.3, 28.6, 0.0, 0.0, 0.0, 0.0, 14.3, 14.3, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 28.6, 0.0, 0.0, 14.3, 14.3, 14.3, 42.9, 0.0, 0.0, 14.3, 0.0, 42.9, 28.6, 14.3, 28.6, 14.3, 0.0, 0.0, 28.6, 28.6, 0.0, 71.4, 0.0], "borderColor": "#007aff", "backgroundColor": "transparent", "borderWidth": 2, "tension": 0.4, "cubicInterpolationMode": "monotone", "pointRadius": 0, "pointHitRadius": 10, "sourceId": "heise", "originalColor": "#007aff"}, {"label": "Hardware", "data": [14.3, 42.9, 0.0, 0.0, 0.0, 42.9, 0.0, 28.6, 28.6, 14.3, 14.3, 0.0, 0.0, 28.6, 0.0, 0.0, 28.6, 0.0, 14.3, 42.9, 14.3, 57.1, 42.9, 85.7, 0.0, 0.0, 0.0, 0.0, 57.1, 14.3, 0.0, 0.0, 0.0, 42.9, 100.0, 14.3, 57.1, 42.9, 0.0, 0.0, 28.6, 28.6, 14.3, 28.6, 28.6, 14.3, 0.0, 28.6, 28.6, 14.3, 14.3, 0.0, 0.0, 14.3, 0.0, 28.6, 57.1, 57.1, 28.6, 0.0], "borderColor": "#34d399", "backgroundColor": "transparent", "borderWidth": 2, "tension": 0.4, "cubicInterpolationMode": "monotone", "pointRadius": 0, "pointHitRadius": 10, "sourceId": "heise", "originalColor": "#34d399"}, {"label": "Social media", "data": [14.3, 14.3, 14.3, 14.3, 0.0, 14.3, 42.9, 28.6, 14.3, 14.3, 28.6, 0.0, 14.3, 0.0, 14.3, 14.3, 0.0, 0.0, 0.0, 0.0, 28.6, 0.0, 42.9, 14.3, 0.0, 0.0, 28.6, 0.0, 14.3, 42.9, 14.3, 0.0, 14.3, 0.0, 14.3, 0.0, 14.3, 28.6, 0.0, 14.3, 0.0, 0.0, 0.0, 28.6, 57.1, 0.0, 0.0, 28.6, 14.3, 14.3, 28.6, 14.3, 0.0, 0.0, 28.6, 14.3, 14.3, 28.6, 57.1, 0.0], "borderColor": "#f43f5e", "backgroundColor": "transparent", "borderWidth": 2, "tension": 0.4, "cubicInterpolationMode": "monotone", "pointRadius": 0, "pointHitRadius": 10, "sourceId": "heise", "originalColor": "#f43f5e"}];
+                const rawDatasets = [{"label": "Us-regierung", "data": [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 20.0, 0.0, 0.0, 0.0, 0.0, 20.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 20.0, 0.0, 0.0, 60.0], "borderColor": "#00f5d4", "backgroundColor": "transparent", "borderWidth": 2, "tension": 0.4, "cubicInterpolationMode": "monotone", "pointRadius": 0, "pointHitRadius": 10, "sourceId": "heise", "originalColor": "#00f5d4"}, {"label": "Microsoft 365", "data": [20.0, 20.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 20.0, 0.0, 0.0, 0.0, 20.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 20.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 60.0, 0.0, 0.0, 0.0, 20.0, 40.0, 20.0, 0.0, 0.0, 0.0, 0.0, 20.0, 20.0, 0.0, 0.0, 20.0, 0.0, 20.0, 0.0, 20.0, 0.0, 0.0, 20.0, 0.0, 20.0, 0.0, 0.0, 20.0, 100.0, 0.0], "borderColor": "#9333ea", "backgroundColor": "transparent", "borderWidth": 2, "tension": 0.4, "cubicInterpolationMode": "monotone", "pointRadius": 0, "pointHitRadius": 10, "sourceId": "heise", "originalColor": "#9333ea"}, {"label": "Deutsche bahn", "data": [0.0, 0.0, 0.0, 0.0, 0.0, 20.0, 20.0, 0.0, 0.0, 20.0, 0.0, 0.0, 0.0, 0.0, 40.0, 0.0, 0.0, 0.0, 20.0, 0.0, 0.0, 20.0, 20.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 20.0, 0.0, 20.0, 0.0, 0.0, 0.0, 40.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 20.0, 60.0, 40.0, 20.0, 20.0], "borderColor": "#007aff", "backgroundColor": "transparent", "borderWidth": 2, "tension": 0.4, "cubicInterpolationMode": "monotone", "pointRadius": 0, "pointHitRadius": 10, "sourceId": "heise", "originalColor": "#007aff"}, {"label": "Openai", "data": [40.0, 20.0, 20.0, 0.0, 40.0, 0.0, 40.0, 40.0, 0.0, 40.0, 0.0, 0.0, 0.0, 0.0, 20.0, 0.0, 20.0, 20.0, 0.0, 80.0, 40.0, 80.0, 40.0, 0.0, 0.0, 20.0, 0.0, 20.0, 0.0, 40.0, 40.0, 0.0, 0.0, 40.0, 40.0, 40.0, 0.0, 40.0, 20.0, 20.0, 20.0, 20.0, 20.0, 0.0, 20.0, 40.0, 0.0, 0.0, 40.0, 20.0, 0.0, 0.0, 20.0, 0.0, 20.0, 40.0, 20.0, 40.0, 20.0, 60.0], "borderColor": "#34d399", "backgroundColor": "transparent", "borderWidth": 2, "tension": 0.4, "cubicInterpolationMode": "monotone", "pointRadius": 0, "pointHitRadius": 10, "sourceId": "heise", "originalColor": "#34d399"}, {"label": "Verbraucherschutz", "data": [20.0, 20.0, 0.0, 0.0, 20.0, 40.0, 20.0, 0.0, 40.0, 80.0, 0.0, 0.0, 20.0, 0.0, 0.0, 0.0, 20.0, 0.0, 0.0, 0.0, 0.0, 20.0, 20.0, 40.0, 0.0, 0.0, 0.0, 0.0, 20.0, 20.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 40.0, 0.0, 0.0, 20.0, 20.0, 20.0, 60.0, 0.0, 0.0, 20.0, 0.0, 60.0, 40.0, 20.0, 40.0, 20.0, 0.0, 0.0, 40.0, 40.0, 0.0, 100.0, 0.0], "borderColor": "#f43f5e", "backgroundColor": "transparent", "borderWidth": 2, "tension": 0.4, "cubicInterpolationMode": "monotone", "pointRadius": 0, "pointHitRadius": 10, "sourceId": "heise", "originalColor": "#f43f5e"}, {"label": "Fu\u00dfball-wm", "data": [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 14.3, 7.1, 0.0, 0.0, 7.1, 0.0, 7.1, 14.3, 0.0, 0.0, 0.0, 7.1, 0.0, 7.1, 0.0, 7.1, 7.1, 7.1, 0.0, 0.0, 0.0, 14.3, 0.0, 0.0, 0.0, 21.4, 0.0, 14.3, 7.1, 14.3, 7.1, 0.0, 0.0, 7.1, 7.1, 0.0, 35.7, 57.1, 0.0, 57.1, 57.1, 14.3, 35.7, 78.6, 50.0, 21.4, 7.1, 28.6, 0.0, 21.4, 100.0, 35.7, 42.9], "borderColor": "#00f5d4", "backgroundColor": "transparent", "borderWidth": 2, "tension": 0.4, "cubicInterpolationMode": "monotone", "pointRadius": 0, "pointHitRadius": 10, "sourceId": "sueddeutsche", "originalColor": "#00f5d4"}, {"label": "Hitze", "data": [0.0, 0.0, 0.0, 0.0, 0.0, 7.1, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 7.1, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 7.1, 21.4, 7.1, 7.1, 0.0, 0.0, 0.0, 57.1, 14.3, 28.6], "borderColor": "#9333ea", "backgroundColor": "transparent", "borderWidth": 2, "tension": 0.4, "cubicInterpolationMode": "monotone", "pointRadius": 0, "pointHitRadius": 10, "sourceId": "sueddeutsche", "originalColor": "#9333ea"}, {"label": "Extremwetter", "data": [0.0, 0.0, 0.0, 0.0, 0.0, 7.1, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 7.1, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 7.1, 21.4, 0.0, 7.1, 0.0, 0.0, 0.0, 42.9, 7.1, 28.6], "borderColor": "#007aff", "backgroundColor": "transparent", "borderWidth": 2, "tension": 0.4, "cubicInterpolationMode": "monotone", "pointRadius": 0, "pointHitRadius": 10, "sourceId": "sueddeutsche", "originalColor": "#007aff"}, {"label": "Deutsche nationalmannschaft", "data": [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 7.1, 7.1, 0.0, 7.1, 0.0, 0.0, 0.0, 7.1, 7.1, 0.0, 0.0, 0.0, 7.1, 7.1, 14.3, 0.0, 0.0, 7.1, 14.3, 0.0, 0.0, 0.0, 14.3, 0.0, 14.3, 7.1, 14.3, 0.0, 0.0, 0.0, 7.1, 14.3, 0.0, 7.1, 21.4, 0.0, 50.0, 28.6, 7.1, 14.3, 28.6, 0.0, 14.3, 7.1, 14.3, 0.0, 7.1, 64.3, 28.6, 14.3], "borderColor": "#34d399", "backgroundColor": "transparent", "borderWidth": 2, "tension": 0.4, "cubicInterpolationMode": "monotone", "pointRadius": 0, "pointHitRadius": 10, "sourceId": "sueddeutsche", "originalColor": "#34d399"}, {"label": "Sommer", "data": [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 7.1, 0.0, 0.0, 0.0, 0.0, 0.0, 21.4, 7.1, 21.4], "borderColor": "#f43f5e", "backgroundColor": "transparent", "borderWidth": 2, "tension": 0.4, "cubicInterpolationMode": "monotone", "pointRadius": 0, "pointHitRadius": 10, "sourceId": "sueddeutsche", "originalColor": "#f43f5e"}];
 
                 Chart.defaults.color = 'rgba(255, 255, 255, 0.7)';
                 Chart.defaults.font.family = '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif';
@@ -687,7 +687,7 @@
         <div class="article-card" onclick="toggleCard(this)">
             <div class="meta">Ollama AI • Top 10 (48h)</div>
             <div class="card-header">
-                <div class="title">Rechtliche und technologische Entwicklungen im Überblick</div>
+                <div class="title">Technologische, rechtliche und ökologische Entwicklungen im Überblick</div>
                 <div class="relevance-container">
                     <svg width="44" height="44">
                         <circle stroke="rgba(255,255,255,0.08)" stroke-width="3" fill="transparent" r="19" cx="22" cy="22"/>
@@ -700,14 +700,76 @@
                     </div>
                 </div>
             </div>
-            <div class="summary" style="white-space: pre-wrap;">Die aktuelle Nachrichtenlage ist geprägt von tiefgreifenden rechtlichen und wirtschaftlichen Veränderungen im Bereich der Künstlichen IntelligenIntelligenz. Während fast 400 US-Nachrichtenportale Microsoft und OpenAI wegen des unbefugten Trainings ihrer Modelle mit urheberrechtlich geschützten Inhalten verklagen, fordert Google für ein neues KI-Programm weitreichende Nutzungsrechte an redaktionellen Texten. Rechtliche Gutachten stufen KI-generierte Suchergebnisse zudem als eigenständige Inhalte ein, was die Haftungsverantwortung der Anbieter nach dem Digital Services Act erhöht und neue gesetzliche Kategorien im Medienstaatsvertrag erforderlich macht. Parallel dazu stehen Unternehmen wie Anthropic in Konflikt mit Alibaba wegen illegaler Datenextraktion sowie mit der US-Regierung aufgrund von Sicherheitsbedenken bei KI-Modellen, während OpenAI einen Börsengang zur Abwartestrategie in Bezug auf Marktunsicherheiten möglicherweise auf das nächste Jahr verschiebt.
+            <div class="summary" style="white-space: pre-wrap;">In der rechtlichen und wirtschaftlichen Bewertung von Künstlicher Intelligenz (KI) zeichnen sich derzeit massive Verschiebungen ab: Ein Gutachten der Landesmedienanstalten stuft KI-generierte Suchergebnisse als eigene Inhalte ein, was die Haftung für Anbieter nach dem Digital Services Act (DSA) erhöht und neue gesetzliche Kategorien im Medienstaubvertrag fordert. Parallel dazu sieht sich Google in der Kritik, da das Unternehmen für ein neues KI-Pilotprogramm weitreichende Nutzungsrechte an redaktionellen Inhalten beansprucht, was die Klickzahlen auf Originalquellen durch „AI Overviews“ gefährdet. Auch die US-amerikanische Nachrichtenbranche reagiert mit rechtlichen Schritten; rund 400 Portale verklagen Microsoft und OpenAI wegen der unbefugten Nutzung urheberrechtlich geschützter Inhalte für das KI-Training. Im Bereich der Wettbewerbsdynamik erwägt OpenAI zudem, seinen geplanten Börsengang auf das nächste Jahr zu verschieben, um Marktvolatilitäten abzuwarten, während das Unternehmen Anthropic wiederum Alibaba die illegale Extraktion von Daten aus dem „Claude“-Modell vorwirft und gleichzeitig in einen Konflikt mit der US-Regierung über die Marktabsetzung eines Modells geraten ist.
 
-Ein weiterer Schwerpunkt liegt auf der Ausweitung digitaler Überwachungsbefugnisse und damit verbundenen Grundrechtsdebatten. Der Sächsische Landtag hat eine Reform des Polizeigesetzes verabschiedert, die unter anderem KI-gestützte Gesichtserkennung und den Einsatz von Drohnenabwehr ermöglicht. Auf EU-Ebene stehen zudem Verhandlungen über eine verpflichtende Chatkontrolle kurz vor dem Abschluss, was Experten aufgrund der Gefährdung der Ende-zu-Ende-Verschlüsselung kritisch sehen.
+Auch im Bereich der digitalen Überwachung und Privatsphäre verschärfen sich die Spannungen. Der Sächsische Landtag hat eine Reform des Polizeigesetzes beschlossen, die erweiterte Befugnisse wie KI-gestützte Gesichtserkennung und den Einsatz von Staatstrojanern ermöglicht, wobei der Einsatz der Palantir-Software zur Sicherung politischer Mehrheiten untersagt wurde. Auf EU-Ebene stehen die Verhandlungen über eine verpflichtende „Chatkontrolle“ kurz vor dem Abschluss, was massive Bedenken hinsichtlich des Schutzes der Ende-zu-Ende-Verschlüsselung und der Privatsphäre hervorruft, da interne Dokumente auf eine Unterstützung weitreichender Scans durch die deutsche Delegation hindeuten.
 
-Im Bereich der Technologie und Energieentwicklung treibt die Prognose eines Massenmarktes für humanoide Roboter die Aktienkurse von Halbleiterherstellern an, wenngleich technische Hürden bei der Sensorik und Leistungselektronik bestehen bleiben. In der Energiewirtschaft planen Budget Thuis und Ore Energy den Aufbau von Eisen-Luft-Energiespeichern, um eine kostengünstige und brandsichere langfristige Speicherung erneuerbarer Energien zu realisieren. Vor dem Hintergrund dieser technologischen Entwicklungen verdeutlichen aktuelle Studien die Dringlichkeit des Klimaschutzes: Die gegenwärtige extreme Hitzewelle in Westeuropa wird als direkte Folge des menschengemachten Klimawandels eingestuft, was den Ausstieg aus fossilen Energien und notwendige Anpassungsmaßnahmen unterstreicht.</div>
+Im technologischen und ökologischen Bereich treibt die Erwartung eines Massenmarktes für humanoide Roboter die Aktienkurse von Halbleiterherstellern wie Infineon an, wenngleich die Entwicklung leistungsfähiger KI-Chips noch vor großen technischen Herausforderungen steht. Im Energiesektor plant der niederländische Versorger Budget Thuis gemeinsam mit Ore Energy den Aufbau eines kostengünstigen und brandsicheren Eisen-Luft-Energiespeichers zur langfristigen Speicherung erneuerbarer Energien. Diese technologischen Fortschritte müssen jedoch vor dem Hintergrund klimatischer Extremereignisse betrachtet werden: Studien verknüpfen die aktuelle, extreme Hitzewelle in Westeuropa direkt mit dem menschengemachten Klimawandel und unterstreichen die dringende Notwendigkeit von Anpassungsmaßnahmen sowie einem Ausstieg aus fossilen Energieträgern.</div>
         </div>
         
 
+        
+        <div class="article-card" onclick="toggleCard(this)">
+            
+            <div class="image-wrapper">
+                <img src="https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/5/1/0/7/8/1/7/shutterstock_2663445441-09273ded7073666d.jpg" class="article-image" alt="Vorschau" loading="lazy">
+            </div>
+            
+
+            <div class="meta">heise • news</div>
+
+            <div class="card-header">
+                <div class="title">US-Handelsministerium gewährt ausgewählten Partnern Zugang zu Claude Mythos unter Exportkontrollen</div>
+                <div class="relevance-container">
+                    <svg width="44" height="44">
+                        <circle stroke="rgba(255,255,255,0.08)" stroke-width="3" fill="transparent" r="19" cx="22" cy="22"/>
+                        <circle class="progress-ring__circle" stroke-width="3" stroke-dasharray="119.38" 
+                                stroke-dashoffset="14.966577057429802" 
+                                stroke-linecap="round" fill="transparent" r="19" cx="22" cy="22" transform="rotate(-90 22 22)"/>
+                    </svg>
+                    <div style="position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); font-size:11px; font-weight:800;">
+                        86
+                    </div>
+                </div>
+            </div>
+
+            <div class="summary">US-Handelsminister Howard Lutnick hat den Zugriff auf das KI-Modell Claude Mythos für etwa 100 „vertrauenswürdige Partner“ ermöglicht, nachdem Sicherheitsvorkehrungen implementiert wurden. Da Anthropic als Sicherheitsrisiko eingestuft ist, bleibt dieser Zugang strengen Exportkontrollen unterworfen; das Modell Fable 5 bleibt weiterhin gesperrt. Die rechtliche Grundlage der Regulierung wird von Anthropic und weiteren Unternehmen im Rahmen von Klagen angefochten.</div>
+
+            <a href="https://www.heise.de/news/Per-Brief-US-Regierung-hebt-Sperre-von-Claude-Mythos-auf-11346880.html" class="source-button" target="_blank" onclick="event.stopPropagation()">
+                Vollständigen Artikel lesen
+            </a>
+        </div>
+        
+        <div class="article-card" onclick="toggleCard(this)">
+            
+            <div class="image-wrapper">
+                <img src="https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/5/1/0/7/8/0/3/shutterstock_2253487389-6166b720bd140266.jpg" class="article-image" alt="Vorschau" loading="lazy">
+            </div>
+            
+
+            <div class="meta">heise • news</div>
+
+            <div class="card-header">
+                <div class="title">OpenAI veröffentlicht neue GPT-5.6 Modellgeneration mit erweiterten Agentenfunktionen und angepasster Preisstruktur</div>
+                <div class="relevance-container">
+                    <svg width="44" height="44">
+                        <circle stroke="rgba(255,255,255,0.08)" stroke-width="3" fill="transparent" r="19" cx="22" cy="22"/>
+                        <circle class="progress-ring__circle" stroke-width="3" stroke-dasharray="119.38" 
+                                stroke-dashoffset="10.295260629018756" 
+                                stroke-linecap="round" fill="transparent" r="19" cx="22" cy="22" transform="rotate(-90 22 22)"/>
+                    </svg>
+                    <div style="position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); font-size:11px; font-weight:800;">
+                        90
+                    </div>
+                </div>
+            </div>
+
+            <div class="summary">OpenAI hat unter US-Regierungsauflagen die Modellgeneration GPT-5.6 veröffentlicht, welche aus den Varianten Terra (Alltagsgebrauch), Luna (Effizienz) und Sol (Flaggschiff, inklusive der Subagenten-fähigen Version Sol Ultra) besteht. Die Modelle weisen verbesserte agentische Fähigkeiten in Programmierung, Biologie und Cybersicherheit sowie verstärkte Schutzmaßnahmen gegen Missbrauch auf. In Benchmarks übertrifft die Serie teilweise Anthropics Mythos 5, bietet bei Cybersicherheit eine deutlich höhere Token-Effizienz und ist mit 2,50 USD pro Million Input-Token sowie 30 USD pro Million Output-Token preislich günstiger als Fable 5 und Mythos 5.</div>
+
+            <a href="https://www.heise.de/news/GPT-5-6-OpenAI-verspricht-mehr-Leistung-bei-weniger-Token-Verbrauch-11346852.html" class="source-button" target="_blank" onclick="event.stopPropagation()">
+                Vollständigen Artikel lesen
+            </a>
+        </div>
         
         <div class="article-card" onclick="toggleCard(this)">
             
@@ -2193,68 +2255,6 @@ Im Bereich der Technologie und Energieentwicklung treibt die Prognose eines Mass
             <div class="summary">In einer Anhörung des NRW-Landtags stießen Pläne der „Föderalen Modernisierungsagenda“ zur Abschaffung der Pflicht für Landesdatenschutzbeauftragte auf Kritik von Sachverständigen. Während eine Zentralisierung der Aufsicht über den privaten Sektor beim Bundesbeauftragten (BfDI) als rechtlich möglich erachtet wird, warnten Experten vor verfassungsrechtlichen und unionsrechtlichen Hürden bei einer Übertragung der Aufsicht über die öffentliche Verwaltung auf den Bund. Statt einer Abschaffung befürwortete die Mehrheit der Experten eine Modernisierung bestehender föderaler Strukturen durch eine stärkere Institutionalisierung der Datenschutzkonferenz (DSK) sowie die konsequente Umsetzung des „Einer-für-Alle“-Prinzips zur Vermeidung von Doppelprüfungen.</div>
 
             <a href="https://www.heise.de/news/Streit-um-Datenschutzaufsicht-Absurd-das-zentral-aus-Berlin-oder-Bonn-zu-tun-11344352.html" class="source-button" target="_blank" onclick="event.stopPropagation()">
-                Vollständigen Artikel lesen
-            </a>
-        </div>
-        
-        <div class="article-card" onclick="toggleCard(this)">
-            
-            <div class="image-wrapper">
-                <img src="https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/5/1/0/6/5/4/2/shutterstock_1258390147-0a0aaa4dc0fdf3b1.jpg" class="article-image" alt="Vorschau" loading="lazy">
-            </div>
-            
-
-            <div class="meta">heise • news</div>
-
-            <div class="card-header">
-                <div class="title">US-Nachrichtenportale verklagen Microsoft und OpenAI wegen Nutzung urheberrechtlich geschützter Inhalte für das KI-Training</div>
-                <div class="relevance-container">
-                    <svg width="44" height="44">
-                        <circle stroke="rgba(255,255,255,0.08)" stroke-width="3" fill="transparent" r="19" cx="22" cy="22"/>
-                        <circle class="progress-ring__circle" stroke-width="3" stroke-dasharray="119.38" 
-                                stroke-dashoffset="6.952639865227127" 
-                                stroke-linecap="round" fill="transparent" r="19" cx="22" cy="22" transform="rotate(-90 22 22)"/>
-                    </svg>
-                    <div style="position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); font-size:11px; font-weight:800;">
-                        93
-                    </div>
-                </div>
-            </div>
-
-            <div class="summary">Verlage von fast 400 Nachrichtenportalen aus 33 US-Bundesstaaten haben Klage gegen Microsoft und OpenAI eingereicht, da diese urheberrechtlich geschützte Inhalte – auch hinter Paywalls – ohne Genehmigung zum Training von KI-Modellen wie ChatGPT und Copilot genutzt haben sollen. Die Kläger werfen den Unternehmen einen systematischen Diebstahl von Inhalten vor und fordern Schadenersatz sowie ein Ende der Urheberrechtsverletzungen.</div>
-
-            <a href="https://www.heise.de/news/ChatGPT-und-Copilot-US-Verlage-reichen-naechste-Klage-wegen-KI-Training-ein-11344362.html" class="source-button" target="_blank" onclick="event.stopPropagation()">
-                Vollständigen Artikel lesen
-            </a>
-        </div>
-        
-        <div class="article-card" onclick="toggleCard(this)">
-            
-            <div class="image-wrapper">
-                <img src="https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/5/1/0/6/5/7/0/hp-bac551409dcff751.jpg" class="article-image" alt="Vorschau" loading="lazy">
-            </div>
-            
-
-            <div class="meta">heise • news</div>
-
-            <div class="card-header">
-                <div class="title">Budget Thuis und Ore Energy planen Aufbau eines Eisen-Luft-Energiespeichers</div>
-                <div class="relevance-container">
-                    <svg width="44" height="44">
-                        <circle stroke="rgba(255,255,255,0.08)" stroke-width="3" fill="transparent" r="19" cx="22" cy="22"/>
-                        <circle class="progress-ring__circle" stroke-width="3" stroke-dasharray="119.38" 
-                                stroke-dashoffset="6.526216509440744" 
-                                stroke-linecap="round" fill="transparent" r="19" cx="22" cy="22" transform="rotate(-90 22 22)"/>
-                    </svg>
-                    <div style="position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); font-size:11px; font-weight:800;">
-                        94
-                    </div>
-                </div>
-            </div>
-
-            <div class="summary">Der niederländische Energieversorger Budget Thuis plant mit Ore Energy einen Eisen-Luft-Energiespeicher zur langfristigen Speicherung erneuerbarer Energien über 24 bis 100 Stunden. Bei einer geplanten Endkapazität von einer Gigawattstunde soll der erste Teilabschnitt (400 Megawattstunden) bis 2028 fertiggestellt sein. Die modular in Containern untergebrachten Eisen-Luft-Akkus sind im Vergleich zu Lithium-Ionen-Systemen zwar weniger effizient und größer, dafür jedoch kostengünstiger sowie brandsicher und sollen die Abhängigkeit von fossilen Gaskraftwerken verringern.</div>
-
-            <a href="https://www.heise.de/news/Niederlaendischer-Energieversorger-baut-1-Gigawattstunden-Langzeitspeicher-11344418.html" class="source-button" target="_blank" onclick="event.stopPropagation()">
                 Vollständigen Artikel lesen
             </a>
         </div>
