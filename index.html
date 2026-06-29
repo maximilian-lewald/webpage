@@ -369,7 +369,7 @@
 
     <header>
         <h1>Relevant</h1>
-        <p class="build-time">Aktualisiert: 28.06.2026, 20:38 Uhr</p>
+        <p class="build-time">Aktualisiert: 29.06.2026, 07:10 Uhr</p>
     </header>
 
     <div class="dashboard-card">
@@ -392,10 +392,10 @@
                     <svg width="60" height="60">
                         <circle stroke="rgba(255,255,255,0.08)" stroke-width="4" fill="transparent" r="26" cx="30" cy="30"/>
                         <circle class="dashboard-circle" stroke-width="4" stroke-dasharray="163.36" 
-                                stroke-dashoffset="29.404800000000023" 
+                                stroke-dashoffset="31.038399999999996" 
                                 stroke-linecap="round" fill="transparent" r="26" cx="30" cy="30" transform="rotate(-90 30 30)"/>
                     </svg>
-                    <div class="ring-text">82%</div>
+                    <div class="ring-text">81%</div>
                 </div>
                 <div class="stat-label">Avg.<br>Score</div>
             </div>
@@ -405,10 +405,10 @@
                     <svg width="60" height="60">
                         <circle stroke="rgba(255,255,255,0.08)" stroke-width="4" fill="transparent" r="26" cx="30" cy="30"/>
                         <circle class="dashboard-circle" stroke-width="4" stroke-dasharray="163.36" 
-                                stroke-dashoffset="117.6192" 
+                                stroke-dashoffset="133.95520000000002" 
                                 stroke-linecap="round" fill="transparent" r="26" cx="30" cy="30" transform="rotate(-90 30 30)"/>
                     </svg>
-                    <div class="ring-text">28%</div>
+                    <div class="ring-text">18%</div>
                 </div>
                 <div class="stat-label">Last<br>24h</div>
             </div>
@@ -482,14 +482,24 @@
     <div class="dashboard-card">
         <h2 class="chart-title">Emerging Trends (Last 60 Days)</h2>
         <div class="source-filters">
-            <button class="source-filter-btn " data-source="sueddeutsche">sueddeutsche</button><button class="source-filter-btn active" data-source="heise">heise</button>
+            <button class="source-filter-btn active" data-source="heise">heise</button><button class="source-filter-btn " data-source="sueddeutsche">sueddeutsche</button>
         </div>
         <div class="chart-container" style="height: 260px;">
             <canvas id="keywordTrendChart"></canvas>
         </div>
 
         <div class="insights-wrapper">
-            <div class="insights-container" data-insight-source="sueddeutsche" style="display: none;">
+            <div class="insights-container" data-insight-source="heise" style="display: block;">
+                        <div class="insight-card" style="border-left: 3px solid #00f5d4;">
+                            <div class="insight-header" onclick="this.parentElement.classList.toggle('expanded')">
+                                <h4>Überwachung</h4>
+                                <span class="toggle-icon">+</span>
+                            </div>
+                            <div class="insight-body">
+                                <p>Nicht genügend aktuelle Artikel für eine KI-Analyse gefunden.</p>
+                            </div>
+                        </div>
+                        </div><div class="insights-container" data-insight-source="sueddeutsche" style="display: none;">
                         <div class="insight-card" style="border-left: 3px solid #00f5d4;">
                             <div class="insight-header" onclick="this.parentElement.classList.toggle('expanded')">
                                 <h4>Fußball-wm</h4>
@@ -506,7 +516,7 @@
                                 <span class="toggle-icon">+</span>
                             </div>
                             <div class="insight-body">
-                                <p>Eine extreme Hitzewelle mit Temperaturen von bis zu 39 Grad und begleitenden Unwettern belastet aktuell weite Teile Deutschlands. Die Diskussion dreht sich um die unmittelbaren Gefahren für die Gesundheit sowie die notwendigen gesellschaftlichen Anpassungen an die Folgen der Klimakrise.</p>
+                                <p>Lokaler LLM Fehler: Bitte Ollama prüfen.</p>
                             </div>
                         </div>
                         
@@ -516,7 +526,7 @@
                                 <span class="toggle-icon">+</span>
                             </div>
                             <div class="insight-body">
-                                <p>Eine massive Hitzewelle mit Temperaturen von bis zu 39 Grad sorgt bundesweit für extreme Wetterbedingungen und drohende neue Rekorde. Die Diskussion konzentriert sich auf die gesundheitlichen Risiken für vulnerable Gruppen, ökologische Gefahren für Fließgewässer sowie die zunehmende Intensität klimabedingter Extremereignisse.</p>
+                                <p>Lokaler LLM Fehler: Bitte Ollama prüfen.</p>
                             </div>
                         </div>
                         
@@ -526,7 +536,7 @@
                                 <span class="toggle-icon">+</span>
                             </div>
                             <div class="insight-body">
-                                <p>Die Diskussion fokussiert sich auf die personelle Planung und Kommunikationsstrategie von Bundestrainer Julian Nagelsmann. Im Zentrum stehen Uli Hoeneß' Kritik an der mangelnden Kaderstabilität sowie die Unklarheit über eine mögliche Rückkehr von Manuel Neuer.</p>
+                                <p>Lokaler LLM Fehler: Bitte Ollama prüfen.</p>
                             </div>
                         </div>
                         
@@ -536,47 +546,7 @@
                                 <span class="toggle-icon">+</span>
                             </div>
                             <div class="insight-body">
-                                <p>Die Berichterstattung konzentriert sich auf extreme Wetterumschwünge in Deutschland und Bayern, die von intensiven Hitzewellen bis hin zu schweren Unwettern mit Sturm und Hagel reichen. Anlass für die intensive thematische Behandlung sind großflächige DWD-Warnungen vor extremer Hitze sowie heftigen Gewittern und Sturmböen.</p>
-                            </div>
-                        </div>
-                        </div><div class="insights-container" data-insight-source="heise" style="display: block;">
-                        <div class="insight-card" style="border-left: 3px solid #00f5d4;">
-                            <div class="insight-header" onclick="this.parentElement.classList.toggle('expanded')">
-                                <h4>Social media</h4>
-                                <span class="toggle-icon">+</span>
-                            </div>
-                            <div class="insight-body">
-                                <p>Die aktuelle Debatte fokussiert sich auf den Konflikt zwischen regulatorischen Altersverboten für Minderjährige und Ansätzen zur Stärkung der Medienkompetenz. Parallel dazu sorgen technische Sicherheitsrisiken, etwa durch KI-gestütztes Hacking oder massive Plattformstörungen bei Meta, für verstärkte Aufmerksamkeit.</p>
-                            </div>
-                        </div>
-                        
-                        <div class="insight-card" style="border-left: 3px solid #9333ea;">
-                            <div class="insight-header" onclick="this.parentElement.classList.toggle('expanded')">
-                                <h4>Jugendschutz</h4>
-                                <span class="toggle-icon">+</span>
-                            </div>
-                            <div class="insight-body">
-                                <p>Die Debatte dreht sich um die Suche nach effektiven Schutzmechanismen gegen jugendgefährdende Inhalte in sozialen Medien und digitalen Diensten. Im Fokus steht dabei der Konflikt zwischen restriktiven Verboten bzw. technischer Überwachung und Ansätzen, die auf Plattformregulierung sowie die Förderung von Medienkompetenz setzen.</p>
-                            </div>
-                        </div>
-                        
-                        <div class="insight-card" style="border-left: 3px solid #007aff;">
-                            <div class="insight-header" onclick="this.parentElement.classList.toggle('expanded')">
-                                <h4>Openai</h4>
-                                <span class="toggle-icon">+</span>
-                            </div>
-                            <div class="insight-body">
-                                <p>OpenAI befindet sich in einer Phase massiver strategischer Neuausrichtung, die von einem geplanten Börsengang und der Transformation von ChatGPT zu einer „Superapp“ geprägt ist. Die Debatte wird durch enorme finanzielle Verluste bei gleichzeitigem Umsatzwachstum, rechtliche Auseinandersetzungen um Geschäftsgeheimnisse sowie mögliche staatliche Beteiligungen unter der US-Regierung angeheizt.</p>
-                            </div>
-                        </div>
-                        
-                        <div class="insight-card" style="border-left: 3px solid #34d399;">
-                            <div class="insight-header" onclick="this.parentElement.classList.toggle('expanded')">
-                                <h4>Hardware</h4>
-                                <span class="toggle-icon">+</span>
-                            </div>
-                            <div class="insight-body">
-                                <p>Das Thema umfasst technologische Innovationen bei Komponenten (PCIe 6.0 SSDs, neue GPUs) sowie kritische Hardware-Probleme wie Pixel-Bootloops oder Joy-Con-Defekte. Die Diskussion wird durch die Fortschritte auf der Computex und regulatorische Konsequenzen für Hersteller befeuert.</p>
+                                <p>Lokaler LLM Fehler: Bitte Ollama prüfen.</p>
                             </div>
                         </div>
                         </div>
@@ -590,14 +560,14 @@
 
             const initChart = function() {
                 const ctx = document.getElementById('keywordTrendChart').getContext('2d');
-                const rawDatasets = [{"label": "Fu\u00dfball-wm", "data": [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 13.3, 6.7, 0.0, 0.0, 6.7, 0.0, 6.7, 13.3, 0.0, 0.0, 0.0, 6.7, 0.0, 6.7, 0.0, 6.7, 6.7, 6.7, 0.0, 0.0, 0.0, 13.3, 0.0, 0.0, 0.0, 20.0, 0.0, 13.3, 6.7, 13.3, 6.7, 0.0, 0.0, 6.7, 6.7, 0.0, 33.3, 53.3, 0.0, 53.3, 53.3, 13.3, 33.3, 73.3, 46.7, 20.0, 6.7, 26.7, 0.0, 20.0, 93.3, 33.3, 53.3, 100.0], "borderColor": "#00f5d4", "backgroundColor": "transparent", "borderWidth": 2, "tension": 0.4, "cubicInterpolationMode": "monotone", "pointRadius": 0, "pointHitRadius": 10, "sourceId": "sueddeutsche", "originalColor": "#00f5d4"}, {"label": "Hitze", "data": [0.0, 0.0, 0.0, 0.0, 6.7, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 6.7, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 6.7, 20.0, 6.7, 6.7, 0.0, 0.0, 0.0, 53.3, 13.3, 26.7, 40.0], "borderColor": "#9333ea", "backgroundColor": "transparent", "borderWidth": 2, "tension": 0.4, "cubicInterpolationMode": "monotone", "pointRadius": 0, "pointHitRadius": 10, "sourceId": "sueddeutsche", "originalColor": "#9333ea"}, {"label": "Extremwetter", "data": [0.0, 0.0, 0.0, 0.0, 6.7, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 6.7, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 6.7, 20.0, 0.0, 6.7, 0.0, 0.0, 0.0, 40.0, 6.7, 26.7, 40.0], "borderColor": "#007aff", "backgroundColor": "transparent", "borderWidth": 2, "tension": 0.4, "cubicInterpolationMode": "monotone", "pointRadius": 0, "pointHitRadius": 10, "sourceId": "sueddeutsche", "originalColor": "#007aff"}, {"label": "Deutsche nationalmannschaft", "data": [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 6.7, 6.7, 0.0, 6.7, 0.0, 0.0, 0.0, 6.7, 6.7, 0.0, 0.0, 0.0, 6.7, 6.7, 13.3, 0.0, 0.0, 6.7, 13.3, 0.0, 0.0, 0.0, 13.3, 0.0, 13.3, 6.7, 13.3, 0.0, 0.0, 0.0, 6.7, 13.3, 0.0, 6.7, 20.0, 0.0, 46.7, 26.7, 6.7, 13.3, 26.7, 0.0, 13.3, 6.7, 13.3, 0.0, 6.7, 60.0, 26.7, 20.0, 40.0], "borderColor": "#34d399", "backgroundColor": "transparent", "borderWidth": 2, "tension": 0.4, "cubicInterpolationMode": "monotone", "pointRadius": 0, "pointHitRadius": 10, "sourceId": "sueddeutsche", "originalColor": "#34d399"}, {"label": "Wetter", "data": [0.0, 0.0, 6.7, 0.0, 6.7, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 13.3, 0.0, 0.0, 6.7, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 6.7, 6.7, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 6.7, 6.7, 6.7, 6.7, 0.0, 0.0, 0.0, 13.3, 0.0, 20.0, 33.3], "borderColor": "#f43f5e", "backgroundColor": "transparent", "borderWidth": 2, "tension": 0.4, "cubicInterpolationMode": "monotone", "pointRadius": 0, "pointHitRadius": 10, "sourceId": "sueddeutsche", "originalColor": "#f43f5e"}, {"label": "Social media", "data": [14.3, 14.3, 14.3, 0.0, 14.3, 42.9, 28.6, 14.3, 14.3, 28.6, 0.0, 14.3, 0.0, 14.3, 14.3, 0.0, 0.0, 0.0, 0.0, 28.6, 0.0, 42.9, 14.3, 0.0, 0.0, 28.6, 0.0, 14.3, 42.9, 14.3, 0.0, 14.3, 0.0, 14.3, 0.0, 14.3, 28.6, 0.0, 14.3, 0.0, 0.0, 0.0, 28.6, 57.1, 0.0, 0.0, 28.6, 14.3, 14.3, 28.6, 14.3, 0.0, 0.0, 28.6, 14.3, 14.3, 28.6, 57.1, 0.0, 28.6], "borderColor": "#00f5d4", "backgroundColor": "transparent", "borderWidth": 2, "tension": 0.4, "cubicInterpolationMode": "monotone", "pointRadius": 0, "pointHitRadius": 10, "sourceId": "heise", "originalColor": "#00f5d4"}, {"label": "Jugendschutz", "data": [14.3, 0.0, 0.0, 0.0, 0.0, 28.6, 14.3, 14.3, 14.3, 14.3, 28.6, 14.3, 0.0, 0.0, 14.3, 0.0, 0.0, 0.0, 28.6, 0.0, 0.0, 28.6, 14.3, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 14.3, 14.3, 14.3, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 14.3, 28.6, 42.9, 0.0, 0.0, 28.6, 14.3, 0.0, 28.6, 14.3, 0.0, 0.0, 14.3, 0.0, 14.3, 28.6, 42.9, 0.0, 14.3], "borderColor": "#9333ea", "backgroundColor": "transparent", "borderWidth": 2, "tension": 0.4, "cubicInterpolationMode": "monotone", "pointRadius": 0, "pointHitRadius": 10, "sourceId": "heise", "originalColor": "#9333ea"}, {"label": "Openai", "data": [14.3, 14.3, 0.0, 28.6, 0.0, 28.6, 28.6, 0.0, 28.6, 0.0, 0.0, 0.0, 0.0, 14.3, 0.0, 14.3, 14.3, 0.0, 57.1, 28.6, 57.1, 28.6, 0.0, 0.0, 14.3, 0.0, 14.3, 0.0, 28.6, 28.6, 0.0, 0.0, 28.6, 28.6, 28.6, 0.0, 28.6, 14.3, 14.3, 14.3, 14.3, 14.3, 0.0, 14.3, 28.6, 0.0, 0.0, 28.6, 14.3, 0.0, 0.0, 14.3, 0.0, 14.3, 28.6, 14.3, 28.6, 14.3, 42.9, 0.0], "borderColor": "#007aff", "backgroundColor": "transparent", "borderWidth": 2, "tension": 0.4, "cubicInterpolationMode": "monotone", "pointRadius": 0, "pointHitRadius": 10, "sourceId": "heise", "originalColor": "#007aff"}, {"label": "Hardware", "data": [42.9, 0.0, 0.0, 0.0, 42.9, 0.0, 28.6, 28.6, 14.3, 14.3, 0.0, 0.0, 28.6, 0.0, 0.0, 28.6, 0.0, 14.3, 42.9, 14.3, 57.1, 42.9, 85.7, 0.0, 0.0, 0.0, 0.0, 57.1, 14.3, 0.0, 0.0, 0.0, 42.9, 100.0, 14.3, 57.1, 42.9, 0.0, 0.0, 28.6, 28.6, 14.3, 28.6, 28.6, 14.3, 0.0, 28.6, 28.6, 14.3, 14.3, 0.0, 0.0, 14.3, 0.0, 28.6, 57.1, 57.1, 28.6, 0.0, 14.3], "borderColor": "#34d399", "backgroundColor": "transparent", "borderWidth": 2, "tension": 0.4, "cubicInterpolationMode": "monotone", "pointRadius": 0, "pointHitRadius": 10, "sourceId": "heise", "originalColor": "#34d399"}];
+                const rawDatasets = [{"label": "\u00dcberwachung", "data": [0.0, 0.0, 0.0, 0.0, 33.3, 66.7, 0.0, 33.3, 0.0, 0.0, 66.7, 0.0, 0.0, 0.0, 66.7, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 33.3, 0.0, 0.0, 33.3, 0.0, 100.0, 0.0, 0.0, 33.3, 33.3, 0.0, 33.3, 100.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 33.3, 66.7, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 33.3, 0.0, 66.7, 33.3, 66.7, 33.3, 0.0, 66.7], "borderColor": "#00f5d4", "backgroundColor": "transparent", "borderWidth": 2, "tension": 0.4, "cubicInterpolationMode": "monotone", "pointRadius": 0, "pointHitRadius": 10, "sourceId": "heise", "originalColor": "#00f5d4"}, {"label": "Fu\u00dfball-wm", "data": [0.0, 0.0, 0.0, 0.0, 0.0, 11.8, 5.9, 0.0, 0.0, 5.9, 0.0, 5.9, 11.8, 0.0, 0.0, 0.0, 5.9, 0.0, 5.9, 0.0, 5.9, 5.9, 5.9, 0.0, 0.0, 0.0, 11.8, 0.0, 0.0, 0.0, 17.6, 0.0, 11.8, 5.9, 11.8, 5.9, 0.0, 0.0, 5.9, 5.9, 0.0, 29.4, 47.1, 0.0, 47.1, 47.1, 11.8, 29.4, 64.7, 41.2, 17.6, 5.9, 23.5, 0.0, 17.6, 82.4, 29.4, 47.1, 100.0, 5.9], "borderColor": "#00f5d4", "backgroundColor": "transparent", "borderWidth": 2, "tension": 0.4, "cubicInterpolationMode": "monotone", "pointRadius": 0, "pointHitRadius": 10, "sourceId": "sueddeutsche", "originalColor": "#00f5d4"}, {"label": "Hitze", "data": [0.0, 0.0, 0.0, 5.9, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 5.9, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 5.9, 17.6, 5.9, 5.9, 0.0, 0.0, 0.0, 47.1, 11.8, 23.5, 35.3, 0.0], "borderColor": "#9333ea", "backgroundColor": "transparent", "borderWidth": 2, "tension": 0.4, "cubicInterpolationMode": "monotone", "pointRadius": 0, "pointHitRadius": 10, "sourceId": "sueddeutsche", "originalColor": "#9333ea"}, {"label": "Extremwetter", "data": [0.0, 0.0, 0.0, 5.9, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 5.9, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 5.9, 17.6, 0.0, 5.9, 0.0, 0.0, 0.0, 35.3, 5.9, 23.5, 35.3, 0.0], "borderColor": "#007aff", "backgroundColor": "transparent", "borderWidth": 2, "tension": 0.4, "cubicInterpolationMode": "monotone", "pointRadius": 0, "pointHitRadius": 10, "sourceId": "sueddeutsche", "originalColor": "#007aff"}, {"label": "Deutsche nationalmannschaft", "data": [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 5.9, 5.9, 0.0, 5.9, 0.0, 0.0, 0.0, 5.9, 5.9, 0.0, 0.0, 0.0, 5.9, 5.9, 11.8, 0.0, 0.0, 5.9, 11.8, 0.0, 0.0, 0.0, 11.8, 0.0, 11.8, 5.9, 11.8, 0.0, 0.0, 0.0, 5.9, 11.8, 0.0, 5.9, 17.6, 0.0, 41.2, 23.5, 5.9, 11.8, 23.5, 0.0, 11.8, 5.9, 11.8, 0.0, 5.9, 52.9, 23.5, 17.6, 41.2, 5.9], "borderColor": "#34d399", "backgroundColor": "transparent", "borderWidth": 2, "tension": 0.4, "cubicInterpolationMode": "monotone", "pointRadius": 0, "pointHitRadius": 10, "sourceId": "sueddeutsche", "originalColor": "#34d399"}, {"label": "Wetter", "data": [0.0, 5.9, 0.0, 5.9, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 11.8, 0.0, 0.0, 5.9, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 5.9, 5.9, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 5.9, 5.9, 5.9, 5.9, 0.0, 0.0, 0.0, 11.8, 0.0, 17.6, 29.4, 0.0], "borderColor": "#f43f5e", "backgroundColor": "transparent", "borderWidth": 2, "tension": 0.4, "cubicInterpolationMode": "monotone", "pointRadius": 0, "pointHitRadius": 10, "sourceId": "sueddeutsche", "originalColor": "#f43f5e"}];
 
                 Chart.defaults.color = 'rgba(255, 255, 255, 0.7)';
                 Chart.defaults.font.family = '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif';
 
                 trendChart = new Chart(ctx, {
                     type: 'line',
-                    data: { labels: ["04-30", "05-01", "05-02", "05-03", "05-04", "05-05", "05-06", "05-07", "05-08", "05-09", "05-10", "05-11", "05-12", "05-13", "05-14", "05-15", "05-16", "05-17", "05-18", "05-19", "05-20", "05-21", "05-22", "05-23", "05-24", "05-25", "05-26", "05-27", "05-28", "05-29", "05-30", "05-31", "06-01", "06-02", "06-03", "06-04", "06-05", "06-06", "06-07", "06-08", "06-09", "06-10", "06-11", "06-12", "06-13", "06-14", "06-15", "06-16", "06-17", "06-18", "06-19", "06-20", "06-21", "06-22", "06-23", "06-24", "06-25", "06-26", "06-27", "06-28"], datasets: rawDatasets },
+                    data: { labels: ["05-01", "05-02", "05-03", "05-04", "05-05", "05-06", "05-07", "05-08", "05-09", "05-10", "05-11", "05-12", "05-13", "05-14", "05-15", "05-16", "05-17", "05-18", "05-19", "05-20", "05-21", "05-22", "05-23", "05-24", "05-25", "05-26", "05-27", "05-28", "05-29", "05-30", "05-31", "06-01", "06-02", "06-03", "06-04", "06-05", "06-06", "06-07", "06-08", "06-09", "06-10", "06-11", "06-12", "06-13", "06-14", "06-15", "06-16", "06-17", "06-18", "06-19", "06-20", "06-21", "06-22", "06-23", "06-24", "06-25", "06-26", "06-27", "06-28", "06-29"], datasets: rawDatasets },
                     options: {
                         responsive: true,
                         maintainAspectRatio: false,
@@ -677,7 +647,7 @@
         <div class="article-card" onclick="toggleCard(this)">
             <div class="meta">Ollama AI • Top 10 (48h)</div>
             <div class="card-header">
-                <div class="title">Globale Entwicklungen in Technologie, Regulierung und Gesellschaft</div>
+                <div class="title">Globale Trends in Technologie, Sicherheit und Regulierung</div>
                 <div class="relevance-container">
                     <svg width="44" height="44">
                         <circle stroke="rgba(255,255,255,0.08)" stroke-width="3" fill="transparent" r="19" cx="22" cy="22"/>
@@ -690,16 +660,109 @@
                     </div>
                 </div>
             </div>
-            <div class="summary" style="white-space: pre-wrap;">Die technologische Entwicklung im Bereich der Künstlichen Intelligenz ist von intensiven Modell-Innovationen und regulatorischen Herausforderungen geprägt. OpenAI hat die neue Modellgeneration GPT-5.6 vorgestellt, die durch verbesserte agentische Fähigkeiten in den Bereichen Programmierung, Biologie und Cybersicherheit sowie eine günstigere Preisstruktur besticht. Aufgrund von Sicherheitsbedenken der US-Regierung beschränkt das Unternehmen den Zugang zu diesen Modellen derzeit auf einen kleinen Kreis vertrauenswürdiger Partner in den USA. Parallel dazu wird an effizienteren KI-Architekturen wie xLSTM oder Kimi Linear geforscht, um die Ressourcenintensität der bisherigen Transformer-Struktur zu reduzieren. Wirtschaftlich erwägt OpenAI zudem, einen geplanten Börsengang mit einer angestrebten Bewertung von einer Billion US-Dollar aufgrund von Marktunsicherheiten auf das nächste Jahr zu verschieben.
+            <div class="summary" style="white-space: pre-wrap;">Die aktuelle technologische Entwicklung ist von massiven Fortschritten und gleichzeitiger staatlicher Regulierung im Bereich der Künstlichen Intelligenz geprägt. OpenAI hat die neue GPT-5.6-Modellgeneration (Terra, Luna und Sol) veröffentlicht, die durch verbesserte Agentenfunktionen in den Bereichen Programmierung, Biologie und Cybersicherheit sowie eine günstigere Preisstruktur besticht. Auf Druck der US-Regierung beschränkt OpenAI den Zugang zur Vorschau dieser Modelle jedoch vorerst auf einen kleinen Kreis vertrauenswürdiger Partner in den USA, um Risiken durch autonome Cyberangriffe zu minimieren. Parallel dazu ermöglicht das US-Handelsministerium unter strengen Exportkontrollen ausgewählten Partnern den Zugriff auf das Modell Claude Mythos von Anthropic, wobei die rechtliche Grundlage dieser Regulierungen von Unternehmen angefochten wird. Flankierend zu diesen Entwicklungen fordern G7-Datenschutzbehörden internationale Standards zum Schutz Minderjähriger vor Überwachungsrisiken durch Smart Technology und drängen auf Prinzipien wie Privacy by Design.
 
-Im Bereich der Medienregulierung und des Urheberrechts verschärfen sich die Spannungen zwischen Tech-Giganten und Verlagen. Ein aktuelles Gutachten stuft KI-generierte Suchergebnisse als eigene Inhalte der Anbieter ein, was das Haftungsprivileg nach dem Digital Services Act (DSA) aufheben könnte und eine neue gesetzliche Kategorie für KI-Suchmaschinen fordert. Verstärkt wird dieser Druck durch Google, das im Rahmen eines neuen KI-Pilotprogramms weitreichende Nutzungsrechte an redaktionellen Inhalten für das Training von Modellen beansprucht. Da Funktionen wie „AI Overviews“ die Klickzahlen auf Originalquellen senken können, drängen Wettbewerbsbehörden verstärkt auf neue Kontrollmöglichkeiten für Verlage.
+In Bezug auf den Arbeitsmarkt herrscht noch Uneinigkeit über die langfristigen Folgen der KI: Während die Bundesagentur für Arbeit neben dem Wegfall von Aufgaben auch neue Stellenpotenziale sieht, prognostiziert ein Ifo-Institut, dass rund 19,2 % der deutschen Unternehmen Fachkräfte durch KI-unterstützte Kräfte ohne Abschluss ersetzen könnten.
 
-Die digitale Sicherheit und der Datenschutz stehen global im Fokus der politischen Agenda. Die G7-Datenschutzbehörden diskutieren intensiv über den Schutz Minderjähriger in der Nutzung von Smart Technology und fordern Standards wie „Privacy by Design“ sowie die Deaktivierung von Tracking-Diensten bei Heimgeräten. Gleichzeitig steht eine EU-weite Ausweitung der Chatkontrolle in der Kritik, da Experten vor massiven Sicherheitsrisiken für die Ende-zu-Ende-Verschlüsselung warnen, obwohl Befürworter den Schutz von Kindern anführen.
+Im Bereich der globalen Handelsstrategien und Sicherheit gibt es erhebliche Spannungsfelder. Apple strebt eine US-Genehmigung an, um Speicherkomponenten beim sanktionierten chinesischen Unternehmen CXMT beziehen zu können, um steigenden RAM-Preisen entgegenzuwirken. Gleichzeitig warnt das taiwanische Digitalministerium vor Sicherheitsrisiken durch billige eSIMs aus China, die zur Datenüberwachung genutzt werden könnten. Im Bereich der staatlichen Überwachung verzeichnete die Bundespolizei im zweiten Halbjahr 2025 einen historischen Tiefstand bei den Einsätzen von stillen SMS und IMSI-Catchern.
 
-Die gesellschaftlichen und ökologischen Auswirkungen technologischen und globalen Wandels werden ebenfalls deutlich. Während die Bundesagentur für Arbeit die langfristigen Folgen von KI auf den Arbeitsmarkt noch als nicht abschätzbar einstuft, zeigt eine Ifo-Studie, dass etwa 19,2 % deutscher Unternehmen Fachkräfte durch KI-unterstützte Kräfte ohne Abschluss ersetzen könnten. Parallel dazu belegen Studien den direkten Zusammenhang zwischen dem menschengemachten Klimawandel und der aktuellen extremen Hitzewelle in Westeuropa, die aufgrund der globalen Erwärmung deutlich über dem saisonalen Durchschnitt liegt und die Belastbarkeit gesellschaftlicher Infrastrukturen gefährdet.</div>
+Auch regulatorische Maßnahmen im Jugendschutz und im Verbraucherschutz nehmen zu. Australien hat die Bußgelder für Social-Media-Plattformen, welche die Altersgrenze von 16 Jahren nicht durchsetzen, auf 99 Millionen australische Dollar verdoppelt und die Befugnisse der eSafety-Kommission erweitert. Im Bereich des Verbraucherschutzes wurden zudem betrügerische Verkaufsstrategien bei Kühlgeräten entlarvt, bei denen einfache Heizlüfter unter dem Deckmantel „revolutionärer“ Technologie zu massiv überhöhten Preisen und durch irreführende Abonnement-Modelle vertrieben werden.</div>
         </div>
         
 
+        
+        <div class="article-card" onclick="toggleCard(this)">
+            
+            <div class="image-wrapper">
+                <img src="https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/5/1/0/7/9/7/3/4907ddc8-a2a9-46e5-8cf9-0485ddb98835-6758f6dbc7e216ea.jpg" class="article-image" alt="Vorschau" loading="lazy">
+            </div>
+            
+
+            <div class="meta">heise • news</div>
+
+            <div class="card-header">
+                <div class="title">Bundesinnenministerium plant Realisierungskonzept für Cyber-Überwachungssystem Cyberdome</div>
+                <div class="relevance-container">
+                    <svg width="44" height="44">
+                        <circle stroke="rgba(255,255,255,0.08)" stroke-width="3" fill="transparent" r="19" cx="22" cy="22"/>
+                        <circle class="progress-ring__circle" stroke-width="3" stroke-dasharray="119.38" 
+                                stroke-dashoffset="34.50068597184415" 
+                                stroke-linecap="round" fill="transparent" r="19" cx="22" cy="22" transform="rotate(-90 22 22)"/>
+                    </svg>
+                    <div style="position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); font-size:11px; font-weight:800;">
+                        69
+                    </div>
+                </div>
+            </div>
+
+            <div class="summary">Das Bundesinnenministerium plant bis Ende des Jahres ein Realisierungskonzept für den „Cyberdome“, ein automatisiertes, offenes Ökosystem zur Echtzeit-Überwachung von Cyberangriffen, wofür dem BSI im Haushalt 2027 200 Millionen Euro zugewiesen wurden. Das BMI strebt durch die verbesserte Konnektivität eine Reduktion der Cyberschäden um über 50 Prozent an. Während die Grünen und die SPD jedoch unklare Zuständigkeiten zwischen den Behörden kritisieren, warnt die Bundeswehr vor einem falschen Sicherheitsgefühl und betont die Notwendigkeit offensiver Maßnahmen gegen bösartige Server.</div>
+
+            <a href="https://www.heise.de/news/Innenministerium-konkretisiert-den-Cyberdome-teilweise-11347190.html" class="source-button" target="_blank" onclick="event.stopPropagation()">
+                Vollständigen Artikel lesen
+            </a>
+        </div>
+        
+        <div class="article-card" onclick="toggleCard(this)">
+            
+            <div class="image-wrapper">
+                <img src="https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/5/1/0/7/9/8/9/monday-eee7821c0c21547d.webp" class="article-image" alt="Vorschau" loading="lazy">
+            </div>
+            
+
+            <div class="meta">heise • news</div>
+
+            <div class="card-header">
+                <div class="title">Apple-Handelsstrategie, Sicherheitsbedenken aus Taiwan und technologische Meldungen im Überblick</div>
+                <div class="relevance-container">
+                    <svg width="44" height="44">
+                        <circle stroke="rgba(255,255,255,0.08)" stroke-width="3" fill="transparent" r="19" cx="22" cy="22"/>
+                        <circle class="progress-ring__circle" stroke-width="3" stroke-dasharray="119.38" 
+                                stroke-dashoffset="14.157380455099599" 
+                                stroke-linecap="round" fill="transparent" r="19" cx="22" cy="22" transform="rotate(-90 22 22)"/>
+                    </svg>
+                    <div style="position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); font-size:11px; font-weight:800;">
+                        87
+                    </div>
+                </div>
+            </div>
+
+            <div class="summary">Apple strebt eine US-Genehmigung für Speicherzukäufe beim sanktionierten chinesischen Unternehmen CXMT an, um steigenden RAM-Preisen entgegenzuwirken. Das taiwanische Digitalministerium warnt vor Sicherheitsrisiken durch billige eSIMs, die Datenüberwachung über chinesische Netze ermöglichen könnten. Eine Recherche entlarvt als „revolutionäre“ Klimageräte beworbene Produkte als einfache chinesische Heizlüfter. Zudem werden das 30-jährige Jubiläum des Nintendo 64 sowie die Aufhebung der US-Sperre für das Anthropic-KI-Modell „Claude Mythos“ für ausgewählte Partner thematisiert.</div>
+
+            <a href="https://www.heise.de/news/Montag-Apple-fuer-chinesischen-Speicher-Warnung-vor-Datenklau-durch-eSIMs-11347222.html" class="source-button" target="_blank" onclick="event.stopPropagation()">
+                Vollständigen Artikel lesen
+            </a>
+        </div>
+        
+        <div class="article-card" onclick="toggleCard(this)">
+            
+            <div class="image-wrapper">
+                <img src="https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/5/1/0/7/9/8/4/shutterstock_2213429619-69479bd94a1a72d2.jpg" class="article-image" alt="Vorschau" loading="lazy">
+            </div>
+            
+
+            <div class="meta">heise • news</div>
+
+            <div class="card-header">
+                <div class="title">Taiwans Cybersicherheitsbehörde warnt vor Überwachungsrisiken durch unbekannte eSIM-Anbieter</div>
+                <div class="relevance-container">
+                    <svg width="44" height="44">
+                        <circle stroke="rgba(255,255,255,0.08)" stroke-width="3" fill="transparent" r="19" cx="22" cy="22"/>
+                        <circle class="progress-ring__circle" stroke-width="3" stroke-dasharray="119.38" 
+                                stroke-dashoffset="26.693456764210566" 
+                                stroke-linecap="round" fill="transparent" r="19" cx="22" cy="22" transform="rotate(-90 22 22)"/>
+                    </svg>
+                    <div style="position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); font-size:11px; font-weight:800;">
+                        76
+                    </div>
+                </div>
+            </div>
+
+            <div class="summary">Trotz der Kostenvorteile von eSIMs warnt Taiwans Cybersicherheitsbehörde vor Überwachungsrisiken durch die Datenleitung über ungesicherte oder chinesische Netze bei günstigen Angeboten unbekannter Anbieter. Zur Risikominimierung empfiehlt sie das Roaming des heimischen Vertrags, die Nutzung etablierter lokaler Mobilfunkbetreiber sowie die Prüfung von App-Berechtigungen und die Reaktion auf Anzeichen eines Datenmissbrauchs.</div>
+
+            <a href="https://www.heise.de/news/Taiwanische-Cybersicherheitsbehoerde-warnt-vor-Ueberwachung-durch-billige-eSIMs-11347212.html" class="source-button" target="_blank" onclick="event.stopPropagation()">
+                Vollständigen Artikel lesen
+            </a>
+        </div>
         
         <div class="article-card" onclick="toggleCard(this)">
             
@@ -2154,99 +2217,6 @@ Die gesellschaftlichen und ökologischen Auswirkungen technologischen und global
             <div class="summary">Die EU-Kommission beabsichtigt, Amazon Web Services (AWS) und Microsoft Azure trotz verfehlter quantitativer Schwellenwerte als Gatekeeper nach dem Digital Markets Act (DMA) einzustufen, da deren Rolle im KI-Sektor sowie hohe Wechselkosten den Wettbewerb in der Cloud-Infrastruktur gefährden könnten. Im Rahmen laufender Untersuchungen mit Unterstützung der niederländischen ACM prüft die Kommission zudem die Angemessenheit bestehender DMA-Regelungen; bei einer Bestätigung der Vorwürfe müssten beide Unternehmen ihre Dienste innerhalb von sechs Monaten an Vorgaben wie Interoperabilität und das Verbot der Eigenbevorzugung anpassen.</div>
 
             <a href="https://www.heise.de/news/AWS-und-Azure-EU-Kommission-knoepft-sich-Cloud-Riesen-wettbewerbsrechtlich-vor-11345063.html" class="source-button" target="_blank" onclick="event.stopPropagation()">
-                Vollständigen Artikel lesen
-            </a>
-        </div>
-        
-        <div class="article-card" onclick="toggleCard(this)">
-            
-            <div class="image-wrapper">
-                <img src="https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/5/1/0/6/8/8/8/shutterstock_2436082865-ada19c0663b15409.jpg" class="article-image" alt="Vorschau" loading="lazy">
-            </div>
-            
-
-            <div class="meta">heise • news</div>
-
-            <div class="card-header">
-                <div class="title">Sächsischer Landtag beschließt Reform des Polizeigesetzes mit erweiterten digitalen Überwachungsbefugnissen</div>
-                <div class="relevance-container">
-                    <svg width="44" height="44">
-                        <circle stroke="rgba(255,255,255,0.08)" stroke-width="3" fill="transparent" r="19" cx="22" cy="22"/>
-                        <circle class="progress-ring__circle" stroke-width="3" stroke-dasharray="119.38" 
-                                stroke-dashoffset="4.301011560861966" 
-                                stroke-linecap="round" fill="transparent" r="19" cx="22" cy="22" transform="rotate(-90 22 22)"/>
-                    </svg>
-                    <div style="position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); font-size:11px; font-weight:800;">
-                        96
-                    </div>
-                </div>
-            </div>
-
-            <div class="summary">Der Sächsische Landtag hat mit einer knappen Mehrheit von 60 zu 53 Stimmen eine Reform des Polizeigesetzes verabschiedet, die weitreichende digitale Überwachungsbefugnisse wie KI-gestützte Videoüberwachung zur Gesichtserkennung, biometrische Internetdatenabgleiche sowie den Einsatz von Staatstrojanern und Drohnenabwehr ermöglicht. Die unter gerichtlichem Zeitdruck erfolgte Neuregelung wird von der Regierung als notwendiger Sicherheitskompromiss verteidigt, während die Opposition vor massiven Grundrechtseingriffen warnt; zur Sicherung der BSW-Unterstützung wurden jedoch der Einsatz der Palantir-Software untersagt und die Taser-Nutzung begrenzt.</div>
-
-            <a href="https://www.heise.de/news/Sachsens-neues-Polizeigesetz-KI-Fahndung-und-Gesichtserkennung-beschlossen-11345047.html" class="source-button" target="_blank" onclick="event.stopPropagation()">
-                Vollständigen Artikel lesen
-            </a>
-        </div>
-        
-        <div class="article-card" onclick="toggleCard(this)">
-            
-            <div class="image-wrapper">
-                <img src="https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/5/1/0/6/7/4/2/PIA26726_figA-eed10ed2faee1143.png" class="article-image" alt="Vorschau" loading="lazy">
-            </div>
-            
-
-            <div class="meta">heise • news</div>
-
-            <div class="card-header">
-                <div class="title">NASA-Rover Perseverance legt 42,195 Kilometer auf dem Mars zurück</div>
-                <div class="relevance-container">
-                    <svg width="44" height="44">
-                        <circle stroke="rgba(255,255,255,0.08)" stroke-width="3" fill="transparent" r="19" cx="22" cy="22"/>
-                        <circle class="progress-ring__circle" stroke-width="3" stroke-dasharray="119.38" 
-                                stroke-dashoffset="10.328121916530648" 
-                                stroke-linecap="round" fill="transparent" r="19" cx="22" cy="22" transform="rotate(-90 22 22)"/>
-                    </svg>
-                    <div style="position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); font-size:11px; font-weight:800;">
-                        90
-                    </div>
-                </div>
-            </div>
-
-            <div class="summary">Der NASA-Rover Perseverance hat nach fünf Jahren und vier Monaten die Marathondistanz von 42,195 km auf dem Mars zurückgelegt, was durch eine Satellitenaufnahme des Mars Reconnaissance Orbiters dokumentiert wurde. Im Rahmen der Suche nach Spuren von Leben im Jezero-Krater wurden bereits mögliche Hinweise auf mikrobiologische Prozesse gefunden, deren Ursprung jedoch noch nicht abschließend geklärt ist.</div>
-
-            <a href="https://www.heise.de/news/Mars-Rover-Perseverance-Anlaesslich-der-Marathondistanz-aus-dem-All-fotografiert-11344757.html" class="source-button" target="_blank" onclick="event.stopPropagation()">
-                Vollständigen Artikel lesen
-            </a>
-        </div>
-        
-        <div class="article-card" onclick="toggleCard(this)">
-            
-            <div class="image-wrapper">
-                <img src="https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/5/1/0/6/7/6/9/shutterstock_745110976-f7fbcdf49cc6494f.jpg" class="article-image" alt="Vorschau" loading="lazy">
-            </div>
-            
-
-            <div class="meta">heise • news</div>
-
-            <div class="card-header">
-                <div class="title">KBV und AG KRITIS kritisieren Befugnisse im Entwurf zum Gesetz zur Stärkung der Cybersicherheit</div>
-                <div class="relevance-container">
-                    <svg width="44" height="44">
-                        <circle stroke="rgba(255,255,255,0.08)" stroke-width="3" fill="transparent" r="19" cx="22" cy="22"/>
-                        <circle class="progress-ring__circle" stroke-width="3" stroke-dasharray="119.38" 
-                                stroke-dashoffset="15.462136594123052" 
-                                stroke-linecap="round" fill="transparent" r="19" cx="22" cy="22" transform="rotate(-90 22 22)"/>
-                    </svg>
-                    <div style="position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); font-size:11px; font-weight:800;">
-                        86
-                    </div>
-                </div>
-            </div>
-
-            <div class="summary">Die Kassenärztliche Bundesvereinigung (KBV) warnt vor dem Regierungsentwurf zum „Gesetz zur Stärkung der Cybersicherheit“, da die geplanten Befugnisse zur Cyberabwehr – etwa das Auslesen, Löschen oder Verändern von Daten auf kompromittierten Systemen – den Schutz der ärztlichen Schweigepflicht und sensibler Gesundheitsdaten gefährden könnten. Während die Bundesregierung betont, dass diese Maßnahmen ausschließlich der Gefahrenabwehr dienen sollen, fordert die KBV eine rechtliche Ausweitung des Schutzes für Berufsgeheimnisträger auf diese neuen Abwehrmaßnahmen. Parallel dazu kritisiert die Arbeitsgruppe Kritische Infrastrukturen (AG KRITIS) die weitreichenden staatlichen Eingriffsbefugnisse und fordert stärkere rechtsstaatliche Kontrollmechanismen.</div>
-
-            <a href="https://www.heise.de/news/Gesetz-zur-Staerkung-der-Cybersicherheit-Aerzte-sehen-Schweigepflicht-gefaehrdet-11344811.html" class="source-button" target="_blank" onclick="event.stopPropagation()">
                 Vollständigen Artikel lesen
             </a>
         </div>
