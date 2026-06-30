@@ -369,7 +369,7 @@
 
     <header>
         <h1>Relevant</h1>
-        <p class="build-time">Aktualisiert: 29.06.2026, 21:41 Uhr</p>
+        <p class="build-time">Aktualisiert: 30.06.2026, 21:54 Uhr</p>
     </header>
 
     <div class="dashboard-card">
@@ -379,10 +379,10 @@
                     <svg width="60" height="60">
                         <circle stroke="rgba(255,255,255,0.08)" stroke-width="4" fill="transparent" r="26" cx="30" cy="30"/>
                         <circle class="dashboard-circle" stroke-width="4" stroke-dasharray="163.36" 
-                                stroke-dashoffset="62.076800000000006" 
+                                stroke-dashoffset="52.2752" 
                                 stroke-linecap="round" fill="transparent" r="26" cx="30" cy="30" transform="rotate(-90 30 30)"/>
                     </svg>
-                    <div class="ring-text">62%</div>
+                    <div class="ring-text">68%</div>
                 </div>
                 <div class="stat-label">Relevant<br>Share</div>
             </div>
@@ -405,10 +405,10 @@
                     <svg width="60" height="60">
                         <circle stroke="rgba(255,255,255,0.08)" stroke-width="4" fill="transparent" r="26" cx="30" cy="30"/>
                         <circle class="dashboard-circle" stroke-width="4" stroke-dasharray="163.36" 
-                                stroke-dashoffset="55.5424" 
+                                stroke-dashoffset="75.1456" 
                                 stroke-linecap="round" fill="transparent" r="26" cx="30" cy="30" transform="rotate(-90 30 30)"/>
                     </svg>
-                    <div class="ring-text">66%</div>
+                    <div class="ring-text">54%</div>
                 </div>
                 <div class="stat-label">Last<br>24h</div>
             </div>
@@ -482,64 +482,14 @@
     <div class="dashboard-card">
         <h2 class="chart-title">Emerging Trends (Last 60 Days)</h2>
         <div class="source-filters">
-            <button class="source-filter-btn active" data-source="heise">heise</button><button class="source-filter-btn " data-source="sueddeutsche">sueddeutsche</button>
+            <button class="source-filter-btn " data-source="sueddeutsche">sueddeutsche</button><button class="source-filter-btn active" data-source="heise">heise</button>
         </div>
         <div class="chart-container" style="height: 260px;">
             <canvas id="keywordTrendChart"></canvas>
         </div>
 
         <div class="insights-wrapper">
-            <div class="insights-container" data-insight-source="heise" style="display: block;">
-                        <div class="insight-card" style="border-left: 3px solid #00f5d4;">
-                            <div class="insight-header" onclick="this.parentElement.classList.toggle('expanded')">
-                                <h4>Überwachung</h4>
-                                <span class="toggle-icon">+</span>
-                            </div>
-                            <div class="insight-body">
-                                <p>Nicht genügend aktuelle Artikel für eine KI-Analyse gefunden.</p>
-                            </div>
-                        </div>
-                        
-                        <div class="insight-card" style="border-left: 3px solid #9333ea;">
-                            <div class="insight-header" onclick="this.parentElement.classList.toggle('expanded')">
-                                <h4>Openai</h4>
-                                <span class="toggle-icon">+</span>
-                            </div>
-                            <div class="insight-body">
-                                <p>OpenAI bereitet einen Börsengang vor und transformiert ChatGPT zu einer integrierten „Superapp“. Die Diskussion wird durch massive finanzielle Verluste trotz steigender Umsätze sowie mögliche staatliche Beteiligungspläne der US-Regierung angetrieben.</p>
-                            </div>
-                        </div>
-                        
-                        <div class="insight-card" style="border-left: 3px solid #007aff;">
-                            <div class="insight-header" onclick="this.parentElement.classList.toggle('expanded')">
-                                <h4>Anthropic</h4>
-                                <span class="toggle-icon">+</span>
-                            </div>
-                            <div class="insight-body">
-                                <p>Die Diskussion dreht sich um das neue Modell „Claude Fable 5“, dessen extrem restriktive Sicherheitsbarrieren sowohl die Programmierung sicheren Codes blockieren als auch einen weltweiten Modell-Lockdown auslösten. Hintergrund der Aufmerksamkeit sind zudem die wirtschaftliche Entwicklung des Unternehmens durch einen geplanten Börsengang sowie mögliche US-Regierungsbeteiligungen an Anthropic.</p>
-                            </div>
-                        </div>
-                        
-                        <div class="insight-card" style="border-left: 3px solid #34d399;">
-                            <div class="insight-header" onclick="this.parentElement.classList.toggle('expanded')">
-                                <h4>Software</h4>
-                                <span class="toggle-icon">+</span>
-                            </div>
-                            <div class="insight-body">
-                                <p>Der Fokus liegt auf der tiefgreifenden Transformation der Softwarelandschaft durch die rasante Verbreitung von Künstlicher Intelligenz in Wirtschaft und Verwaltung. Die Diskussion wird durch die drohende Disruption klassischer SaaS-Geschäftsmodelle („SaaSpocalypse“), neue regulatorische Anforderungen für KI-Systeme sowie Konflikte um die Kontrolle von Programmierschnittstellen (APIs) angetrieben.</p>
-                            </div>
-                        </div>
-                        
-                        <div class="insight-card" style="border-left: 3px solid #f43f5e;">
-                            <div class="insight-header" onclick="this.parentElement.classList.toggle('expanded')">
-                                <h4>Forschung</h4>
-                                <span class="toggle-icon">+</span>
-                            </div>
-                            <div class="insight-body">
-                                <p>Die Forschung konzentriert sich aktuell auf astrophysikalische Durchbrüche zur Entwicklung des Kosmos sowie die technologische Weiterentwicklung von KI-Systemen. Die Diskussion wird durch die ethische Debatte um die Regulierung von KI sowie bahnbrechende Fortschritte in der Medizintechnik und Robotik befeuert.</p>
-                            </div>
-                        </div>
-                        </div><div class="insights-container" data-insight-source="sueddeutsche" style="display: none;">
+            <div class="insights-container" data-insight-source="sueddeutsche" style="display: none;">
                         <div class="insight-card" style="border-left: 3px solid #00f5d4;">
                             <div class="insight-header" onclick="this.parentElement.classList.toggle('expanded')">
                                 <h4>Fußball-wm</h4>
@@ -552,41 +502,91 @@
                         
                         <div class="insight-card" style="border-left: 3px solid #9333ea;">
                             <div class="insight-header" onclick="this.parentElement.classList.toggle('expanded')">
-                                <h4>Hitze</h4>
+                                <h4>Extremwetter</h4>
                                 <span class="toggle-icon">+</span>
                             </div>
                             <div class="insight-body">
-                                <p>Deutschland erlebt eine landesweite Hitzewelle mit Extremtemperaturen von bis zu 39 Grad und flächendeckenden DWD-Warnungen. Die Diskussion konzentriert sich auf die damit einhergehenden Unwetterrisiken sowie die zunehmende Belastung für Gesundheit, Infrastruktur und den Klimawandel.</p>
+                                <p>Lokaler LLM Fehler: Bitte Ollama prüfen.</p>
                             </div>
                         </div>
                         
                         <div class="insight-card" style="border-left: 3px solid #007aff;">
                             <div class="insight-header" onclick="this.parentElement.classList.toggle('expanded')">
-                                <h4>Extremwetter</h4>
+                                <h4>Hitze</h4>
                                 <span class="toggle-icon">+</span>
                             </div>
                             <div class="insight-body">
-                                <p>Aktuell dominieren extreme Temperaturen von bis zu 39 Grad das Wettergeschehen in Deutschland und Teilen Europas. Die intensive Diskussion wird durch drohende Hitzerekorde, Gesundheitswarnungen für vulnerable Gruppen sowie die Auswirkungen auf die Infrastruktur und Flussökosysteme befeuert.</p>
+                                <p>Lokaler LLM Fehler: Bitte Ollama prüfen.</p>
                             </div>
                         </div>
                         
                         <div class="insight-card" style="border-left: 3px solid #34d399;">
-                            <div class="insight-header" onclick="this.parentElement.classList.toggle('expanded')">
-                                <h4>Deutsche nationalmannschaft</h4>
-                                <span class="toggle-icon">+</span>
-                            </div>
-                            <div class="insight-body">
-                                <p>Die Diskussion konzentriert sich auf die Führung und Kommunikation von Bundestrainer Julian Nagelsmann, insbesondere im Hinblick auf die personelle Ungewissheit bei der Torhüterposition durch eine mögliche Rückkehr von Manuel Neuer. Verstärkt wird das Thema durch massive öffentliche Kritik von Uli Hoeneß an Nagelsmanns Kaderplanung und seinem Führungsstil.</p>
-                            </div>
-                        </div>
-                        
-                        <div class="insight-card" style="border-left: 3px solid #f43f5e;">
                             <div class="insight-header" onclick="this.parentElement.classList.toggle('expanded')">
                                 <h4>Südamerika</h4>
                                 <span class="toggle-icon">+</span>
                             </div>
                             <div class="insight-body">
                                 <p>Nicht genügend aktuelle Artikel für eine KI-Analyse gefunden.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="insight-card" style="border-left: 3px solid #f43f5e;">
+                            <div class="insight-header" onclick="this.parentElement.classList.toggle('expanded')">
+                                <h4>Deutsche nationalmannschaft</h4>
+                                <span class="toggle-icon">+</span>
+                            </div>
+                            <div class="insight-body">
+                                <p>Lokaler LLM Fehler: Bitte Ollama prüfen.</p>
+                            </div>
+                        </div>
+                        </div><div class="insights-container" data-insight-source="heise" style="display: block;">
+                        <div class="insight-card" style="border-left: 3px solid #00f5d4;">
+                            <div class="insight-header" onclick="this.parentElement.classList.toggle('expanded')">
+                                <h4>Überwachung</h4>
+                                <span class="toggle-icon">+</span>
+                            </div>
+                            <div class="insight-body">
+                                <p>Nicht genügend aktuelle Artikel für eine KI-Analyse gefunden.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="insight-card" style="border-left: 3px solid #9333ea;">
+                            <div class="insight-header" onclick="this.parentElement.classList.toggle('expanded')">
+                                <h4>Smartphone</h4>
+                                <span class="toggle-icon">+</span>
+                            </div>
+                            <div class="insight-body">
+                                <p>Lokaler LLM Fehler: Bitte Ollama prüfen.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="insight-card" style="border-left: 3px solid #007aff;">
+                            <div class="insight-header" onclick="this.parentElement.classList.toggle('expanded')">
+                                <h4>Cyberangriff</h4>
+                                <span class="toggle-icon">+</span>
+                            </div>
+                            <div class="insight-body">
+                                <p>Lokaler LLM Fehler: Bitte Ollama prüfen.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="insight-card" style="border-left: 3px solid #34d399;">
+                            <div class="insight-header" onclick="this.parentElement.classList.toggle('expanded')">
+                                <h4>Mobilfunk</h4>
+                                <span class="toggle-icon">+</span>
+                            </div>
+                            <div class="insight-body">
+                                <p>Lokaler LLM Fehler: Bitte Ollama prüfen.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="insight-card" style="border-left: 3px solid #f43f5e;">
+                            <div class="insight-header" onclick="this.parentElement.classList.toggle('expanded')">
+                                <h4>Hardware</h4>
+                                <span class="toggle-icon">+</span>
+                            </div>
+                            <div class="insight-body">
+                                <p>Lokaler LLM Fehler: Bitte Ollama prüfen.</p>
                             </div>
                         </div>
                         </div>
@@ -600,14 +600,14 @@
 
             const initChart = function() {
                 const ctx = document.getElementById('keywordTrendChart').getContext('2d');
-                const rawDatasets = [{"label": "\u00dcberwachung", "data": [0.0, 0.0, 0.0, 0.0, 25.0, 50.0, 0.0, 25.0, 0.0, 0.0, 50.0, 0.0, 0.0, 0.0, 50.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 25.0, 0.0, 0.0, 25.0, 0.0, 75.0, 0.0, 0.0, 25.0, 25.0, 0.0, 25.0, 75.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 25.0, 50.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 25.0, 0.0, 50.0, 25.0, 50.0, 25.0, 0.0, 75.0], "borderColor": "#00f5d4", "backgroundColor": "transparent", "borderWidth": 2, "tension": 0.4, "cubicInterpolationMode": "monotone", "pointRadius": 0, "pointHitRadius": 10, "sourceId": "heise", "originalColor": "#00f5d4"}, {"label": "Openai", "data": [25.0, 0.0, 50.0, 0.0, 50.0, 50.0, 0.0, 50.0, 0.0, 0.0, 0.0, 0.0, 25.0, 0.0, 25.0, 25.0, 0.0, 100.0, 50.0, 100.0, 50.0, 0.0, 0.0, 25.0, 0.0, 25.0, 0.0, 50.0, 50.0, 0.0, 0.0, 50.0, 50.0, 50.0, 0.0, 50.0, 25.0, 25.0, 25.0, 25.0, 25.0, 0.0, 25.0, 50.0, 0.0, 0.0, 50.0, 25.0, 0.0, 0.0, 25.0, 0.0, 25.0, 50.0, 25.0, 50.0, 25.0, 75.0, 0.0, 75.0], "borderColor": "#9333ea", "backgroundColor": "transparent", "borderWidth": 2, "tension": 0.4, "cubicInterpolationMode": "monotone", "pointRadius": 0, "pointHitRadius": 10, "sourceId": "heise", "originalColor": "#9333ea"}, {"label": "Anthropic", "data": [25.0, 0.0, 25.0, 25.0, 50.0, 25.0, 50.0, 50.0, 0.0, 0.0, 0.0, 0.0, 0.0, 25.0, 25.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 25.0, 0.0, 50.0, 0.0, 50.0, 0.0, 25.0, 50.0, 0.0, 0.0, 75.0, 25.0, 25.0, 0.0, 75.0, 25.0, 25.0, 50.0, 75.0, 25.0, 25.0, 75.0, 50.0, 25.0, 50.0, 50.0, 25.0, 0.0, 25.0, 0.0, 25.0, 25.0, 50.0, 50.0, 75.0, 0.0, 25.0, 0.0, 100.0], "borderColor": "#007aff", "backgroundColor": "transparent", "borderWidth": 2, "tension": 0.4, "cubicInterpolationMode": "monotone", "pointRadius": 0, "pointHitRadius": 10, "sourceId": "heise", "originalColor": "#007aff"}, {"label": "Software", "data": [0.0, 0.0, 0.0, 25.0, 50.0, 25.0, 25.0, 0.0, 0.0, 0.0, 0.0, 25.0, 25.0, 0.0, 0.0, 0.0, 0.0, 0.0, 25.0, 25.0, 0.0, 100.0, 0.0, 0.0, 0.0, 0.0, 75.0, 25.0, 25.0, 25.0, 0.0, 0.0, 75.0, 25.0, 25.0, 25.0, 0.0, 0.0, 25.0, 50.0, 25.0, 0.0, 25.0, 25.0, 0.0, 25.0, 25.0, 0.0, 25.0, 0.0, 0.0, 0.0, 25.0, 0.0, 100.0, 25.0, 25.0, 0.0, 0.0, 75.0], "borderColor": "#34d399", "backgroundColor": "transparent", "borderWidth": 2, "tension": 0.4, "cubicInterpolationMode": "monotone", "pointRadius": 0, "pointHitRadius": 10, "sourceId": "heise", "originalColor": "#34d399"}, {"label": "Forschung", "data": [0.0, 0.0, 50.0, 0.0, 50.0, 25.0, 25.0, 0.0, 0.0, 25.0, 50.0, 50.0, 25.0, 0.0, 25.0, 0.0, 0.0, 50.0, 75.0, 25.0, 50.0, 0.0, 25.0, 0.0, 25.0, 25.0, 25.0, 25.0, 50.0, 0.0, 0.0, 100.0, 25.0, 75.0, 75.0, 75.0, 0.0, 0.0, 25.0, 0.0, 0.0, 75.0, 75.0, 0.0, 0.0, 75.0, 25.0, 0.0, 25.0, 25.0, 0.0, 0.0, 75.0, 75.0, 100.0, 25.0, 25.0, 0.0, 0.0, 75.0], "borderColor": "#f43f5e", "backgroundColor": "transparent", "borderWidth": 2, "tension": 0.4, "cubicInterpolationMode": "monotone", "pointRadius": 0, "pointHitRadius": 10, "sourceId": "heise", "originalColor": "#f43f5e"}, {"label": "Fu\u00dfball-wm", "data": [0.0, 0.0, 0.0, 0.0, 0.0, 11.8, 5.9, 0.0, 0.0, 5.9, 0.0, 5.9, 11.8, 0.0, 0.0, 0.0, 5.9, 0.0, 5.9, 0.0, 5.9, 5.9, 5.9, 0.0, 0.0, 0.0, 11.8, 0.0, 0.0, 0.0, 17.6, 0.0, 11.8, 5.9, 11.8, 5.9, 0.0, 0.0, 5.9, 5.9, 0.0, 29.4, 47.1, 0.0, 47.1, 47.1, 11.8, 29.4, 64.7, 41.2, 17.6, 5.9, 23.5, 0.0, 17.6, 82.4, 29.4, 47.1, 100.0, 17.6], "borderColor": "#00f5d4", "backgroundColor": "transparent", "borderWidth": 2, "tension": 0.4, "cubicInterpolationMode": "monotone", "pointRadius": 0, "pointHitRadius": 10, "sourceId": "sueddeutsche", "originalColor": "#00f5d4"}, {"label": "Hitze", "data": [0.0, 0.0, 0.0, 5.9, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 5.9, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 5.9, 17.6, 5.9, 5.9, 0.0, 0.0, 0.0, 47.1, 11.8, 23.5, 35.3, 11.8], "borderColor": "#9333ea", "backgroundColor": "transparent", "borderWidth": 2, "tension": 0.4, "cubicInterpolationMode": "monotone", "pointRadius": 0, "pointHitRadius": 10, "sourceId": "sueddeutsche", "originalColor": "#9333ea"}, {"label": "Extremwetter", "data": [0.0, 0.0, 0.0, 5.9, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 5.9, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 5.9, 17.6, 0.0, 5.9, 0.0, 0.0, 0.0, 35.3, 5.9, 23.5, 35.3, 11.8], "borderColor": "#007aff", "backgroundColor": "transparent", "borderWidth": 2, "tension": 0.4, "cubicInterpolationMode": "monotone", "pointRadius": 0, "pointHitRadius": 10, "sourceId": "sueddeutsche", "originalColor": "#007aff"}, {"label": "Deutsche nationalmannschaft", "data": [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 5.9, 5.9, 0.0, 5.9, 0.0, 0.0, 0.0, 5.9, 5.9, 0.0, 0.0, 0.0, 5.9, 5.9, 11.8, 0.0, 0.0, 5.9, 11.8, 0.0, 0.0, 0.0, 11.8, 0.0, 11.8, 5.9, 11.8, 0.0, 0.0, 0.0, 5.9, 11.8, 0.0, 5.9, 17.6, 0.0, 41.2, 23.5, 5.9, 11.8, 23.5, 0.0, 11.8, 5.9, 11.8, 0.0, 5.9, 52.9, 23.5, 17.6, 41.2, 11.8], "borderColor": "#34d399", "backgroundColor": "transparent", "borderWidth": 2, "tension": 0.4, "cubicInterpolationMode": "monotone", "pointRadius": 0, "pointHitRadius": 10, "sourceId": "sueddeutsche", "originalColor": "#34d399"}, {"label": "S\u00fcdamerika", "data": [0.0, 0.0, 0.0, 0.0, 0.0, 5.9, 5.9, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 5.9, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 5.9, 0.0, 0.0, 11.8, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 5.9, 0.0, 5.9, 0.0, 0.0, 17.6, 0.0, 11.8, 23.5, 11.8], "borderColor": "#f43f5e", "backgroundColor": "transparent", "borderWidth": 2, "tension": 0.4, "cubicInterpolationMode": "monotone", "pointRadius": 0, "pointHitRadius": 10, "sourceId": "sueddeutsche", "originalColor": "#f43f5e"}];
+                const rawDatasets = [{"label": "Fu\u00dfball-wm", "data": [0.0, 0.0, 0.0, 0.0, 11.8, 5.9, 0.0, 0.0, 5.9, 0.0, 5.9, 11.8, 0.0, 0.0, 0.0, 5.9, 0.0, 5.9, 0.0, 5.9, 5.9, 5.9, 0.0, 0.0, 0.0, 11.8, 0.0, 0.0, 0.0, 17.6, 0.0, 11.8, 5.9, 11.8, 5.9, 0.0, 0.0, 5.9, 5.9, 0.0, 29.4, 47.1, 0.0, 47.1, 47.1, 11.8, 29.4, 64.7, 41.2, 17.6, 5.9, 23.5, 0.0, 17.6, 82.4, 29.4, 47.1, 100.0, 17.6, 11.8], "borderColor": "#00f5d4", "backgroundColor": "transparent", "borderWidth": 2, "tension": 0.4, "cubicInterpolationMode": "monotone", "pointRadius": 0, "pointHitRadius": 10, "sourceId": "sueddeutsche", "originalColor": "#00f5d4"}, {"label": "Extremwetter", "data": [0.0, 0.0, 5.9, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 5.9, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 5.9, 17.6, 0.0, 5.9, 0.0, 0.0, 0.0, 35.3, 5.9, 23.5, 35.3, 11.8, 0.0], "borderColor": "#9333ea", "backgroundColor": "transparent", "borderWidth": 2, "tension": 0.4, "cubicInterpolationMode": "monotone", "pointRadius": 0, "pointHitRadius": 10, "sourceId": "sueddeutsche", "originalColor": "#9333ea"}, {"label": "Hitze", "data": [0.0, 0.0, 5.9, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 5.9, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 5.9, 17.6, 5.9, 5.9, 0.0, 0.0, 0.0, 47.1, 11.8, 23.5, 35.3, 11.8, 0.0], "borderColor": "#007aff", "backgroundColor": "transparent", "borderWidth": 2, "tension": 0.4, "cubicInterpolationMode": "monotone", "pointRadius": 0, "pointHitRadius": 10, "sourceId": "sueddeutsche", "originalColor": "#007aff"}, {"label": "S\u00fcdamerika", "data": [0.0, 0.0, 0.0, 0.0, 5.9, 5.9, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 5.9, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 5.9, 0.0, 0.0, 11.8, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 5.9, 0.0, 5.9, 0.0, 0.0, 17.6, 0.0, 11.8, 23.5, 11.8, 5.9], "borderColor": "#34d399", "backgroundColor": "transparent", "borderWidth": 2, "tension": 0.4, "cubicInterpolationMode": "monotone", "pointRadius": 0, "pointHitRadius": 10, "sourceId": "sueddeutsche", "originalColor": "#34d399"}, {"label": "Deutsche nationalmannschaft", "data": [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 5.9, 5.9, 0.0, 5.9, 0.0, 0.0, 0.0, 5.9, 5.9, 0.0, 0.0, 0.0, 5.9, 5.9, 11.8, 0.0, 0.0, 5.9, 11.8, 0.0, 0.0, 0.0, 11.8, 0.0, 11.8, 5.9, 11.8, 0.0, 0.0, 0.0, 5.9, 11.8, 0.0, 5.9, 17.6, 0.0, 41.2, 23.5, 5.9, 11.8, 23.5, 0.0, 11.8, 5.9, 11.8, 0.0, 5.9, 52.9, 23.5, 17.6, 41.2, 11.8, 5.9], "borderColor": "#f43f5e", "backgroundColor": "transparent", "borderWidth": 2, "tension": 0.4, "cubicInterpolationMode": "monotone", "pointRadius": 0, "pointHitRadius": 10, "sourceId": "sueddeutsche", "originalColor": "#f43f5e"}, {"label": "\u00dcberwachung", "data": [0.0, 0.0, 0.0, 14.3, 28.6, 0.0, 14.3, 0.0, 0.0, 28.6, 0.0, 0.0, 0.0, 28.6, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 14.3, 0.0, 0.0, 14.3, 0.0, 42.9, 0.0, 0.0, 14.3, 14.3, 0.0, 14.3, 42.9, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 14.3, 28.6, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 14.3, 0.0, 28.6, 14.3, 28.6, 14.3, 0.0, 42.9, 28.6], "borderColor": "#00f5d4", "backgroundColor": "transparent", "borderWidth": 2, "tension": 0.4, "cubicInterpolationMode": "monotone", "pointRadius": 0, "pointHitRadius": 10, "sourceId": "heise", "originalColor": "#00f5d4"}, {"label": "Smartphone", "data": [28.6, 0.0, 0.0, 14.3, 14.3, 28.6, 14.3, 0.0, 0.0, 14.3, 42.9, 57.1, 0.0, 0.0, 14.3, 0.0, 42.9, 28.6, 14.3, 14.3, 0.0, 14.3, 0.0, 0.0, 28.6, 0.0, 42.9, 0.0, 0.0, 0.0, 14.3, 28.6, 14.3, 14.3, 0.0, 0.0, 28.6, 14.3, 28.6, 14.3, 14.3, 0.0, 0.0, 14.3, 0.0, 71.4, 14.3, 14.3, 14.3, 0.0, 14.3, 71.4, 28.6, 0.0, 14.3, 0.0, 0.0, 0.0, 42.9, 42.9], "borderColor": "#9333ea", "backgroundColor": "transparent", "borderWidth": 2, "tension": 0.4, "cubicInterpolationMode": "monotone", "pointRadius": 0, "pointHitRadius": 10, "sourceId": "heise", "originalColor": "#9333ea"}, {"label": "Cyberangriff", "data": [0.0, 0.0, 28.6, 14.3, 28.6, 0.0, 28.6, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 28.6, 0.0, 0.0, 0.0, 28.6, 14.3, 14.3, 14.3, 0.0, 0.0, 0.0, 14.3, 0.0, 0.0, 0.0, 0.0, 0.0, 28.6, 14.3, 0.0, 0.0, 28.6, 0.0, 0.0, 14.3, 28.6, 0.0, 0.0, 14.3, 0.0, 0.0, 28.6, 42.9, 14.3, 0.0, 14.3, 0.0, 14.3, 14.3, 14.3, 14.3, 14.3, 14.3, 0.0, 0.0, 28.6, 42.9], "borderColor": "#007aff", "backgroundColor": "transparent", "borderWidth": 2, "tension": 0.4, "cubicInterpolationMode": "monotone", "pointRadius": 0, "pointHitRadius": 10, "sourceId": "heise", "originalColor": "#007aff"}, {"label": "Mobilfunk", "data": [0.0, 0.0, 14.3, 28.6, 14.3, 14.3, 14.3, 0.0, 0.0, 14.3, 14.3, 14.3, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 14.3, 14.3, 0.0, 14.3, 0.0, 14.3, 14.3, 0.0, 0.0, 14.3, 0.0, 0.0, 28.6, 14.3, 14.3, 0.0, 0.0, 14.3, 0.0, 42.9, 0.0, 0.0, 42.9, 14.3, 0.0, 0.0, 14.3, 28.6, 14.3, 0.0, 14.3, 0.0, 14.3, 14.3, 14.3, 14.3, 14.3, 0.0, 14.3, 0.0, 28.6, 28.6], "borderColor": "#34d399", "backgroundColor": "transparent", "borderWidth": 2, "tension": 0.4, "cubicInterpolationMode": "monotone", "pointRadius": 0, "pointHitRadius": 10, "sourceId": "heise", "originalColor": "#34d399"}, {"label": "Hardware", "data": [0.0, 0.0, 42.9, 0.0, 28.6, 28.6, 14.3, 14.3, 0.0, 0.0, 28.6, 0.0, 0.0, 28.6, 0.0, 14.3, 42.9, 14.3, 57.1, 42.9, 85.7, 0.0, 0.0, 0.0, 0.0, 57.1, 14.3, 0.0, 0.0, 0.0, 42.9, 100.0, 14.3, 57.1, 42.9, 0.0, 0.0, 28.6, 28.6, 14.3, 28.6, 28.6, 14.3, 0.0, 28.6, 28.6, 14.3, 14.3, 0.0, 0.0, 14.3, 0.0, 28.6, 57.1, 57.1, 28.6, 0.0, 14.3, 28.6, 42.9], "borderColor": "#f43f5e", "backgroundColor": "transparent", "borderWidth": 2, "tension": 0.4, "cubicInterpolationMode": "monotone", "pointRadius": 0, "pointHitRadius": 10, "sourceId": "heise", "originalColor": "#f43f5e"}];
 
                 Chart.defaults.color = 'rgba(255, 255, 255, 0.7)';
                 Chart.defaults.font.family = '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif';
 
                 trendChart = new Chart(ctx, {
                     type: 'line',
-                    data: { labels: ["05-01", "05-02", "05-03", "05-04", "05-05", "05-06", "05-07", "05-08", "05-09", "05-10", "05-11", "05-12", "05-13", "05-14", "05-15", "05-16", "05-17", "05-18", "05-19", "05-20", "05-21", "05-22", "05-23", "05-24", "05-25", "05-26", "05-27", "05-28", "05-29", "05-30", "05-31", "06-01", "06-02", "06-03", "06-04", "06-05", "06-06", "06-07", "06-08", "06-09", "06-10", "06-11", "06-12", "06-13", "06-14", "06-15", "06-16", "06-17", "06-18", "06-19", "06-20", "06-21", "06-22", "06-23", "06-24", "06-25", "06-26", "06-27", "06-28", "06-29"], datasets: rawDatasets },
+                    data: { labels: ["05-02", "05-03", "05-04", "05-05", "05-06", "05-07", "05-08", "05-09", "05-10", "05-11", "05-12", "05-13", "05-14", "05-15", "05-16", "05-17", "05-18", "05-19", "05-20", "05-21", "05-22", "05-23", "05-24", "05-25", "05-26", "05-27", "05-28", "05-29", "05-30", "05-31", "06-01", "06-02", "06-03", "06-04", "06-05", "06-06", "06-07", "06-08", "06-09", "06-10", "06-11", "06-12", "06-13", "06-14", "06-15", "06-16", "06-17", "06-18", "06-19", "06-20", "06-21", "06-22", "06-23", "06-24", "06-25", "06-26", "06-27", "06-28", "06-29", "06-30"], datasets: rawDatasets },
                     options: {
                         responsive: true,
                         maintainAspectRatio: false,
@@ -683,29 +683,6 @@
     
 
     <div class="feed" id="news-feed">
-        
-        <div class="article-card" onclick="toggleCard(this)">
-            <div class="meta">Ollama AI • Top 10 (48h)</div>
-            <div class="card-header">
-                <div class="title">Globale Entwicklungen in Technologie, Recht und Wissenschaft</div>
-                <div class="relevance-container">
-                    <svg width="44" height="44">
-                        <circle stroke="rgba(255,255,255,0.08)" stroke-width="3" fill="transparent" r="19" cx="22" cy="22"/>
-                        <circle class="progress-ring__circle" stroke-width="3" stroke-dasharray="119.38" 
-                                stroke-dashoffset="0" 
-                                stroke-linecap="round" fill="transparent" r="19" cx="22" cy="22" transform="rotate(-90 22 22)"/>
-                    </svg>
-                    <div style="position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); font-size:12px; font-weight:800; color: var(--text-main);">
-                        AI
-                    </div>
-                </div>
-            </div>
-            <div class="summary" style="white-space: pre-wrap;">Die globale Entwicklung im Bereich der Künstlichen Intelligenz ist von einem intensiven Wettbewerb und technologischem Fortschritt geprägt. Während Meta durch die Entwicklung des Modells „Muse Spark“ seine Unabhängigkeit von Google Gemini stärken möchte, bringt OpenAI mit GPT-5.6 neue Modelle auf den Markt. Parallel dazu investieren Tech-Giganten wie Amazon, Microsoft und Google massiv in KI-Inistungsstrukturen, wobei Google Kapazitäten bei SpaceX anmietet. Politisch bemüht sich der österreichische Staatssekretär Alexander Pröll um eine Prüfung für die Ansiedlung von Anthropic in Europa, um die technologische Souveränität gegenüber den USA und China zu erhöhen, wenngleich dies aufgrund mangelnder Kapitalressourcen in Europa als wenig realistisch gilt.
-
-Rechtliche und regulatorische Herausforderungen nehmen weltweit zu. In den USA klagen hunderte Verlage gegen Microsoft und OpenAI wegen unbefugter Datennutzung, während die G7-Datenschutzbehörden in Paris neue internationale Standards für die Sicherheit von Minderjährigen bei der Nutzung von Smart Technology fordern. In Deutschland steht die rechtliche Basis von Staatstrojanern und BND-Überwachung vor dem Europäischen Gerichtshof für Menschenrechte zur Prüfung, während gleichzeitig Befugnisse zur KI-gestützten Überwachung in Sachsen und Baden-Württemberg ausgeweitet werden.
-
-In der Wissenschaft wurden bedeutende Durchbrüche erzielt: Ein Forschungsteam konnte die Supraleitungstemperatur in Cuprat-Materialien durch schnelle Druckentlastung erhöhen, und neue Simulationen zur Erdgeschichte zeigen, dass massive Asteroideneinschläge die frühe Kontinentbildung bis vor etwa 3,9 Milliarden Jahren verhinderten. Im Industriesektor setzt BMW im US-Werk Spartanburg auf humanoide Roboter der Generation Figure-03 zur Entlastung von Mitarbeitern in der Logistik. Im Gegensatz dazu plant Volkswagen eine mögliche Beendigung der Partnerschaft zwischen Cariad und Bosch, um durch den Zukauf externer Softwarelösungen Kosten zu sparen. Abschließend sorgt die Entfernung historischer Max-Planck-Artikel aus einem digitalen Fachmagazin für Diskussionen über die Anwendung moderner Publikationsstandards auf historische Texte.</div>
-        </div>
         
 
         
