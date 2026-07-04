@@ -369,7 +369,7 @@
 
     <header>
         <h1>Relevant</h1>
-        <p class="build-time">Aktualisiert: 03.07.2026, 00:05 Uhr</p>
+        <p class="build-time">Aktualisiert: 04.07.2026, 11:04 Uhr</p>
     </header>
 
     <div class="dashboard-card">
@@ -379,10 +379,10 @@
                     <svg width="60" height="60">
                         <circle stroke="rgba(255,255,255,0.08)" stroke-width="4" fill="transparent" r="26" cx="30" cy="30"/>
                         <circle class="dashboard-circle" stroke-width="4" stroke-dasharray="163.36" 
-                                stroke-dashoffset="49.00800000000001" 
+                                stroke-dashoffset="65.34400000000001" 
                                 stroke-linecap="round" fill="transparent" r="26" cx="30" cy="30" transform="rotate(-90 30 30)"/>
                     </svg>
-                    <div class="ring-text">70%</div>
+                    <div class="ring-text">60%</div>
                 </div>
                 <div class="stat-label">Relevant<br>Share</div>
             </div>
@@ -392,10 +392,10 @@
                     <svg width="60" height="60">
                         <circle stroke="rgba(255,255,255,0.08)" stroke-width="4" fill="transparent" r="26" cx="30" cy="30"/>
                         <circle class="dashboard-circle" stroke-width="4" stroke-dasharray="163.36" 
-                                stroke-dashoffset="26.13760000000002" 
+                                stroke-dashoffset="27.77120000000002" 
                                 stroke-linecap="round" fill="transparent" r="26" cx="30" cy="30" transform="rotate(-90 30 30)"/>
                     </svg>
-                    <div class="ring-text">84%</div>
+                    <div class="ring-text">83%</div>
                 </div>
                 <div class="stat-label">Avg.<br>Score</div>
             </div>
@@ -405,10 +405,10 @@
                     <svg width="60" height="60">
                         <circle stroke="rgba(255,255,255,0.08)" stroke-width="4" fill="transparent" r="26" cx="30" cy="30"/>
                         <circle class="dashboard-circle" stroke-width="4" stroke-dasharray="163.36" 
-                                stroke-dashoffset="40.84" 
+                                stroke-dashoffset="107.8176" 
                                 stroke-linecap="round" fill="transparent" r="26" cx="30" cy="30" transform="rotate(-90 30 30)"/>
                     </svg>
-                    <div class="ring-text">75%</div>
+                    <div class="ring-text">34%</div>
                 </div>
                 <div class="stat-label">Last<br>24h</div>
             </div>
@@ -482,14 +482,64 @@
     <div class="dashboard-card">
         <h2 class="chart-title">Emerging Trends (Last 60 Days)</h2>
         <div class="source-filters">
-            <button class="source-filter-btn " data-source="sueddeutsche">sueddeutsche</button><button class="source-filter-btn active" data-source="heise">heise</button>
+            <button class="source-filter-btn active" data-source="heise">heise</button><button class="source-filter-btn " data-source="sueddeutsche">sueddeutsche</button>
         </div>
         <div class="chart-container" style="height: 260px;">
             <canvas id="keywordTrendChart"></canvas>
         </div>
 
         <div class="insights-wrapper">
-            <div class="insights-container" data-insight-source="sueddeutsche" style="display: none;">
+            <div class="insights-container" data-insight-source="heise" style="display: block;">
+                        <div class="insight-card" style="border-left: 3px solid #00f5d4;">
+                            <div class="insight-header" onclick="this.parentElement.classList.toggle('expanded')">
+                                <h4>Iphone</h4>
+                                <span class="toggle-icon">+</span>
+                            </div>
+                            <div class="insight-body">
+                                <p>Die Diskussion konzentriert sich auf Apples Software-Roadmap für iOS 27, insbesondere die technische Herausforderung, leistungsfähige KI-Modelle trotz begrenzter Hardware-Ressourcen direkt auf dem iPhone zu betreiben. Anlass für die aktuelle Debatte sind zudem drohende Preiserhöhungen durch steigende Speicherpreise sowie regulatorische Ermittlungen der italienischen Wettbewerbsbehörde wegen möglicher Marktvorteile im EU-Raum.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="insight-card" style="border-left: 3px solid #9333ea;">
+                            <div class="insight-header" onclick="this.parentElement.classList.toggle('expanded')">
+                                <h4>Forschung</h4>
+                                <span class="toggle-icon">+</span>
+                            </div>
+                            <div class="insight-body">
+                                <p>Die aktuelle Forschung konzentriert sich auf wissenschaftliche Fortschritte in den Bereichen Astrophysik, Medizintechnik und Künstliche Intelligenz. Diskutiert werden dabei sowohl neue Entdeckungen im Weltraum als auch die praktische Anwendung neuer Technologien zur Lösung von Herausforderungen in der Sprachpflege, Nachhaltigkeit und Gesundheitsversorgung.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="insight-card" style="border-left: 3px solid #007aff;">
+                            <div class="insight-header" onclick="this.parentElement.classList.toggle('expanded')">
+                                <h4>Rechenzentrum</h4>
+                                <span class="toggle-icon">+</span>
+                            </div>
+                            <div class="insight-body">
+                                <p>Der Fokus liegt auf der massiven Infrastrukturerweiterung durch KI-Workloads, die neue Anforderungen an spezialisierte Hardware, Flüssigkeitskühlung und dedizierte Energieversorgung stellt. Gleichzeitig treiben steigende Cloud-Preise sowie politische Debatten über die Lockerung von Energieeffizienz-Vorgaben eine Neugestaltung der Rechenzentrum-Landschaft voran.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="insight-card" style="border-left: 3px solid #34d399;">
+                            <div class="insight-header" onclick="this.parentElement.classList.toggle('expanded')">
+                                <h4>Streaming</h4>
+                                <span class="toggle-icon">+</span>
+                            </div>
+                            <div class="insight-body">
+                                <p>Der Streaming-Markt befindet sich in einer Phase massiver Konsolidierung durch strategische Übernahmen wie Warner/Paramount und Fox/Roku. Parallel dazu sorgen technische Herausforderungen bei der Fußball-WM – etwa Bildqualitätsprobleme, Latenzunterschiede und Sicherheitslücken – für intensive Diskussionen.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="insight-card" style="border-left: 3px solid #f43f5e;">
+                            <div class="insight-header" onclick="this.parentElement.classList.toggle('expanded')">
+                                <h4>Energiewende</h4>
+                                <span class="toggle-icon">+</span>
+                            </div>
+                            <div class="insight-body">
+                                <p>Die Energiewende zeigt technologische Fortschritte bei der Batterieproduktion sowie beim Ausbau von Solar- und Offshore-Anlagen, stößt jedoch an infrastrukturelle Grenzen. Die aktuelle Debatte fokussiert sich auf ein unzureichend vorbereitetes Stromnetz und mangelnden politischen Gestaltungswillen, welche die Integration erneuerbarer Energien massiv ausbremsen.</p>
+                            </div>
+                        </div>
+                        </div><div class="insights-container" data-insight-source="sueddeutsche" style="display: none;">
                         <div class="insight-card" style="border-left: 3px solid #00f5d4;">
                             <div class="insight-header" onclick="this.parentElement.classList.toggle('expanded')">
                                 <h4>Fußball-wm</h4>
@@ -506,57 +556,17 @@
                                 <span class="toggle-icon">+</span>
                             </div>
                             <div class="insight-body">
-                                <p>Die Diskussion konzentriert sich auf die öffentliche Kritik von Uli Hoeneß an Bundestrainer Julian Nagelsmann, insbesondere hinsichtlich personeller Unbeständigkeit und der unklaren Kommunikation zur möglichen Rückkehr von Manuel Neuer. Ergänzend werden Verletzungssorgen im Frauen-Kader sowie die Vorbereitungen für die WM 2026 thematisiert.</p>
-                            </div>
-                        </div>
-                        </div><div class="insights-container" data-insight-source="heise" style="display: block;">
-                        <div class="insight-card" style="border-left: 3px solid #00f5d4;">
-                            <div class="insight-header" onclick="this.parentElement.classList.toggle('expanded')">
-                                <h4>Forschung</h4>
-                                <span class="toggle-icon">+</span>
-                            </div>
-                            <div class="insight-body">
-                                <p>Der Forschungstrend konzentriert sich auf fundamentale astrophysikalische Erkenntnisse zum frühen Universum sowie technologische Durchbrüche in der Künstlichen Intelligenz und Neurotechnologie. Die hohe Diskussionsrate ergibt sich aus der potenziellen Revision physikalischer Standardmodelle und der zunehmenden Integration intelligenter Systeme in Medizin, Industrie und Gesellschaft.</p>
-                            </div>
-                        </div>
-                        
-                        <div class="insight-card" style="border-left: 3px solid #9333ea;">
-                            <div class="insight-header" onclick="this.parentElement.classList.toggle('expanded')">
-                                <h4>Smartphone</h4>
-                                <span class="toggle-icon">+</span>
-                            </div>
-                            <div class="insight-body">
-                                <p>Die aktuelle Berichterstattung konzentriert sich auf die Veröffentlichung von Android 17 und dessen verbesserte Datenmigration von iPhones für Pixel-Nutzer. Die Diskussion wird durch technische Ausfälle der Gemini-KI sowie manipulierte Katastrophenwarnungen in Brasilien befeuert.</p>
+                                <p>Die Diskussion konzentriert sich auf die personelle und taktische Führung der deutschen Nationalmannschaft unter Julian Nagelsmann. Auslöser für die Debatte sind primär die öffentliche Kritik Uli Hoeneß’ an der Kommunikation des Trainers sowie die Ungewissheit über eine mögliche Rückkehr von Manuel Neuer in den Kader.</p>
                             </div>
                         </div>
                         
                         <div class="insight-card" style="border-left: 3px solid #007aff;">
                             <div class="insight-header" onclick="this.parentElement.classList.toggle('expanded')">
-                                <h4>Digital health</h4>
+                                <h4>Panorama</h4>
                                 <span class="toggle-icon">+</span>
                             </div>
                             <div class="insight-body">
-                                <p>Im Fokus steht die strukturelle Umgestaltung der medizinischen Dateninfrastruktur durch das geplante Medizinregistergesetz sowie die Modernisierung der Telematikinfrastruktur. Die Debatte wird primär durch das Spannungsfeld zwischen dem Forschungsbedarf an verknüpften Datensätzen für KI-Anwendungen und kritischen Fragen zu Datenschutz, regulatorischen Hürden (MDR) sowie nachhaltiger Finanzierung getrieben.</p>
-                            </div>
-                        </div>
-                        
-                        <div class="insight-card" style="border-left: 3px solid #34d399;">
-                            <div class="insight-header" onclick="this.parentElement.classList.toggle('expanded')">
-                                <h4>Kartellrecht</h4>
-                                <span class="toggle-icon">+</span>
-                            </div>
-                            <div class="insight-body">
-                                <p>Regulatorische Maßnahmen gegen die Marktmacht von Tech-Giganten wie Apple, Google und Microsoft dominieren die Debatte, insbesondere im Hinblick auf die Durchsetzung des Digital Markets Act (DMA). Auslöser sind milliardenschwere Bußgeldentscheidungen sowie globale Untersuchungen zu geschlossenen App-Ökosystemen und der unzulässigen Bevorzugung eigener Dienste.</p>
-                            </div>
-                        </div>
-                        
-                        <div class="insight-card" style="border-left: 3px solid #f43f5e;">
-                            <div class="insight-header" onclick="this.parentElement.classList.toggle('expanded')">
-                                <h4>Energiewende</h4>
-                                <span class="toggle-icon">+</span>
-                            </div>
-                            <div class="insight-body">
-                                <p>Die Energiewende umfasst den massiven technologischen Ausbau erneuerbarer Quellen, insbesondere bei Wärmepumpen, Solarenergie und der Batterieproduktion. Die aktuelle Debatte dreht sich primär um die Diskrepanz zwischen verfügbaren technischen Lösungen und einer unzureichend vorbereiteten Strominfrastruktur sowie fehlendem politischen Fokus.</p>
+                                <p>Das Schlagwort bündelt diverse außergewöhnliche Ereignisse, angeführt von der spektakulären Rettungsaktion eines Buckelwals sowie dem historischen Geburtenrückgang in Deutschland. Die Aufmerksamkeit wird durch die Mischung aus emotionalen Naturereignissen, ungewöhnlichen Kriminalfällen und globalen Krisen wie Vulkanausbrüchen oder Virusausbrüchen getrieben.</p>
                             </div>
                         </div>
                         </div>
@@ -570,14 +580,14 @@
 
             const initChart = function() {
                 const ctx = document.getElementById('keywordTrendChart').getContext('2d');
-                const rawDatasets = [{"label": "Fu\u00dfball-wm", "data": [0.0, 0.0, 11.8, 5.9, 0.0, 0.0, 5.9, 0.0, 5.9, 11.8, 0.0, 0.0, 0.0, 5.9, 0.0, 5.9, 0.0, 5.9, 5.9, 5.9, 0.0, 0.0, 0.0, 11.8, 0.0, 0.0, 0.0, 17.6, 0.0, 11.8, 5.9, 11.8, 5.9, 0.0, 0.0, 5.9, 5.9, 0.0, 29.4, 47.1, 0.0, 47.1, 47.1, 11.8, 29.4, 64.7, 41.2, 17.6, 5.9, 23.5, 0.0, 17.6, 82.4, 29.4, 47.1, 100.0, 17.6, 35.3, 0.0, 11.8], "borderColor": "#00f5d4", "backgroundColor": "transparent", "borderWidth": 2, "tension": 0.4, "cubicInterpolationMode": "monotone", "pointRadius": 0, "pointHitRadius": 10, "sourceId": "sueddeutsche", "originalColor": "#00f5d4"}, {"label": "Deutsche nationalmannschaft", "data": [0.0, 0.0, 0.0, 0.0, 0.0, 5.9, 5.9, 0.0, 5.9, 0.0, 0.0, 0.0, 5.9, 5.9, 0.0, 0.0, 0.0, 5.9, 5.9, 11.8, 0.0, 0.0, 5.9, 11.8, 0.0, 0.0, 0.0, 11.8, 0.0, 11.8, 5.9, 11.8, 0.0, 0.0, 0.0, 5.9, 11.8, 0.0, 5.9, 17.6, 0.0, 41.2, 23.5, 5.9, 11.8, 23.5, 0.0, 11.8, 5.9, 11.8, 0.0, 5.9, 52.9, 23.5, 17.6, 41.2, 11.8, 11.8, 0.0, 11.8], "borderColor": "#9333ea", "backgroundColor": "transparent", "borderWidth": 2, "tension": 0.4, "cubicInterpolationMode": "monotone", "pointRadius": 0, "pointHitRadius": 10, "sourceId": "sueddeutsche", "originalColor": "#9333ea"}, {"label": "Forschung", "data": [0.0, 40.0, 20.0, 20.0, 0.0, 0.0, 20.0, 40.0, 40.0, 20.0, 0.0, 20.0, 0.0, 0.0, 40.0, 60.0, 20.0, 40.0, 0.0, 20.0, 0.0, 20.0, 20.0, 20.0, 20.0, 40.0, 0.0, 0.0, 80.0, 20.0, 60.0, 60.0, 60.0, 0.0, 0.0, 20.0, 0.0, 0.0, 60.0, 60.0, 0.0, 0.0, 60.0, 20.0, 0.0, 20.0, 20.0, 0.0, 0.0, 60.0, 60.0, 80.0, 20.0, 20.0, 0.0, 0.0, 60.0, 40.0, 60.0, 60.0], "borderColor": "#00f5d4", "backgroundColor": "transparent", "borderWidth": 2, "tension": 0.4, "cubicInterpolationMode": "monotone", "pointRadius": 0, "pointHitRadius": 10, "sourceId": "heise", "originalColor": "#00f5d4"}, {"label": "Smartphone", "data": [0.0, 20.0, 20.0, 40.0, 20.0, 0.0, 0.0, 20.0, 60.0, 80.0, 0.0, 0.0, 20.0, 0.0, 60.0, 40.0, 20.0, 20.0, 0.0, 20.0, 0.0, 0.0, 40.0, 0.0, 60.0, 0.0, 0.0, 0.0, 20.0, 40.0, 20.0, 20.0, 0.0, 0.0, 40.0, 20.0, 40.0, 20.0, 20.0, 0.0, 0.0, 20.0, 0.0, 100.0, 20.0, 20.0, 20.0, 0.0, 20.0, 100.0, 40.0, 0.0, 20.0, 0.0, 0.0, 0.0, 60.0, 60.0, 40.0, 20.0], "borderColor": "#9333ea", "backgroundColor": "transparent", "borderWidth": 2, "tension": 0.4, "cubicInterpolationMode": "monotone", "pointRadius": 0, "pointHitRadius": 10, "sourceId": "heise", "originalColor": "#9333ea"}, {"label": "Digital health", "data": [20.0, 60.0, 0.0, 40.0, 20.0, 0.0, 0.0, 40.0, 40.0, 40.0, 20.0, 60.0, 20.0, 0.0, 60.0, 20.0, 20.0, 0.0, 20.0, 20.0, 0.0, 0.0, 0.0, 0.0, 20.0, 0.0, 0.0, 0.0, 0.0, 0.0, 80.0, 0.0, 20.0, 0.0, 0.0, 0.0, 20.0, 40.0, 20.0, 0.0, 0.0, 0.0, 20.0, 40.0, 20.0, 60.0, 20.0, 0.0, 0.0, 0.0, 40.0, 60.0, 20.0, 0.0, 0.0, 0.0, 0.0, 20.0, 60.0, 40.0], "borderColor": "#007aff", "backgroundColor": "transparent", "borderWidth": 2, "tension": 0.4, "cubicInterpolationMode": "monotone", "pointRadius": 0, "pointHitRadius": 10, "sourceId": "heise", "originalColor": "#007aff"}, {"label": "Kartellrecht", "data": [0.0, 0.0, 20.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 20.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 20.0, 0.0, 0.0, 0.0, 0.0, 0.0, 20.0, 20.0, 0.0, 0.0, 0.0, 0.0, 0.0, 20.0, 20.0, 0.0, 0.0, 0.0, 20.0, 0.0, 20.0, 40.0], "borderColor": "#34d399", "backgroundColor": "transparent", "borderWidth": 2, "tension": 0.4, "cubicInterpolationMode": "monotone", "pointRadius": 0, "pointHitRadius": 10, "sourceId": "heise", "originalColor": "#34d399"}, {"label": "Energiewende", "data": [0.0, 0.0, 0.0, 0.0, 20.0, 0.0, 0.0, 0.0, 0.0, 20.0, 0.0, 20.0, 20.0, 0.0, 20.0, 20.0, 20.0, 0.0, 20.0, 0.0, 0.0, 20.0, 20.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 20.0, 20.0, 0.0, 20.0, 0.0, 0.0, 0.0, 0.0, 0.0, 40.0, 0.0, 0.0, 0.0, 0.0, 20.0, 0.0, 40.0, 20.0, 20.0, 20.0, 20.0, 60.0, 40.0, 20.0, 0.0, 0.0, 0.0, 0.0, 0.0, 80.0, 20.0], "borderColor": "#f43f5e", "backgroundColor": "transparent", "borderWidth": 2, "tension": 0.4, "cubicInterpolationMode": "monotone", "pointRadius": 0, "pointHitRadius": 10, "sourceId": "heise", "originalColor": "#f43f5e"}];
+                const rawDatasets = [{"label": "Iphone", "data": [0.0, 40.0, 40.0, 0.0, 0.0, 40.0, 20.0, 0.0, 40.0, 20.0, 0.0, 0.0, 60.0, 40.0, 20.0, 40.0, 20.0, 20.0, 0.0, 20.0, 0.0, 0.0, 80.0, 20.0, 0.0, 20.0, 0.0, 60.0, 0.0, 20.0, 20.0, 0.0, 20.0, 40.0, 20.0, 20.0, 0.0, 60.0, 0.0, 20.0, 40.0, 40.0, 40.0, 20.0, 100.0, 0.0, 0.0, 20.0, 20.0, 40.0, 0.0, 60.0, 0.0, 0.0, 20.0, 40.0, 40.0, 20.0, 100.0, 0.0], "borderColor": "#00f5d4", "backgroundColor": "transparent", "borderWidth": 2, "tension": 0.4, "cubicInterpolationMode": "monotone", "pointRadius": 0, "pointHitRadius": 10, "sourceId": "heise", "originalColor": "#00f5d4"}, {"label": "Forschung", "data": [20.0, 20.0, 0.0, 0.0, 20.0, 40.0, 40.0, 20.0, 0.0, 20.0, 0.0, 0.0, 40.0, 60.0, 20.0, 40.0, 0.0, 20.0, 0.0, 20.0, 20.0, 20.0, 20.0, 40.0, 0.0, 0.0, 80.0, 20.0, 60.0, 60.0, 60.0, 0.0, 0.0, 20.0, 0.0, 0.0, 60.0, 60.0, 0.0, 0.0, 60.0, 20.0, 0.0, 20.0, 20.0, 0.0, 0.0, 60.0, 60.0, 80.0, 20.0, 20.0, 0.0, 0.0, 60.0, 40.0, 60.0, 60.0, 60.0, 0.0], "borderColor": "#9333ea", "backgroundColor": "transparent", "borderWidth": 2, "tension": 0.4, "cubicInterpolationMode": "monotone", "pointRadius": 0, "pointHitRadius": 10, "sourceId": "heise", "originalColor": "#9333ea"}, {"label": "Rechenzentrum", "data": [0.0, 40.0, 20.0, 0.0, 20.0, 0.0, 40.0, 40.0, 0.0, 20.0, 0.0, 20.0, 0.0, 20.0, 40.0, 0.0, 20.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 20.0, 0.0, 20.0, 0.0, 20.0, 20.0, 0.0, 20.0, 20.0, 0.0, 0.0, 60.0, 20.0, 20.0, 20.0, 20.0, 0.0, 0.0, 0.0, 60.0, 20.0, 0.0, 20.0, 0.0, 0.0, 20.0, 20.0, 0.0, 20.0, 60.0, 20.0], "borderColor": "#007aff", "backgroundColor": "transparent", "borderWidth": 2, "tension": 0.4, "cubicInterpolationMode": "monotone", "pointRadius": 0, "pointHitRadius": 10, "sourceId": "heise", "originalColor": "#007aff"}, {"label": "Streaming", "data": [40.0, 60.0, 0.0, 0.0, 0.0, 0.0, 20.0, 0.0, 0.0, 20.0, 0.0, 0.0, 0.0, 60.0, 60.0, 40.0, 40.0, 20.0, 20.0, 0.0, 0.0, 40.0, 60.0, 60.0, 0.0, 0.0, 40.0, 20.0, 20.0, 20.0, 60.0, 20.0, 0.0, 20.0, 0.0, 0.0, 60.0, 20.0, 40.0, 0.0, 20.0, 0.0, 60.0, 20.0, 20.0, 0.0, 0.0, 20.0, 0.0, 60.0, 0.0, 20.0, 0.0, 20.0, 40.0, 0.0, 20.0, 40.0, 80.0, 0.0], "borderColor": "#34d399", "backgroundColor": "transparent", "borderWidth": 2, "tension": 0.4, "cubicInterpolationMode": "monotone", "pointRadius": 0, "pointHitRadius": 10, "sourceId": "heise", "originalColor": "#34d399"}, {"label": "Energiewende", "data": [0.0, 0.0, 20.0, 0.0, 0.0, 0.0, 0.0, 20.0, 0.0, 20.0, 20.0, 0.0, 20.0, 20.0, 20.0, 0.0, 20.0, 0.0, 0.0, 20.0, 20.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 20.0, 20.0, 0.0, 20.0, 0.0, 0.0, 0.0, 0.0, 0.0, 40.0, 0.0, 0.0, 0.0, 0.0, 20.0, 0.0, 40.0, 20.0, 20.0, 20.0, 20.0, 60.0, 40.0, 20.0, 0.0, 0.0, 0.0, 0.0, 0.0, 80.0, 20.0, 40.0, 0.0], "borderColor": "#f43f5e", "backgroundColor": "transparent", "borderWidth": 2, "tension": 0.4, "cubicInterpolationMode": "monotone", "pointRadius": 0, "pointHitRadius": 10, "sourceId": "heise", "originalColor": "#f43f5e"}, {"label": "Fu\u00dfball-wm", "data": [11.8, 5.9, 0.0, 0.0, 5.9, 0.0, 5.9, 11.8, 0.0, 0.0, 0.0, 5.9, 0.0, 5.9, 0.0, 5.9, 5.9, 5.9, 0.0, 0.0, 0.0, 11.8, 0.0, 0.0, 0.0, 17.6, 0.0, 11.8, 5.9, 11.8, 5.9, 0.0, 0.0, 5.9, 5.9, 0.0, 29.4, 47.1, 0.0, 47.1, 47.1, 11.8, 29.4, 64.7, 41.2, 17.6, 5.9, 23.5, 0.0, 17.6, 82.4, 29.4, 47.1, 100.0, 17.6, 35.3, 0.0, 17.6, 17.6, 17.6], "borderColor": "#00f5d4", "backgroundColor": "transparent", "borderWidth": 2, "tension": 0.4, "cubicInterpolationMode": "monotone", "pointRadius": 0, "pointHitRadius": 10, "sourceId": "sueddeutsche", "originalColor": "#00f5d4"}, {"label": "Deutsche nationalmannschaft", "data": [0.0, 0.0, 0.0, 5.9, 5.9, 0.0, 5.9, 0.0, 0.0, 0.0, 5.9, 5.9, 0.0, 0.0, 0.0, 5.9, 5.9, 11.8, 0.0, 0.0, 5.9, 11.8, 0.0, 0.0, 0.0, 11.8, 0.0, 11.8, 5.9, 11.8, 0.0, 0.0, 0.0, 5.9, 11.8, 0.0, 5.9, 17.6, 0.0, 41.2, 23.5, 5.9, 11.8, 23.5, 0.0, 11.8, 5.9, 11.8, 0.0, 5.9, 52.9, 23.5, 17.6, 41.2, 11.8, 11.8, 0.0, 11.8, 5.9, 11.8], "borderColor": "#9333ea", "backgroundColor": "transparent", "borderWidth": 2, "tension": 0.4, "cubicInterpolationMode": "monotone", "pointRadius": 0, "pointHitRadius": 10, "sourceId": "sueddeutsche", "originalColor": "#9333ea"}, {"label": "Panorama", "data": [17.6, 29.4, 29.4, 5.9, 23.5, 23.5, 11.8, 5.9, 0.0, 5.9, 11.8, 5.9, 5.9, 17.6, 5.9, 5.9, 0.0, 11.8, 5.9, 5.9, 17.6, 5.9, 0.0, 0.0, 0.0, 5.9, 0.0, 5.9, 11.8, 0.0, 5.9, 0.0, 0.0, 0.0, 0.0, 0.0, 11.8, 5.9, 0.0, 5.9, 0.0, 5.9, 5.9, 11.8, 11.8, 0.0, 17.6, 0.0, 0.0, 5.9, 29.4, 11.8, 29.4, 23.5, 11.8, 11.8, 0.0, 0.0, 0.0, 17.6], "borderColor": "#007aff", "backgroundColor": "transparent", "borderWidth": 2, "tension": 0.4, "cubicInterpolationMode": "monotone", "pointRadius": 0, "pointHitRadius": 10, "sourceId": "sueddeutsche", "originalColor": "#007aff"}];
 
                 Chart.defaults.color = 'rgba(255, 255, 255, 0.7)';
                 Chart.defaults.font.family = '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif';
 
                 trendChart = new Chart(ctx, {
                     type: 'line',
-                    data: { labels: ["05-04", "05-05", "05-06", "05-07", "05-08", "05-09", "05-10", "05-11", "05-12", "05-13", "05-14", "05-15", "05-16", "05-17", "05-18", "05-19", "05-20", "05-21", "05-22", "05-23", "05-24", "05-25", "05-26", "05-27", "05-28", "05-29", "05-30", "05-31", "06-01", "06-02", "06-03", "06-04", "06-05", "06-06", "06-07", "06-08", "06-09", "06-10", "06-11", "06-12", "06-13", "06-14", "06-15", "06-16", "06-17", "06-18", "06-19", "06-20", "06-21", "06-22", "06-23", "06-24", "06-25", "06-26", "06-27", "06-28", "06-29", "06-30", "07-01", "07-02"], datasets: rawDatasets },
+                    data: { labels: ["05-06", "05-07", "05-08", "05-09", "05-10", "05-11", "05-12", "05-13", "05-14", "05-15", "05-16", "05-17", "05-18", "05-19", "05-20", "05-21", "05-22", "05-23", "05-24", "05-25", "05-26", "05-27", "05-28", "05-29", "05-30", "05-31", "06-01", "06-02", "06-03", "06-04", "06-05", "06-06", "06-07", "06-08", "06-09", "06-10", "06-11", "06-12", "06-13", "06-14", "06-15", "06-16", "06-17", "06-18", "06-19", "06-20", "06-21", "06-22", "06-23", "06-24", "06-25", "06-26", "06-27", "06-28", "06-29", "06-30", "07-01", "07-02", "07-03", "07-04"], datasets: rawDatasets },
                     options: {
                         responsive: true,
                         maintainAspectRatio: false,
@@ -657,7 +667,7 @@
         <div class="article-card" onclick="toggleCard(this)">
             <div class="meta">Ollama AI • Top 10 (48h)</div>
             <div class="card-header">
-                <div class="title">Aktuelle Entwicklungen in Technologie, Wirtschaft und Recht</div>
+                <div class="title">KI-Entwicklung zwischen Innovation, Regulierung und Risiko</div>
                 <div class="relevance-container">
                     <svg width="44" height="44">
                         <circle stroke="rgba(255,255,255,0.08)" stroke-width="3" fill="transparent" r="19" cx="22" cy="22"/>
@@ -670,14 +680,1068 @@
                     </div>
                 </div>
             </div>
-            <div class="summary" style="white-space: pre-wrap;">Die technologische Landschaft ist derzeit von rasanten Fortschritten in der Robotik sowie spezialisierten KI-Anwendungen geprägt. Das Unternehmen UBTech hat mit der Uworld-U1-Serie bionische humanoide Roboter für die Massenproduktion angekündimentiert, die durch fortschrittliche Emotionserkennung und KI-gestützte Kommunikation als soziale Assistenten fungieren sollen. Im Bereich der Rechenleistung zeigt sich ein Trend zur Hardware-Diversifizierung: Während Chinas Meituan sein Modell LongCat-2.0 erfolgreich auf heimischen Chips ohne Nvidia-Komponenten trainierte, gelang Valar Atomics der Betrieb eines Nvidia-Blackwell-Chips mittels eines gasgekühlten Hochtemperaturreaktors. Auch die Luftfahrtindustrie setzt verstärkt auf Automatisierung, wobei das DLR mit den Systemen „Dirc“ und „Ipas“ die europäische Flugsicherung entlasten möchte.
+            <div class="summary" style="white-space: pre-wrap;">In der technologischen Entwicklung stehen derzeit massive Innovationen in der Robotik und KI im Fokus. Das Unternehmen UBTech hat mit der Uworld-U1-Serie bionische humanoide Roboter für die Massenproduktion vorgestellt, die durch KI-basierte Kommunikation und emotionale Erkennung soziale Assistenzleistungen unterstützen sollen. Ergänzend dazu entwickelten Forscher am Georgia Tech „Spherephones“, ein System zur akustischen Signalisierung von Roboterbewegungen mittels Musik, um die Sicherheit in der Mensch-Roboter-Kollaboration zu erhöhen und die Orientierung für sehbeeinträchtigte Menschen zu verbessern. Im Bereich der Software und Hardware zeigen sich ebenfalls Fortschritte: Meta veröffentlichte mit „Pocket“ eine App zur Erstellung KI-generierter Mini-Apps, während Valar Atomics den Betrieb eines Nvidia-Blackwell-Chips mittels eines Hochtemperaturreaktors erfolgreich demonstrierte.
 
-Wirtschaftlich betrachtet wird der massive Ausbau der KI-Infrastruktur kritisch beurteilt. Die Bank für Internationalen Zahlungsausgleich (BIZ) warnt vor einer potenziellen Technologieblase aufgrund hoher Verschuldung und intransparenter Investitionsstrukturen bei den großen Hyperscalern. Gleichzeitig reagieren US-Konzerne wie Amazon, Adobe und Citi auf steigende Kosten durch eine strengere Regulierung der KI-Nutzung innerhalb ihrer Organisationen. Um die gesellschaftliche Teilhabe am wirtschaftlichen Potenzial zu sichern, schlägt OpenAI-Chef Sam Altman zudem ein staatliches Beteiligungsmodell nach dem Vorbild des Alaska Permanent Fund vor. Auf regulatorischer Ebene erwägt die EU-Kommission eine Lockerung der Nachhaltigkeitsregeln für KI-Rechenzentren, um die Wettbewerbsfähigkeit gegenüber den USA zu stärken, was jedoch im Konflikt mit bestehenden Klimazielen steht.
+Parallel zu diesen technologischen Sprüngen verschärfen sich die Debatten um Regulierung und Sicherheit. Ein UN-Expertenpanel warnt in einem Vorbericht davor, dass die KI-Entwicklung die politischen Regulierungsmöglichkeiten überholt und globale digitale Ungleichheiten fördern könnte. Auf EU-Ebene gibt es Bestrebungen zur Lockerung von Nachhaltigkeitsregeln für KI-Rechenzentren, um die Wettbewerbsfähigkeit gegenüber den USA zu stärken, was jedoch im Konflikt mit bestehenden Klimazielen steht. Gleichzeitig sorgt die Reaktivierung einer EU-Regelung zur Überwachung verschlüsselter Kommunikation zum Kinderschutz für Kritik hinsichtlich der Umgehung demokratischer Kontrollmechanismen. Deutschland plant unterdessen mit der „Deutschland-App“ und der Taskforce „KI-Nation“ eine stärkere Bündelung nationaler KI-Aktivitäten.
 
-Rechtliche und biotechnologische Entwicklungen bringen neue Herausforderungen mit sich: Ein Urteil des US Supreme Court zur Unabhängigkeit der FTC gefährdet das EU-US Data Privacy Framework, da die rechtliche Grundlage einer unabhängigen US-Aufsicht nun angezweifelt wird. Parallel dazu haben Forscher in Singapur und Japan ein System entwickelt, um „Cyborg-Kakerlaken“ mittels Mini-Taucheranzügen in sauerstoffarmen Umgebungen steuerbar zu machen. Ergänzt werden diese Entwicklungen durch fortlaufende Updates bei Unternehmen wie Apple, Proton und Anthropic sowie neue Modellveröffentlichungen von Meta und Google.</div>
+Die wirtschaftliche Dynamik der Branche ist von gegensätzlichen Trends geprägt: Während US-Konzerne wie Amazon, Adobe und Citi die Nutzung von KI-Modellen zur Kostenkontrolle einschränken, expandiert Microsoft massiv im Bereich der Rechenzentrumsinfrastruktur und Beratung. Zudem arbeiten Unternehmen wie Anthropic an eigener Hardware in Form von KI-Chips. Besorgniserregend sind dabei sowohl technologische Sicherheitsrisiken durch manipulierte Browser als auch die soziotechnischen Folgen der KI-Integration: Eine aktuelle Studie zeigt, dass die Behandlung von KI-Agenten als „Mitarbeiter“ statt als Software die menschliche Fehlererkennung signifikant senkt und das Risiko erhöht, fehlerhafte Ergebnisse ungeprüft weiterzuleiten.</div>
         </div>
         
 
+        
+        <div class="article-card" onclick="toggleCard(this)">
+            
+            <div class="image-wrapper">
+                <img src="https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/5/1/1/1/2/7/5/shutterstock_2276252513-44ac847f78306dac.jpg" class="article-image" alt="Vorschau" loading="lazy">
+            </div>
+            
+
+            <div class="meta">heise • news</div>
+
+            <div class="card-header">
+                <div class="title">UN-Expertenpanel legt Vorbericht zu Chancen und Risiken der Künstlichen Intelligenz vor</div>
+                <div class="relevance-container">
+                    <svg width="44" height="44">
+                        <circle stroke="rgba(255,255,255,0.08)" stroke-width="3" fill="transparent" r="19" cx="22" cy="22"/>
+                        <circle class="progress-ring__circle" stroke-width="3" stroke-dasharray="119.38" 
+                                stroke-dashoffset="1.7543250706527402" 
+                                stroke-linecap="round" fill="transparent" r="19" cx="22" cy="22" transform="rotate(-90 22 22)"/>
+                    </svg>
+                    <div style="position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); font-size:11px; font-weight:800;">
+                        98
+                    </div>
+                </div>
+            </div>
+
+            <div class="summary">Das unabhängige UN-Expertenpanel hat einen vorläufigen Bericht über die Chancen und Risiken der Künstlichen Intelligenz vorgelegt, der davor warnt, dass die technologische Entwicklung die politischen Regulierungsmöglichkeiten überholt. Die Untersuchung umfasst sieben Kernbereiche – darunter Sicherheit, Menschenrechte und wirtschaftliche Folgen – und hebt das Risiko potenzieller Schäden sowie eine zunehmende globale digitale Ungleichheit hervor. Ein globaler Dialog zur KI-Governance in Genf soll nun die Umsetzung der Empfehlungen vorbereiten; ein umfassender Hauptbericht ist für 2027 geplant.</div>
+
+            <a href="https://www.heise.de/news/UN-Bericht-zu-KI-Risiken-Die-Welt-kann-nicht-regieren-was-sie-nicht-versteht-11353726.html" class="source-button" target="_blank" onclick="event.stopPropagation()">
+                Vollständigen Artikel lesen
+            </a>
+        </div>
+        
+        <div class="article-card" onclick="toggleCard(this)">
+            
+            <div class="image-wrapper">
+                <img src="https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/5/1/1/1/2/7/8/strom-656bd5a034a08d61.jpg" class="article-image" alt="Vorschau" loading="lazy">
+            </div>
+            
+
+            <div class="meta">heise • news</div>
+
+            <div class="card-header">
+                <div class="title">Brandenburg und norddeutsche Bundesländer prüfen regionale Energiekooperationen trotz Beibehaltung der einheitlichen Strompreiszone</div>
+                <div class="relevance-container">
+                    <svg width="44" height="44">
+                        <circle stroke="rgba(255,255,255,0.08)" stroke-width="3" fill="transparent" r="19" cx="22" cy="22"/>
+                        <circle class="progress-ring__circle" stroke-width="3" stroke-dasharray="119.38" 
+                                stroke-dashoffset="30.16977741619543" 
+                                stroke-linecap="round" fill="transparent" r="19" cx="22" cy="22" transform="rotate(-90 22 22)"/>
+                    </svg>
+                    <div style="position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); font-size:11px; font-weight:800;">
+                        73
+                    </div>
+                </div>
+            </div>
+
+            <div class="summary">Brandenburg prüft gemeinsam mit polnischen Regionen eine Strompreiszone zur Kostensenkung sowie die Förderung erneuerbarer Energien, während Schleswig-Holstein, Hamburg und Teile Niedersachsens eine Kooperation mit Dänemark untersuchen, um die regionale Energienutzung zu optimieren. Trotz Forderungen norddeutscher Bundesländer nach einer Neuregelung der Stromgebotszone zur Vermeidung von Kosten durch Windstrom-Abschaltungen plant die aktuelle Bundesregierung keine Änderungen am einheitlichen deutschen Strompreis, wobei Widerstände aus süddeutschen Bundesländern sowie EU-Diskussionen über eine Aufteilung Deutschlands in mehrere Gebotszonen bestehen.</div>
+
+            <a href="https://www.heise.de/news/Brandenburg-prueft-Stromzone-mit-Polen-fuer-guenstigere-Preise-11353732.html" class="source-button" target="_blank" onclick="event.stopPropagation()">
+                Vollständigen Artikel lesen
+            </a>
+        </div>
+        
+        <div class="article-card" onclick="toggleCard(this)">
+            
+            <div class="image-wrapper">
+                <img src="https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/5/1/1/1/2/2/2/aion-67ba6b57b282e082.png" class="article-image" alt="Vorschau" loading="lazy">
+            </div>
+            
+
+            <div class="meta">heise • news</div>
+
+            <div class="card-header">
+                <div class="title">Microsoft zeigt Konzeptstudie für KI-Agenten und passt Hardwareanforderungen für Copilot+ an</div>
+                <div class="relevance-container">
+                    <svg width="44" height="44">
+                        <circle stroke="rgba(255,255,255,0.08)" stroke-width="3" fill="transparent" r="19" cx="22" cy="22"/>
+                        <circle class="progress-ring__circle" stroke-width="3" stroke-dasharray="119.38" 
+                                stroke-dashoffset="14.507315323607841" 
+                                stroke-linecap="round" fill="transparent" r="19" cx="22" cy="22" transform="rotate(-90 22 22)"/>
+                    </svg>
+                    <div style="position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); font-size:11px; font-weight:800;">
+                        87
+                    </div>
+                </div>
+            </div>
+
+            <div class="summary">Ein aktuelles Video zeigt Microsofts interne Konzeptstudie „Project Aion“, bei der die primäre Interaktion über einen webbasierten Copilot-KI-Agenten am Taskbar-Button erfolgt, der durch interagierende Agenten Suchanfragen und URL-Navigation unter Nutzung persönlicher oder dienstlicher Daten ermöglicht. Obgleich der offizielle Status von Aion als Produktrichtung unklar ist, spiegelt das Konzept Microsofts Bestreben wider, KI-Agenten in Betriebssysteme zu integrieren, parallel zu Konkurrenzansätzen von Humain und Google. Flankierend dazu lockert Microsoft die Hardwareanforderungen für Copilot+ auf, sodass KI-Modelle künftig auch auf GPUs statt ausschließlich auf NPUs ausgeführt werden können.</div>
+
+            <a href="https://www.heise.de/news/Projekt-Aion-Video-Leak-zeigt-Konzept-wie-Microsoft-Windows-auf-KI-trimmt-11353620.html" class="source-button" target="_blank" onclick="event.stopPropagation()">
+                Vollständigen Artikel lesen
+            </a>
+        </div>
+        
+        <div class="article-card" onclick="toggleCard(this)">
+            
+            <div class="image-wrapper">
+                <img src="https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/5/1/1/1/2/0/2/shutterstock_2470794027-57ca76eccf9f6c6c.jpg" class="article-image" alt="Vorschau" loading="lazy">
+            </div>
+            
+
+            <div class="meta">heise • news</div>
+
+            <div class="card-header">
+                <div class="title">EU-Ministerrat beschließt Reaktivierung der Übergangsregelung zur Überwachung verschlüsselter Kommunikation</div>
+                <div class="relevance-container">
+                    <svg width="44" height="44">
+                        <circle stroke="rgba(255,255,255,0.08)" stroke-width="3" fill="transparent" r="19" cx="22" cy="22"/>
+                        <circle class="progress-ring__circle" stroke-width="3" stroke-dasharray="119.38" 
+                                stroke-dashoffset="3.1461960695903883" 
+                                stroke-linecap="round" fill="transparent" r="19" cx="22" cy="22" transform="rotate(-90 22 22)"/>
+                    </svg>
+                    <div style="position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); font-size:11px; font-weight:800;">
+                        97
+                    </div>
+                </div>
+            </div>
+
+            <div class="summary">Der EU-Ministerrat hat ein Eilverfahren zur Reaktivierung der im April ausgelaufenen Übergangsregelung zur freiwilligen Überwachung verschlüsselter Kommunikation auf Missbrauchsmaterial beschlossen, um die Rechtslücke infolge blockierter Verhandlungen über eine verpflichtende „Chatkontrolle 2.0“ zu schließen. Durch die Einbringung eines inhaltlich nahezu identischen Gesetzesentwurfs unmittelbar vor der Sommerpause versucht der Rat, den Kinderschutz sicherzustellen, was von Kritikern als Umgehung demokratischer Kontrollinstanzen des EU-Parlaments gewertet wird.</div>
+
+            <a href="https://www.heise.de/news/Chatkontrolle-1-0-EU-Ministerrat-will-Messenger-Scans-im-Eiltempo-durchdruecken-11353562.html" class="source-button" target="_blank" onclick="event.stopPropagation()">
+                Vollständigen Artikel lesen
+            </a>
+        </div>
+        
+        <div class="article-card" onclick="toggleCard(this)">
+            
+            <div class="image-wrapper">
+                <img src="https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/5/1/1/1/1/6/1/shutterstock_2424216845-e235908850c9711a.jpg" class="article-image" alt="Vorschau" loading="lazy">
+            </div>
+            
+
+            <div class="meta">heise • news</div>
+
+            <div class="card-header">
+                <div class="title">SAP plant Ressourcenumverteilung für KI-Investitionen bei Kursverlusten und sinkendem Vertrauen der Belegschaft</div>
+                <div class="relevance-container">
+                    <svg width="44" height="44">
+                        <circle stroke="rgba(255,255,255,0.08)" stroke-width="3" fill="transparent" r="19" cx="22" cy="22"/>
+                        <circle class="progress-ring__circle" stroke-width="3" stroke-dasharray="119.38" 
+                                stroke-dashoffset="36.27449125783481" 
+                                stroke-linecap="round" fill="transparent" r="19" cx="22" cy="22" transform="rotate(-90 22 22)"/>
+                    </svg>
+                    <div style="position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); font-size:11px; font-weight:800;">
+                        67
+                    </div>
+                </div>
+            </div>
+
+            <div class="summary">SAP reduziert die Ausgaben für Neueinstellungen, interne Dienstreisen ohne KI-Bezug sowie Lieferantenkosten, um Mittel für den Ausbau von KI-Technologien und -Kompetenzen bereitzustellen. Die personelle Neuausrichtung konzentriert sich künftig auf KI-relevante Rollen, während der Konzern zudem einen Aktienkursverlust von rund 30 Prozent seit Jahresbeginn sowie sinkendes Vertrauen der Belegschaft in den Vorstand verzeichnet.</div>
+
+            <a href="https://www.heise.de/news/SAP-will-mit-Sparmassnahmen-KI-Ausbau-finanzieren-11353486.html" class="source-button" target="_blank" onclick="event.stopPropagation()">
+                Vollständigen Artikel lesen
+            </a>
+        </div>
+        
+        <div class="article-card" onclick="toggleCard(this)">
+            
+            <div class="image-wrapper">
+                <img src="https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/5/1/1/1/1/1/0/shutterstock_2402135107-3594f61ef2198a5b.jpg" class="article-image" alt="Vorschau" loading="lazy">
+            </div>
+            
+
+            <div class="meta">heise • news</div>
+
+            <div class="card-header">
+                <div class="title">Microsoft investiert 2,5 Milliarden US-Dollar in neue Geschäftseinheit für KI-Integration</div>
+                <div class="relevance-container">
+                    <svg width="44" height="44">
+                        <circle stroke="rgba(255,255,255,0.08)" stroke-width="3" fill="transparent" r="19" cx="22" cy="22"/>
+                        <circle class="progress-ring__circle" stroke-width="3" stroke-dasharray="119.38" 
+                                stroke-dashoffset="7.7417251113279235" 
+                                stroke-linecap="round" fill="transparent" r="19" cx="22" cy="22" transform="rotate(-90 22 22)"/>
+                    </svg>
+                    <div style="position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); font-size:11px; font-weight:800;">
+                        93
+                    </div>
+                </div>
+            </div>
+
+            <div class="summary">Microsoft investiert 2,5 Milliarden US-Dollar in die neue Geschäftseinheit „Microsoft Frontier Company“, um durch den Einsatz von 6.000 KI-Ingenieuren maßgeschneiderte KI-Systeme direkt in Kundenprozesse zu integrieren (Forward Deployed Engineering). Parallel zu Initiativen von Amazon, OpenAI und Anthropic setzt Microsoft neben der Zusammenarbeit mit Integrationspartnern auf Datenschutz sowie Modellfreiheit, um durch tiefe IT-Integration und Cloud-Dienste stabile Einnahmen zu sichern.</div>
+
+            <a href="https://www.heise.de/news/Microsofts-neue-KI-Einheit-soll-6-000-Experten-direkt-bei-Kunden-einbetten-11353386.html" class="source-button" target="_blank" onclick="event.stopPropagation()">
+                Vollständigen Artikel lesen
+            </a>
+        </div>
+        
+        <div class="article-card" onclick="toggleCard(this)">
+            
+            <div class="image-wrapper">
+                <img src="https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/5/1/1/0/0/5/2/KIupdate_Titel_122023-4cd1ddee68e292c6.png" class="article-image" alt="Vorschau" loading="lazy">
+            </div>
+            
+
+            <div class="meta">heise • news</div>
+
+            <div class="card-header">
+                <div class="title">Aktuelle Entwicklungen in der KI-Technologie, Regulierung und Digitalpolitik</div>
+                <div class="relevance-container">
+                    <svg width="44" height="44">
+                        <circle stroke="rgba(255,255,255,0.08)" stroke-width="3" fill="transparent" r="19" cx="22" cy="22"/>
+                        <circle class="progress-ring__circle" stroke-width="3" stroke-dasharray="119.38" 
+                                stroke-dashoffset="5.101547402351713" 
+                                stroke-linecap="round" fill="transparent" r="19" cx="22" cy="22" transform="rotate(-90 22 22)"/>
+                    </svg>
+                    <div style="position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); font-size:11px; font-weight:800;">
+                        95
+                    </div>
+                </div>
+            </div>
+
+            <div class="summary">Die Bundesregierung plant die „Deutschland-App“ zur Vereinfachung von Behördengängen sowie eine Taskforce „KI-Nation“ zur Bündelung nationaler KI-Aktivitäten. Während Microsoft ein weiteres Rechenzentrum im Rheinischen Revier errichtet und Tech-Lobbyisten in der EU eine Lockerung der Nachhaltigkeitsregeln für Rechenzentren fordern, verhandelt OpenAI über eine 5-prozentige Beteiligung der US-Regierung. In der Unternehmenspraxis begrenzen Firmen wie Citi oder Amazon die KI-Nutzung ihrer Mitarbeiter aus Kostengründen, während Microsoft seine Vor-Ort-KI-Beratung massiv ausbaut. Technologische Fortschritte bei der Textrekonstruktion aus Hirnsignalen (Meta) und Code-Sortierung (GitBrowser) stehen Sicherheitsrisiken durch manipulierte KI-Browser, der Unterstützung von Cyberangriffsplanungen durch Claude Fable 5 sowie dem Scheitern KI-Agenten als Start-up-Chefs gegenüber. Zudem arbeitet Anthropic an einem eigenen KI-Chip.</div>
+
+            <a href="https://www.heise.de/news/KI-Update-Deutschland-App-OpenAI-bietet-Beteiligung-KI-als-Chef-Git-KI-Tool-11351295.html" class="source-button" target="_blank" onclick="event.stopPropagation()">
+                Vollständigen Artikel lesen
+            </a>
+        </div>
+        
+        <div class="article-card" onclick="toggleCard(this)">
+            
+            <div class="image-wrapper">
+                <img src="https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/5/1/1/0/9/6/9/shutterstock_2368784265-9eb8aa5062f2d138.jpg" class="article-image" alt="Vorschau" loading="lazy">
+            </div>
+            
+
+            <div class="meta">heise • news</div>
+
+            <div class="card-header">
+                <div class="title">Meta plant Vermietung von KI-Rechenkapazitäten und Modellzugängen</div>
+                <div class="relevance-container">
+                    <svg width="44" height="44">
+                        <circle stroke="rgba(255,255,255,0.08)" stroke-width="3" fill="transparent" r="19" cx="22" cy="22"/>
+                        <circle class="progress-ring__circle" stroke-width="3" stroke-dasharray="119.38" 
+                                stroke-dashoffset="11.223954445347047" 
+                                stroke-linecap="round" fill="transparent" r="19" cx="22" cy="22" transform="rotate(-90 22 22)"/>
+                    </svg>
+                    <div style="position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); font-size:11px; font-weight:800;">
+                        90
+                    </div>
+                </div>
+            </div>
+
+            <div class="summary">Meta plant laut einem Bloomberg-Bericht mit der Initiative „Meta Compute“ die Vermietung überschüssiger KI-Rechenkapazitäten sowie den Zugang zu KI-Modellen, um seine massiven Infrastruktur-Investitionen (prognostizierte Kapitalausgaben in diesem Jahr: 125 bis 145 Milliarden US-Dollar) rentabel zu gestalten. Damit tritt das Unternehmen in Konkurrenz zu Amazon Bedrock sowie den „Neoclouds“ CoreWeave und Nebius. Ein ähnliches Modell der Kapazitätsvermietung praktiziert bereits SpaceX für das xAI-Rechenzentrum „Colossus“ an Kunden wie Google und Anthropic.</div>
+
+            <a href="https://www.heise.de/news/Bericht-Meta-will-ueberschuessige-Kapazitaet-aus-KI-Rechenzentren-vermieten-11353109.html" class="source-button" target="_blank" onclick="event.stopPropagation()">
+                Vollständigen Artikel lesen
+            </a>
+        </div>
+        
+        <div class="article-card" onclick="toggleCard(this)">
+            
+            <div class="image-wrapper">
+                <img src="https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/5/1/1/1/0/7/4/Justizministerium-Muenchen-e6230d64fabf56c9.jpg" class="article-image" alt="Vorschau" loading="lazy">
+            </div>
+            
+
+            <div class="meta">heise • news</div>
+
+            <div class="card-header">
+                <div class="title">Netzwerkfehlkonfiguration im bayerischen Landesamt für Steuern führt zu Störungen in der Justizverwaltung</div>
+                <div class="relevance-container">
+                    <svg width="44" height="44">
+                        <circle stroke="rgba(255,255,255,0.08)" stroke-width="3" fill="transparent" r="19" cx="22" cy="22"/>
+                        <circle class="progress-ring__circle" stroke-width="3" stroke-dasharray="119.38" 
+                                stroke-dashoffset="37.147036796921086" 
+                                stroke-linecap="round" fill="transparent" r="19" cx="22" cy="22" transform="rotate(-90 22 22)"/>
+                    </svg>
+                    <div style="position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); font-size:11px; font-weight:800;">
+                        67
+                    </div>
+                </div>
+            </div>
+
+            <div class="summary">Eine fehlerhafte Konfigurationsänderung der Netzwerkinfrastruktur des bayerischen Landesamts für Steuern führte von Donnerstagnachmittag bis Freitagmorgen zu einer großflächigen Störung der Justizverwaltung, wodurch Telefon-, E-Mail- und IT-gestützte Arbeitsabläufe zeitweise eingeschränkt waren. Ein Cyberangriff sowie Datenverluste oder unbefugte Zugriffe konnten ausgeschlossen werden; aufgrund der durchgehenden Erreichbarkeit der virtuellen Poststelle drohen keine verpassten Fristen. Der Bayerische Richterverein fordert infolge des Vorfalls die Entwicklung resilienterer Systeme und eines Notfallkonzepts.</div>
+
+            <a href="https://www.heise.de/news/IT-Ausfall-bei-der-Justiz-Was-war-da-los-11353318.html" class="source-button" target="_blank" onclick="event.stopPropagation()">
+                Vollständigen Artikel lesen
+            </a>
+        </div>
+        
+        <div class="article-card" onclick="toggleCard(this)">
+            
+            <div class="image-wrapper">
+                <img src="https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/5/1/1/0/8/9/1/shutterstock_1874439766-9a371963131aaf1a.jpg" class="article-image" alt="Vorschau" loading="lazy">
+            </div>
+            
+
+            <div class="meta">heise • news</div>
+
+            <div class="card-header">
+                <div class="title">Unterstützung von Apple Car-Key für neue Volkswagen-Modelle mit ID.Software 6 geplant</div>
+                <div class="relevance-container">
+                    <svg width="44" height="44">
+                        <circle stroke="rgba(255,255,255,0.08)" stroke-width="3" fill="transparent" r="19" cx="22" cy="22"/>
+                        <circle class="progress-ring__circle" stroke-width="3" stroke-dasharray="119.38" 
+                                stroke-dashoffset="26.229556867495475" 
+                                stroke-linecap="round" fill="transparent" r="19" cx="22" cy="22" transform="rotate(-90 22 22)"/>
+                    </svg>
+                    <div style="position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); font-size:11px; font-weight:800;">
+                        76
+                    </div>
+                </div>
+            </div>
+
+            <div class="summary">Apple bereitet serverseitig die Integration der Car-Key-Funktion für Volkswagen vor, wobei neue Modelle mit der ID-Software 6 (z. B. ID.Polo und ID.7) das Entriegeln und Starten via Apple Wallet mittels NFC oder Ultra-Wideband unterstützen sollen; ein Software-Update für ältere Fahrzeuge ist nicht möglich.</div>
+
+            <a href="https://www.heise.de/news/Apple-Car-Key-im-VW-Software-bestaetigt-Apple-bereitet-vor-11352957.html" class="source-button" target="_blank" onclick="event.stopPropagation()">
+                Vollständigen Artikel lesen
+            </a>
+        </div>
+        
+        <div class="article-card" onclick="toggleCard(this)">
+            
+            <div class="image-wrapper">
+                <img src="https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/5/1/1/0/9/9/2/Swift_and_LINK_withEarthartist_concept-ed0773c9839bc3f0.png" class="article-image" alt="Vorschau" loading="lazy">
+            </div>
+            
+
+            <div class="meta">heise • news</div>
+
+            <div class="card-header">
+                <div class="title">NASA startet Mission zur Stabilisierung des Neil Gehrels Swift Observatory</div>
+                <div class="relevance-container">
+                    <svg width="44" height="44">
+                        <circle stroke="rgba(255,255,255,0.08)" stroke-width="3" fill="transparent" r="19" cx="22" cy="22"/>
+                        <circle class="progress-ring__circle" stroke-width="3" stroke-dasharray="119.38" 
+                                stroke-dashoffset="6.2708103358292675" 
+                                stroke-linecap="round" fill="transparent" r="19" cx="22" cy="22" transform="rotate(-90 22 22)"/>
+                    </svg>
+                    <div style="position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); font-size:11px; font-weight:800;">
+                        94
+                    </div>
+                </div>
+            </div>
+
+            <div class="summary">Die NASA hat mit einer Pegasus-XL-Rakete das robotische Raumschiff LINK gestartet, um das Neil Gehrels Swift Observatory vor einem durch erhöhte Sonnenaktivität bedrohten Absturz zu bewahren. Das von Katalyst Space Technologies entwickelte Fahrzeug soll das Instrument in etwa zwei Wochen erreichen, inspizieren und in eine höhere Umlaufbahn manövrieren.</div>
+
+            <a href="https://www.heise.de/news/NASA-Weltraumteleskop-Swift-Rettungsmission-nach-Rekordvorbereitung-gestartet-11353155.html" class="source-button" target="_blank" onclick="event.stopPropagation()">
+                Vollständigen Artikel lesen
+            </a>
+        </div>
+        
+        <div class="article-card" onclick="toggleCard(this)">
+            
+            <div class="image-wrapper">
+                <img src="https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/5/1/1/0/8/9/5/iPhone_tre-STZ_3258-c467c80d3337920a.JPG" class="article-image" alt="Vorschau" loading="lazy">
+            </div>
+            
+
+            <div class="meta">heise • news</div>
+
+            <div class="card-header">
+                <div class="title">Apple erhöht iPhone-Produktionsziele und verhandelt über Komponentenbezug aus China</div>
+                <div class="relevance-container">
+                    <svg width="44" height="44">
+                        <circle stroke="rgba(255,255,255,0.08)" stroke-width="3" fill="transparent" r="19" cx="22" cy="22"/>
+                        <circle class="progress-ring__circle" stroke-width="3" stroke-dasharray="119.38" 
+                                stroke-dashoffset="31.728814300582968" 
+                                stroke-linecap="round" fill="transparent" r="19" cx="22" cy="22" transform="rotate(-90 22 22)"/>
+                    </svg>
+                    <div style="position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); font-size:11px; font-weight:800;">
+                        71
+                    </div>
+                </div>
+            </div>
+
+            <div class="summary">Apple erhöht das Produktionsziel für das neue „iPhone Ultra“ auf 10 Millionen Einheiten und plant eine jährliche Gesamtproduktion von 220 bis 240 Millionen iPhones, wovon etwa 80 Millionen in der zweiten Jahreshälfte erwartet werden. Während Pro-Modelle zeitnah geplant sind, könnten Standardmodelle wie das iPhone 18 erst im Frühjahr 2027 erscheinen. Zur Sicherung kritischer Komponenten (RAM/SSD) gegen steigende Kosten verhandelt Apple zudem mit der US-Regierung über den Einkauf bei sanktionierten chinesischen Lieferanten für den Einsatz in China.</div>
+
+            <a href="https://www.heise.de/news/iPhone-Ultra-Apple-erhoeht-offenbar-Foldable-Bestellungen-11352965.html" class="source-button" target="_blank" onclick="event.stopPropagation()">
+                Vollständigen Artikel lesen
+            </a>
+        </div>
+        
+        <div class="article-card" onclick="toggleCard(this)">
+            
+            <div class="image-wrapper">
+                <img src="https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/5/1/1/0/8/9/3/Smart_Concepthashtag2_Brand_Event_Beijing_Reveal8_C77ec2-67a0431b7f181c53.jpg" class="article-image" alt="Vorschau" loading="lazy">
+            </div>
+            
+
+            <div class="meta">heise • news</div>
+
+            <div class="card-header">
+                <div class="title">Pkw-Neuzulassungen in Deutschland steigen im Juni 2026 bei höherem Anteil an Elektro- und Hybridantrieben</div>
+                <div class="relevance-container">
+                    <svg width="44" height="44">
+                        <circle stroke="rgba(255,255,255,0.08)" stroke-width="3" fill="transparent" r="19" cx="22" cy="22"/>
+                        <circle class="progress-ring__circle" stroke-width="3" stroke-dasharray="119.38" 
+                                stroke-dashoffset="22.96307650574245" 
+                                stroke-linecap="round" fill="transparent" r="19" cx="22" cy="22" transform="rotate(-90 22 22)"/>
+                    </svg>
+                    <div style="position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); font-size:11px; font-weight:800;">
+                        79
+                    </div>
+                </div>
+            </div>
+
+            <div class="summary">Im Juni 2026 stiegen die Pkw-Neuzulassungen in Deutschland um 15,7 % auf 296.378, wobei der Anteil batterieelektrischer Fahrzeuge (BEV) auf 28,4 % (+78,2 %) und der von Hybridantrieben auf 39 % (+16,8 %) anstieg, während Benziner (-16,8 %) und Diesel (-5,1 %) zurückgingen, was den CO₂-Ausstoß um 13,6 % auf 92,6 g/km senkte. Das gesamte erste Halbjahr 2026 verzeichnete ein Plus von 5,8 % bei insgesamt 1.484.393 Neuzulassungen. Bei den Importmarken wuchsen Tesla (+317,6 %) und BYD (+273,7 %) massiv, während VW die stärkste Einzelmarke blieb (17,2 %) und Opel um 14,8 % sank. Das SUV-Segment dominierte mit einem Marktanteil von 37,5 %, wobei private Neuzulassungen um 28,6 % zunahmen.</div>
+
+            <a href="https://www.heise.de/news/KBA-Zahlen-Juni-2026-E-Auto-Anteil-springt-auf-28-Prozent-11352961.html" class="source-button" target="_blank" onclick="event.stopPropagation()">
+                Vollständigen Artikel lesen
+            </a>
+        </div>
+        
+        <div class="article-card" onclick="toggleCard(this)">
+            
+            <div class="image-wrapper">
+                <img src="https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/5/1/1/0/9/5/9/android-automotive-augen-gemini-44685553c63c1dbb.png" class="article-image" alt="Vorschau" loading="lazy">
+            </div>
+            
+
+            <div class="meta">heise • news</div>
+
+            <div class="card-header">
+                <div class="title">Google demonstriert experimentelle Gemini-Funktionen mit Kameraunterstützung für Android Automotive</div>
+                <div class="relevance-container">
+                    <svg width="44" height="44">
+                        <circle stroke="rgba(255,255,255,0.08)" stroke-width="3" fill="transparent" r="19" cx="22" cy="22"/>
+                        <circle class="progress-ring__circle" stroke-width="3" stroke-dasharray="119.38" 
+                                stroke-dashoffset="18.57672533347531" 
+                                stroke-linecap="round" fill="transparent" r="19" cx="22" cy="22" transform="rotate(-90 22 22)"/>
+                    </svg>
+                    <div style="position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); font-size:11px; font-weight:800;">
+                        83
+                    </div>
+                </div>
+            </div>
+
+            <div class="summary">Google demonstrierte eine experimentelle Gemini-Funktion für Android Automotive, welche auf Nutzerbefehl temporär die Frontkamera eines Fahrzeugs nutzt, um Fragen zur Umgebung zu beantworten oder etwa Verkehrsschilder zu übersetzen. Der Kamerazugriff erfolgt dabei aus Datenschutzgründen nur während der Anfrage. Weitere geplante Funktionen für dieses Jahr umfassen die Identifikation von Kontrollleuchten sowie eine immersive Navigation mit Echtzeit-Spurführung über die Kamera.</div>
+
+            <a href="https://www.heise.de/news/Android-Automotive-Gemini-soll-Umgebung-per-Kamera-analysieren-11353089.html" class="source-button" target="_blank" onclick="event.stopPropagation()">
+                Vollständigen Artikel lesen
+            </a>
+        </div>
+        
+        <div class="article-card" onclick="toggleCard(this)">
+            
+            <div class="image-wrapper">
+                <img src="https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/5/1/1/0/2/2/2/Screenshot_2026-07-02_at_19.59.25-d03bc8180485b634.png" class="article-image" alt="Vorschau" loading="lazy">
+            </div>
+            
+
+            <div class="meta">heise • news</div>
+
+            <div class="card-header">
+                <div class="title">Hinweise auf das Projekt „The Machinery“ im Code von Apple Reality Composer Pro entdeckt</div>
+                <div class="relevance-container">
+                    <svg width="44" height="44">
+                        <circle stroke="rgba(255,255,255,0.08)" stroke-width="3" fill="transparent" r="19" cx="22" cy="22"/>
+                        <circle class="progress-ring__circle" stroke-width="3" stroke-dasharray="119.38" 
+                                stroke-dashoffset="23.261390170914268" 
+                                stroke-linecap="round" fill="transparent" r="19" cx="22" cy="22" transform="rotate(-90 22 22)"/>
+                    </svg>
+                    <div style="position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); font-size:11px; font-weight:800;">
+                        79
+                    </div>
+                </div>
+            </div>
+
+            <div class="summary">Im Code von Apples neuem Reality Composer Pro 3 wurden Hinweise auf das 2022 eingestellte Spielprojekt „The Machinery“ der Firma Our Machinery entdeckt, was auf eine mögliche Übernahme von Assets oder Personal hindeutet. Die Anwendung bietet Funktionen zur Erstellung von Mixed- und Virtual-Reality-Inhalten, darunter Charakteranimation, Xcode-Integration sowie generative KI-gestützte Asset-Erstellung.</div>
+
+            <a href="https://www.heise.de/news/Reality-Composer-Pro-3-Indizien-fuer-Spieleprojekt-darin-versteckt-11351635.html" class="source-button" target="_blank" onclick="event.stopPropagation()">
+                Vollständigen Artikel lesen
+            </a>
+        </div>
+        
+        <div class="article-card" onclick="toggleCard(this)">
+            
+            <div class="image-wrapper">
+                <img src="https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/5/1/1/0/8/2/4/XMM-Newton_Chandra_revise_distance_to_the_outer_spiral_arms-3abc43eb9ac58ffd.jpg" class="article-image" alt="Vorschau" loading="lazy">
+            </div>
+            
+
+            <div class="meta">heise • news</div>
+
+            <div class="card-header">
+                <div class="title">Analyse korrigiert Distanz der äußeren Spiralarme der Milchstraße</div>
+                <div class="relevance-container">
+                    <svg width="44" height="44">
+                        <circle stroke="rgba(255,255,255,0.08)" stroke-width="3" fill="transparent" r="19" cx="22" cy="22"/>
+                        <circle class="progress-ring__circle" stroke-width="3" stroke-dasharray="119.38" 
+                                stroke-dashoffset="6.221667935927599" 
+                                stroke-linecap="round" fill="transparent" r="19" cx="22" cy="22" transform="rotate(-90 22 22)"/>
+                    </svg>
+                    <div style="position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); font-size:11px; font-weight:800;">
+                        94
+                    </div>
+                </div>
+            </div>
+
+            <div class="summary">Eine Analyse der Daten der Weltraumteleskope XMM-Newton und Chandra zeigt, dass der Äußere Arm sowie der Äußere Scutum-Centaurus-Arm der Milchstraße bis zu zehn Prozent weiter von der Erde entfernt liegen als bisher angenommen, was eine Anpassung der Galaxienkarte erfordert. Die Distanzbestimmung erfolgte anhand der Reflexion von Röntgenstrahlen ferner Gammastrahlenausbrüche an Staubwolken in den Spiralarmen. Die im Fachmagazin Astronomy & Astrophysics vorgestellte Studie weist zudem auf das Potenzial des künftigen Teleskops NewAthena für noch umfangreichere Kartierungen hin.</div>
+
+            <a href="https://www.heise.de/news/Astronomie-Spiralarme-der-Milchstrasse-merklich-weiter-entfernt-als-gedacht-11352826.html" class="source-button" target="_blank" onclick="event.stopPropagation()">
+                Vollständigen Artikel lesen
+            </a>
+        </div>
+        
+        <div class="article-card" onclick="toggleCard(this)">
+            
+            <div class="image-wrapper">
+                <img src="https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/5/1/1/0/1/8/3/paste-4d440adfcaa4d73b.png" class="article-image" alt="Vorschau" loading="lazy">
+            </div>
+            
+
+            <div class="meta">heise • news</div>
+
+            <div class="card-header">
+                <div class="title">iOS 27 führt neue Funktionen und Systemoptimierungen ein</div>
+                <div class="relevance-container">
+                    <svg width="44" height="44">
+                        <circle stroke="rgba(255,255,255,0.08)" stroke-width="3" fill="transparent" r="19" cx="22" cy="22"/>
+                        <circle class="progress-ring__circle" stroke-width="3" stroke-dasharray="119.38" 
+                                stroke-dashoffset="41.72451640557955" 
+                                stroke-linecap="round" fill="transparent" r="19" cx="22" cy="22" transform="rotate(-90 22 22)"/>
+                    </svg>
+                    <div style="position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); font-size:11px; font-weight:800;">
+                        63
+                    </div>
+                </div>
+            </div>
+
+            <div class="summary">iOS 27 führt eine systemweite „Copy & Paste“-Vorschau über der Tastatur ein, die das schnelle Einfügen von Texten, Links und Bildern inklusive Quellenangabe ermöglicht. Das Update umfasst zudem Performance-Verbesserungen durch einen neuen CPU-Scheduler sowie neue Funktionen wie die Doppelkamera-Nutzung für FaceTime und einen integrierten iPhone-Wiederherstellungsmodus.</div>
+
+            <a href="https://www.heise.de/news/Copy-Paste-Apple-vereinfacht-Funktion-unter-iOS-27-11351557.html" class="source-button" target="_blank" onclick="event.stopPropagation()">
+                Vollständigen Artikel lesen
+            </a>
+        </div>
+        
+        <div class="article-card" onclick="toggleCard(this)">
+            
+            <div class="image-wrapper">
+                <img src="https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/5/1/1/0/7/6/5/stapel-b533dc7e4fc001ac.png" class="article-image" alt="Vorschau" loading="lazy">
+            </div>
+            
+
+            <div class="meta">heise • hintergrund</div>
+
+            <div class="card-header">
+                <div class="title">Geplante Reform des Informationsfreiheitsgesetzes stößt auf Kritik</div>
+                <div class="relevance-container">
+                    <svg width="44" height="44">
+                        <circle stroke="rgba(255,255,255,0.08)" stroke-width="3" fill="transparent" r="19" cx="22" cy="22"/>
+                        <circle class="progress-ring__circle" stroke-width="3" stroke-dasharray="119.38" 
+                                stroke-dashoffset="5.452944770288809" 
+                                stroke-linecap="round" fill="transparent" r="19" cx="22" cy="22" transform="rotate(-90 22 22)"/>
+                    </svg>
+                    <div style="position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); font-size:11px; font-weight:800;">
+                        95
+                    </div>
+                </div>
+            </div>
+
+            <div class="summary">Die Bundesregierung plant eine grundlegende Reform des Informationsfreiheitsgesetzes (IFG), die laut Koalitionsausschuss den Zugang zu amtlichen Informationen massiv einschränken soll. Arne Semsrott, Leiter der Transparenzplattform FragDenStaat, kritisiert dies als faktische Abschaffung der Informationsfreiheit und als Verstoß gegen den Koalitionsvertrag, da dadurch die öffentliche Kontrolle sowie die Pressefreiheit gefährdet würden. Gegen das Vorhaben wurde bereits eine Petition mit über 6.000 Unterschriften eingereicht. Als Alternative zur Reduzierung des Verwaltungsaufwands schlägt Semsrott eine Ausweitung der proaktiven Veröffentlichungspflichten durch Behörden vor.</div>
+
+            <a href="https://www.heise.de/hintergrund/Arne-Semsrott-zu-IFG-Plaenen-Dann-wird-FragDenStaat-eben-zum-neuen-WikiLeaks-11352708.html" class="source-button" target="_blank" onclick="event.stopPropagation()">
+                Vollständigen Artikel lesen
+            </a>
+        </div>
+        
+        <div class="article-card" onclick="toggleCard(this)">
+            
+            <div class="image-wrapper">
+                <img src="https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/5/1/1/0/7/0/7/markt_vektor_db__1_-055e19f5b051eefd.png" class="article-image" alt="Vorschau" loading="lazy">
+            </div>
+            
+
+            <div class="meta">heise • news</div>
+
+            <div class="card-header">
+                <div class="title">MongoDB führt Volltext-, Vektor- und Hybridsuche für selbst verwaltete Installationen ein</div>
+                <div class="relevance-container">
+                    <svg width="44" height="44">
+                        <circle stroke="rgba(255,255,255,0.08)" stroke-width="3" fill="transparent" r="19" cx="22" cy="22"/>
+                        <circle class="progress-ring__circle" stroke-width="3" stroke-dasharray="119.38" 
+                                stroke-dashoffset="37.098155633918154" 
+                                stroke-linecap="round" fill="transparent" r="19" cx="22" cy="22" transform="rotate(-90 22 22)"/>
+                    </svg>
+                    <div style="position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); font-size:11px; font-weight:800;">
+                        67
+                    </div>
+                </div>
+            </div>
+
+            <div class="summary">MongoDB stellt für selbst verwaltete Installationen (Enterprise Advanced und Community Edition) Volltext-, Vektor- und Hybridsuche bereit, um Funktionsparität mit MongoDB Atlas zu erreichen. Die auf Apache Lucene basierende Technologie integriert die automatische Embedding-Erzeugung via Voyage AI sowie Reranker zur direkten Unterstützung von KI-Anwendungen wie RAG-Systemen ohne externe Datensynchronisation. In der Community Edition (ab Version 8.2) erfolgt die Bereitstellung über den separaten Prozess „mongot“, während Enterprise-Kunden eine Integration in Kubernetes-Umgebungen via MCK nutzen können.</div>
+
+            <a href="https://www.heise.de/news/MongoDB-bringt-KI-Suche-in-die-Community-Edition-11352592.html" class="source-button" target="_blank" onclick="event.stopPropagation()">
+                Vollständigen Artikel lesen
+            </a>
+        </div>
+        
+        <div class="article-card" onclick="toggleCard(this)">
+            
+            <div class="image-wrapper">
+                <img src="https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/5/1/1/0/1/8/5/playapp-b9cad768d7d0f10e.png" class="article-image" alt="Vorschau" loading="lazy">
+            </div>
+            
+
+            <div class="meta">heise • news</div>
+
+            <div class="card-header">
+                <div class="title">Apple übernimmt Entwicklerteam der SwiftUI-App Play</div>
+                <div class="relevance-container">
+                    <svg width="44" height="44">
+                        <circle stroke="rgba(255,255,255,0.08)" stroke-width="3" fill="transparent" r="19" cx="22" cy="22"/>
+                        <circle class="progress-ring__circle" stroke-width="3" stroke-dasharray="119.38" 
+                                stroke-dashoffset="29.086633897574686" 
+                                stroke-linecap="round" fill="transparent" r="19" cx="22" cy="22" transform="rotate(-90 22 22)"/>
+                    </svg>
+                    <div style="position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); font-size:11px; font-weight:800;">
+                        74
+                    </div>
+                </div>
+            </div>
+
+            <div class="summary">Apple übernimmt im Rahmen eines „Acquihires“ das Unternehmen Rabbit 3 Times, Inc., dessen Team die SwiftUI-Prototyping-App „Play“ entwickelte. Laut einer Meldung der Europäischen Kommission nach dem Digital Markets Act sichert sich Apple dabei vor allem das Recht zur Einstellung der Mitarbeiter sowie bestimmte Assets des Unternehmens. Die bereits aus dem App Store entfernte App könnte künftig als Teil von Xcode oder als eigenständige Anwendung integriert werden.</div>
+
+            <a href="https://www.heise.de/news/Play-App-fuer-SwiftUI-Developer-Entwickler-gehen-zu-Apple-11351561.html" class="source-button" target="_blank" onclick="event.stopPropagation()">
+                Vollständigen Artikel lesen
+            </a>
+        </div>
+        
+        <div class="article-card" onclick="toggleCard(this)">
+            
+            <div class="image-wrapper">
+                <img src="https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/5/1/1/0/7/4/4/shutterstock_2648970427-86b96275c4b90b82.jpg" class="article-image" alt="Vorschau" loading="lazy">
+            </div>
+            
+
+            <div class="meta">heise • news</div>
+
+            <div class="card-header">
+                <div class="title">Meta veröffentlicht App Pocket zur Erstellung von KI-generierten Mini-Apps</div>
+                <div class="relevance-container">
+                    <svg width="44" height="44">
+                        <circle stroke="rgba(255,255,255,0.08)" stroke-width="3" fill="transparent" r="19" cx="22" cy="22"/>
+                        <circle class="progress-ring__circle" stroke-width="3" stroke-dasharray="119.38" 
+                                stroke-dashoffset="4.407910276903451" 
+                                stroke-linecap="round" fill="transparent" r="19" cx="22" cy="22" transform="rotate(-90 22 22)"/>
+                    </svg>
+                    <div style="position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); font-size:11px; font-weight:800;">
+                        96
+                    </div>
+                </div>
+            </div>
+
+            <div class="summary">Meta hat die App „Pocket“ veröffentlicht, mit der Nutzer mittels Texteingabe interaktive, KI-generierte Mini-Apps („Gizmos“) erstellen, teilen und remixen können. Die Anwendung basiert auf der Technologie der App „Gizmo“, deren Team von Meta übernommen wurde, und ist Teil einer Strategie zur Etablierung KI-generierter Social-Media-Formate, ergänzt durch Projekte wie die Video-App „Vibes“ sowie eine geplante KI-Prognose-App.</div>
+
+            <a href="https://www.heise.de/news/Meta-testet-Social-App-fuer-KI-generierte-Minispiele-11352666.html" class="source-button" target="_blank" onclick="event.stopPropagation()">
+                Vollständigen Artikel lesen
+            </a>
+        </div>
+        
+        <div class="article-card" onclick="toggleCard(this)">
+            
+            <div class="image-wrapper">
+                <img src="https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/5/1/1/0/5/7/2/iPhones-2025_tre__1-0a2efff5a36a1f89.jpeg" class="article-image" alt="Vorschau" loading="lazy">
+            </div>
+            
+
+            <div class="meta">heise • news</div>
+
+            <div class="card-header">
+                <div class="title">Apple könnte für iPhone 18 Pro je nach Markt unterschiedliche Modemchips verwenden</div>
+                <div class="relevance-container">
+                    <svg width="44" height="44">
+                        <circle stroke="rgba(255,255,255,0.08)" stroke-width="3" fill="transparent" r="19" cx="22" cy="22"/>
+                        <circle class="progress-ring__circle" stroke-width="3" stroke-dasharray="119.38" 
+                                stroke-dashoffset="19.341791338562572" 
+                                stroke-linecap="round" fill="transparent" r="19" cx="22" cy="22" transform="rotate(-90 22 22)"/>
+                    </svg>
+                    <div style="position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); font-size:11px; font-weight:800;">
+                        82
+                    </div>
+                </div>
+            </div>
+
+            <div class="summary">Ein Leak aus einem Hackerangriff auf den Apple-Zulieferer Tata Electronics deutet darauf hin, dass Apple für das iPhone 18 Pro und 18 Pro Max je nach Markt unterschiedliche Modemchips einsetzen könnte: Während US-Modelle zur Unterstützung von 5G-mmWave weiterhin Qualcomm-Komponenten nutzen sollen, könnten andere Regionen den hauseigenen C2-Chip erhalten.</div>
+
+            <a href="https://www.heise.de/news/Leak-Apple-nutzt-beim-iPhone-18-Pro-verschiedene-Modems-11352322.html" class="source-button" target="_blank" onclick="event.stopPropagation()">
+                Vollständigen Artikel lesen
+            </a>
+        </div>
+        
+        <div class="article-card" onclick="toggleCard(this)">
+            
+            <div class="image-wrapper">
+                <img src="https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/5/1/1/0/7/0/0/Spherephones-028cab250173ec61.jpg" class="article-image" alt="Vorschau" loading="lazy">
+            </div>
+            
+
+            <div class="meta">heise • news</div>
+
+            <div class="card-header">
+                <div class="title">Entwicklung eines Systems zur akustischen Signalisierung von Roboterbewegungen mittels Musik</div>
+                <div class="relevance-container">
+                    <svg width="44" height="44">
+                        <circle stroke="rgba(255,255,255,0.08)" stroke-width="3" fill="transparent" r="19" cx="22" cy="22"/>
+                        <circle class="progress-ring__circle" stroke-width="3" stroke-dasharray="119.38" 
+                                stroke-dashoffset="3.084727605627762" 
+                                stroke-linecap="round" fill="transparent" r="19" cx="22" cy="22" transform="rotate(-90 22 22)"/>
+                    </svg>
+                    <div style="position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); font-size:11px; font-weight:800;">
+                        97
+                    </div>
+                </div>
+            </div>
+
+            <div class="summary">Wissenschaftler des Georgia Tech Center for Music Technology haben „Spherephones“ entwickelt, ein tragbares System, das die Annäherung von Robotern in kollaborativen Arbeitsszenarien mittels dreidimensional wahrnehmbarer, computergenerierter Lo-Fi-Melodien signalisiert. Die über offene Kopfhörer ausgegebenen, personalisierbaren Signale ermöglichen es Nutzern, Richtung und Zeitpunkt einer Roboterbewegung vorherzusagen, ohne durch intrusive Warnsignale abgelenkt zu werden. Über die Arbeitssicherheit hinaus bietet das System Anwendungspotenzial für sehbeeinträchtigte Menschen sowie zur Unterstützung von PTBS-Patienten.</div>
+
+            <a href="https://www.heise.de/news/Arbeitsplatzsicherheit-Spherephones-transferieren-Roboterbewegung-in-Melodien-11352578.html" class="source-button" target="_blank" onclick="event.stopPropagation()">
+                Vollständigen Artikel lesen
+            </a>
+        </div>
+        
+        <div class="article-card" onclick="toggleCard(this)">
+            
+            <div class="image-wrapper">
+                <img src="https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/5/1/1/0/6/9/1/Innenstadt-835bcdea644fca47.jpg" class="article-image" alt="Vorschau" loading="lazy">
+            </div>
+            
+
+            <div class="meta">heise • news</div>
+
+            <div class="card-header">
+                <div class="title">Stagnation von Energieverbrauch und CO₂-Emissionen im deutschen Straßenverkehr seit 2021</div>
+                <div class="relevance-container">
+                    <svg width="44" height="44">
+                        <circle stroke="rgba(255,255,255,0.08)" stroke-width="3" fill="transparent" r="19" cx="22" cy="22"/>
+                        <circle class="progress-ring__circle" stroke-width="3" stroke-dasharray="119.38" 
+                                stroke-dashoffset="11.974436679144958" 
+                                stroke-linecap="round" fill="transparent" r="19" cx="22" cy="22" transform="rotate(-90 22 22)"/>
+                    </svg>
+                    <div style="position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); font-size:11px; font-weight:800;">
+                        89
+                    </div>
+                </div>
+            </div>
+
+            <div class="summary">Der deutsche Straßenverkehr verursachte 2024 rund 2134 Petajoule an Endenergieverbrauch (22,2 % des Gesamtwerts) und 155 Millionen Tonnen CO₂-Emissionen (21,4 % der Gesamtemissionen). Trotz politischer Klimaschutzmaßnahmen stagniert das Energieniveau seit 2021, da steigende Verkehrsleistungen, schwerere Fahrzeuge wie SUVs, Rebound-Effekte sowie ein geringer Anteil von lediglich 2,5 Prozent Strom im Antriebsmix die Effizienzgewinne weitgehend neutralisieren. Zur Bekämpfung dieser Stagnation fordern Fachbehörden strukturelle Maßnahmen wie eine Verlagerung des Güterverkehrs auf die Schiene oder ordnungsrechtliche Eingriffe.</div>
+
+            <a href="https://www.heise.de/news/Strassenverkehr-verbraucht-22-Prozent-der-Energie-davon-nur-2-5-Prozent-Strom-11352560.html" class="source-button" target="_blank" onclick="event.stopPropagation()">
+                Vollständigen Artikel lesen
+            </a>
+        </div>
+        
+        <div class="article-card" onclick="toggleCard(this)">
+            
+            <div class="image-wrapper">
+                <img src="https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/5/1/1/0/7/3/8/shutterstock_421955908-7a8e8d63ffd67f4d.jpg" class="article-image" alt="Vorschau" loading="lazy">
+            </div>
+            
+
+            <div class="meta">heise • news</div>
+
+            <div class="card-header">
+                <div class="title">EY-Studie: Siemens das einzige deutsche Unternehmen unter den 100 wertvollsten börsennotierten Konzernen</div>
+                <div class="relevance-container">
+                    <svg width="44" height="44">
+                        <circle stroke="rgba(255,255,255,0.08)" stroke-width="3" fill="transparent" r="19" cx="22" cy="22"/>
+                        <circle class="progress-ring__circle" stroke-width="3" stroke-dasharray="119.38" 
+                                stroke-dashoffset="11.762469101664564" 
+                                stroke-linecap="round" fill="transparent" r="19" cx="22" cy="22" transform="rotate(-90 22 22)"/>
+                    </svg>
+                    <div style="position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); font-size:11px; font-weight:800;">
+                        89
+                    </div>
+                </div>
+            </div>
+
+            <div class="summary">Laut einer EY-Studie ist Siemens das einzige deutsche Unternehmen in den Top 100 der wertvollsten börsennotierten Konzerne (Platz 72), während SAP und Allianz aus dem Ranking fielen. Die USA dominieren mit 56 Unternehmen die Liste, angeführt von Nvidia ($4,8 Billionen) sowie Alphabet, Apple, Microsoft und dem Neuzugang SpaceX ($2,25 Billionen); weitere vertretene Nationen in den Top 100 sind China (12), Großbritannien (5) und Japan (5). Die Marktentwicklung wird primär durch die KI-Wertschöpfungskette getrieben, wobei Europa aufgrund fragmentierter Kapitalmärkte vor einem strukturellen Rückstand steht. Trotz der sinkenden deutschen Repräsentanz verbesserten Siemens Energy und Infineon ihre Platzierungen im Ranking.</div>
+
+            <a href="https://www.heise.de/news/Nvidia-Co-USA-dominieren-Boersen-Deutschland-faellt-ab-11352654.html" class="source-button" target="_blank" onclick="event.stopPropagation()">
+                Vollständigen Artikel lesen
+            </a>
+        </div>
+        
+        <div class="article-card" onclick="toggleCard(this)">
+            
+            <div class="image-wrapper">
+                <img src="https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/5/1/1/0/7/2/5/shutterstock_409741570-9183e118371b121a.jpg" class="article-image" alt="Vorschau" loading="lazy">
+            </div>
+            
+
+            <div class="meta">heise • news</div>
+
+            <div class="card-header">
+                <div class="title">Studie: Behandlung von KI-Agenten als Mitarbeiter senkt menschliche Fehlererkennung</div>
+                <div class="relevance-container">
+                    <svg width="44" height="44">
+                        <circle stroke="rgba(255,255,255,0.08)" stroke-width="3" fill="transparent" r="19" cx="22" cy="22"/>
+                        <circle class="progress-ring__circle" stroke-width="3" stroke-dasharray="119.38" 
+                                stroke-dashoffset="5.1520719226313645" 
+                                stroke-linecap="round" fill="transparent" r="19" cx="22" cy="22" transform="rotate(-90 22 22)"/>
+                    </svg>
+                    <div style="position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); font-size:11px; font-weight:800;">
+                        95
+                    </div>
+                </div>
+            </div>
+
+            <div class="summary">Eine Studie von Emma Wiles belegt, dass die Behandlung von KI-Agenten als „Mitarbeiter“ statt als Software die menschliche Fehlererkennung um 18 % senkt und die Weiterleitung fehlerhafter Ergebnisse um 44 % erhöht. Während Tech-Unternehmen zunehmend KI-Tools als digitale Kollegen vermarkten, besteht das Risiko einer verringerten Eigenverantwortung sowie der Nutzung der KI als Sündenbock für menschliches Versagen. Experten wie Daron Acemoğlu fordern daher, die Technologie zur Unterstützung statt zum Ersatz menschlicher Fähigkeiten einzusetzen.</div>
+
+            <a href="https://www.heise.de/news/KI-Kollege-Alex-Forscherin-warnt-vor-Folgen-durch-falsche-Bezeichnung-11352628.html" class="source-button" target="_blank" onclick="event.stopPropagation()">
+                Vollständigen Artikel lesen
+            </a>
+        </div>
+        
+        <div class="article-card" onclick="toggleCard(this)">
+            
+            <div class="image-wrapper">
+                <img src="https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/5/1/1/0/6/8/4/shutterstock_292314491-4922e91b5d3b39f4.jpg" class="article-image" alt="Vorschau" loading="lazy">
+            </div>
+            
+
+            <div class="meta">heise • news</div>
+
+            <div class="card-header">
+                <div class="title">Samsung klagt gegen iPad-Beschaffung der Stadt Datteln</div>
+                <div class="relevance-container">
+                    <svg width="44" height="44">
+                        <circle stroke="rgba(255,255,255,0.08)" stroke-width="3" fill="transparent" r="19" cx="22" cy="22"/>
+                        <circle class="progress-ring__circle" stroke-width="3" stroke-dasharray="119.38" 
+                                stroke-dashoffset="18.836087787233595" 
+                                stroke-linecap="round" fill="transparent" r="19" cx="22" cy="22" transform="rotate(-90 22 22)"/>
+                    </svg>
+                    <div style="position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); font-size:11px; font-weight:800;">
+                        83
+                    </div>
+                </div>
+            </div>
+
+            <div class="summary">Samsung klagt gegen die Stadt Datteln, da sie die Beschaffung von iPads für Schulen als Verstoß gegen das Vergaberecht (GWB/VgV) aufgrund fehlender Produktneutralität ansieht, während die Stadt den Einsatz mit der bestehenden Systemarchitektur rechtfertigt. Das Oberlandesgericht Düsseldorf entscheidet am 2. September über die Beschwerde, wobei eine Weiterleitung an den Europäischen Gerichtshof möglich ist. Der daraus resultierende Einkaufsstopp lässt etwa 600 Schüler in Datteln aktuell ohne neue Geräte zurück; das Urteil könnte aufgrund ähnlicher Praktiken in anderen Kommunen präzedenzfallcharakter haben.</div>
+
+            <a href="https://www.heise.de/news/Tablets-fuer-Schueler-Samsung-klagt-gegen-Kauf-von-iPads-11352546.html" class="source-button" target="_blank" onclick="event.stopPropagation()">
+                Vollständigen Artikel lesen
+            </a>
+        </div>
+        
+        <div class="article-card" onclick="toggleCard(this)">
+            
+            <div class="image-wrapper">
+                <img src="https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/5/1/1/0/7/1/5/shutterstock_2498415709-4c883315548c61ae.jpg" class="article-image" alt="Vorschau" loading="lazy">
+            </div>
+            
+
+            <div class="meta">heise • news</div>
+
+            <div class="card-header">
+                <div class="title">IT-Beschäftigung steigt trotz Rückgang der Stellenangebote und steigender Arbeitslosenquote im Jahr 2025</div>
+                <div class="relevance-container">
+                    <svg width="44" height="44">
+                        <circle stroke="rgba(255,255,255,0.08)" stroke-width="3" fill="transparent" r="19" cx="22" cy="22"/>
+                        <circle class="progress-ring__circle" stroke-width="3" stroke-dasharray="119.38" 
+                                stroke-dashoffset="20.488225669389138" 
+                                stroke-linecap="round" fill="transparent" r="19" cx="22" cy="22" transform="rotate(-90 22 22)"/>
+                    </svg>
+                    <div style="position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); font-size:11px; font-weight:800;">
+                        81
+                    </div>
+                </div>
+            </div>
+
+            <div class="summary">Trotz eines Zuwachses auf 1,15 Millionen sozialversicherungspflichtig Beschäftigte im IT-Sektor im Jahr 2025 (davon 171.000 Ausländer, inkl. 31.000 Inder), was einem Plus von zwei Prozent entspricht, sank die Zahl der Stellenangebote um 22 Prozent auf rund 13.000. Parallel zum Anstieg der Arbeitslosenquote in der IKT-Branche von 3,7 auf 4,5 Prozent erhöht der Strukturwandel durch Digitalisierung und KI das Anforderungsniveau für Spezialisten.</div>
+
+            <a href="https://www.heise.de/news/Arbeitsmarkt-fuer-IT-Berufe-wird-enger-11352608.html" class="source-button" target="_blank" onclick="event.stopPropagation()">
+                Vollständigen Artikel lesen
+            </a>
+        </div>
+        
+        <div class="article-card" onclick="toggleCard(this)">
+            
+            <div class="image-wrapper">
+                <img src="https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/5/1/1/0/6/6/8/shutterstock_2019455507-fef09b77964711c8.jpg" class="article-image" alt="Vorschau" loading="lazy">
+            </div>
+            
+
+            <div class="meta">heise • news</div>
+
+            <div class="card-header">
+                <div class="title">Pegasus-Spyware auf dem Smartphone eines ehemaligen EU-Untersuchungsausschussmitglieds nachgewiesen</div>
+                <div class="relevance-container">
+                    <svg width="44" height="44">
+                        <circle stroke="rgba(255,255,255,0.08)" stroke-width="3" fill="transparent" r="19" cx="22" cy="22"/>
+                        <circle class="progress-ring__circle" stroke-width="3" stroke-dasharray="119.38" 
+                                stroke-dashoffset="13.978213078702467" 
+                                stroke-linecap="round" fill="transparent" r="19" cx="22" cy="22" transform="rotate(-90 22 22)"/>
+                    </svg>
+                    <div style="position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); font-size:11px; font-weight:800;">
+                        87
+                    </div>
+                </div>
+            </div>
+
+            <div class="summary">Das Citizen Lab der Universität Toronto hat veröffentlicht, dass das Smartphone des ehemaligen EU-Untersuchungsausschussmitglieds Stelios Kouloglou zwischen Oktober 2022 und März 2023 mehrfach mittels Zero-Click-Exploits mit Pegasus-Spyware infiziert wurde. Indizien deuten auf einen NSO-Kunden hin, der auch Journalisten in Russland und Belarus attackierte, während eine Urheberschaft durch die griechische Regierung nicht belegt werden konnte. Der Angriff ermöglichte potenziell den Zugriff auf vertrauliche Kommunikation des Ausschusses.</div>
+
+            <a href="https://www.heise.de/news/Mitglied-im-Sonderausschuss-zu-Pegasus-EU-Abgeordneter-mit-Spyware-attackiert-11352514.html" class="source-button" target="_blank" onclick="event.stopPropagation()">
+                Vollständigen Artikel lesen
+            </a>
+        </div>
+        
+        <div class="article-card" onclick="toggleCard(this)">
+            
+            <div class="image-wrapper">
+                <img src="https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/5/1/0/9/5/9/8/it_summit_banner_ticker_1920x1080-f172f4878fa82497.jpg" class="article-image" alt="Vorschau" loading="lazy">
+            </div>
+            
+
+            <div class="meta">heise • news</div>
+
+            <div class="card-header">
+                <div class="title">IT Summit 2026 in München thematisiert die Umsetzung digitaler Souveränität</div>
+                <div class="relevance-container">
+                    <svg width="44" height="44">
+                        <circle stroke="rgba(255,255,255,0.08)" stroke-width="3" fill="transparent" r="19" cx="22" cy="22"/>
+                        <circle class="progress-ring__circle" stroke-width="3" stroke-dasharray="119.38" 
+                                stroke-dashoffset="43.36743221744035" 
+                                stroke-linecap="round" fill="transparent" r="19" cx="22" cy="22" transform="rotate(-90 22 22)"/>
+                    </svg>
+                    <div style="position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); font-size:11px; font-weight:800;">
+                        61
+                    </div>
+                </div>
+            </div>
+
+            <div class="summary">Der IT Summit 2026 am 24. und 25. November in München konzentriert sich auf die praktische Umsetzung digitaler Souveränität in den Bereichen Arbeitsplatz, KI und Infrastruktur. Die Konferenz umfasst Expertenvorträge zu Risikomanagement, Ökonomie und Politik sowie Fallstudien zur Implementierung von Open-Source- und KI-Lösungen durch Organisationen wie die Evangelische Kirche Rheinland, Finanz Informatik, RÖDL und Menzel IT.</div>
+
+            <a href="https://www.heise.de/news/Digitale-Souveraenitaet-in-der-Praxis-Strategien-Fallstudien-Know-how-11350389.html" class="source-button" target="_blank" onclick="event.stopPropagation()">
+                Vollständigen Artikel lesen
+            </a>
+        </div>
+        
+        <div class="article-card" onclick="toggleCard(this)">
+            
+            <div class="image-wrapper">
+                <img src="https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/5/1/1/0/6/4/6/Super_Hornet-e5c2ccdbac0034c3.jpg" class="article-image" alt="Vorschau" loading="lazy">
+            </div>
+            
+
+            <div class="meta">heise • news</div>
+
+            <div class="card-header">
+                <div class="title">Neues 3D-Druckverfahren zur Reparatur von F/A-18 Super Hornet Verbundwerkstoffteilen entwickelt</div>
+                <div class="relevance-container">
+                    <svg width="44" height="44">
+                        <circle stroke="rgba(255,255,255,0.08)" stroke-width="3" fill="transparent" r="19" cx="22" cy="22"/>
+                        <circle class="progress-ring__circle" stroke-width="3" stroke-dasharray="119.38" 
+                                stroke-dashoffset="8.95154785293532" 
+                                stroke-linecap="round" fill="transparent" r="19" cx="22" cy="22" transform="rotate(-90 22 22)"/>
+                    </svg>
+                    <div style="position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); font-size:11px; font-weight:800;">
+                        92
+                    </div>
+                </div>
+            </div>
+
+            <div class="summary">Das NAVCAD und das FRCSW haben ein 3D-Druckverfahren zur Reparatur von Verbundwerkstoffteilen an F/A-18 Super Hornet Kampfjets entwickelt, bei dem speziell geformte Flicken direkt vor Ort gedruckt werden. Durch den Einsatz industrieller 3D-Drucker an 22 weltweiten Navy-Wartungsstandorten lässt sich die Reparaturzeit um 50 Prozent reduzieren, da der zeitintensive Transport von Bauteilen oder Fachpersonal entfällt. Nach etablierten Qualitätskontrollen sind erste Praxistests im Flugbetrieb für Sommer 2026 geplant.</div>
+
+            <a href="https://www.heise.de/news/Schnelle-Reparatur-U-S-Navy-repariert-Kampfflugzeuge-mit-3D-gedruckten-Flicken-11352470.html" class="source-button" target="_blank" onclick="event.stopPropagation()">
+                Vollständigen Artikel lesen
+            </a>
+        </div>
+        
+        <div class="article-card" onclick="toggleCard(this)">
+            
+            <div class="image-wrapper">
+                <img src="https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/5/1/1/0/6/3/3/shutterstock_2050120502-437afb8fb519cf1f.jpg" class="article-image" alt="Vorschau" loading="lazy">
+            </div>
+            
+
+            <div class="meta">heise • news</div>
+
+            <div class="card-header">
+                <div class="title">Spotify korrigiert Wiedergabezahlen für Malcolm Todd nach Korrelation mit Kalshi-Wetten</div>
+                <div class="relevance-container">
+                    <svg width="44" height="44">
+                        <circle stroke="rgba(255,255,255,0.08)" stroke-width="3" fill="transparent" r="19" cx="22" cy="22"/>
+                        <circle class="progress-ring__circle" stroke-width="3" stroke-dasharray="119.38" 
+                                stroke-dashoffset="30.05653639590645" 
+                                stroke-linecap="round" fill="transparent" r="19" cx="22" cy="22" transform="rotate(-90 22 22)"/>
+                    </svg>
+                    <div style="position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); font-size:11px; font-weight:800;">
+                        73
+                    </div>
+                </div>
+            </div>
+
+            <div class="summary">Spotify hat die Wiedergabezahlen des Songs „Earrings“ von Malcolm Todd nach unten korrigiert, da eine Korrelation zwischen steigenden Abrufzahlen und Wetten auf der Plattform Kalshi festgestellt wurde. Das Unternehmen entfernte 500.000 künstliche Aufrufe und forderte Kalshi zur Entfernung des Spotify-Logos auf, wobei die Gewinnauszahlungen bei den bereits abgeschlossenen Wetten bereits erfolgt waren. Hinweise auf eine Beteiligung des Künstlers an der Manipulation liegen nicht vor.</div>
+
+            <a href="https://www.heise.de/news/Verdaechtige-Onlinewetten-Spotify-aendert-nachtraeglich-Song-Rangliste-in-den-USA-11352444.html" class="source-button" target="_blank" onclick="event.stopPropagation()">
+                Vollständigen Artikel lesen
+            </a>
+        </div>
+        
+        <div class="article-card" onclick="toggleCard(this)">
+            
+            <div class="image-wrapper">
+                <img src="https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/5/1/1/0/6/3/1/shutterstock_644814313-4491ab4408db0621.jpg" class="article-image" alt="Vorschau" loading="lazy">
+            </div>
+            
+
+            <div class="meta">heise • news</div>
+
+            <div class="card-header">
+                <div class="title">Mecklenburg-Vorpommern setzt auf Open-Source-Lösungen und europäische KI-Modelle</div>
+                <div class="relevance-container">
+                    <svg width="44" height="44">
+                        <circle stroke="rgba(255,255,255,0.08)" stroke-width="3" fill="transparent" r="19" cx="22" cy="22"/>
+                        <circle class="progress-ring__circle" stroke-width="3" stroke-dasharray="119.38" 
+                                stroke-dashoffset="41.97032231931995" 
+                                stroke-linecap="round" fill="transparent" r="19" cx="22" cy="22" transform="rotate(-90 22 22)"/>
+                    </svg>
+                    <div style="position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); font-size:11px; font-weight:800;">
+                        62
+                    </div>
+                </div>
+            </div>
+
+            <div class="summary">Mecklenburg-Vorpommern ersetzt schrittweise Microsoft-Software durch Open-Source-Lösungen wie Nextcloud, um digitale Souveränität zu stärken und Kosten zu senken; nach der erfolgreichen Migration von 5.000 Mitarbeitern soll die Nutzung auf über 50.000 Beschäftigte des öffentlichen Dienstes ausgeweitet werden (Betrieb durch DVZ M-V GmbH). In einer technologischen Allianz mit Schleswig-Holstein werden zur Erhöhung der IT-Sicherheit Infrastrukturen abgestimmt, wobei bei KI-Projekten wie dem Chatbot „Lea“ gezielt europäische Sprachmodelle statt US-Technologie eingesetzt werden sollen, während Windows-PCs vorerst beibehalten werden.</div>
+
+            <a href="https://www.heise.de/news/Mecklenburg-Vorpommern-verabschiedet-sich-von-Microsoft-11352440.html" class="source-button" target="_blank" onclick="event.stopPropagation()">
+                Vollständigen Artikel lesen
+            </a>
+        </div>
+        
+        <div class="article-card" onclick="toggleCard(this)">
+            
+            <div class="image-wrapper">
+                <img src="https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/5/1/1/0/6/0/8/shutterstock_2174576777-4630f7654db8f1d5.jpg" class="article-image" alt="Vorschau" loading="lazy">
+            </div>
+            
+
+            <div class="meta">heise • news</div>
+
+            <div class="card-header">
+                <div class="title">Bundesregierung plant Verschärfung der Krankschreibungsregeln unter Kritik von medizinischen Fachverbänden und Krankenkassen</div>
+                <div class="relevance-container">
+                    <svg width="44" height="44">
+                        <circle stroke="rgba(255,255,255,0.08)" stroke-width="3" fill="transparent" r="19" cx="22" cy="22"/>
+                        <circle class="progress-ring__circle" stroke-width="3" stroke-dasharray="119.38" 
+                                stroke-dashoffset="16.111074996146613" 
+                                stroke-linecap="round" fill="transparent" r="19" cx="22" cy="22" transform="rotate(-90 22 22)"/>
+                    </svg>
+                    <div style="position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); font-size:11px; font-weight:800;">
+                        85
+                    </div>
+                </div>
+            </div>
+
+            <div class="summary">Die Bundesregierung plant zur Senkung von Fehlzeiten eine Verschärfung der Krankschreibungsregeln durch eine Attestpflicht ab dem ersten Krankheitstag sowie die Abschaffung der Telefon-AU. Diese Vorhaben werden von medizinischen Fachverbänden und Krankenkassen als bürokratische Überregulierung kritisiert, da sie zu einer Mehrbelastung der Praxen, unnötigen Patientenbesuchen bei Bagatellerkrankungen und erhöhten Infektionsrisiken in Wartezimmern führen könnten. Demgegenüber stehen Daten des Zentralinstituts für die kassenärztliche Versorgung, wonach die Telefon-AU nur einen minimalen Anteil der Fälle ausmacht und Fehlzeitensteigerungen primär auf elektronische Meldeeffekte zurückzuführen sind.</div>
+
+            <a href="https://www.heise.de/news/Ende-der-Telefon-AU-Irrsinn-der-fuer-Millionen-zusaetzliche-Arztbesuche-sorgt-11352394.html" class="source-button" target="_blank" onclick="event.stopPropagation()">
+                Vollständigen Artikel lesen
+            </a>
+        </div>
         
         <div class="article-card" onclick="toggleCard(this)">
             
@@ -2725,1060 +3789,6 @@ Rechtliche und biotechnologische Entwicklungen bringen neue Herausforderungen mi
             </a>
         </div>
         
-        <div class="article-card" onclick="toggleCard(this)">
-            
-            <div class="image-wrapper">
-                <img src="https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/5/1/0/9/4/1/0/Steer-by-Wire-Bike-e7f541d3dcc8ceb8.jpg" class="article-image" alt="Vorschau" loading="lazy">
-            </div>
-            
-
-            <div class="meta">heise • news</div>
-
-            <div class="card-header">
-                <div class="title">Entwicklung eines Steer-by-Wire-Systems zur Stabilisierung von Zweirädern mittels maschinellem Lernen</div>
-                <div class="relevance-container">
-                    <svg width="44" height="44">
-                        <circle stroke="rgba(255,255,255,0.08)" stroke-width="3" fill="transparent" r="19" cx="22" cy="22"/>
-                        <circle class="progress-ring__circle" stroke-width="3" stroke-dasharray="119.38" 
-                                stroke-dashoffset="5.8349277605317695" 
-                                stroke-linecap="round" fill="transparent" r="19" cx="22" cy="22" transform="rotate(-90 22 22)"/>
-                    </svg>
-                    <div style="position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); font-size:11px; font-weight:800;">
-                        94
-                    </div>
-                </div>
-            </div>
-
-            <div class="summary">Wissenschaftler des Shibaura Institute of Technology (SIT) haben ein Kontrollsystem für Zweiräder entwickelt, das mittels Steer-by-Wire-Technologie und maschinellem Lernen zwischen Kurvenfahrten und drohendem Umkippen unterscheidet. Das System analysiert Lenkbewegungen und Fahrzeugdaten in Echtzeit, um bei Instabilität eine Stabilisierungsunterstützung zu aktivieren, ohne das natürliche Fahrgefühl zu beeinträchtigen. Die Technologie soll die Sicherheit für E-Bikes und Elektromotorräder erhöhen.</div>
-
-            <a href="https://www.heise.de/news/Steer-by-Wire-Fahrrad-unterscheidet-Kurvenfahrten-von-moeglichem-Umkippen-11350014.html" class="source-button" target="_blank" onclick="event.stopPropagation()">
-                Vollständigen Artikel lesen
-            </a>
-        </div>
-        
-        <div class="article-card" onclick="toggleCard(this)">
-            
-            <div class="image-wrapper">
-                <img src="https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/5/1/0/9/4/0/7/shutterstock_2543144643-44a67aab58034e08.jpg" class="article-image" alt="Vorschau" loading="lazy">
-            </div>
-            
-
-            <div class="meta">heise • news</div>
-
-            <div class="card-header">
-                <div class="title">Einkommenserklärung belegt über eine Milliarde Dollar an Krypto-Einnahmen für Donald Trump</div>
-                <div class="relevance-container">
-                    <svg width="44" height="44">
-                        <circle stroke="rgba(255,255,255,0.08)" stroke-width="3" fill="transparent" r="19" cx="22" cy="22"/>
-                        <circle class="progress-ring__circle" stroke-width="3" stroke-dasharray="119.38" 
-                                stroke-dashoffset="34.94968533293074" 
-                                stroke-linecap="round" fill="transparent" r="19" cx="22" cy="22" transform="rotate(-90 22 22)"/>
-                    </svg>
-                    <div style="position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); font-size:11px; font-weight:800;">
-                        69
-                    </div>
-                </div>
-            </div>
-
-            <div class="summary">Aus einer Einkommenserklärung geht hervor, dass US-Präsident Donald Trump im vergangenen Jahr über eine Milliarde Dollar durch Kryptogeschäfte einnahm, wovon mehr als 500 Millionen Dollar auf das Familienunternehmen World Liberty Financial und 635 Millionen Dollar auf Lizenzgebühren für „Celebration Coins“ entfielen. Parallel zu seinem Bestreben, die USA zur „Bitcoin-Supermacht“ zu machen, begnadigte er den Binance-Gründer Changpeng Zhao, dessen Börse geschäftliche Verbindungen zu World Liberty Financial unterhält. Die Erklärung belegt zudem hochdotierte Geschenke (u. a. Superbowl- und WM-Tickets) sowie frühere Apple-Investitionen; Vorwürfe von Interessenkonflikten weist die US-Regierung zurück.</div>
-
-            <a href="https://www.heise.de/news/Krypto-Geschaefte-brachten-Trump-2025-ueber-eine-Milliarde-ein-11350008.html" class="source-button" target="_blank" onclick="event.stopPropagation()">
-                Vollständigen Artikel lesen
-            </a>
-        </div>
-        
-        <div class="article-card" onclick="toggleCard(this)">
-            
-            <div class="image-wrapper">
-                <img src="https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/5/1/0/9/3/6/8/shutterstock_124043929-e9c860c50c82b722.jpg" class="article-image" alt="Vorschau" loading="lazy">
-            </div>
-            
-
-            <div class="meta">heise • news</div>
-
-            <div class="card-header">
-                <div class="title">WHO-Regionaldirektor mahnt umfassende Hitzegesundheitspläne für Europa an</div>
-                <div class="relevance-container">
-                    <svg width="44" height="44">
-                        <circle stroke="rgba(255,255,255,0.08)" stroke-width="3" fill="transparent" r="19" cx="22" cy="22"/>
-                        <circle class="progress-ring__circle" stroke-width="3" stroke-dasharray="119.38" 
-                                stroke-dashoffset="8.13198131356782" 
-                                stroke-linecap="round" fill="transparent" r="19" cx="22" cy="22" transform="rotate(-90 22 22)"/>
-                    </svg>
-                    <div style="position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); font-size:11px; font-weight:800;">
-                        92
-                    </div>
-                </div>
-            </div>
-
-            <div class="summary">Der WHO-Regionaldirektor für Europa, Hans Kluge, bezeichnet die jüngste Hitzewelle in Westeuropa als Vorbote extremerer Sommer und kritisiert das Fehlen umfassender Hitzegesundheitspläne in über der Hälfte der europäischen Staaten. Während die durch den Klimawandel verstärkten Temperaturen – in Deutschland im Juni teilweise über 40 Grad – zu einer erhöhten Belastung von Rettungsdiensten und steigenden Todesfallzahlen führten, konnten bereits existierende Maßnahmen eine etwa 80 Prozent höhere Sterblichkeit verhindern. Beispiele für effektive Gegenmaßnahmen sind Klimarückzugsräume in Barcelona, die Überprüfung schutzbedürftiger Personen in Paris sowie Arbeitsbeschränkungen unter freiem Himmel in Italien.</div>
-
-            <a href="https://www.heise.de/news/WHO-Juengste-Hitzewelle-war-nur-die-Generalprobe-die-Sommer-werden-haerter-11349933.html" class="source-button" target="_blank" onclick="event.stopPropagation()">
-                Vollständigen Artikel lesen
-            </a>
-        </div>
-        
-        <div class="article-card" onclick="toggleCard(this)">
-            
-            <div class="image-wrapper">
-                <img src="https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/5/1/0/9/3/6/3/BW_ESS-e9c43bc2dc7b08ad.jpg" class="article-image" alt="Vorschau" loading="lazy">
-            </div>
-            
-
-            <div class="meta">heise • news</div>
-
-            <div class="card-header">
-                <div class="title">Ausbau der deutschen Batteriespeicher-Kapazitäten durch neue Großprojekte</div>
-                <div class="relevance-container">
-                    <svg width="44" height="44">
-                        <circle stroke="rgba(255,255,255,0.08)" stroke-width="3" fill="transparent" r="19" cx="22" cy="22"/>
-                        <circle class="progress-ring__circle" stroke-width="3" stroke-dasharray="119.38" 
-                                stroke-dashoffset="13.952369560906618" 
-                                stroke-linecap="round" fill="transparent" r="19" cx="22" cy="22" transform="rotate(-90 22 22)"/>
-                    </svg>
-                    <div style="position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); font-size:11px; font-weight:800;">
-                        87
-                    </div>
-                </div>
-            </div>
-
-            <div class="summary">In Deutschland sind aktuell 545 Großspeicher mit einer Gesamtkapazität von rund 29,6 GWh im Einsatz. Der Betreiber BW ESS errichtet in Klostermansfeld den künftig größten Batteriespeicher Deutschlands (1000 MW Leistung, bis zu 5700 MWh Kapazität), dessen Inbetriebnahme für 2028 geplant ist und der sowohl dem Stromhandel als auch der Netzstabilität dienen soll. Weitere Großprojekte sind in Jänschwalde (4000 MWh) und Waltrop (1800 MWh) angekündigt; der Ausbau wird durch sinkende Technologiepreise sowie steigende Flexibilitätsanforderungen im Stromnetz vorangetrieben.</div>
-
-            <a href="https://www.heise.de/news/BW-ESS-baut-1-Gigawatt-Speicher-fuer-den-Stromhandel-11349923.html" class="source-button" target="_blank" onclick="event.stopPropagation()">
-                Vollständigen Artikel lesen
-            </a>
-        </div>
-        
-        <div class="article-card" onclick="toggleCard(this)">
-            
-            <div class="image-wrapper">
-                <img src="https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/5/1/0/9/3/5/8/458ea645ef6b729f6847cba16932716e6b547f2f-2880x1620-b0510f8349bf3d92.webp" class="article-image" alt="Vorschau" loading="lazy">
-            </div>
-            
-
-            <div class="meta">heise • news</div>
-
-            <div class="card-header">
-                <div class="title">Anthropic veröffentlicht Claude Sonnet 5 und hebt Exportbeschränkungen für Mythos sowie Fable auf</div>
-                <div class="relevance-container">
-                    <svg width="44" height="44">
-                        <circle stroke="rgba(255,255,255,0.08)" stroke-width="3" fill="transparent" r="19" cx="22" cy="22"/>
-                        <circle class="progress-ring__circle" stroke-width="3" stroke-dasharray="119.38" 
-                                stroke-dashoffset="6.434582180368082" 
-                                stroke-linecap="round" fill="transparent" r="19" cx="22" cy="22" transform="rotate(-90 22 22)"/>
-                    </svg>
-                    <div style="position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); font-size:11px; font-weight:800;">
-                        94
-                    </div>
-                </div>
-            </div>
-
-            <div class="summary">Anthropic hat das KI-Modell Claude Sonnet 5 veröffentlicht, das durch verbesserte agentische Fähigkeiten – wie autonome Planung und Werkzeugnutzung – mit dem Modell Opus 4.8 konkurriert oder dieses in Teilbereichen übertrifft. Das neue Modell weist eine geringere Halluzinationsrate sowie erhöhte Sicherheitsmechanismen gegen böswillige Anfragen auf, bleibt jedoch bei der Abwehr von Sicherheitslücken hinter dem Modell Mythos zurück. Parallel dazu wurden das Forschungstool Claude Science sowie die Aufhebung der US-Exportbeschränkungen für die Modelle Mythos und Fable angekündigt.</div>
-
-            <a href="https://www.heise.de/news/Anthropic-gibt-Sonnet-5-frei-Fable-5-und-Mythos-5-sollen-wieder-nutzbar-werden-11349913.html" class="source-button" target="_blank" onclick="event.stopPropagation()">
-                Vollständigen Artikel lesen
-            </a>
-        </div>
-        
-        <div class="article-card" onclick="toggleCard(this)">
-            
-            <div class="image-wrapper">
-                <img src="https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/5/1/0/8/2/3/2/BAT16-008f4775f530cd42.jpg" class="article-image" alt="Vorschau" loading="lazy">
-            </div>
-            
-
-            <div class="meta">heise • hintergrund</div>
-
-            <div class="card-header">
-                <div class="title">Zink-Luft-Batterien als potenzielle Alternative zu Lithium für die Elektrifizierung</div>
-                <div class="relevance-container">
-                    <svg width="44" height="44">
-                        <circle stroke="rgba(255,255,255,0.08)" stroke-width="3" fill="transparent" r="19" cx="22" cy="22"/>
-                        <circle class="progress-ring__circle" stroke-width="3" stroke-dasharray="119.38" 
-                                stroke-dashoffset="7.192649320930727" 
-                                stroke-linecap="round" fill="transparent" r="19" cx="22" cy="22" transform="rotate(-90 22 22)"/>
-                    </svg>
-                    <div style="position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); font-size:11px; font-weight:800;">
-                        93
-                    </div>
-                </div>
-            </div>
-
-            <div class="summary">Die Forschung sucht nach Lithium-Alternativen für die Elektrifizierung von Verkehrsmitteln und Stromnetzen, um Kosteneffizienz und strategische Unabhängigkeit zu gewährleisten. Im Fokus stehen dabei wiederaufladbare Zink-Luft-Batterien, die durch ihre hohe gravimetrische Energiedichte, geringe Kosten mittels wässriger Elektrolyte und weltweit verfügbare Materialien Vorteile bieten.</div>
-
-            <a href="https://www.heise.de/hintergrund/Batterien-fuer-Elektroautos-Was-kommt-nach-Lithium-11347691.html" class="source-button" target="_blank" onclick="event.stopPropagation()">
-                Vollständigen Artikel lesen
-            </a>
-        </div>
-        
-        <div class="article-card" onclick="toggleCard(this)">
-            
-            <div class="image-wrapper">
-                <img src="https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/5/1/0/9/3/5/4/mittwoch-3166c333f900f5eb.webp" class="article-image" alt="Vorschau" loading="lazy">
-            </div>
-            
-
-            <div class="meta">heise • news</div>
-
-            <div class="card-header">
-                <div class="title">Aktuelle Entwicklungen in den Bereichen Technologie, Recht und Wirtschaft</div>
-                <div class="relevance-container">
-                    <svg width="44" height="44">
-                        <circle stroke="rgba(255,255,255,0.08)" stroke-width="3" fill="transparent" r="19" cx="22" cy="22"/>
-                        <circle class="progress-ring__circle" stroke-width="3" stroke-dasharray="119.38" 
-                                stroke-dashoffset="30.224492174496405" 
-                                stroke-linecap="round" fill="transparent" r="19" cx="22" cy="22" transform="rotate(-90 22 22)"/>
-                    </svg>
-                    <div style="position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); font-size:11px; font-weight:800;">
-                        73
-                    </div>
-                </div>
-            </div>
-
-            <div class="summary">Der US Supreme Court prüft, ob Apples Gebühren für App-Zahlungen außerhalb des eigenen App Stores eine Missachtung gerichtlicher Anordnungen darstellen. Frankreich hebt die Paketsteuer auf Kleinsendungen aus Nicht-EU-Staaten nach geringen Einnahmen durch Umgehungsversuche asiatischer Händler und im Zuge neuer EU-Zollregeln auf. Ab Juli 2026 können Apotheken Patienten bei der Nutzung telemedizinischer Angebote unterstützen, um den Zugang zur digitalen medizinischen Versorgung zu erleichtern. Amazon AWS setzt „Forward Deployed Engineers“ ein, um Kunden vor Ort bei der Installation von KI-Agenten zu unterstützen und die Kundenbindung zu stärken. Der Austausch ablaufender UEFI Secure Boot-Zertifikate durch Microsoft führt aktuell zu Startproblemen bei älteren Computern.</div>
-
-            <a href="https://www.heise.de/news/Mittwoch-Apple-wegen-Epic-vor-US-Hoechstgericht-Aus-fuer-Frankreichs-Paketsteuer-11349905.html" class="source-button" target="_blank" onclick="event.stopPropagation()">
-                Vollständigen Artikel lesen
-            </a>
-        </div>
-        
-        <div class="article-card" onclick="toggleCard(this)">
-            
-            <div class="image-wrapper">
-                <img src="https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/5/1/0/9/1/8/4/shutterstock_2694536741-9ef47ab449a39cb9.jpg" class="article-image" alt="Vorschau" loading="lazy">
-            </div>
-            
-
-            <div class="meta">heise • news</div>
-
-            <div class="card-header">
-                <div class="title">Deutsche Apotheken können ab Juli 2026 assistierte Telemedizin anbieten</div>
-                <div class="relevance-container">
-                    <svg width="44" height="44">
-                        <circle stroke="rgba(255,255,255,0.08)" stroke-width="3" fill="transparent" r="19" cx="22" cy="22"/>
-                        <circle class="progress-ring__circle" stroke-width="3" stroke-dasharray="119.38" 
-                                stroke-dashoffset="18.07126821469818" 
-                                stroke-linecap="round" fill="transparent" r="19" cx="22" cy="22" transform="rotate(-90 22 22)"/>
-                    </svg>
-                    <div style="position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); font-size:11px; font-weight:800;">
-                        84
-                    </div>
-                </div>
-            </div>
-
-            <div class="summary">Ab dem 1. Juli 2026 können deutsche Apotheken im Rahmen der „assistierten Telemedizin“ auf Basis des Digital-Gesetzes (DigiG) medizinische Ersteinschätzungen sowie die Begleitung von Videosprechstunden anbieten, um Patienten bei der Nutzung digitaler Gesundheitsangebote zu unterstützen. Für die Leistungserbringung sind geschultes Personal und datenschutzkonforme Beratungsräume erforderlich, wobei bei unbekannten Patienten ein strukturiertes Erstbeurteilungsverfahren (z. B. SmED) verpflichtend ist. Technisch können dabei verschiedene Lösungen wie Tablets oder Telemedizin-Kabinen zum Einsatz kommen.</div>
-
-            <a href="https://www.heise.de/news/Apotheken-duerfen-assistierte-Telemedizin-anbieten-11349565.html" class="source-button" target="_blank" onclick="event.stopPropagation()">
-                Vollständigen Artikel lesen
-            </a>
-        </div>
-        
-        <div class="article-card" onclick="toggleCard(this)">
-            
-            <div class="image-wrapper">
-                <img src="https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/5/1/0/9/3/4/0/Geld_Muenzen_Waehrung-65a37935285b7068.jpg" class="article-image" alt="Vorschau" loading="lazy">
-            </div>
-            
-
-            <div class="meta">heise • news</div>
-
-            <div class="card-header">
-                <div class="title">US Supreme Court prüft Frage der Missachtung gerichtlicher Auflagen im Fall Epic gegen Apple</div>
-                <div class="relevance-container">
-                    <svg width="44" height="44">
-                        <circle stroke="rgba(255,255,255,0.08)" stroke-width="3" fill="transparent" r="19" cx="22" cy="22"/>
-                        <circle class="progress-ring__circle" stroke-width="3" stroke-dasharray="119.38" 
-                                stroke-dashoffset="31.880216165203095" 
-                                stroke-linecap="round" fill="transparent" r="19" cx="22" cy="22" transform="rotate(-90 22 22)"/>
-                    </svg>
-                    <div style="position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); font-size:11px; font-weight:800;">
-                        71
-                    </div>
-                </div>
-            </div>
-
-            <div class="summary">Der US Supreme Court prüft im Rechtsstreit „Epic v Apple“ die Frage, ob eine Umgehung des Geistes einer gerichtlichen Entscheidung als Missachtung des Gerichts gilt. Hintergrund sind Vorwürfe, dass Apple durch prohibitive Gebühren und restriktive Bedingungen für externe Zahlungslinks frühere Auflagen umgangen hat. Eine zweite vorgeschlagene Frage zur Befugnis von Bundesbezirksgerichten, landesweite Verbote auf Basis einzelstaatlichen Rechts zu erlassen, wurde vom Gericht nicht zur Überprüfung angenommen.</div>
-
-            <a href="https://www.heise.de/news/Supreme-Court-zu-Epic-v-Apple-Hat-Apple-das-Gericht-missachtet-11349877.html" class="source-button" target="_blank" onclick="event.stopPropagation()">
-                Vollständigen Artikel lesen
-            </a>
-        </div>
-        
-        <div class="article-card" onclick="toggleCard(this)">
-            
-            <div class="image-wrapper">
-                <img src="https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/5/1/0/9/3/2/5/shutterstock_2288178675-0d8fbb8d299a1a9f.jpg" class="article-image" alt="Vorschau" loading="lazy">
-            </div>
-            
-
-            <div class="meta">heise • news</div>
-
-            <div class="card-header">
-                <div class="title">AWS investiert eine Milliarde US-Dollar in neue Abteilung zur Implementierung von KI-Agenten</div>
-                <div class="relevance-container">
-                    <svg width="44" height="44">
-                        <circle stroke="rgba(255,255,255,0.08)" stroke-width="3" fill="transparent" r="19" cx="22" cy="22"/>
-                        <circle class="progress-ring__circle" stroke-width="3" stroke-dasharray="119.38" 
-                                stroke-dashoffset="20.597294908156428" 
-                                stroke-linecap="round" fill="transparent" r="19" cx="22" cy="22" transform="rotate(-90 22 22)"/>
-                    </svg>
-                    <div style="position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); font-size:11px; font-weight:800;">
-                        81
-                    </div>
-                </div>
-            </div>
-
-            <div class="summary">Amazon Web Services (AWS) investiert eine Milliarde US-Dollar in die neue Abteilung „Forward Deployed Engineers“ (FDE), um bei Großkunden – insbesondere in regulierten Branchen wie dem Finanzwesen oder Behörden – KI-Agenten auf AWS-Basis zu implementieren. Durch den Aufbau von Knowledge Graphs sollen Kunden langfristig befähigt werden, diese Systeme eigenständig zu betreiben, wobei die Vergütung der FDEs nicht nach Arbeitsstunden, sondern nach erzielten Geschäftsergebnissen erfolgt. Das Angebot wird weltweit, einschließlich des deutschsprachigen Raums, für Unternehmen bereitgestellt, die KI in reale Geschäftsprozesse integrieren wollen; erste Kunden sind unter anderem Ricoh, Cox Automotive und das Allen Institute.</div>
-
-            <a href="https://www.heise.de/news/Amazons-KI-ler-machen-Hausbesuche-Forward-Deployed-Engineering-11349847.html" class="source-button" target="_blank" onclick="event.stopPropagation()">
-                Vollständigen Artikel lesen
-            </a>
-        </div>
-        
-        <div class="article-card" onclick="toggleCard(this)">
-            
-            <div class="image-wrapper">
-                <img src="https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/5/1/0/9/2/7/2/shutterstock_2758300889-b02d4be7a010a69f.jpg" class="article-image" alt="Vorschau" loading="lazy">
-            </div>
-            
-
-            <div class="meta">heise • news</div>
-
-            <div class="card-header">
-                <div class="title">Verfahren zur Gewinnung von Wasserstoff aus Kunststoffabfällen mittels Sonnenlicht entwickelt</div>
-                <div class="relevance-container">
-                    <svg width="44" height="44">
-                        <circle stroke="rgba(255,255,255,0.08)" stroke-width="3" fill="transparent" r="19" cx="22" cy="22"/>
-                        <circle class="progress-ring__circle" stroke-width="3" stroke-dasharray="119.38" 
-                                stroke-dashoffset="7.488937302426052" 
-                                stroke-linecap="round" fill="transparent" r="19" cx="22" cy="22" transform="rotate(-90 22 22)"/>
-                    </svg>
-                    <div style="position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); font-size:11px; font-weight:800;">
-                        93
-                    </div>
-                </div>
-            </div>
-
-            <div class="summary">Forscher der Universität Cambridge haben ein skalierbares Verfahren entwickelt, um mithilfe von Sonnenlicht aus Plastikmüll, wie etwa PET oder Zellulose, Wasserstoff und organische Chemikalien zu gewinnen. Der Reaktor nutzt eine mit Katalysatoren (u. a. Kobalt und Zirkonium) sowie einer lichtabsorbierenden Schicht beschichtete Glasplatte, die durch Licht die chemische Zersetzung initiiert, ohne Strom zu erzeugen. Für den großtechnischen Einsatz müssen jedoch noch die Effizienz und Haltbarkeit der Reaktoren optimiert werden.</div>
-
-            <a href="https://www.heise.de/news/Solarmodul-zerlegt-Plastikmuell-in-Wasserstoff-und-andere-Chemikalien-11349741.html" class="source-button" target="_blank" onclick="event.stopPropagation()">
-                Vollständigen Artikel lesen
-            </a>
-        </div>
-        
-        <div class="article-card" onclick="toggleCard(this)">
-            
-            <div class="image-wrapper">
-                <img src="https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/5/1/0/9/2/7/0/shutterstock_2470794027-57ca76eccf9f6c6c.jpg" class="article-image" alt="Vorschau" loading="lazy">
-            </div>
-            
-
-            <div class="meta">heise • news</div>
-
-            <div class="card-header">
-                <div class="title">EU-Chatkontrolle: Rat plant Reaktivierung von E-Privacy-Ausnahmeregelungen</div>
-                <div class="relevance-container">
-                    <svg width="44" height="44">
-                        <circle stroke="rgba(255,255,255,0.08)" stroke-width="3" fill="transparent" r="19" cx="22" cy="22"/>
-                        <circle class="progress-ring__circle" stroke-width="3" stroke-dasharray="119.38" 
-                                stroke-dashoffset="6.178025529042273" 
-                                stroke-linecap="round" fill="transparent" r="19" cx="22" cy="22" transform="rotate(-90 22 22)"/>
-                    </svg>
-                    <div style="position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); font-size:11px; font-weight:800;">
-                        94
-                    </div>
-                </div>
-            </div>
-
-            <div class="summary">In den Verhandlungen zur EU-Chatkontrolle besteht weiterhin Uneinigkeit über die Durchsuchung verschlüsselter Nachrichten. Um die parlamentarische Ablehnung einer Massenüberwachung zu umgehen, plant der Rat im Eilverfahren ein neues Gesetz zur Reaktivierung abgelaufener E-Privacy-Ausnahmeregelungen, wodurch demokratische Kontrollinstanzen und Datenschutzprüfungen entfallen würden. Dieser Entwurf soll mittels schriftlichen Umlaufverfahren vor der Sommerpause durchgesetzt werden, wobei die Bundesregierung als treibende Kraft gilt.</div>
-
-            <a href="https://www.heise.de/news/Etappensieg-mit-Beigeschmack-EU-Parlament-trotzt-vorerst-der-Chatkontrolle-11349737.html" class="source-button" target="_blank" onclick="event.stopPropagation()">
-                Vollständigen Artikel lesen
-            </a>
-        </div>
-        
-        <div class="article-card" onclick="toggleCard(this)">
-            
-            <div class="image-wrapper">
-                <img src="https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/5/1/0/9/2/3/8/c8c90b76-62fb-4fa2-bb77-dfd7768222ac-b925393f4a515f0a.jpg" class="article-image" alt="Vorschau" loading="lazy">
-            </div>
-            
-
-            <div class="meta">heise • news</div>
-
-            <div class="card-header">
-                <div class="title">Nvidia GeForce RTX 3060 bei deutschen Händlern ab etwa 335 Euro verfügbar</div>
-                <div class="relevance-container">
-                    <svg width="44" height="44">
-                        <circle stroke="rgba(255,255,255,0.08)" stroke-width="3" fill="transparent" r="19" cx="22" cy="22"/>
-                        <circle class="progress-ring__circle" stroke-width="3" stroke-dasharray="119.38" 
-                                stroke-dashoffset="40.19599540291921" 
-                                stroke-linecap="round" fill="transparent" r="19" cx="22" cy="22" transform="rotate(-90 22 22)"/>
-                    </svg>
-                    <div style="position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); font-size:11px; font-weight:800;">
-                        64
-                    </div>
-                </div>
-            </div>
-
-            <div class="summary">Deutsche Händler listen neue Lieferkontingente der Nvidia GeForce RTX 3060 ab etwa 335 Euro. Trotz ihrer älteren Ampere-Architektur bietet die Karte mit 12 GB VRAM einen Vorteil gegenüber der nur 8 GB starken RTX 5060; als preislich relevante Alternativen gelten die Intel Arc B580 sowie die AMD Radeon RX 9060 XT 16GB.</div>
-
-            <a href="https://www.heise.de/news/Nvidia-bringt-5-5-Jahre-alte-Grafikkarte-zurueck-11349673.html" class="source-button" target="_blank" onclick="event.stopPropagation()">
-                Vollständigen Artikel lesen
-            </a>
-        </div>
-        
-        <div class="article-card" onclick="toggleCard(this)">
-            
-            <div class="image-wrapper">
-                <img src="https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/5/0/8/8/7/9/9/Aufmacher_Interview-9cae48dcf5751c22.jpg" class="article-image" alt="Vorschau" loading="lazy">
-            </div>
-            
-
-            <div class="meta">heise • hintergrund</div>
-
-            <div class="card-header">
-                <div class="title">BMDS beauftragt Telekom und SAP mit Entwicklung eines Prototyps für eine Deutschland-App</div>
-                <div class="relevance-container">
-                    <svg width="44" height="44">
-                        <circle stroke="rgba(255,255,255,0.08)" stroke-width="3" fill="transparent" r="19" cx="22" cy="22"/>
-                        <circle class="progress-ring__circle" stroke-width="3" stroke-dasharray="119.38" 
-                                stroke-dashoffset="12.396688097305088" 
-                                stroke-linecap="round" fill="transparent" r="19" cx="22" cy="22" transform="rotate(-90 22 22)"/>
-                    </svg>
-                    <div style="position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); font-size:11px; font-weight:800;">
-                        89
-                    </div>
-                </div>
-            </div>
-
-            <div class="summary">Das Bundesdigitalministerium (BMDS) hat Telekom und SAP mit der Entwicklung eines Prototyps einer bundesweiten „Deutschland-App“ beauftragt, die den Zugang zu Behördendiensten mittels künstlicher Intelligenz, Crawler-Technik und eines Assistenzsystems vereinfachen soll. Das Vorhaben ist Teil von Entwicklungen wie der EUDI-Wallet sowie dem Deutschland-Stack für die öffentliche Verwaltung.</div>
-
-            <a href="https://www.heise.de/hintergrund/Interview-zur-Deutschland-App-Wie-KI-komplizierte-Antraege-entwirren-soll-11306572.html" class="source-button" target="_blank" onclick="event.stopPropagation()">
-                Vollständigen Artikel lesen
-            </a>
-        </div>
-        
-        <div class="article-card" onclick="toggleCard(this)">
-            
-            <div class="image-wrapper">
-                <img src="https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/5/1/0/9/2/0/1/United_States_Supreme_Court_Building_on_a_Clear_Day-f2e17da5577f18ad.jpg" class="article-image" alt="Vorschau" loading="lazy">
-            </div>
-            
-
-            <div class="meta">heise • news</div>
-
-            <div class="card-header">
-                <div class="title">US-Supreme-Court-Urteil zur Unabhängigkeit der FTC beeinträchtigt EU-US-Datentransfermechanismen</div>
-                <div class="relevance-container">
-                    <svg width="44" height="44">
-                        <circle stroke="rgba(255,255,255,0.08)" stroke-width="3" fill="transparent" r="19" cx="22" cy="22"/>
-                        <circle class="progress-ring__circle" stroke-width="3" stroke-dasharray="119.38" 
-                                stroke-dashoffset="5.1801633574580705" 
-                                stroke-linecap="round" fill="transparent" r="19" cx="22" cy="22" transform="rotate(-90 22 22)"/>
-                    </svg>
-                    <div style="position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); font-size:11px; font-weight:800;">
-                        95
-                    </div>
-                </div>
-            </div>
-
-            <div class="summary">Der US Supreme Court hat in der Rechtssache *Trump v Slaughter* die Unabhängigkeit der Federal Trade Commission (FTC) für verfassungswidrig erklärt und damit dem US-Präsidenten direkte Kontrolle über Bundesbehörden ermöglicht. Dies untergräbt das rechtliche Fundament des EU-US Data Privacy Frameworks, da dieses eine unabhängige US-Aufsicht zur Sicherstellung eines angemessenen Datenschutzniveaus voraussetzt. Damit ist auch die Rechtssicherheit für alternative Transfermechanismen wie Standardvertragsklauseln (SCCs) gefährdet, sofern deren Verweis auf US-Prüfinstanzen aufgrund der neuen Rechtsprechung nicht mehr als unabhängig gilt.</div>
-
-            <a href="https://www.heise.de/news/Kartenhaus-Wie-ein-US-Urteil-den-transatlantischen-Datenfluss-sprengen-koennte-11349599.html" class="source-button" target="_blank" onclick="event.stopPropagation()">
-                Vollständigen Artikel lesen
-            </a>
-        </div>
-        
-        <div class="article-card" onclick="toggleCard(this)">
-            
-            <div class="image-wrapper">
-                <img src="https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/5/1/0/9/1/2/7/hp-138ddd7148764116.jpg" class="article-image" alt="Vorschau" loading="lazy">
-            </div>
-            
-
-            <div class="meta">heise • news</div>
-
-            <div class="card-header">
-                <div class="title">DLR entwickelt KI-Systeme zur Entlastung der europäischen Flugsicherung</div>
-                <div class="relevance-container">
-                    <svg width="44" height="44">
-                        <circle stroke="rgba(255,255,255,0.08)" stroke-width="3" fill="transparent" r="19" cx="22" cy="22"/>
-                        <circle class="progress-ring__circle" stroke-width="3" stroke-dasharray="119.38" 
-                                stroke-dashoffset="3.814808342947444" 
-                                stroke-linecap="round" fill="transparent" r="19" cx="22" cy="22" transform="rotate(-90 22 22)"/>
-                    </svg>
-                    <div style="position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); font-size:11px; font-weight:800;">
-                        96
-                    </div>
-                </div>
-            </div>
-
-            <div class="summary">Zur Bewältigung des drohenden Fluglotsenmangels in Europa entwickelt das DLR im Projekt „Loki“ die KI-Systeme „Dirc“ und „Ipas“. Während der digitale Assistent „Dirc“ durch die Übernahme von Routineaufgaben die Sektorkapazität potenziell um 25 Prozent steigern soll (Einführung in 10–15 Jahren), unterstützt „Ipas“ Piloten in Notsituationen durch die automatisierte Aggregation und Bewertung relevanter Flugplatzinformationen.</div>
-
-            <a href="https://www.heise.de/news/Loki-DLR-entwickelt-KI-Assistenten-fuer-Fluglotsen-und-Piloten-11349451.html" class="source-button" target="_blank" onclick="event.stopPropagation()">
-                Vollständigen Artikel lesen
-            </a>
-        </div>
-        
-        <div class="article-card" onclick="toggleCard(this)">
-            
-            <div class="image-wrapper">
-                <img src="https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/5/1/0/9/1/1/6/shutterstock_1056851159-e8e79bccd083aa7c.jpg" class="article-image" alt="Vorschau" loading="lazy">
-            </div>
-            
-
-            <div class="meta">heise • news</div>
-
-            <div class="card-header">
-                <div class="title">BIZ warnt vor finanziellen Risiken durch KI-Investitionsboom</div>
-                <div class="relevance-container">
-                    <svg width="44" height="44">
-                        <circle stroke="rgba(255,255,255,0.08)" stroke-width="3" fill="transparent" r="19" cx="22" cy="22"/>
-                        <circle class="progress-ring__circle" stroke-width="3" stroke-dasharray="119.38" 
-                                stroke-dashoffset="2.6599100010693633" 
-                                stroke-linecap="round" fill="transparent" r="19" cx="22" cy="22" transform="rotate(-90 22 22)"/>
-                    </svg>
-                    <div style="position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); font-size:11px; font-weight:800;">
-                        97
-                    </div>
-                </div>
-            </div>
-
-            <div class="summary">Die Bank für Internationalen Zahlungsausgleich (BIZ) warnt vor finanziellen Risiken durch den KI-Investitionsboom, der aufgrund hoher Verschuldung und unsicherer Renditen Parallelen zu historischen Technologieblasen aufweist. Für 2025/2026 werden bei den fünf größten Hyperscalern Investitionen von über einer Billion US-Dollar erwartet, wobei Ressourcenengpässe sowie intransparente, teils zirkuläre Finanzierungsstrukturen das Risiko einer Überinvestition erhöhen. Ein Scheitern dieser Investitionen könnte laut BIZ zu destabilisierenden makrofinanziellen Rückkopplungsschleifen an den Aktien- und Kreditmärkten führen.</div>
-
-            <a href="https://www.heise.de/news/Mega-Investitionen-Aktuelle-KI-Euphorie-gefaehrlich-wie-die-Dotcom-Blase-11349429.html" class="source-button" target="_blank" onclick="event.stopPropagation()">
-                Vollständigen Artikel lesen
-            </a>
-        </div>
-        
-        <div class="article-card" onclick="toggleCard(this)">
-            
-            <div class="image-wrapper">
-                <img src="https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/5/1/0/9/1/4/8/italo-trento-zuege-a70d243216593426-921799ed0877172c.webp" class="article-image" alt="Vorschau" loading="lazy">
-            </div>
-            
-
-            <div class="meta">heise • news</div>
-
-            <div class="card-header">
-                <div class="title">Bundesnetzagentur verpflichtet DB InfraGo zur Kapazitätsabgabe auf Fernverkehrsstrecken</div>
-                <div class="relevance-container">
-                    <svg width="44" height="44">
-                        <circle stroke="rgba(255,255,255,0.08)" stroke-width="3" fill="transparent" r="19" cx="22" cy="22"/>
-                        <circle class="progress-ring__circle" stroke-width="3" stroke-dasharray="119.38" 
-                                stroke-dashoffset="26.340391155274645" 
-                                stroke-linecap="round" fill="transparent" r="19" cx="22" cy="22" transform="rotate(-90 22 22)"/>
-                    </svg>
-                    <div style="position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); font-size:11px; font-weight:800;">
-                        76
-                    </div>
-                </div>
-            </div>
-
-            <div class="summary">Die Bundesnetzagentur verpflichtet die DB InfraGo, künftig 25 bis 40 Prozent der Kapazitäten auf bestimmten Fernverkehrsstrecken an Wettbewerber wie Italo oder FlixTrain abzugeben, um durch gesteigerten Wettbewerb niedrigere Preise und Planungssicherheit zu fördern. Während die Behörde den Zugang zu wichtigen Knotenpunkten sicherstellen will, warnt die Deutsche Bahn vor einem möglichen Abbau weniger profitabler Regionalverbindungen infolge des Verlusts lukrativer Trassen.</div>
-
-            <a href="https://www.heise.de/news/Bahn-muss-mehr-Platz-fuer-Konkurrenten-schaffen-11349493.html" class="source-button" target="_blank" onclick="event.stopPropagation()">
-                Vollständigen Artikel lesen
-            </a>
-        </div>
-        
-        <div class="article-card" onclick="toggleCard(this)">
-            
-            <div class="image-wrapper">
-                <img src="https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/5/1/0/8/9/1/4/image-0-fa79f0230683ad5983b09fd6d17c976b-ba5402f4e4878062.png" class="article-image" alt="Vorschau" loading="lazy">
-            </div>
-            
-
-            <div class="meta">heise • news</div>
-
-            <div class="card-header">
-                <div class="title">Sonnenmassenverlust könnte Verschlingung der Erde durch Roten Riesen verhindern</div>
-                <div class="relevance-container">
-                    <svg width="44" height="44">
-                        <circle stroke="rgba(255,255,255,0.08)" stroke-width="3" fill="transparent" r="19" cx="22" cy="22"/>
-                        <circle class="progress-ring__circle" stroke-width="3" stroke-dasharray="119.38" 
-                                stroke-dashoffset="6.98436566248904" 
-                                stroke-linecap="round" fill="transparent" r="19" cx="22" cy="22" transform="rotate(-90 22 22)"/>
-                    </svg>
-                    <div style="position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); font-size:11px; font-weight:800;">
-                        93
-                    </div>
-                </div>
-            </div>
-
-            <div class="summary">Eine Analyse einer belgisch-französischen Forschungsgruppe legt nahe, dass die Erde der Verschlingung durch die Sonne als Roter Riese entgehen könnte, sofern ein beschleunigter Massenverlust der Sonne eine entsprechende Ausweitung des Erdorbits ermöglicht. Beobachtungsdaten des Sterns L2 Puppis stützen diese Hypothese, wenngleich weitere Forschung notwendig bleibt und die Erde aufgrund des Verlusts von Atmosphäre und Ozeanen bereits in etwa einer Milliarde Jahren lebensunbewohnbar sein wird.</div>
-
-            <a href="https://www.heise.de/news/Analyse-Erde-koennte-Aufblaehung-der-Sonne-zum-Roten-Riesen-doch-ueberstehen-11349028.html" class="source-button" target="_blank" onclick="event.stopPropagation()">
-                Vollständigen Artikel lesen
-            </a>
-        </div>
-        
-        <div class="article-card" onclick="toggleCard(this)">
-            
-            <div class="image-wrapper">
-                <img src="https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/5/0/8/0/8/9/8/ll.Langzeit.-2033676333-mibu_ONLINE-c451c559174a9179.jpg" class="article-image" alt="Vorschau" loading="lazy">
-            </div>
-            
-
-            <div class="meta">heise • hintergrund</div>
-
-            <div class="card-header">
-                <div class="title">5D-Speicherkristall des US-Startups SPhotonix befindet sich im Weltraum</div>
-                <div class="relevance-container">
-                    <svg width="44" height="44">
-                        <circle stroke="rgba(255,255,255,0.08)" stroke-width="3" fill="transparent" r="19" cx="22" cy="22"/>
-                        <circle class="progress-ring__circle" stroke-width="3" stroke-dasharray="119.38" 
-                                stroke-dashoffset="20.92711938577318" 
-                                stroke-linecap="round" fill="transparent" r="19" cx="22" cy="22" transform="rotate(-90 22 22)"/>
-                    </svg>
-                    <div style="position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); font-size:11px; font-weight:800;">
-                        81
-                    </div>
-                </div>
-            </div>
-
-            <div class="summary">Ein 5D Memory Crystal des US-Startups SPhotonix, der die „Foundation“-Trilogie von Isaac Asimov enthält, befindet sich in einem Tesla Roadster im Weltraum. Die Technologie nutzt das patentierte FemtoEtch-Verfahren, um Daten dauerhaft in chemisch stabilem Quarzglas zu speichern, und soll von SPhotonix als Lizenzmodell für die Industrie angeboten werden.</div>
-
-            <a href="https://www.heise.de/hintergrund/So-funktioniert-Langzeitarchivierung-mit-Voxeln-in-Quarzglas-11290951.html" class="source-button" target="_blank" onclick="event.stopPropagation()">
-                Vollständigen Artikel lesen
-            </a>
-        </div>
-        
-        <div class="article-card" onclick="toggleCard(this)">
-            
-            <div class="image-wrapper">
-                <img src="https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/5/1/0/9/0/7/6/Pixelsnap_Charger_With_Stand_Lifestyle-887bbfa6ccf93c42-f7b9ee634beac59e.webp" class="article-image" alt="Vorschau" loading="lazy">
-            </div>
-            
-
-            <div class="meta">heise • news</div>
-
-            <div class="card-header">
-                <div class="title">Wireless Power Consortium arbeitet an Erweiterung des Qi2-Standards auf bis zu 50 Watt</div>
-                <div class="relevance-container">
-                    <svg width="44" height="44">
-                        <circle stroke="rgba(255,255,255,0.08)" stroke-width="3" fill="transparent" r="19" cx="22" cy="22"/>
-                        <circle class="progress-ring__circle" stroke-width="3" stroke-dasharray="119.38" 
-                                stroke-dashoffset="14.235721875923332" 
-                                stroke-linecap="round" fill="transparent" r="19" cx="22" cy="22" transform="rotate(-90 22 22)"/>
-                    </svg>
-                    <div style="position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); font-size:11px; font-weight:800;">
-                        87
-                    </div>
-                </div>
-            </div>
-
-            <div class="summary">Das Wireless Power Consortium (WPC) arbeitet an der Weiterentwicklung des Qi2-Standards für kabelloses Laden mit bis zu 50 Watt, um Geschwindigkeit, Stabilität und Sicherheit zu erhöhen. Bei einem Treffen in Beijing diskutierten über 20 Mitglieder, darunter Apple, Google, Huawei, Oppo und Vivo, die technischen Parameter; eine offizielle Vorstellung der Spezifikationen wird für das Jahr 2028 erwartet.</div>
-
-            <a href="https://www.heise.de/news/Qi2-Nachfolger-Drahtloses-Laden-mit-bis-zu-50-Watt-in-Arbeit-11349350.html" class="source-button" target="_blank" onclick="event.stopPropagation()">
-                Vollständigen Artikel lesen
-            </a>
-        </div>
-        
-        <div class="article-card" onclick="toggleCard(this)">
-            
-            <div class="image-wrapper">
-                <img src="https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/5/1/0/9/0/5/8/71heR6mE7JL._SL1500_-d53216b3704fad65.jpg" class="article-image" alt="Vorschau" loading="lazy">
-            </div>
-            
-
-            <div class="meta">heise • news</div>
-
-            <div class="card-header">
-                <div class="title">Scythe übernimmt europäischen Vertrieb nach Insolvenz der EU-GmbH und kündigt neuen Kühler an</div>
-                <div class="relevance-container">
-                    <svg width="44" height="44">
-                        <circle stroke="rgba(255,255,255,0.08)" stroke-width="3" fill="transparent" r="19" cx="22" cy="22"/>
-                        <circle class="progress-ring__circle" stroke-width="3" stroke-dasharray="119.38" 
-                                stroke-dashoffset="41.20455765060679" 
-                                stroke-linecap="round" fill="transparent" r="19" cx="22" cy="22" transform="rotate(-90 22 22)"/>
-                    </svg>
-                    <div style="position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); font-size:11px; font-weight:800;">
-                        63
-                    </div>
-                </div>
-            </div>
-
-            <div class="summary">Nach der Insolvenz der Scythe EU GmbH übernimmt das japanische Mutterunternehmen den Vertrieb von Scythe CPU-Kühlern in Europa über neue Distributoren und einen Amazon-Shop; eine europäische Tochtergesellschaft ist nicht vorgesehen. Support sowie Garantieansprüche werden über die internationalen Adressen support@scythe.com.tw und support@scytheus.com abgewickelt. Zeitgleich wurde der neue Mittelklasse-Kühler Magoroku für ca. 40 Euro angekündigt, der mit zwei 120-mm-Lüftern (350–2000 U/min), einer Bauhöhe von 155 mm und Unterstützung für AM4, AM5 sowie LGA1700 und LGA1851 ausgestattet ist.</div>
-
-            <a href="https://www.heise.de/news/Kuehlerklassiker-Scythe-kehrt-nach-Deutschland-zurueck-11349314.html" class="source-button" target="_blank" onclick="event.stopPropagation()">
-                Vollständigen Artikel lesen
-            </a>
-        </div>
-        
-        <div class="article-card" onclick="toggleCard(this)">
-            
-            <div class="image-wrapper">
-                <img src="https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/5/1/0/8/9/1/2/Euro_NCAP-75e422d91a548cdd.jpg" class="article-image" alt="Vorschau" loading="lazy">
-            </div>
-            
-
-            <div class="meta">heise • news</div>
-
-            <div class="card-header">
-                <div class="title">Euro NCAP fordert Einführung US-amerikanischer Standards für Lkw-Unterfahrschutz nach Crash-Tests</div>
-                <div class="relevance-container">
-                    <svg width="44" height="44">
-                        <circle stroke="rgba(255,255,255,0.08)" stroke-width="3" fill="transparent" r="19" cx="22" cy="22"/>
-                        <circle class="progress-ring__circle" stroke-width="3" stroke-dasharray="119.38" 
-                                stroke-dashoffset="33.35849034176469" 
-                                stroke-linecap="round" fill="transparent" r="19" cx="22" cy="22" transform="rotate(-90 22 22)"/>
-                    </svg>
-                    <div style="position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); font-size:11px; font-weight:800;">
-                        70
-                    </div>
-                </div>
-            </div>
-
-            <div class="summary">Euro NCAP hat nachgewiesen, dass europäische Unterfahrschutz-Systeme für Lkw-Auflieger bei Crashtests versagen und jährlich etwa 400 Todesfälle in der EU und Großbritannien begünstigen können, weshalb die Organisation zur freiwilligen Einführung des effektiveren US-Standards IIHS Toughguard sowie zur Nachrüstung aufruft. Eine gesetzliche Verschärfung der europäischen Norm UN ECE R58.03 wird aufgrund langwieriger Regulierungsprozesse erst in fünf bis zehn Jahren erwartet.</div>
-
-            <a href="https://www.heise.de/news/Euro-NCAP-Unterfahrschutz-an-Lkw-Anhaenger-versagt-im-Crashtest-11349024.html" class="source-button" target="_blank" onclick="event.stopPropagation()">
-                Vollständigen Artikel lesen
-            </a>
-        </div>
-        
-        <div class="article-card" onclick="toggleCard(this)">
-            
-            <div class="image-wrapper">
-                <img src="https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/5/1/0/9/0/4/7/shutterstock_284409203-a4569b05d72c1138.jpg" class="article-image" alt="Vorschau" loading="lazy">
-            </div>
-            
-
-            <div class="meta">heise • news</div>
-
-            <div class="card-header">
-                <div class="title">Tesla veröffentlicht reduziertes FSD v14-Update für Hardware 3</div>
-                <div class="relevance-container">
-                    <svg width="44" height="44">
-                        <circle stroke="rgba(255,255,255,0.08)" stroke-width="3" fill="transparent" r="19" cx="22" cy="22"/>
-                        <circle class="progress-ring__circle" stroke-width="3" stroke-dasharray="119.38" 
-                                stroke-dashoffset="12.93931611305203" 
-                                stroke-linecap="round" fill="transparent" r="19" cx="22" cy="22" transform="rotate(-90 22 22)"/>
-                    </svg>
-                    <div style="position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); font-size:11px; font-weight:800;">
-                        88
-                    </div>
-                </div>
-            </div>
-
-            <div class="summary">Tesla bringt für Hardware 3 (HW3) ein komprimiertes FSD v14 „Lite“-Update heraus, das aufgrund technischer Limitierungen bei der Speicherbandbreite und Kameraauflösung Funktionsabstriche macht. Das Update verbessert die Navigation, Spurwechsel sowie Parkfunktionen, verzichtet jedoch auf die eigenständige Self-Driving-App und Gamification-Elemente wie FSD-Streaks. Da HW3 weiterhin kein unüberwachtes autonomes Fahren unterstützen kann, bleibt die Zukunftsfähigkeit für kommende, parameterintensive Softwareversionen wie FSD v15 ungeklärt.</div>
-
-            <a href="https://www.heise.de/news/Tesla-FSD-v14-Lite-fuer-Hardware-3-wird-veroeffentlicht-11349292.html" class="source-button" target="_blank" onclick="event.stopPropagation()">
-                Vollständigen Artikel lesen
-            </a>
-        </div>
-        
-        <div class="article-card" onclick="toggleCard(this)">
-            
-            <div class="image-wrapper">
-                <img src="https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/5/1/0/8/8/9/9/Overlay_Zahlenbitte_1_117_-084542b883f7ceb6.png" class="article-image" alt="Vorschau" loading="lazy">
-            </div>
-            
-
-            <div class="meta">heise • hintergrund</div>
-
-            <div class="card-header">
-                <div class="title">Abbruch des Florida Cross Barge Canal Projekts aufgrund von Umweltbedenken</div>
-                <div class="relevance-container">
-                    <svg width="44" height="44">
-                        <circle stroke="rgba(255,255,255,0.08)" stroke-width="3" fill="transparent" r="19" cx="22" cy="22"/>
-                        <circle class="progress-ring__circle" stroke-width="3" stroke-dasharray="119.38" 
-                                stroke-dashoffset="21.620543213493747" 
-                                stroke-linecap="round" fill="transparent" r="19" cx="22" cy="22" transform="rotate(-90 22 22)"/>
-                    </svg>
-                    <div style="position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); font-size:11px; font-weight:800;">
-                        80
-                    </div>
-                </div>
-            </div>
-
-            <div class="summary">Nach jahrhundertelangen Versuchen, die Straße von Florida durch einen Kanal zu umgehen, wurde das Projekt des „Florida Cross Barge Canal“ 1971 von US-Präsident Nixon aufgrund von Umweltbedenken gestoppt. Der durch Aktivistinnen wie Marjorie Harris Carr erzwungene Baustopp schützte das regionale Karstwassersystem vor den Auswirkungen der bereits begonnenen Infrastrukturmaßnahmen. Die heute als „Marjorie Harris Carr Cross Florida Greenway“ geführte 172 Kilometer lange Trasse gilt mit aufgelaufenen Kosten von 75 Millionen US-Dollar als das größte gescheiterte Infrastrukturprojekt der USA.</div>
-
-            <a href="https://www.heise.de/hintergrund/Zahlen-bitte-172-unvollendete-Kilometer-des-Florida-Kanals-11348998.html" class="source-button" target="_blank" onclick="event.stopPropagation()">
-                Vollständigen Artikel lesen
-            </a>
-        </div>
-        
-        <div class="article-card" onclick="toggleCard(this)">
-            
-            <div class="image-wrapper">
-                <img src="https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/5/1/0/8/9/3/5/shutterstock_1159513891-ad5512bb99f35eea.jpg" class="article-image" alt="Vorschau" loading="lazy">
-            </div>
-            
-
-            <div class="meta">heise • news</div>
-
-            <div class="card-header">
-                <div class="title">Openclaw führt dedizierte Apps für iOS und Android mit Gateway-Funktionen ein</div>
-                <div class="relevance-container">
-                    <svg width="44" height="44">
-                        <circle stroke="rgba(255,255,255,0.08)" stroke-width="3" fill="transparent" r="19" cx="22" cy="22"/>
-                        <circle class="progress-ring__circle" stroke-width="3" stroke-dasharray="119.38" 
-                                stroke-dashoffset="17.128142520989073" 
-                                stroke-linecap="round" fill="transparent" r="19" cx="22" cy="22" transform="rotate(-90 22 22)"/>
-                    </svg>
-                    <div style="position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); font-size:11px; font-weight:800;">
-                        84
-                    </div>
-                </div>
-            </div>
-
-            <div class="summary">Openclaw führt nach der bisherigen Nutzung via Messenger dedizierte Apps für iOS und Android ein, die über ein Gateway Funktionen wie Echtzeit-Spracheingabe sowie Gerätezugriffe (z. B. Kamera, Kalender) ermöglichen. Während die iOS-Version als poliert gilt, weist die Android-App optische Mängel sowie Verbindungsprobleme zum Gateway auf, was zu schlechten Nutzerbewertungen führte.</div>
-
-            <a href="https://www.heise.de/news/Schlechteste-App-die-ich-genutzt-habe-Openclaws-Android-App-veraergert-Nutzer-11349070.html" class="source-button" target="_blank" onclick="event.stopPropagation()">
-                Vollständigen Artikel lesen
-            </a>
-        </div>
-        
-        <div class="article-card" onclick="toggleCard(this)">
-            
-            <div class="image-wrapper">
-                <img src="https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/5/1/0/8/9/4/1/tata-5627748ddf24cf1c.jpg" class="article-image" alt="Vorschau" loading="lazy">
-            </div>
-            
-
-            <div class="meta">heise • news</div>
-
-            <div class="card-header">
-                <div class="title">Ransomware-Angriff auf Apple-Zulieferer Tata Electronics führt zur Veröffentlichung von über 200.000 Dokumenten</div>
-                <div class="relevance-container">
-                    <svg width="44" height="44">
-                        <circle stroke="rgba(255,255,255,0.08)" stroke-width="3" fill="transparent" r="19" cx="22" cy="22"/>
-                        <circle class="progress-ring__circle" stroke-width="3" stroke-dasharray="119.38" 
-                                stroke-dashoffset="26.540123368420765" 
-                                stroke-linecap="round" fill="transparent" r="19" cx="22" cy="22" transform="rotate(-90 22 22)"/>
-                    </svg>
-                    <div style="position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); font-size:11px; font-weight:800;">
-                        76
-                    </div>
-                </div>
-            </div>
-
-            <div class="summary">Ein Ransomware-Angriff der Gruppe „World Leaks“ auf den Apple-Zulieferer Tata Electronics hat über 200.000 Dokumente im Dark Web veröffentlicht, darunter Details zu unveröffentlichten iPhone-Modellen (insbesondere zum iPhone 18 Pro bezüglich Chip, Hauptplatine und Kamera), Informationen zur Apple-Lieferkette sowie Daten zu TSMC und Qualcomm. Tata Electronics führt derzeit eine forensische Untersuchung des Vorfalls durch.</div>
-
-            <a href="https://www.heise.de/news/Leak-bei-indischem-Apple-Fertiger-Tata-Details-zum-iPhone-18-Pro-entfleucht-11349082.html" class="source-button" target="_blank" onclick="event.stopPropagation()">
-                Vollständigen Artikel lesen
-            </a>
-        </div>
-        
-        <div class="article-card" onclick="toggleCard(this)">
-            
-            <div class="image-wrapper">
-                <img src="https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/5/1/0/8/9/6/2/amazfit-ios-notifications-2-8a9ea0826a7c5d00.jpg" class="article-image" alt="Vorschau" loading="lazy">
-            </div>
-            
-
-            <div class="meta">heise • news</div>
-
-            <div class="card-header">
-                <div class="title">Ausgewählte Amazfit-Smartwatch-Modelle unterstützen künftig das Lesen und Beantworten von iMessage- und WhatsApp-Benachrichtigungen</div>
-                <div class="relevance-container">
-                    <svg width="44" height="44">
-                        <circle stroke="rgba(255,255,255,0.08)" stroke-width="3" fill="transparent" r="19" cx="22" cy="22"/>
-                        <circle class="progress-ring__circle" stroke-width="3" stroke-dasharray="119.38" 
-                                stroke-dashoffset="19.162402185630313" 
-                                stroke-linecap="round" fill="transparent" r="19" cx="22" cy="22" transform="rotate(-90 22 22)"/>
-                    </svg>
-                    <div style="position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); font-size:11px; font-weight:800;">
-                        83
-                    </div>
-                </div>
-            </div>
-
-            <div class="summary">Durch die DMA-konforme Öffnung von iOS 26.5 ermöglicht Amazfit für die Modelle Cheetah 2 Ultra, Balance 3 und Balance Ultra das Lesen sowie Beantworten (via Schnellaktionen/Emojis) von iMessage- und WhatsApp-Benachrichtigungen inklusive Bildanzeige; weitere Modelle folgen. Voraussetzung ist ein Apple-Account aus einem EU-Land.</div>
-
-            <a href="https://www.heise.de/news/Amazfit-nutzt-iPhone-Oeffnung-fuer-interaktive-Benachrichtigungen-auf-Smartwatches-11349124.html" class="source-button" target="_blank" onclick="event.stopPropagation()">
-                Vollständigen Artikel lesen
-            </a>
-        </div>
-        
-        <div class="article-card" onclick="toggleCard(this)">
-            
-            <div class="image-wrapper">
-                <img src="https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/5/1/0/8/6/5/0/shutterstock_1840178119-03340501f92c2efe.jpg" class="article-image" alt="Vorschau" loading="lazy">
-            </div>
-            
-
-            <div class="meta">heise • news</div>
-
-            <div class="card-header">
-                <div class="title">Apple plant Einführung der neuen MacBook-Ultra-Serie mit Tandem-OLED und M5-Prozessoren</div>
-                <div class="relevance-container">
-                    <svg width="44" height="44">
-                        <circle stroke="rgba(255,255,255,0.08)" stroke-width="3" fill="transparent" r="19" cx="22" cy="22"/>
-                        <circle class="progress-ring__circle" stroke-width="3" stroke-dasharray="119.38" 
-                                stroke-dashoffset="39.8196338251784" 
-                                stroke-linecap="round" fill="transparent" r="19" cx="22" cy="22" transform="rotate(-90 22 22)"/>
-                    </svg>
-                    <div style="position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); font-size:11px; font-weight:800;">
-                        64
-                    </div>
-                </div>
-            </div>
-
-            <div class="summary">Apple plant für den Herbst die Einführung der neuen MacBook-Ultra-Serie mit Tandem-OLED-Display, Touchscreen und reduziertem Gehäusevolumen. Laut Bloomberg-Berichten wird dieses Modell jedoch voraussichtlich nur mit M5 Pro und M5 Max Prozessoren ausgestattet, da Apple für die kommende M6-Generation keine Pro- oder Max-Varianten plant, sondern den Fokus auf die M7-Chips legt, deren Einsatz in High-End-Geräten erst ab Ende 2027 zu erwarten ist.</div>
-
-            <a href="https://www.heise.de/news/M6-wird-uebersprungen-MacBook-Ultra-mit-aelteren-Chips-11348512.html" class="source-button" target="_blank" onclick="event.stopPropagation()">
-                Vollständigen Artikel lesen
-            </a>
-        </div>
-        
-        <div class="article-card" onclick="toggleCard(this)">
-            
-            <div class="image-wrapper">
-                <img src="https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/5/1/0/5/0/0/5/Download__1_-7797e6ac8f95604a.webp" class="article-image" alt="Vorschau" loading="lazy">
-            </div>
-            
-
-            <div class="meta">heise • news</div>
-
-            <div class="card-header">
-                <div class="title">Proton veröffentlicht Lumo 2.0 mit erweiterten KI-Funktionen</div>
-                <div class="relevance-container">
-                    <svg width="44" height="44">
-                        <circle stroke="rgba(255,255,255,0.08)" stroke-width="3" fill="transparent" r="19" cx="22" cy="22"/>
-                        <circle class="progress-ring__circle" stroke-width="3" stroke-dasharray="119.38" 
-                                stroke-dashoffset="14.13542917714625" 
-                                stroke-linecap="round" fill="transparent" r="19" cx="22" cy="22" transform="rotate(-90 22 22)"/>
-                    </svg>
-                    <div style="position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); font-size:11px; font-weight:800;">
-                        87
-                    </div>
-                </div>
-            </div>
-
-            <div class="summary">Proton hat Lumo 2.0 veröffentlicht, der durch Bilderkennung, Bildgenerierung, Websuche sowie spezialisierte „Custom Lumos“ für Aufgaben wie Datenanalyse oder Textzusammenfassungen erweitert wurde. Die Versionen Lumo 2.0 Lite (Qwen 3.5) und Lumo 2.0 Max (GLM-5.2) nutzen offene Sprachmodelle, wobei letzteres eingeschränkt auch kostenlos verfügbar ist. Geplant sind künftig eine Desktop-App für den Zugriff auf lokale Dateien sowie agentische Funktionen; der Datenschutz wird durch Ende-zu-Ende-Verschlüsselung und EU-Serverstandorte gewährleistet.</div>
-
-            <a href="https://www.heise.de/news/Lumo-2-0-verfuegbar-Proton-erweitert-Chatbot-um-neue-Funktionen-11341318.html" class="source-button" target="_blank" onclick="event.stopPropagation()">
-                Vollständigen Artikel lesen
-            </a>
-        </div>
-        
-        <div class="article-card" onclick="toggleCard(this)">
-            
-            <div class="image-wrapper">
-                <img src="https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/5/1/0/8/8/9/0/685564-556204-KOMOOT_LEISURE_013-4f82aa-original-1728554935-fc3a0d-original-1782802219-a38b6fe776e7e26f.jpg" class="article-image" alt="Vorschau" loading="lazy">
-            </div>
-            
-
-            <div class="meta">heise • news</div>
-
-            <div class="card-header">
-                <div class="title">ADFC und Komoot kooperieren bei der Bereitstellung geführter Radtouren</div>
-                <div class="relevance-container">
-                    <svg width="44" height="44">
-                        <circle stroke="rgba(255,255,255,0.08)" stroke-width="3" fill="transparent" r="19" cx="22" cy="22"/>
-                        <circle class="progress-ring__circle" stroke-width="3" stroke-dasharray="119.38" 
-                                stroke-dashoffset="16.60879870707562" 
-                                stroke-linecap="round" fill="transparent" r="19" cx="22" cy="22" transform="rotate(-90 22 22)"/>
-                    </svg>
-                    <div style="position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); font-size:11px; font-weight:800;">
-                        85
-                    </div>
-                </div>
-            </div>
-
-            <div class="summary">Der ADFC kooperiert mit Komoot, um ausgewählte geführte Touren seiner regionalen Gliederungen als „Collections“ auf der Plattform bereitzustellen, welche detaillierte Informationen sowie Offline-Navigation bieten. Die Kooperation beinhaltet die Bereitstellung von Komoot-Premium-Funktionen und Werkzeugen zur Verwaltung sowie Website-Einbindung für die Gliederungen, wobei die Entscheidung über die Veröffentlichung einzelner Routen bei den jeweiligen regionalen ADFC-Gliederungen liegt.</div>
-
-            <a href="https://www.heise.de/news/ADFC-stellt-ausgewaehlte-Radtouren-auf-Komoot-bereit-11348980.html" class="source-button" target="_blank" onclick="event.stopPropagation()">
-                Vollständigen Artikel lesen
-            </a>
-        </div>
-        
-        <div class="article-card" onclick="toggleCard(this)">
-            
-            <div class="image-wrapper">
-                <img src="https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/5/1/0/8/7/8/3/shutterstock_2197292717-2810e2d74c6481b8.jpg" class="article-image" alt="Vorschau" loading="lazy">
-            </div>
-            
-
-            <div class="meta">heise • news</div>
-
-            <div class="card-header">
-                <div class="title">Vzbv kritisiert kommende Einschränkungen beim mobilen ePA-Zugriff auf älteren Smartphones</div>
-                <div class="relevance-container">
-                    <svg width="44" height="44">
-                        <circle stroke="rgba(255,255,255,0.08)" stroke-width="3" fill="transparent" r="19" cx="22" cy="22"/>
-                        <circle class="progress-ring__circle" stroke-width="3" stroke-dasharray="119.38" 
-                                stroke-dashoffset="16.81453149580618" 
-                                stroke-linecap="round" fill="transparent" r="19" cx="22" cy="22" transform="rotate(-90 22 22)"/>
-                    </svg>
-                    <div style="position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); font-size:11px; font-weight:800;">
-                        85
-                    </div>
-                </div>
-            </div>
-
-            <div class="summary">Ab Juli 2026 wird der mobile Zugriff auf die elektronische Patientenakte (ePA) auf älteren Smartphones eingeschränkt, da die Apps aus Sicherheitsgründen nur noch Android 14 bzw. iOS 18 oder neuer unterstützen. Der Verbraucherzentrale Bundesverband (vzbv) kritisiert Krankenkassen für eine unzureichende Information über diesen Wegfall sowie über Alternativen wie die Desktop-App und fordert hardwareunabhängige Zugangslösungen. Zudem plädiert der Verband auf europäischer Ebene für längere Software-Supportzeiträume für Endgeräte, um den Zugang zu Gesundheitsdaten unabhängig von der technischen Ausstattung zu gewährleisten.</div>
-
-            <a href="https://www.heise.de/news/ePA-Ende-auf-aelteren-Smartphones-Verbraucherschuetzer-sehen-Informationsdefizite-11348767.html" class="source-button" target="_blank" onclick="event.stopPropagation()">
-                Vollständigen Artikel lesen
-            </a>
-        </div>
-        
-        <div class="article-card" onclick="toggleCard(this)">
-            
-            <div class="image-wrapper">
-                <img src="https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/5/1/0/8/7/7/9/MIT-earliest-ozone-01-press_0-e05783a9c188f968.jpg" class="article-image" alt="Vorschau" loading="lazy">
-            </div>
-            
-
-            <div class="meta">heise • news</div>
-
-            <div class="card-header">
-                <div class="title">Studie belegt Nachweisbarkeit von Ozonstörungen durch Tetrachlormethan ab 1957</div>
-                <div class="relevance-container">
-                    <svg width="44" height="44">
-                        <circle stroke="rgba(255,255,255,0.08)" stroke-width="3" fill="transparent" r="19" cx="22" cy="22"/>
-                        <circle class="progress-ring__circle" stroke-width="3" stroke-dasharray="119.38" 
-                                stroke-dashoffset="8.498565668038452" 
-                                stroke-linecap="round" fill="transparent" r="19" cx="22" cy="22" transform="rotate(-90 22 22)"/>
-                    </svg>
-                    <div style="position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); font-size:11px; font-weight:800;">
-                        92
-                    </div>
-                </div>
-            </div>
-
-            <div class="summary">Eine neue Studie belegt, dass erste Anzeichen der Ozonstörung mit heutiger Technik bereits 1957 hätten nachweisbar sein können, da die ursprüngliche Schädigung in der tropischen Stratosphäre durch Tetrachlormethan (CCl4) statt durch FCKW verursacht wurde. Dieser Stoff ist mittlerweile ebenfalls durch das Montrealer Protokoll international verboten.</div>
-
-            <a href="https://www.heise.de/news/Ozonloch-Schaedigung-der-Ozonschicht-begann-viel-frueher-und-durch-anderen-Stoff-11348759.html" class="source-button" target="_blank" onclick="event.stopPropagation()">
-                Vollständigen Artikel lesen
-            </a>
-        </div>
-        
-        <div class="article-card" onclick="toggleCard(this)">
-            
-            <div class="image-wrapper">
-                <img src="https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/5/1/0/8/5/5/4/shutterstock_1370501852-970f945eac7ffb56.jpg" class="article-image" alt="Vorschau" loading="lazy">
-            </div>
-            
-
-            <div class="meta">heise • news</div>
-
-            <div class="card-header">
-                <div class="title">Apple plant Einführung von OLED-Displays für iPad Pro, MacBook Pro und iMac</div>
-                <div class="relevance-container">
-                    <svg width="44" height="44">
-                        <circle stroke="rgba(255,255,255,0.08)" stroke-width="3" fill="transparent" r="19" cx="22" cy="22"/>
-                        <circle class="progress-ring__circle" stroke-width="3" stroke-dasharray="119.38" 
-                                stroke-dashoffset="33.589481989254736" 
-                                stroke-linecap="round" fill="transparent" r="19" cx="22" cy="22" transform="rotate(-90 22 22)"/>
-                    </svg>
-                    <div style="position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); font-size:11px; font-weight:800;">
-                        70
-                    </div>
-                </div>
-            </div>
-
-            <div class="summary">Laut TrendForce plant Apple für mindestens drei Produktlinien – darunter künftige iPad Pro-, MacBook Pro- und potenziell iMac-Modelle – OLED-Displays mit einer 95-prozentigen Abdeckung des BT2020-Farbraums. Während aktuell iPhone, Apple Watch und iPad Pro (11/13 Zoll) auf OLED setzen, wird für diesen Herbst ein „MacBook Ultra“ mit OLED-Touchscreen erwartet; die Einführung von OLED im MacBook Pro soll zwischen 2026 und Anfang 2027 erfolgen, wobei Samsung Display als Lieferant gilt. Die technische Umsetzung des erweiterten Farbraums erfordert komplexe Verfahren wie Tandem-OLED oder MR-TADF zur Steigerung von Farbtreue, Helligkeit und Energieeffizienz.</div>
-
-            <a href="https://www.heise.de/news/Mehr-Farben-Apple-macht-laut-Bericht-bei-BT2020-mit-11348321.html" class="source-button" target="_blank" onclick="event.stopPropagation()">
-                Vollständigen Artikel lesen
-            </a>
-        </div>
-        
     </div>
 
     <script>
@@ -4011,8 +4021,8 @@ Rechtliche und biotechnologische Entwicklungen bringen neue Herausforderungen mi
             if(!ctx) return;
 
             const labels = ["news", "hintergrund"];
-            const currentData = [94, 6];
-            const baselineData = [44.1, 2.2];
+            const currentData = [97, 3];
+            const baselineData = [44.0, 2.2];
 
             const baseData = currentData.map((val, i) => Math.min(val, baselineData[i]));
             const diffData = currentData.map((val, i) => Math.abs(val - baselineData[i]));
