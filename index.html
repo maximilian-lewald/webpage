@@ -369,7 +369,7 @@
 
     <header>
         <h1>Relevant</h1>
-        <p class="build-time">Aktualisiert: 05.07.2026, 09:44 Uhr</p>
+        <p class="build-time">Aktualisiert: 05.07.2026, 11:50 Uhr</p>
     </header>
 
     <div class="dashboard-card">
@@ -379,10 +379,10 @@
                     <svg width="60" height="60">
                         <circle stroke="rgba(255,255,255,0.08)" stroke-width="4" fill="transparent" r="26" cx="30" cy="30"/>
                         <circle class="dashboard-circle" stroke-width="4" stroke-dasharray="163.36" 
-                                stroke-dashoffset="70.24480000000001" 
+                                stroke-dashoffset="65.34400000000001" 
                                 stroke-linecap="round" fill="transparent" r="26" cx="30" cy="30" transform="rotate(-90 30 30)"/>
                     </svg>
-                    <div class="ring-text">57%</div>
+                    <div class="ring-text">60%</div>
                 </div>
                 <div class="stat-label">Relevant<br>Share</div>
             </div>
@@ -405,10 +405,10 @@
                     <svg width="60" height="60">
                         <circle stroke="rgba(255,255,255,0.08)" stroke-width="4" fill="transparent" r="26" cx="30" cy="30"/>
                         <circle class="dashboard-circle" stroke-width="4" stroke-dasharray="163.36" 
-                                stroke-dashoffset="148.6576" 
+                                stroke-dashoffset="145.3904" 
                                 stroke-linecap="round" fill="transparent" r="26" cx="30" cy="30" transform="rotate(-90 30 30)"/>
                     </svg>
-                    <div class="ring-text">9%</div>
+                    <div class="ring-text">11%</div>
                 </div>
                 <div class="stat-label">Last<br>24h</div>
             </div>
@@ -482,14 +482,14 @@
     <div class="dashboard-card">
         <h2 class="chart-title">Emerging Trends (Last 60 Days)</h2>
         <div class="source-filters">
-            <button class="source-filter-btn " data-source="sueddeutsche">sueddeutsche</button><button class="source-filter-btn active" data-source="heise">heise</button>
+            <button class="source-filter-btn active" data-source="heise">heise</button><button class="source-filter-btn " data-source="sueddeutsche">sueddeutsche</button>
         </div>
         <div class="chart-container" style="height: 260px;">
             <canvas id="keywordTrendChart"></canvas>
         </div>
 
         <div class="insights-wrapper">
-            <div class="insights-container" data-insight-source="sueddeutsche" style="display: none;">
+            <div class="insights-container" data-insight-source="heise" style="display: block;"></div><div class="insights-container" data-insight-source="sueddeutsche" style="display: none;">
                         <div class="insight-card" style="border-left: 3px solid #00f5d4;">
                             <div class="insight-header" onclick="this.parentElement.classList.toggle('expanded')">
                                 <h4>Fußball-wm</h4>
@@ -516,7 +516,7 @@
                                 <span class="toggle-icon">+</span>
                             </div>
                             <div class="insight-body">
-                                <p>Der Start des Rasenturniers Wimbledon rückt die sportliche Ausgangslage von Alexander Zverev und Tatjana Maria sowie den Besuch von Prinzessin Kate in den Fokus. Die Berichterstattung konzentriert sich auf die Erwartungshaltung an die deutschen Akteure und die Atmosphäre zum Turnierbeginn in London.</p>
+                                <p>Das Wimbledon-Tennis-Turnier steht durch den Start des Grand Slam-Events und die aktuelle Form von Alexander Zverev im Fokus. Die Berichterstattung wird zudem durch den Besuch der Prinzessin von Wales sowie die Teilnahme deutscher Spielerinnen wie Tatjana Maria geprägt.</p>
                             </div>
                         </div>
                         
@@ -526,20 +526,20 @@
                                 <span class="toggle-icon">+</span>
                             </div>
                             <div class="insight-body">
-                                <p>Die Diskussion konzentriert sich auf Alexander Zverevs aktuelle Form und körperliche Verfassung nach Niederlagen in Rom sowie Rückenproblemen vor den French Open. Als höchstrangierter verbleibender Profi im Teilnehmerfeld steht nun seine Fähigkeit zur Titelverwirklichung angesichts einer geschwächten Konkurrenz im Fokus.</p>
+                                <p>Nach Rückschlägen in Rom und einer krankheitsbedingten Absage in Hamburg hat Alexander Zverev als höchstplatzierter verbliebener Spieler das Halbfinale der French Open erreicht. Die Debatte dreht sich um seine wechselhafte Formkurve sowie die wachsende Erwartungshaltung an ihn als Titelfavoriten.</p>
                             </div>
                         </div>
                         
                         <div class="insight-card" style="border-left: 3px solid #f43f5e;">
                             <div class="insight-header" onclick="this.parentElement.classList.toggle('expanded')">
-                                <h4>Panorama</h4>
+                                <h4>Bundesregierung</h4>
                                 <span class="toggle-icon">+</span>
                             </div>
                             <div class="insight-body">
-                                <p>Das Schlagwort umfasst eine Vielzahl außergewöhnlicher Einzelereignisse, wie die spektakuläre Rettungsaktion eines Buckelwals, demografische Krisen in Deutschland sowie globale Naturkatastrophen. Diskutiert werden diese Meldungen aufgrund ihrer hohen emotionalen und gesellschaftlichen Tragweite aus den Bereichen Umwelt, Kriminalität und Weltgeschehen.</p>
+                                <p>Die Bundesregierung steht im Zentrum heftiger Debatten über geplante Sozialreformen, insbesondere hinsichtlich drohender Rentenkürzungen und Sparpaketen im Gesundheitswesen. Parallel dazu sorgen die hohen Ausgaben für US-Softwarelizenzen sowie die mögliche Aufnahme neuer Schulden infolge der Iran-Krise für politische Spannungen.</p>
                             </div>
                         </div>
-                        </div><div class="insights-container" data-insight-source="heise" style="display: block;"></div>
+                        </div>
         </div>
     </div>
 
@@ -550,7 +550,7 @@
 
             const initChart = function() {
                 const ctx = document.getElementById('keywordTrendChart').getContext('2d');
-                const rawDatasets = [{"label": "Fu\u00dfball-wm", "data": [5.9, 0.0, 0.0, 5.9, 0.0, 5.9, 11.8, 0.0, 0.0, 0.0, 5.9, 0.0, 5.9, 0.0, 5.9, 5.9, 5.9, 0.0, 0.0, 0.0, 11.8, 0.0, 0.0, 0.0, 17.6, 0.0, 11.8, 5.9, 11.8, 5.9, 0.0, 0.0, 5.9, 5.9, 0.0, 29.4, 47.1, 0.0, 47.1, 47.1, 11.8, 29.4, 64.7, 41.2, 17.6, 5.9, 23.5, 0.0, 17.6, 82.4, 29.4, 47.1, 100.0, 17.6, 35.3, 0.0, 17.6, 17.6, 41.2, 23.5], "borderColor": "#00f5d4", "backgroundColor": "transparent", "borderWidth": 2, "tension": 0.4, "cubicInterpolationMode": "monotone", "pointRadius": 0, "pointHitRadius": 10, "sourceId": "sueddeutsche", "originalColor": "#00f5d4"}, {"label": "S\u00fcdamerika", "data": [5.9, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 5.9, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 5.9, 0.0, 0.0, 11.8, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 5.9, 0.0, 5.9, 0.0, 0.0, 17.6, 0.0, 11.8, 23.5, 11.8, 5.9, 0.0, 0.0, 0.0, 17.6, 17.6], "borderColor": "#9333ea", "backgroundColor": "transparent", "borderWidth": 2, "tension": 0.4, "cubicInterpolationMode": "monotone", "pointRadius": 0, "pointHitRadius": 10, "sourceId": "sueddeutsche", "originalColor": "#9333ea"}, {"label": "Wimbledon", "data": [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 5.9, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 5.9, 0.0, 0.0, 0.0, 0.0, 0.0, 11.8, 0.0, 5.9, 0.0, 23.5, 0.0], "borderColor": "#007aff", "backgroundColor": "transparent", "borderWidth": 2, "tension": 0.4, "cubicInterpolationMode": "monotone", "pointRadius": 0, "pointHitRadius": 10, "sourceId": "sueddeutsche", "originalColor": "#007aff"}, {"label": "Alexander zverev", "data": [0.0, 0.0, 0.0, 0.0, 0.0, 5.9, 0.0, 5.9, 5.9, 0.0, 0.0, 0.0, 0.0, 0.0, 5.9, 0.0, 0.0, 5.9, 0.0, 0.0, 5.9, 0.0, 0.0, 11.8, 5.9, 0.0, 5.9, 0.0, 5.9, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 5.9, 0.0, 11.8, 0.0, 5.9, 0.0, 23.5, 0.0], "borderColor": "#34d399", "backgroundColor": "transparent", "borderWidth": 2, "tension": 0.4, "cubicInterpolationMode": "monotone", "pointRadius": 0, "pointHitRadius": 10, "sourceId": "sueddeutsche", "originalColor": "#34d399"}, {"label": "Panorama", "data": [29.4, 29.4, 5.9, 23.5, 23.5, 11.8, 5.9, 0.0, 5.9, 11.8, 5.9, 5.9, 17.6, 5.9, 5.9, 0.0, 11.8, 5.9, 5.9, 17.6, 5.9, 0.0, 0.0, 0.0, 5.9, 0.0, 5.9, 11.8, 0.0, 5.9, 0.0, 0.0, 0.0, 0.0, 0.0, 11.8, 5.9, 0.0, 5.9, 0.0, 5.9, 5.9, 11.8, 11.8, 0.0, 17.6, 0.0, 0.0, 5.9, 29.4, 11.8, 29.4, 23.5, 11.8, 11.8, 0.0, 0.0, 0.0, 29.4, 5.9], "borderColor": "#f43f5e", "backgroundColor": "transparent", "borderWidth": 2, "tension": 0.4, "cubicInterpolationMode": "monotone", "pointRadius": 0, "pointHitRadius": 10, "sourceId": "sueddeutsche", "originalColor": "#f43f5e"}];
+                const rawDatasets = [{"label": "Fu\u00dfball-wm", "data": [5.9, 0.0, 0.0, 5.9, 0.0, 5.9, 11.8, 0.0, 0.0, 0.0, 5.9, 0.0, 5.9, 0.0, 5.9, 5.9, 5.9, 0.0, 0.0, 0.0, 11.8, 0.0, 0.0, 0.0, 17.6, 0.0, 11.8, 5.9, 11.8, 5.9, 0.0, 0.0, 5.9, 5.9, 0.0, 29.4, 47.1, 0.0, 47.1, 47.1, 11.8, 29.4, 64.7, 41.2, 17.6, 5.9, 23.5, 0.0, 17.6, 82.4, 29.4, 47.1, 100.0, 17.6, 35.3, 0.0, 17.6, 17.6, 41.2, 29.4], "borderColor": "#00f5d4", "backgroundColor": "transparent", "borderWidth": 2, "tension": 0.4, "cubicInterpolationMode": "monotone", "pointRadius": 0, "pointHitRadius": 10, "sourceId": "sueddeutsche", "originalColor": "#00f5d4"}, {"label": "S\u00fcdamerika", "data": [5.9, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 5.9, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 5.9, 0.0, 0.0, 11.8, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 5.9, 0.0, 5.9, 0.0, 0.0, 17.6, 0.0, 11.8, 23.5, 11.8, 5.9, 0.0, 0.0, 0.0, 17.6, 17.6], "borderColor": "#9333ea", "backgroundColor": "transparent", "borderWidth": 2, "tension": 0.4, "cubicInterpolationMode": "monotone", "pointRadius": 0, "pointHitRadius": 10, "sourceId": "sueddeutsche", "originalColor": "#9333ea"}, {"label": "Wimbledon", "data": [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 5.9, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 5.9, 0.0, 0.0, 0.0, 0.0, 0.0, 11.8, 0.0, 5.9, 0.0, 23.5, 5.9], "borderColor": "#007aff", "backgroundColor": "transparent", "borderWidth": 2, "tension": 0.4, "cubicInterpolationMode": "monotone", "pointRadius": 0, "pointHitRadius": 10, "sourceId": "sueddeutsche", "originalColor": "#007aff"}, {"label": "Alexander zverev", "data": [0.0, 0.0, 0.0, 0.0, 0.0, 5.9, 0.0, 5.9, 5.9, 0.0, 0.0, 0.0, 0.0, 0.0, 5.9, 0.0, 0.0, 5.9, 0.0, 0.0, 5.9, 0.0, 0.0, 11.8, 5.9, 0.0, 5.9, 0.0, 5.9, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 5.9, 0.0, 11.8, 0.0, 5.9, 0.0, 23.5, 5.9], "borderColor": "#34d399", "backgroundColor": "transparent", "borderWidth": 2, "tension": 0.4, "cubicInterpolationMode": "monotone", "pointRadius": 0, "pointHitRadius": 10, "sourceId": "sueddeutsche", "originalColor": "#34d399"}, {"label": "Bundesregierung", "data": [11.8, 35.3, 35.3, 11.8, 11.8, 5.9, 5.9, 5.9, 0.0, 5.9, 11.8, 17.6, 17.6, 11.8, 11.8, 0.0, 0.0, 0.0, 5.9, 5.9, 41.2, 5.9, 0.0, 0.0, 17.6, 0.0, 5.9, 11.8, 17.6, 11.8, 0.0, 0.0, 0.0, 17.6, 11.8, 5.9, 0.0, 0.0, 5.9, 0.0, 0.0, 5.9, 0.0, 0.0, 0.0, 11.8, 0.0, 0.0, 0.0, 5.9, 5.9, 0.0, 0.0, 0.0, 0.0, 0.0, 11.8, 0.0, 17.6, 17.6], "borderColor": "#f43f5e", "backgroundColor": "transparent", "borderWidth": 2, "tension": 0.4, "cubicInterpolationMode": "monotone", "pointRadius": 0, "pointHitRadius": 10, "sourceId": "sueddeutsche", "originalColor": "#f43f5e"}];
 
                 Chart.defaults.color = 'rgba(255, 255, 255, 0.7)';
                 Chart.defaults.font.family = '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif';
@@ -637,7 +637,7 @@
         <div class="article-card" onclick="toggleCard(this)">
             <div class="meta">Ollama AI • Top 10 (48h)</div>
             <div class="card-header">
-                <div class="title">Globale Entwicklungen in Technologie, Politik und Forschung</div>
+                <div class="title">Technologische, politische und wissenschaftliche Entwicklungen im Überblick</div>
                 <div class="relevance-container">
                     <svg width="44" height="44">
                         <circle stroke="rgba(255,255,255,0.08)" stroke-width="3" fill="transparent" r="19" cx="22" cy="22"/>
@@ -650,14 +650,76 @@
                     </div>
                 </div>
             </div>
-            <div class="summary" style="white-space: pre-wrap;">Die technologische Entwicklung der Künstlichen Intelligenz stellt die globale Politik vor wachsende Herausforderungen: Ein UN-Expertenpanel warnt in einem Vorbericht davor, dass die Geschwindigkeit der KI-Entwicklung die Regulierungsfähigkeit überholt und Risiken für Menschenrechte sowie eine zunehmende digitale Ungleichheit birgt. Während Meta mit der App „Pocket“ neue Möglichkeiten zur Erstellung von KI-generierten Mini-Apps bietet, zeigen Studien kritische Auswirkungen im Arbeitsumfeld auf: Die Einstufung von KI-Agenten als „Mitarbeiter“ verringert die menschliche Fehlererkennung und erhöht das Risiko für unentdeckte Fehlleistungen. Parallel dazu prägen politische Initiativen wie die deutsche Taskforce „KI-Nation“ sowie infrastrukturelle Entwicklungen, etwa der Ausbau von Microsoft-Rechenzentren, die digitale Landschaft. Gleichzeitig wächst die Besorgnis über Sicherheitsrisiken durch manipulierte KI-Browser und die potenzielle Unterstützung von Cyberangriffen durch Sprachmodelle.
+            <div class="summary" style="white-space: pre-wrap;">Die jüngsten Entwicklungen im Bereich der Künstlichen Intelligenz bewegen sich in einem Spannungsfeld zwischen technologischem Fortschritt und zunehmenden regulatorischen sowie sicherheitstechnischen Herausforderungen. Während ein UN-Expertenpanel davor warnt, dass die technologische Entwicklung die politischen Regulierungsmöglichkeiten über einholt, treiben Unternehmen wie Meta mit der App „Pocket“ die Erstellung KI-generierter Mini-Apps voran. Technologisch erweitern auch Innovationen wie die „Spherephones“ der Georgia Tech, die Roboterbewegungen mittels Musik signalisieren, die Möglichkeiten der Mensch-Maschine-Interaktion. Gleichzeitig verdeutlichen Studien, dass die Einstufung von KI-Agenten als „Mitarbeiter“ die menschliche Fehlererkennung signifikant senken kann, während Fortschritte in der Textrekonstruktion aus Hirnsignalen und neue Sicherheitsrisiken durch manipulierte KI-Browser die Komplexität der digitalen Landschaft erhöhen.
 
-Im Bereich der Digitalpolitik steht der Schutz der Privatsphäre sowie die Informationsfreiheit unter Druck. Der EU-Ministerrat hat ein Eilverfahren zur Reaktivierung der Überwachung verschlüsselter Kommunikation im Rahmen des Kinderschutzes beschlossen, was Kritik an der Umgehung demokratischer Kontrollinstanzen hervorruft. In Deutschland wird zudem eine Reform des Informationsfreiheitsgesetzes debattiert, die den Zugang zu amtlichen Informationen einschränken könnte und von Transparenzorganisationen als Gefahr für die Pressefreiheit gewertet wird.
+Auf politischer Ebene sorgen regulatorische Maßnahmen für Kontroversen: Der EU-Ministerrat hat durch die Reaktivierung von Übergangsregelungen zur Überwachung verschlüsselter Kommunikation eine Rechtslücke im Kinderschutz geschlossen, was jedoch als Umgehung demokratischer Kontrollinstanzen kritisiert wird. In Deutschland stehen zudem Reformen des Informationsfreiheitsgesetzes unter Druck, da diese den Zugang zu amtlichen Informationen einschränken könnten, während die Bundesregierung mit der „Deutschland-App“ und der Taskforce „KI-Nation“ neue digitale Initiativen plant.
 
-Technologische Innovationen zeigen sich auch in der Robotik durch das „Spherephone“-System zur akustischen Signalisierung von Roboterbewegungen mittels Musik, was die Sicherheit bei der Zusammenarbeit zwischen Mensch und Maschine erhöht. In der Infrastrukturplanung sorgt hingegen die geplante Neuzuweisung der UHF-Frequenzen in Deutschland ab 2031 für Interessenkonflikte zwischen Mobilfunkanbietern, dem Rundfunk und Sicherheitsbehörden. Die Weltraumforschung verzeichnet ebenfalls neue Erkenntnisse: Eine Analyse der Milchstraße zeigt eine größere Distanz der äußeren Spiralarme als bisher angenommen, während die NASA mit der Mission „LINK“ versucht, das Neil Gehrels Swift Observatory durch ein Manöver in eine sicherere Umlaufbahn zu bringen.</div>
+Auch im Bereich der Infrastruktur und Energie zeichnen sich tiefgreifende Veränderungen ab. Die geplante EEG-Reform könnte laut Agora Energiewende den Ausbau privater Photovoltaikanlagen bremsen und die Kosten für Haushalte erhöhen. Parallel dazu führt die geplante Neuzuweisung von UHF-Frequenzen im Jahr 2031 zu Interessenkonflikten zwischen Mobilfunkbetreibern, dem Rundfunk und Sicherheitsbehörden. Wissenschaftliche Erkenntnisse aus der Astronomie ergänzen das aktuelle Geschehen mit der Entdeckung, dass die äußeren Spiralarme der Milchstraße aufgrund neuer Röntgenstrahl-Analysen bis zu zehn Prozent weiter von der Erde entfernt liegen als bisher angenommen.</div>
         </div>
         
 
+        
+        <div class="article-card" onclick="toggleCard(this)">
+            
+            <div class="image-wrapper">
+                <img src="https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/5/1/1/1/4/5/6/shutterstock_2566067707-d7618be53f024530.jpg" class="article-image" alt="Vorschau" loading="lazy">
+            </div>
+            
+
+            <div class="meta">heise • news</div>
+
+            <div class="card-header">
+                <div class="title">Agora Energiewende warnt vor Bremsung des Photovoltaik-Ausbaus durch geplante EEG-Reform</div>
+                <div class="relevance-container">
+                    <svg width="44" height="44">
+                        <circle stroke="rgba(255,255,255,0.08)" stroke-width="3" fill="transparent" r="19" cx="22" cy="22"/>
+                        <circle class="progress-ring__circle" stroke-width="3" stroke-dasharray="119.38" 
+                                stroke-dashoffset="4.818697975473725" 
+                                stroke-linecap="round" fill="transparent" r="19" cx="22" cy="22" transform="rotate(-90 22 22)"/>
+                    </svg>
+                    <div style="position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); font-size:11px; font-weight:800;">
+                        95
+                    </div>
+                </div>
+            </div>
+
+            <div class="summary">Eine Analyse der Agora Energiewende warnt, dass die geplante EEG-Reform den Ausbau privater Photovoltaikanlagen durch das Streichen der Einspeisevergütung für Anlagen bis 25 kWp bremsen könnte. Der Übergang zur Direktvermarktung oder Nulleinspeisung würde laut Studie die jährlichen Kosten für Haushalte um bis zu 333 Euro erhöhen und die Wirtschaftlichkeit gefährden. Die Denkfabrik fordert daher eine Verlängerung der Übergangsfrist bis 2031, den Aufbau digitaler Infrastrukturen zur Senkung der Vermarktungskosten auf unter 50 Euro sowie eine Deckelung der Netzentgelt-Grundpreise bei maximal 100 Euro pro Jahr. Ergänzend werden die gebündelte Vermarktung durch Netzbetreiber und staatliche Förderprogramme zur Sicherstellung der sozialen Teilhabe vorgeschlagen.</div>
+
+            <a href="https://www.heise.de/news/PV-Direktvermarktung-Wie-kleine-Dachanlagen-ohne-Verluste-in-den-Markt-wechseln-11354088.html" class="source-button" target="_blank" onclick="event.stopPropagation()">
+                Vollständigen Artikel lesen
+            </a>
+        </div>
+        
+        <div class="article-card" onclick="toggleCard(this)">
+            
+            <div class="image-wrapper">
+                <img src="https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/5/1/1/0/2/1/3/DN_Sarg_1-ad6d9a32ffa0e96d.jpg" class="article-image" alt="Vorschau" loading="lazy">
+            </div>
+            
+
+            <div class="meta">heise • news</div>
+
+            <div class="card-header">
+                <div class="title">Rechtliche Einordnung und Handhabung des digitalen Nachlasses</div>
+                <div class="relevance-container">
+                    <svg width="44" height="44">
+                        <circle stroke="rgba(255,255,255,0.08)" stroke-width="3" fill="transparent" r="19" cx="22" cy="22"/>
+                        <circle class="progress-ring__circle" stroke-width="3" stroke-dasharray="119.38" 
+                                stroke-dashoffset="40.80537509878964" 
+                                stroke-linecap="round" fill="transparent" r="19" cx="22" cy="22" transform="rotate(-90 22 22)"/>
+                    </svg>
+                    <div style="position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); font-size:11px; font-weight:800;">
+                        63
+                    </div>
+                </div>
+            </div>
+
+            <div class="summary">Gemäß einem Urteil des Bundesgerichtshofs von 2018 unterliegt der digitale Nachlass – bestehend aus E-Mail-Konten, Social-Media-Profilen, Chats und Fotos – dem Erbrecht. Das Video bietet Hilfestellungen zum Zugriff auf Daten sowie zur Kontolöschung, um den bürokratischen Aufwand für Hinterbliebene zu minimieren.</div>
+
+            <a href="https://www.heise.de/news/Video-Das-passiert-mit-Social-Media-Accounts-nach-dem-Tod-11351617.html" class="source-button" target="_blank" onclick="event.stopPropagation()">
+                Vollständigen Artikel lesen
+            </a>
+        </div>
         
         <div class="article-card" onclick="toggleCard(this)">
             
@@ -3693,68 +3755,6 @@ Technologische Innovationen zeigen sich auch in der Robotik durch das „Spherep
             <div class="summary">Discord ist nun als native App im Horizon Store für Meta Quest 2, Pro, 3 und 3S verfügbar und ermöglicht Cross-Platform-Kommunikation sowie das Streamen von Gameplay und Medien. Neukunden erhalten bei einer Anmeldung zwischen dem 30. Juni und 30. September 2026 einen kostenlosen Monat Discord Nitro. Aktuell wird die App aufgrund häufiger Abstürze und instabiler Bildschirmübertragungen mit durchschnittlich 3,2 Sternen bewertet.</div>
 
             <a href="https://www.heise.de/news/Discord-ist-ab-sofort-auf-Meta-Quest-verfuegbar-11350481.html" class="source-button" target="_blank" onclick="event.stopPropagation()">
-                Vollständigen Artikel lesen
-            </a>
-        </div>
-        
-        <div class="article-card" onclick="toggleCard(this)">
-            
-            <div class="image-wrapper">
-                <img src="https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/5/1/0/9/0/6/2/iPhones-2025_tre__5-35a6974cc748d4a4.jpeg" class="article-image" alt="Vorschau" loading="lazy">
-            </div>
-            
-
-            <div class="meta">heise • news</div>
-
-            <div class="card-header">
-                <div class="title">iPhone 18 Serie: Anpassungen beim Arbeitsspeicher und gestaffelte Veröffentlichungen erwartet</div>
-                <div class="relevance-container">
-                    <svg width="44" height="44">
-                        <circle stroke="rgba(255,255,255,0.08)" stroke-width="3" fill="transparent" r="19" cx="22" cy="22"/>
-                        <circle class="progress-ring__circle" stroke-width="3" stroke-dasharray="119.38" 
-                                stroke-dashoffset="28.213688690948402" 
-                                stroke-linecap="round" fill="transparent" r="19" cx="22" cy="22" transform="rotate(-90 22 22)"/>
-                    </svg>
-                    <div style="position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); font-size:11px; font-weight:800;">
-                        75
-                    </div>
-                </div>
-            </div>
-
-            <div class="summary">Laut Analyst Ming-Chi Kuo werden die für Frühjahr 2027 geplanten iPhone 18 und 18e eine RAM-Erhöhung auf 9 GB erhalten, während die Modelle iPhone 18 Pro, 18 Pro Max sowie das potenzielle „iPhone Ultra“ bei 12 GB bleiben – ein Wert, der für bestimmte Siri-KI-Funktionen weiterhin die Mindestanforderung ist. Apple plant zudem eine zeitliche Staffelung der Veröffentlichungen zwischen September 2026 (Pro-Modelle) und Frühjahr 2027 (Standard- sowie Air-Modelle).</div>
-
-            <a href="https://www.heise.de/news/iPhone-18-und-18e-Mini-RAM-Erhoehung-angepeilt-11349322.html" class="source-button" target="_blank" onclick="event.stopPropagation()">
-                Vollständigen Artikel lesen
-            </a>
-        </div>
-        
-        <div class="article-card" onclick="toggleCard(this)">
-            
-            <div class="image-wrapper">
-                <img src="https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/5/1/0/9/5/9/4/android-sperrrbildschirm-pin-3137a8fe2150438f.jpg" class="article-image" alt="Vorschau" loading="lazy">
-            </div>
-            
-
-            <div class="meta">heise • news</div>
-
-            <div class="card-header">
-                <div class="title">Android 17 führt neue Sicherheitsbeschränkungen und Funktionen am Sperrbildschirm ein</div>
-                <div class="relevance-container">
-                    <svg width="44" height="44">
-                        <circle stroke="rgba(255,255,255,0.08)" stroke-width="3" fill="transparent" r="19" cx="22" cy="22"/>
-                        <circle class="progress-ring__circle" stroke-width="3" stroke-dasharray="119.38" 
-                                stroke-dashoffset="35.63364169739717" 
-                                stroke-linecap="round" fill="transparent" r="19" cx="22" cy="22" transform="rotate(-90 22 22)"/>
-                    </svg>
-                    <div style="position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); font-size:11px; font-weight:800;">
-                        68
-                    </div>
-                </div>
-            </div>
-
-            <div class="summary">Android 17 führt verschärfte Sicherheitsmaßnahmen am Sperrbildschirm ein, indem die Anzahl der erlaubten Eingabeversuche drastisch reduziert wird: Erlaubt sind nur noch 6 Versuche in der ersten Minute, 7 innerhalb von sechs Minuten, 8 in 25 Minuten, 12 in 24 Stunden und maximal 19 über einen Zeitraum von fünf Jahren, wobei nach 20 Fehlversuchen keine weiteren Eingaben mehr möglich sind. Um Sperren durch identische Fehlversuche zu vermeiden, werden diese nicht auf das Limit angerechnet; zudem bietet Android 17 besser lesbare Zeitangaben bei Sperrfristen, eine neue Verknüpfung zur Kontowiederherstellung sowie die Abrufbarkeit der IMEI über den Sperrbildschirm (ab Android 12) zur Identifizierung gestohlener Geräte.</div>
-
-            <a href="https://www.heise.de/news/Android-17-Google-erschwert-das-Knacken-der-Bildschirmsperre-11350381.html" class="source-button" target="_blank" onclick="event.stopPropagation()">
                 Vollständigen Artikel lesen
             </a>
         </div>
